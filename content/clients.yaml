@@ -1,0 +1,34 @@
+logos:
+  - name: "Citadines Berawa Beach Resort"
+    logo: /images/clients/citadines.webp
+    tight: false
+  - name: "Studio Pepe"
+    logo: /images/clients/studiopepe.webp
+    tight: false
+  - name: "Longtime"
+    logo: /images/clients/longtime.webp
+    tight: false
+  - name: "AME"
+    logo: /images/clients/amespa.webp
+    tight: false
+  - name: "Sanje"
+    logo: /images/clients/sanje-logo-black.webp
+    tight: false
+  - name: "Sevenrose"
+    logo: /images/clients/sevenrose.svg
+    tight: true
+  - name: "Oriental Electric"
+    logo: /images/clients/oriental.svg
+    tight: false
+  - name: "Proteindo"
+    logo: /images/clients/proteindo.webp
+    tight: false
+  - name: "Homecare Lansia"
+    logo: /images/clients/homecare.webp
+    tight: false
+  - name: "Jaco"
+    logo: /images/clients/jaco.webp
+    tight: false
+  - name: "KWalk"
+    logo: /images/clients/kwalk.webp
+    tight: false
