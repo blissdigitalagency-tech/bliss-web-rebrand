@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Keystatic's GitHub sign-in sends you to 127.0.0.1 in development; let the
+  // dev server answer there too (has no effect on the live site)
+  allowedDevOrigins: ["127.0.0.1"],
   images: {
     // Only photos under /public/images go through the image optimizer
     localPatterns: [{ pathname: "/images/**", search: "" }],
