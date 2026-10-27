@@ -7,7 +7,7 @@
 //   - Without NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO: straight to the files in this
 //     folder. Use this with `npm run dev` on your own computer.
 //   - With it (owner/name): commits to that GitHub repository, locally and on
-//     Vercel. Each save triggers a new deploy. Setup steps are in the README.
+//     the live site. Each save triggers a new deploy. Details are in the README.
 import { collection, config, fields, singleton } from "@keystatic/core";
 
 const repo = process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO as `${string}/${string}` | undefined;

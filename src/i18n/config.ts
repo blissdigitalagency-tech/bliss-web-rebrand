@@ -15,7 +15,7 @@ export const htmlLang: Record<Locale, string> = { en: "en", id: "id" };
 export const ogLocale: Record<Locale, string> = { en: "en_US", id: "id_ID" };
 
 // The live site's address, for canonical links, the sitemap and social
-// previews. Set NEXT_PUBLIC_SITE_URL on Vercel; the fallback is the domain
+// previews. Set NEXT_PUBLIC_SITE_URL on the host; the fallback is the domain
 // in the current site's llms.txt.
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://blissdigital.id").replace(/\/$/, "");
 

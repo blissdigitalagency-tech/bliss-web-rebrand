@@ -50,21 +50,29 @@ change.
 
 ### Letting the team edit on the live site
 
-Without setup, the editor saves to files on your own computer only. To edit on
-the live site, connect it to GitHub:
+The editor is connected to GitHub through the GitHub App
+**blissdigitalagency-tech-keystatic** (github.com/apps/blissdigitalagency-tech-keystatic),
+installed on `blissdigitalagency-tech/bliss-web-rebrand`. Each save in the
+editor is a commit to `main`, and the host redeploys in a minute or two.
+Editors sign in with GitHub and need write access to the repository.
 
-1. Push this project to a GitHub repository.
-2. Set `NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO=owner/repo` in `.env.local`.
-3. Run `npm run dev`, open `/keystatic`, and follow the steps to create the
-   GitHub App. Keystatic writes `KEYSTATIC_GITHUB_CLIENT_ID`,
-   `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` and
-   `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` into `.env`.
-4. Add all five values to Vercel (Project → Settings → Environment Variables).
-5. In the GitHub App settings, add the live callback URL:
-   `https://blissdigital.id/api/keystatic/github/oauth/callback`.
+Settings it needs, locally and on the host:
 
-Editors then sign in with GitHub. Each save is a commit, and Vercel redeploys
-in a minute or two. Editors need write access to the repository.
+- `NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO=blissdigitalagency-tech/bliss-web-rebrand`
+  (in `.env.local`; without it the editor saves to files on your computer)
+- `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`,
+  `KEYSTATIC_SECRET`, `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` (written into
+  `.env` when the app was created; keep them secret, they are not in git)
+
+The app accepts sign-ins from your computer (`127.0.0.1`, any port) and from
+`https://blissdigital.id`. To edit on another address, such as a Netlify
+preview, add its callback URL in the app's settings on GitHub
+(Organization → Settings → Developer settings → GitHub Apps →
+blissdigitalagency-tech-keystatic → Callback URL):
+`https://<address>/api/keystatic/github/oauth/callback`.
+
+If the app ever has to be recreated: delete the four values above from `.env`,
+run `npm run dev`, open `/keystatic/setup` and follow the steps.
 
 ## Logo and icons
 
@@ -84,14 +92,17 @@ It needs Pillow (`pip install pillow`) and Chrome or Edge. To change the
 preview images' wording or layout, edit `tools/brand/og-en.html` and
 `og-id.html`, then run the script again.
 
-## Deploying (Vercel)
+## Deploying (Netlify or Vercel)
 
-Import the repository in Vercel; the defaults work. Set these environment
-variables (see `.env.example`):
+Import the repository; both detect Next.js and the defaults work. On Netlify,
+check the first deploy log, since its Next.js support can trail new releases.
+Set these environment variables (Netlify: Site configuration → Environment
+variables; Vercel: Project → Settings → Environment Variables), then deploy
+again, because `NEXT_PUBLIC_` values are built into the site:
 
 - `NEXT_PUBLIC_SITE_URL`: the live address, for canonical links and the sitemap
 - `NEXT_PUBLIC_GA_ID`: Google Analytics 4 ID; leave empty for no analytics
-- the Keystatic values above, once the editor is connected
+- the five Keystatic values above
 
 ## Contact form
 
