@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type MouseEvent } from "react";
 import type { Dictionary } from "@/i18n/en";
 import type { Locale } from "@/i18n/config";
-import { initSite, initHero, initTagline, initServices, initWhy } from "@/lib/client/effects";
+import { initSite, initIntro, initHero, initTagline, initServices, initWhy } from "@/lib/client/effects";
 import { initSilk } from "@/lib/client/silk";
 import { rich } from "./Rich";
 
@@ -20,7 +20,7 @@ export function SiteEffects() {
   return null;
 }
 
-const inits = { hero: initHero, tagline: initTagline, services: initServices, why: initWhy };
+const inits = { intro: initIntro, hero: initHero, tagline: initTagline, services: initServices, why: initWhy };
 
 /** Runs one section's animation script on the section with this class. */
 export function SectionEffects({ section }: { section: keyof typeof inits }) {
@@ -228,6 +228,12 @@ export function Nav({ lang, t }: { lang: Locale; t: Dictionary["nav"] }) {
       className={`nav${open ? " is-open" : ""}`}
       data-nav
       style={{ "--p": pathname === `/${lang}` ? 0 : 1 } as CSSProperties}
+      // The homepage opens on the burgundy logo intro, with the navbar hidden
+      // until the big logo lands in it. Start in that state so the first frame
+      // matches (initSite and initIntro keep these in sync while scrolling).
+      data-tone={pathname === `/${lang}` ? "dark" : undefined}
+      data-logo={pathname === `/${lang}` ? "flying" : undefined}
+      data-stage={pathname === `/${lang}` ? "intro" : undefined}
     >
       <div className="nav__inner">
         <Link className="nav__logo" href={`/${lang}`} aria-label={t.home}>

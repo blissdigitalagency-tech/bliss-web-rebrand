@@ -81,6 +81,12 @@ export const id: Dictionary = {
     minRead: "menit baca",
   },
 
+  intro: {
+    name: "Bliss",
+    nameEm: "Digital",
+    cue: "Gulir",
+  },
+
   hero: {
     pill: "Agensi Digital Marketing",
     title: "Bliss",

@@ -11,7 +11,7 @@ import type { CaseStudy, ClientLogo, Post } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { rich } from "./Rich";
 import { Faq, SectionEffects, SilkCanvas } from "./client";
-import { ArrowUpRight, ArrowRight, ArrowLeft, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
+import { ArrowUpRight, ArrowRight, ArrowLeft, BlissMark, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
 
 export const WHATSAPP = "https://wa.me/628137903995";
 export const EMAIL = "admin@blissdigital.id";
@@ -60,6 +60,36 @@ export function PageHead({ eyebrow, title, lede, note, children }: { eyebrow: st
       )}
       {children}
     </header>
+  );
+}
+
+/* ---------- Homepage logo intro: white mark on burgundy that flies into the navbar ---------- */
+
+export function Intro({ t }: { t: Dictionary["intro"] }) {
+  return (
+    <section className="intro" aria-labelledby="intro-name">
+      <SectionEffects section="intro" />
+      <div className="intro__stage">
+        <SilkCanvas className="intro__bg" />
+        <div className="intro__brand">
+          {/* The slot keeps the logo's place in the layout while the logo itself
+              flies off; two stacked copies cross-fade from white to burgundy */}
+          <div className="intro__slot">
+            <div className="intro__logo" aria-hidden="true">
+              <BlissMark white className="intro__mark intro__mark--white" />
+              <BlissMark className="intro__mark intro__mark--brand" />
+            </div>
+          </div>
+          <p className="intro__name" id="intro-name">
+            {t.name} <em>{t.nameEm}</em>
+          </p>
+        </div>
+        <p className="intro__cue" aria-hidden="true">
+          {t.cue}
+          <span className="intro__cue-line" />
+        </p>
+      </div>
+    </section>
   );
 }
 

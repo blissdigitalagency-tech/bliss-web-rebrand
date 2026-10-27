@@ -83,6 +83,13 @@ export const en = {
     minRead: "min read",
   },
 
+  // Burgundy opening screen with the logo (homepage)
+  intro: {
+    name: "Bliss",
+    nameEm: "Digital",
+    cue: "Scroll",
+  },
+
   hero: {
     pill: "Digital Marketing Agency",
     title: "Bliss",

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, hasLocale } from "@/i18n/config";
 import { getCaseStudies, getClients } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
-import { AboutBlock, CasesSection, Clients, Cta, FaqSection, Hero, ServicesStack, Tagline, Why } from "@/components/sections";
+import { AboutBlock, CasesSection, Clients, Cta, FaqSection, Hero, Intro, ServicesStack, Tagline, Why } from "@/components/sections";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -19,6 +19,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
+      <Intro t={t.intro} />
       <Hero lang={lang} t={t.hero} common={t.common} />
       <Tagline lines={t.tagline} />
       <Clients t={t.clients} logos={getClients()} />

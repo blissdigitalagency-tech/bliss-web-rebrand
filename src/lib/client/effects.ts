@@ -28,7 +28,14 @@ export function initSite(): () => void {
       const y = window.scrollY;
       // Pages without the white hero keep the bar solid from the top
       const solid = !document.querySelector(".hero");
-      if (nav) nav.style.setProperty("--p", solid ? "1" : Math.min(1, Math.max(0, y / 120)).toFixed(3));
+      if (nav) {
+        nav.style.setProperty("--p", solid ? "1" : Math.min(1, Math.max(0, y / 120)).toFixed(3));
+        // Over the burgundy intro the bar is still see-through, so its links turn white
+        const intro = document.querySelector(".intro");
+        const dark = !!intro && y < 60 && intro.getBoundingClientRect().bottom > 80;
+        if (dark) nav.dataset.tone = "dark";
+        else delete nav.dataset.tone;
+      }
       toTop?.classList.toggle("is-shown", y > window.innerHeight);
     });
   };
@@ -175,14 +182,25 @@ export function initHero(hero: HTMLElement): () => void {
     ro.observe(visual);
   }
 
-  // Intro: wait for the fonts so words don't swap mid-animation
+  // Entrance: plays once the hero is on screen (it sits below the logo intro),
+  // after the fonts load so words don't swap mid-animation
+  let fontsReady = false;
+  let seen = false;
   const start = () => {
-    if (!alive || hero.classList.contains("is-loaded")) return;
+    if (!alive || !fontsReady || !seen || hero.classList.contains("is-loaded")) return;
     hero.classList.add("is-loaded");
     setTimeout(() => alive && hero.classList.add("is-ready"), 2200);
   };
-  document.fonts.ready.then(() => requestAnimationFrame(start));
-  const fallback = setTimeout(start, 1500); // don't wait forever on a slow font
+  const ready = () => { fontsReady = true; requestAnimationFrame(start); };
+  document.fonts.ready.then(ready);
+  const fallback = setTimeout(ready, 1500); // don't wait forever on a slow font
+  const onScreen = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    seen = true;
+    onScreen.disconnect();
+    start();
+  }, { threshold: 0.2 });
+  onScreen.observe(hero);
 
   // Leaving the hero: content drifts up and fades
   let ticking = false;
@@ -191,7 +209,7 @@ export function initHero(hero: HTMLElement): () => void {
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
-      const hx = Math.min(1, Math.max(0, window.scrollY / (hero.offsetHeight * 0.75)));
+      const hx = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / (hero.offsetHeight * 0.75)));
       content.style.setProperty("--hx", hx.toFixed(3));
     });
   };
@@ -248,8 +266,90 @@ export function initHero(hero: HTMLElement): () => void {
     ac.abort();
     ro?.disconnect();
     io?.disconnect();
+    onScreen.disconnect();
     clearTimeout(fallback);
     clearInterval(readyTimer);
+  };
+}
+
+/* ---------- Homepage logo intro ---------- */
+
+/**
+ * The big white mark in the burgundy intro glides into the navbar's logo slot
+ * as the pinned intro scrolls, shrinking and turning from white to the
+ * burgundy gradient. Once it lands, the navbar's own logo takes over.
+ */
+export function initIntro(section: HTMLElement): () => void {
+  const ac = new AbortController();
+  const logo = section.querySelector<HTMLElement>(".intro__logo");
+  const slot = section.querySelector<HTMLElement>(".intro__slot");
+  const name = section.querySelector<HTMLElement>(".intro__name");
+  const cue = section.querySelector<HTMLElement>(".intro__cue");
+  const nav = document.querySelector<HTMLElement>("[data-nav]");
+  const target = nav?.querySelector<HTMLElement>(".nav__logo img");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!logo || !slot || !nav || !target) return () => {};
+
+  let ticking = false;
+  function update() {
+    ticking = false;
+    if (reduceMotion.matches) {
+      // No flight: the mark stays in the intro and the navbar shows its own logo
+      logo!.classList.remove("is-flying");
+      logo!.style.removeProperty("transform");
+      logo!.style.removeProperty("--e");
+      name?.style.removeProperty("--fade");
+      delete nav!.dataset.logo;
+      delete nav!.dataset.stage;
+      return;
+    }
+    const r = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // 0 at the top of the page, 1 when the pinned intro is about to scroll away
+    const p = clamp(-r.top / Math.max(1, r.height - vh));
+    const e = (1 - Math.cos(Math.PI * p)) / 2; // ease in-out: gentle start and landing
+
+    // From where the logo sits in the intro (its slot) to the navbar logo
+    const from = slot!.getBoundingClientRect();
+    const size = from.width;
+    const to = target!.getBoundingClientRect();
+    const x = from.left + (to.left - from.left) * e;
+    const y = from.top + (to.top - from.top) * e;
+    const s = 1 + (to.width / size - 1) * e;
+
+    logo!.classList.add("is-flying");
+    logo!.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${s})`;
+    logo!.style.setProperty("--e", e.toFixed(4)); // drives the white → burgundy fade
+    const landed = p >= 1;
+    logo!.classList.toggle("is-landed", landed);
+    // While the big mark travels, the navbar stays out of sight (its logo, bar,
+    // links and buttons). When the mark lands, the navbar fades in around it.
+    if (landed) {
+      delete nav!.dataset.logo;
+      delete nav!.dataset.stage;
+    } else {
+      nav!.dataset.logo = "flying";
+      nav!.dataset.stage = "intro";
+    }
+    // The name and the scroll hint fade away early, while the logo carries on
+    if (name) name.style.setProperty("--fade", String(Math.min(1, p * 3)));
+    if (cue) cue.style.opacity = String(Math.max(0, 1 - p * 4));
+  }
+  const onScroll = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true, signal: ac.signal });
+  window.addEventListener("resize", onScroll, { signal: ac.signal });
+  reduceMotion.addEventListener("change", update, { signal: ac.signal });
+  update();
+
+  return () => {
+    ac.abort();
+    delete nav.dataset.logo;
+    delete nav.dataset.stage;
   };
 }
 

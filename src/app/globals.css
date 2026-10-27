@@ -3953,3 +3953,198 @@ main { background: var(--white); }
   background: rgb(112 2 15 / 0.08);
   color: var(--accent);
 }
+
+/* ---------- Homepage logo intro (burgundy screen before the hero) ---------- */
+/* The stage pins for 80svh of scrolling (height minus one screen). During that
+   stretch the white mark flies into the navbar's logo slot (initIntro in
+   effects.ts). Note: the stage must not create a stacking context (no
+   isolation, z-index, transform or opacity), or the flying mark would end up
+   under the navbar's frosted bar. */
+.intro {
+  position: relative;
+  height: 180svh;
+  background: var(--bg-dark);
+}
+
+.intro__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(120% 90% at 30% 90%, #4a0d20 0%, var(--bg-dark) 60%);
+}
+
+.intro__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Logo with the name under it, centred on the stage */
+.intro__brand {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3.5vmin, 36px);
+}
+
+/* Keeps the logo's place (and size) in the layout while the logo flies */
+.intro__slot {
+  position: relative;
+  width: min(34vmin, 260px);
+  aspect-ratio: 1;
+}
+
+/* The mark. Without JavaScript or with reduced motion it simply sits in its slot. */
+.intro__logo {
+  --e: 0;
+  position: absolute;
+  inset: 0;
+}
+
+/* Same type as the hero title, in white; fades and lifts away as you scroll */
+.intro__name {
+  --fade: 0;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(44px, 6.5vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: var(--white);
+  opacity: calc(1 - var(--fade));
+  transform: translateY(calc(var(--fade) * -16px));
+}
+
+.intro__name em {
+  font-style: italic;
+  color: var(--headline-end);
+}
+
+/* While flying it is fixed to the screen and moved by transform from its
+   top-left corner, above the navbar (z-index 50) */
+.intro__logo.is-flying {
+  position: fixed;
+  inset: 0 auto auto 0; /* top-left only; the resting rule stretches to all edges */
+  width: min(34vmin, 260px);
+  height: auto;
+  aspect-ratio: 1;
+  z-index: 60;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.intro__logo.is-landed { visibility: hidden; }
+
+.intro__mark {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* White for the first third of the flight, then the burgundy mark fades in on
+   top. The white one stays solid underneath, so the mark is never see-through. */
+.intro__mark--brand { opacity: clamp(0, calc((var(--e) - 0.3) / 0.6), 1); }
+
+/* The navbar's own logo hides while the big one is on its way */
+.nav[data-logo="flying"] .nav__logo img { opacity: 0; }
+
+/* The rest of the navbar (frosted bar, links, buttons) stays out of sight
+   during the intro and fades in once the logo has landed. visibility keeps the
+   hidden links out of the keyboard's tab order. */
+.nav .nav__end {
+  transition: opacity 400ms ease 200ms, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1) 200ms, visibility 0s;
+}
+
+.nav__inner::before { transition: opacity 400ms ease; }
+
+.nav[data-stage="intro"] .nav__end {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 250ms ease, transform 250ms ease, visibility 0s 250ms;
+}
+
+.nav[data-stage="intro"] .nav__inner::before { opacity: 0; }
+
+/* Desktop links (on phones they live in the menu, which opens from the
+   button above). They arrive a beat after the bar, so the logo lands first. */
+@media (min-width: 901px) {
+  .nav .nav__links {
+    transition: opacity 400ms ease 120ms, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms, visibility 0s;
+  }
+
+  .nav[data-stage="intro"] .nav__links {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 250ms ease, transform 250ms ease, visibility 0s 250ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav .nav__links,
+  .nav .nav__end,
+  .nav__inner::before { transition: none; }
+}
+
+/* "Scroll" hint at the bottom of the intro */
+.intro__cue {
+  position: absolute;
+  left: 50%;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.75);
+}
+
+.intro__cue-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(rgb(255 255 255 / 0.8), rgb(255 255 255 / 0));
+  transform-origin: top;
+  animation: cue-drop 1.8s ease-in-out infinite;
+}
+
+@keyframes cue-drop {
+  0% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* Navbar over the burgundy intro: still see-through, so links go white */
+.nav .nav__links a:not(.btn),
+.nav .nav__lang,
+.nav .nav__end .nav__cta { transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease, opacity 180ms ease; }
+
+.nav[data-tone="dark"]:not(.is-open) .nav__links a:not(.btn) { color: var(--white); opacity: 0.85; }
+.nav[data-tone="dark"]:not(.is-open) .nav__links a:not(.btn):hover { opacity: 1; }
+.nav[data-tone="dark"] .nav__lang { color: var(--white); border-color: rgb(255 255 255 / 0.4); }
+.nav[data-tone="dark"] .nav__lang:hover,
+.nav[data-tone="dark"] .nav__lang[aria-expanded="true"] { background: rgb(255 255 255 / 0.1); border-color: var(--white); }
+.nav[data-tone="dark"] .nav__end .nav__cta { background: rgb(255 255 255 / 0.14); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.55); }
+.nav[data-tone="dark"] .nav__toggle { background: rgb(255 255 255 / 0.16); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4); }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro { height: 100svh; }
+  .intro__cue-line { animation: none; }
+}
