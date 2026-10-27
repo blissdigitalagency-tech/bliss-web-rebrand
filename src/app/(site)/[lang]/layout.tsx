@@ -70,10 +70,16 @@ export default async function SiteLayout({ children, params }: LayoutProps<"/[la
     // The inline script below adds .motion before hydration, so React is told to expect it
     <html lang={htmlLang[lang]} className={`${jakarta.variable} ${fragment.variable}`} suppressHydrationWarning>
       <head>
-        {/* Turn on entrance animations before the first paint, so nothing flashes */}
+        {/* Before the first paint: turn on entrance animations, so nothing
+            flashes. And on a reload, start at the top of the page instead of
+            the browser restoring the old scroll position. Fresh visits,
+            Back/Forward and language switches keep their usual behaviour; the
+            browser's restoring is switched back on once the page has loaded. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion")`,
+            __html: `if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion");
+(function(){var n=performance.getEntriesByType("navigation")[0];
+if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEventListener("load",function(){scrollTo(0,0);setTimeout(function(){history.scrollRestoration="auto"},0)})}})()`,
           }}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

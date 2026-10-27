@@ -71,13 +71,12 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; } /* fallback; links glide via site.js */
+/* No scroll-behavior: smooth on <html>. In-page links already glide (initSite
+   in effects.ts), and smooth scrolling on <html> stops Next.js from jumping to
+   the top of a newly opened page, so pages would open part-way down. */
 
 /* Anchor links land below the fixed navbar */
 section, footer { scroll-margin-top: 88px; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
 
 body {
   margin: 0;
