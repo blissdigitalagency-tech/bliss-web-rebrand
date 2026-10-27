@@ -2082,19 +2082,6 @@ em.hero__word {
   transform: none;
 }
 
-/* Looping: fade the demo out, snap it back to the start, play again */
-.motion .wc__vis,
-.motion .keybox {
-  transition: opacity 300ms ease;
-}
-.motion .wc.is-fading .wc__vis {
-  opacity: 0;
-}
-.motion .wc.is-resetting *,
-.motion .wc.is-resetting *::before {
-  transition: none !important;
-  animation: none !important;
-}
 
 /* ---------- Case studies (from a screenshot of Figma 166:794; check
    against Figma once the API limit resets) ---------- */

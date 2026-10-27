@@ -638,9 +638,7 @@ export function initServices(section: HTMLElement): () => void {
   };
 }
 
-/* ---------- Why us: reveal, then loop each card's small demo ---------- */
-
-type DemoCard = HTMLElement & { _run?: number; _visible?: boolean };
+/* ---------- Why us: reveal, then play each card's small demo once ---------- */
 
 export function initWhy(section: HTMLElement): () => void {
   if (reduced()) return () => {};
@@ -650,64 +648,39 @@ export function initWhy(section: HTMLElement): () => void {
   section.querySelectorAll<HTMLElement>(".why__head [data-reveal]").forEach((el, i) => el.style.setProperty("--delay", i * 120 + "ms"));
   section.querySelectorAll<HTMLElement>(".heat i").forEach((cell, i) => cell.style.setProperty("--i", String(i % 7)));
 
-  const PLAY_MS = 3000; // longest demo, including the typing
-  const HOLD_MS = 2800;
-  const FADE_MS = 300;
-
-  async function typeNote(note: HTMLElement, isCurrent: () => boolean) {
+  // The ownership card types its note out, then leaves it in place
+  async function typeNote(note: HTMLElement) {
     const text = note.dataset.type || "";
     note.textContent = "";
     note.classList.add("is-typing");
     await wait(700);
     for (let n = 1; n <= text.length; n++) {
-      if (!isCurrent() || !alive) return;
+      if (!alive) return;
       note.textContent = text.slice(0, n);
       await wait(40);
     }
     await wait(1200);
     note.classList.remove("is-typing");
   }
-  function play(card: DemoCard) {
+
+  // Each demo plays the first time its card comes into view, then holds its
+  // finished state (it doesn't loop)
+  async function play(card: HTMLElement) {
+    await wait(450); // let the card settle before its demo starts
+    if (!alive) return;
     card.classList.add("is-played");
     const note = card.querySelector<HTMLElement>("[data-type]");
-    const run = (card._run = (card._run || 0) + 1);
-    if (note) typeNote(note, () => card._run === run);
-  }
-  function reset(card: DemoCard) {
-    card.classList.add("is-resetting");
-    card.classList.remove("is-played");
-    void card.offsetWidth; // apply the start state before transitions come back
-    card.classList.remove("is-resetting");
-  }
-  async function loop(card: DemoCard) {
-    await wait(450);
-    while (alive) {
-      play(card);
-      await wait(PLAY_MS + HOLD_MS);
-      while (alive && (!card._visible || document.hidden)) await wait(400);
-      if (!alive) return;
-      card.classList.add("is-fading");
-      await wait(FADE_MS);
-      reset(card);
-      card.classList.remove("is-fading");
-      await wait(FADE_MS);
-    }
+    if (note) typeNote(note);
   }
 
-  const visibility = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { (e.target as DemoCard)._visible = e.isIntersecting; });
-  });
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        const el = entry.target as DemoCard;
+        const el = entry.target as HTMLElement;
         io.unobserve(el);
         el.classList.add("is-in");
-        if (el.hasAttribute("data-play")) {
-          visibility.observe(el);
-          loop(el);
-        }
+        if (el.hasAttribute("data-play")) play(el);
       });
     },
     { threshold: 0.35 },
@@ -717,6 +690,5 @@ export function initWhy(section: HTMLElement): () => void {
   return () => {
     alive = false;
     io.disconnect();
-    visibility.disconnect();
   };
 }
