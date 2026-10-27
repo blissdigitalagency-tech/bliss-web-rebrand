@@ -4186,3 +4186,17 @@ main { background: var(--white); }
 
 .nav[data-stage="intro"]::before,
 .nav[data-stage="intro"]::after { opacity: 0; }
+
+/* ---------- Language switch ---------- */
+/* While the navbar's language switch swaps the page (html[data-lang-switch],
+   cleared a frame after the new page paints), nothing animates and every
+   entrance shows its finished state, so the text changes in place */
+html[data-lang-switch] *,
+html[data-lang-switch] *::before,
+html[data-lang-switch] *::after {
+  transition: none !important;
+}
+
+html[data-lang-switch] .hero [data-intro] { opacity: 1; filter: none; transform: none; }
+html[data-lang-switch] .hero .bars i { transform: none; }
+html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }

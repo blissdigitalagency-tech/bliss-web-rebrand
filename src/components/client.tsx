@@ -4,19 +4,23 @@
 // and sends no JavaScript.
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type MouseEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type MouseEvent } from "react";
 import type { Dictionary } from "@/i18n/en";
 import type { Locale } from "@/i18n/config";
-import { initSite, initIntro, initHero, initTagline, initServices, initWhy } from "@/lib/client/effects";
+import { initSite, initIntro, initHero, initTagline, initServices, initWhy, markLanguageSwitch } from "@/lib/client/effects";
 import { initSilk } from "@/lib/client/silk";
 import { rich } from "./Rich";
 
 /* ---------- Behaviour hooks ---------- */
 
+// The scroll scripts run as layout effects: after React has put the new page in
+// place but before the browser paints it, so a page never shows its pre-script
+// state (a hidden fade-in, an unpositioned card) for a frame.
+
 /** Navbar scroll, back to top, anchor glide, reveals and counters. Re-runs on every page. */
 export function SiteEffects() {
   const pathname = usePathname();
-  useEffect(() => initSite(), [pathname]);
+  useLayoutEffect(() => initSite(), [pathname]);
   return null;
 }
 
@@ -24,7 +28,7 @@ const inits = { intro: initIntro, hero: initHero, tagline: initTagline, services
 
 /** Runs one section's animation script on the section with this class. */
 export function SectionEffects({ section }: { section: keyof typeof inits }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = document.querySelector<HTMLElement>(`.${section}`);
     return el ? inits[section](el) : undefined;
   }, [section]);
@@ -146,6 +150,7 @@ function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Diction
                 hrefLang={l.code}
                 lang={l.code}
                 aria-current={isCurrent ? "true" : undefined}
+                scroll={false}
                 onClick={(e) => {
                   setOpen(false);
                   if (!isCurrent) onSwitch(e);
@@ -209,14 +214,16 @@ export function Nav({ lang, t }: { lang: Locale; t: Dictionary["nav"] }) {
     ["/blog", t.blog],
     ["/contact", t.contact],
   ];
-  // The page's hreflang link can change after a client-side navigation, so
-  // check it again at click time
+  // Switching language keeps your place: no jump to the top, and the new page
+  // appears without replaying its entrance animations. The page's hreflang link
+  // can change after a client-side navigation, so check it again at click time.
   const router = useRouter();
   const onSwitch = (e: MouseEvent) => {
+    markLanguageSwitch();
     const fresh = languageSwitchHref(pathname, other);
     if (fresh !== switchHref) {
       e.preventDefault();
-      router.push(fresh);
+      router.push(fresh, { scroll: false });
     }
   };
   const hrefFor = (code: Locale) => (code === lang ? pathname : switchHref);
@@ -262,6 +269,7 @@ export function Nav({ lang, t }: { lang: Locale; t: Dictionary["nav"] }) {
                 hrefLang={l.code}
                 lang={l.code}
                 aria-current={l.code === lang ? "true" : undefined}
+                scroll={false}
                 onClick={l.code === lang ? undefined : onSwitch}
               >
                 {l.name}

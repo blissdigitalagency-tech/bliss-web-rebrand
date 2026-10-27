@@ -8,6 +8,26 @@ const easeOut = (x: number) => 1 - Math.pow(1 - x, 3);
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* ---------- Language switch: keep the page in place ---------- */
+// Switching language swaps the whole page, root layout included, for the other
+// language's version. While a switch is under way, CSS (html[data-lang-switch])
+// turns transitions off and shows every fade-in in its finished state, and the
+// scripts below skip their entrance animations, so the new text simply appears
+// where the old was.
+//
+// The state lives here rather than only on <html>: when React rebuilds the root
+// layout it resets <html> to exactly its props, dropping the flag (and the
+// .motion class). initSite puts both back before the new page paints.
+
+let switchUntil = 0;
+
+export function markLanguageSwitch() {
+  switchUntil = performance.now() + 3000; // upper bound, in case the switch never lands
+  document.documentElement.dataset.langSwitch = "1";
+}
+
+const isLanguageSwitch = () => performance.now() < switchUntil;
+
 /* ---------- Every page: navbar, back to top, anchor glide, reveals, counters ---------- */
 
 export function initSite(): () => void {
@@ -17,6 +37,14 @@ export function initSite(): () => void {
   const nav = document.querySelector<HTMLElement>("[data-nav]");
   const toTop = document.querySelector<HTMLElement>("[data-to-top]");
   const reduceMotion = reduced();
+  const switching = isLanguageSwitch();
+
+  // React resets <html> when the root layout is rebuilt (a language switch), so
+  // restore what the page relies on: .motion (set by the inline script on first
+  // load) turns the fade-ins on, and the switch flag keeps them still for now
+  const root = document.documentElement;
+  if (!reduceMotion) root.classList.add("motion");
+  if (switching) root.dataset.langSwitch = "1";
 
   // Navbar fades to frosted as you scroll; back-to-top shows after one screen
   let ticking = false;
@@ -114,14 +142,32 @@ export function initSite(): () => void {
       },
       { rootMargin: "-6% 0px -6% 0px" },
     );
-    document.querySelectorAll("[data-reveal]").forEach((el) => reveal.observe(el));
+    document.querySelectorAll("[data-reveal]").forEach((el) => {
+      // After a language switch, whatever is on screen is shown straight away
+      if (switching) {
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) el.classList.add("is-in");
+      }
+      reveal.observe(el);
+    });
     cleanups.push(() => reveal.disconnect());
+  }
+
+  // Clear the language-switch flag once the new page has settled. The page's
+  // own section scripts can run a beat after this one (the navbar arrives
+  // first), so the flag stays on for a moment rather than a frame or two.
+  if (switching) {
+    const clearFlag = window.setTimeout(() => {
+      switchUntil = 0;
+      delete root.dataset.langSwitch;
+    }, 700);
+    cleanups.push(() => clearTimeout(clearFlag));
   }
 
   // Numbers: each digit flickers through random digits and settles on the
   // real one, left to right ("3+", "50M+", ...)
   const counters = [...document.querySelectorAll<HTMLElement>("[data-count]")];
-  if (counters.length && !reduceMotion) {
+  if (counters.length && !reduceMotion && !switching) {
     const timers: number[] = [];
     const scramble = (el: HTMLElement) => {
       const final = el.dataset.count || el.textContent || "";
@@ -199,6 +245,10 @@ export function initHero(hero: HTMLElement): () => void {
     setTimeout(() => alive && hero.classList.add("is-ready"), 2200);
   };
   const ready = () => { fontsReady = true; requestAnimationFrame(start); };
+  // After a language switch the hero is shown as it was, without its entrance
+  if (isLanguageSwitch()) {
+    hero.classList.add("is-loaded", "is-ready");
+  }
   document.fonts.ready.then(ready);
   const fallback = setTimeout(ready, 1500); // don't wait forever on a slow font
   const onScreen = new IntersectionObserver(([e]) => {
