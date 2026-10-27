@@ -304,19 +304,23 @@ export function Faq({ items }: { items: { q: string; a: string[] }[] }) {
     <div className="faq__list">
       {items.map((item, i) => {
         const open = openIndex === i;
+        // The scroll fade-in (data-reveal) sits on a wrapper: initSite adds a
+        // class to it, and React rewriting .qa's classes on open would wipe it
         return (
-          <div className={`qa${open ? " is-open" : ""}`} data-reveal key={i}>
-            <h3>
-              <button type="button" aria-expanded={open} onClick={() => setOpenIndex(open ? null : i)}>
-                {item.q}
-                <span className="qa__icon" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div className="qa__a">
-              <div>
-                {item.a.map((p, j) => (
-                  <p key={j}>{rich(p)}</p>
-                ))}
+          <div data-reveal key={i}>
+            <div className={`qa${open ? " is-open" : ""}`}>
+              <h3>
+                <button type="button" aria-expanded={open} onClick={() => setOpenIndex(open ? null : i)}>
+                  {item.q}
+                  <span className="qa__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div className="qa__a">
+                <div>
+                  {item.a.map((p, j) => (
+                    <p key={j}>{rich(p)}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

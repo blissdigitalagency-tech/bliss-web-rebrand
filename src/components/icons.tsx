@@ -61,21 +61,7 @@ export const LinkedIn = () => (
   </svg>
 );
 
-// The Bliss mark (public/brand/bliss-mark.svg) as inline SVG, so it can be
-// white or the burgundy gradient. Keep the path in sync if the logo changes.
-const MARK_PATH =
+// The Bliss mark's shape (public/brand/bliss-mark.svg), for inline SVG such as
+// the homepage intro. Keep it in sync if the logo changes.
+export const MARK_PATH =
   "M169 0C262.336 0 338 75.6639 338 169V676C293.615 676 249.666 667.255 208.659 650.271C167.651 633.284 130.376 608.396 98.9902 577.01C67.604 545.624 42.7156 508.349 25.7295 467.341C8.74477 426.334 0 382.385 0 338V169C8.2466e-06 75.6639 75.6639 8.24875e-06 169 0ZM507 338C600.336 338 676 413.664 676 507C676 600.336 600.336 676 507 676C413.664 676 338 600.336 338 507C338 413.664 413.664 338 507 338Z";
-
-export const BlissMark = ({ white = false, className }: { white?: boolean; className?: string }) => (
-  <svg className={className} viewBox="0 0 676 676" fill="none" aria-hidden="true">
-    {!white && (
-      <defs>
-        <linearGradient id="bliss-mark-gradient" x1="0" y1="0" x2="676" y2="676" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#70020F" />
-          <stop offset="1" stopColor="#430719" />
-        </linearGradient>
-      </defs>
-    )}
-    <path d={MARK_PATH} fill={white ? "#ffffff" : "url(#bliss-mark-gradient)"} />
-  </svg>
-);

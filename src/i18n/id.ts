@@ -322,7 +322,7 @@ export const id: Dictionary = {
         q: "Berapa biayanya?",
         a: [
           "Biaya kami tergantung layanan yang Anda pilih dan besarnya pekerjaan. Anggaran iklan terpisah, dan Anda bayar langsung ke Google atau Meta.",
-          "[[Isi: biaya awal, atau pertahankan kalimat ini]] Kami sampaikan harga lengkap di proposal sebelum Anda memutuskan.",
+          "Kami sampaikan harga lengkap di proposal sebelum Anda memutuskan.",
         ],
       },
       {

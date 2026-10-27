@@ -108,7 +108,6 @@ responses sheet.
 
 - Replace the six sample case studies with real ones, or hide the section.
 - Confirm the About stats (3+ years, 50M+ accounts reached, 100+ projects).
-- Fill in the pricing line in the FAQ (`[[Fill in: …]]` in `src/i18n/*.ts`).
 - Have the privacy policy checked, and fill in its date, retention period and
   cookies section.
 - Replace the Google Partner image with Google’s official badge code

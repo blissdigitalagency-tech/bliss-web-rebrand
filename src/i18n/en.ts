@@ -303,7 +303,6 @@ export const en = {
     title: "Questions clients *ask us*",
     lede: "Cannot find your answer?",
     ledeLink: "Message us on WhatsApp.",
-    // A placeholder the team still has to fill in: [[Fill in: ...]]
     items: [
       {
         q: "What does “fully managed” include?",
@@ -327,7 +326,7 @@ export const en = {
         q: "How much does it cost?",
         a: [
           "Our fee depends on the service you choose and the size of the work. Your ad budget is separate, and you pay it directly to Google or Meta.",
-          "[[Fill in: a starting fee, or keep this line]] We share the full price in the proposal before you commit.",
+          "We share the full price in the proposal before you commit.",
         ],
       },
       {

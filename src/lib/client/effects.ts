@@ -35,6 +35,13 @@ export function initSite(): () => void {
         const dark = !!intro && y < 60 && intro.getBoundingClientRect().bottom > 80;
         if (dark) nav.dataset.tone = "dark";
         else delete nav.dataset.tone;
+        // The fade band above the card matches the section scrolling under it:
+        // burgundy over the intro and tagline, white everywhere else
+        const under = document
+          .elementsFromPoint(window.innerWidth / 2, 4)
+          .find((el) => !el.closest("[data-nav], .intro__logo, [data-to-top]"));
+        if (under?.closest(".intro, .tagline")) nav.dataset.band = "dark";
+        else delete nav.dataset.band;
       }
       toTop?.classList.toggle("is-shown", y > window.innerHeight);
     });
@@ -285,10 +292,23 @@ export function initIntro(section: HTMLElement): () => void {
   const slot = section.querySelector<HTMLElement>(".intro__slot");
   const name = section.querySelector<HTMLElement>(".intro__name");
   const cue = section.querySelector<HTMLElement>(".intro__cue");
+  const stops = [...section.querySelectorAll<SVGStopElement>(".intro__mark stop")];
   const nav = document.querySelector<HTMLElement>("[data-nav]");
   const target = nav?.querySelector<HTMLElement>(".nav__logo img");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (!logo || !slot || !nav || !target) return () => {};
+
+  // Blend the mark's gradient from white (0) to the brand gradient (1)
+  const brand = [
+    [0x70, 0x02, 0x0f],
+    [0x43, 0x07, 0x19],
+  ];
+  function tint(k: number) {
+    stops.forEach((stop, i) => {
+      const [r, g, b] = brand[i].map((c) => Math.round(255 + (c - 255) * k));
+      stop.setAttribute("stop-color", `rgb(${r} ${g} ${b})`);
+    });
+  }
 
   let ticking = false;
   function update() {
@@ -297,7 +317,8 @@ export function initIntro(section: HTMLElement): () => void {
       // No flight: the mark stays in the intro and the navbar shows its own logo
       logo!.classList.remove("is-flying");
       logo!.style.removeProperty("transform");
-      logo!.style.removeProperty("--e");
+      logo!.style.removeProperty("width");
+      tint(0);
       name?.style.removeProperty("--fade");
       delete nav!.dataset.logo;
       delete nav!.dataset.stage;
@@ -315,11 +336,16 @@ export function initIntro(section: HTMLElement): () => void {
     const to = target!.getBoundingClientRect();
     const x = from.left + (to.left - from.left) * e;
     const y = from.top + (to.top - from.top) * e;
-    const s = 1 + (to.width / size - 1) * e;
+    const w = size + (to.width - size) * e;
 
+    // The logo is resized for real (not scaled with a transform), so the browser
+    // redraws the vector at every size and the edges stay crisp
     logo!.classList.add("is-flying");
-    logo!.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${s})`;
-    logo!.style.setProperty("--e", e.toFixed(4)); // drives the white → burgundy fade
+    logo!.style.width = `${w.toFixed(2)}px`;
+    // Whole pixels: a half-pixel position blurs every edge
+    logo!.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+    // White for the first third of the flight, then blends into the burgundy gradient
+    tint(clamp((e - 0.3) / 0.6));
     const landed = p >= 1;
     logo!.classList.toggle("is-landed", landed);
     // While the big mark travels, the navbar stays out of sight (its logo, bar,

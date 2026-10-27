@@ -11,7 +11,7 @@ import type { CaseStudy, ClientLogo, Post } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { rich } from "./Rich";
 import { Faq, SectionEffects, SilkCanvas } from "./client";
-import { ArrowUpRight, ArrowRight, ArrowLeft, BlissMark, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
+import { ArrowUpRight, ArrowRight, ArrowLeft, MARK_PATH, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
 
 export const WHATSAPP = "https://wa.me/628137903995";
 export const EMAIL = "admin@blissdigital.id";
@@ -73,11 +73,19 @@ export function Intro({ t }: { t: Dictionary["intro"] }) {
         <SilkCanvas className="intro__bg" />
         <div className="intro__brand">
           {/* The slot keeps the logo's place in the layout while the logo itself
-              flies off; two stacked copies cross-fade from white to burgundy */}
+              flies off. One shape whose gradient initIntro blends from white to
+              the burgundy gradient, so the edges stay clean the whole way. */}
           <div className="intro__slot">
             <div className="intro__logo" aria-hidden="true">
-              <BlissMark white className="intro__mark intro__mark--white" />
-              <BlissMark className="intro__mark intro__mark--brand" />
+              <svg className="intro__mark" viewBox="0 0 676 676" fill="none" shapeRendering="geometricPrecision">
+                <defs>
+                  <linearGradient id="intro-mark-gradient" x1="0" y1="0" x2="676" y2="676" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#ffffff" />
+                    <stop offset="1" stopColor="#ffffff" />
+                  </linearGradient>
+                </defs>
+                <path d={MARK_PATH} fill="url(#intro-mark-gradient)" />
+              </svg>
             </div>
           </div>
           <p className="intro__name" id="intro-name">
