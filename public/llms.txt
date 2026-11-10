@@ -12,7 +12,7 @@ The site is available in English (/en) and Bahasa Indonesia (/id).
 
 ## Services
 
-- [Google Ads](https://blissdigital.id/en/services#google-ads): fully managed
+- [Google Ads](https://blissdigital.id/en/services#google): fully managed
   campaigns (Search, Performance Max, Display, Demand Gen, YouTube, Local), or
   a consultation with a written action plan, or training for teams.
 - [Website creation](https://blissdigital.id/en/services#website): websites

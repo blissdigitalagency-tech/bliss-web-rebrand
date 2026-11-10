@@ -96,12 +96,14 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
   const p = t.servicesPage;
 
   const services: Service[] = [
-    { id: "google-ads", icon: "/images/services/logo-google-ads.png", image: { src: "/images/services/google-ads.jpg", alt: p.google.imageAlt }, copy: p.google, contactKey: "google-ads" },
+    // Not "google-ads": ad blockers hide elements with that id, so the whole
+    // section vanished for visitors running one
+    { id: "google", icon: "/images/services/logo-google-ads.png", image: { src: "/images/services/search-campaigns.jpg", alt: p.google.imageAlt }, copy: p.google, contactKey: "google-ads" },
     { id: "website", icon: "/images/services/icon-website.svg", image: { src: "/images/services/website.jpg", alt: p.web.imageAlt }, copy: p.web, contactKey: "website" },
     { id: "social-media", icon: "/images/services/icon-social.svg", copy: p.social, contactKey: "social-media" },
   ];
   const jump: [string, string, string][] = [
-    ["google-ads", "/images/services/logo-google-ads.png", p.jump.google],
+    ["google", "/images/services/logo-google-ads.png", p.jump.google],
     ["website", "/images/services/icon-website.svg", p.jump.web],
     ["social-media", "/images/services/icon-social.svg", p.jump.social],
   ];

@@ -518,8 +518,8 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
                       key={tab.id}
                       type="button"
                       role="tab"
-                      id={`gads-${tab.id}-tab`}
-                      aria-controls={`gads-${tab.id}`}
+                      id={`gtab-${tab.id}-tab`}
+                      aria-controls={`gtab-${tab.id}`}
                       aria-selected={i === 0}
                       tabIndex={i === 0 ? 0 : -1}
                     >
@@ -530,7 +530,7 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
                 {/* All three panels share one space, so the card keeps the height of the tallest */}
                 <div className="svc__panels">
                   {g.tabs.map((tab, i) => (
-                    <div key={tab.id} className="svc__panel" id={`gads-${tab.id}`} role="tabpanel" aria-labelledby={`gads-${tab.id}-tab`} hidden={i !== 0}>
+                    <div key={tab.id} className="svc__panel" id={`gtab-${tab.id}`} role="tabpanel" aria-labelledby={`gtab-${tab.id}-tab`} hidden={i !== 0}>
                       <div>
                         <h4 className="svc__plan">{tab.plan}</h4>
                         <p className="svc__desc">{tab.desc}</p>
