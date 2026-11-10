@@ -1,7 +1,7 @@
 # Bliss Digital
 
 > Digital marketing agency in South Jakarta, Indonesia (PT Blissindo Kreasi
-> Digital). We run Google Ads, Meta Ads, websites and social media for
+> Digital). We run Google Ads, websites and social media for
 > businesses, so they can focus on running the business. Google Partner.
 
 Our promise: reach the right people, at the right time, with the right
@@ -15,9 +15,6 @@ The site is available in English (/en) and Bahasa Indonesia (/id).
 - [Google Ads](https://blissdigital.id/en/services#google-ads): fully managed
   campaigns (Search, Performance Max, Display, Demand Gen, YouTube, Local), or
   a consultation with a written action plan, or training for teams.
-- [Meta Ads](https://blissdigital.id/en/services#meta-ads): fully managed
-  Facebook and Instagram ads, including lead ads, WhatsApp chat ads and
-  retargeting.
 - [Website creation](https://blissdigital.id/en/services#website): websites
   built to be found on Google (SEO) and in AI answers (GEO), with tracking set
   up at launch.

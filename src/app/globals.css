@@ -57,7 +57,7 @@
     0 0.5px 0.5px -0.25px rgb(67 7 25 / 0.04),
     0 1px 1px -0.5px rgb(67 7 25 / 0.03),
     0 2px 2px -1px rgb(67 7 25 / 0.03),
-    0 4px 4px -2px rgb(67 7 25 / 0.025),
+    0 4px 4px -2px rgb(67 7 25 / 0.02),
     0 8px 8px -4px rgb(67 7 25 / 0.02),
     0 14px 12px -6px rgb(67 7 25 / 0.02);
   --shadow-btn-hover:
@@ -126,10 +126,16 @@ body {
   inset: calc((1 - var(--p)) * 8px) calc(var(--p) * -1 * var(--bar-x));
   z-index: -1;
   border-radius: 16px;
-  background: rgb(255 255 255 / 0.85);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-bar);
+  /* Glass: a see-through white with a strong blur, a bright rim on the top
+     edge and a hairline border, so the page shows through softly */
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.62), rgb(255 255 255 / 0.42));
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgb(255 255 255 / 0.55);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.75),
+    inset 0 -1px 0 rgb(67 7 25 / 0.04),
+    var(--shadow-bar);
   opacity: var(--p);
   pointer-events: none;
 }
@@ -138,6 +144,7 @@ body {
 .nav.is-open .nav__inner::before {
   inset: 0 calc(-1 * var(--bar-x));
   opacity: 1;
+  background: rgb(255 255 255 / 0.92); /* menu open: less see-through, so links stay readable */
 }
 
 .nav__logo {
@@ -455,7 +462,7 @@ em.hero__word {
   padding: 12px 14px;
   border: 1.5px solid var(--accent);
   border-radius: 12px;
-  background: rgb(112 2 15 / 0.025);
+  background: rgb(112 2 15 / 0.02);
 }
 
 .search__tag { font-size: 11px; font-weight: 700; color: #202124; }
@@ -713,7 +720,9 @@ em.hero__word {
 
 .tagline {
   position: relative;
-  height: 220svh; /* 1.2 screens of pinned scroll; make taller to slow it down */
+  /* 2 screens of pinned scroll for the lines, then one more screen while
+     Our clients slides up over it (see .clients); make taller to slow it down */
+  height: 400svh;
   overflow-x: clip; /* not hidden: hidden would break position: sticky */
   background: var(--bg-dark);
 }
@@ -743,6 +752,18 @@ em.hero__word {
   pointer-events: none;
 }
 
+/* As Our clients slides over, the tagline darkens (--cover 0 to 1, set in
+   tagline.js). No shrinking: that showed strips at the screen edges */
+.tagline__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #000;
+  opacity: calc(var(--cover, 0) * 0.45);
+  pointer-events: none;
+}
+
 .tagline__bg {
   position: absolute;
   inset: 0;
@@ -753,13 +774,15 @@ em.hero__word {
 }
 
 .tagline__title {
+  position: relative;
+  z-index: 2; /* above the floating cards */
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(44px, 7.5vw, 108px);
+  font-size: clamp(40px, 6vw, 88px); /* a little smaller, so the examples have room */
   line-height: 1.12;
   letter-spacing: -0.02em;
   text-align: center;
@@ -769,11 +792,7 @@ em.hero__word {
   --e: 0; /* 0 = waiting below, 1 = in place; set on scroll */
   display: block;
   white-space: nowrap;
-  padding-bottom: 0.08em; /* keeps descenders inside the gradient clip */
-  background: linear-gradient(180deg, var(--white) 21.63%, var(--headline-end) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--white);
   transform-origin: 50% 0;
   transform:
     translateY(calc((1 - var(--e)) * 85svh))
@@ -789,6 +808,8 @@ em.hero__word {
 @media (prefers-reduced-motion: reduce) {
   .tagline { height: auto; }
   .tagline__line { --e: 1; will-change: auto; }
+  .tagline + .clients { margin-top: 0; } /* tagline isn't pinned, so no slide-over */
+  .tagline__stage::after { display: none; }
 }
 
 /* ---------- About us (not in Figma yet) ---------- */
@@ -850,20 +871,25 @@ em.hero__word {
 .about__title {
   margin: 24px 0 0;
   font-weight: 500;
-  font-size: clamp(44px, 4.45vw, 64px);
-  line-height: 1.02;
+  /* a little smaller than other section titles, to suit the
+     half-width column */
+  font-size: clamp(34px, 3.4vw, 50px);
+  text-wrap: balance;
+  line-height: 1.15; /* looser than other titles: this one is a full sentence over two lines */
   letter-spacing: -0.05em;
   color: var(--ink);
 }
 
-.about__title span { display: block; }
+/* One sentence that wraps naturally: "based in Indonesia" follows
+   straight after "agency" instead of starting its own line */
+.about__title span { display: inline; }
 .about__title em { color: var(--accent); }
 
 .about__text {
   margin: 20px 0 0;
   max-width: 480px;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
   color: var(--muted);
 }
 
@@ -953,6 +979,26 @@ em.hero__word {
   padding: var(--section-space) 0;
   overflow: hidden;
 }
+/* Home only (right after the tagline): slides up over the pinned tagline
+   like a sheet. It starts one screen early (the tagline's last 100svh) and
+   sits on top of it. On other pages Our clients stays a normal section. */
+.tagline + .clients {
+  position: relative;
+  z-index: 2;
+  margin-top: -100svh;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -24px 60px rgb(20 2 8 / 0.35);
+}
+@media (max-width: 700px) {
+  .tagline + .clients { border-radius: 24px 24px 0 0; }
+}
+/* Our clients is shorter than a screen, so the sections after it also start
+   while the tagline is still pinned: keep them all above it too */
+.tagline ~ section {
+  position: relative;
+  z-index: 2;
+}
+
 
 .clients__head {
   max-width: 1200px;
@@ -1149,11 +1195,23 @@ em.hero__word {
 .svc__lead {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
 
-.svc__icon { display: flex; flex: none; }
-.svc__icon img { display: block; width: 48px; height: 48px; }
+/* Every service mark sits in the same small white tile (same border as the
+   white panel below), so the Google Ads logo and the line icons match */
+.svc__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #e2e2e2;
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 1px 2px rgb(67 7 25 / 0.04);
+}
+.svc__icon img { display: block; width: 30px; height: 30px; }
 
 .svc__title {
   margin: 0;
@@ -1164,8 +1222,8 @@ em.hero__word {
 }
 
 .svc__sub {
-  margin: 4px 0 0;
-  max-width: 520px;
+  margin: 6px 0 0;
+  max-width: none;
   font-size: 16px;
   line-height: 1.45;
   color: var(--ink);
@@ -1450,6 +1508,8 @@ em.hero__word {
   .svc__tabs button { flex: 1 1 auto; padding: 9px 6px; font-size: 13px; }
   .svc__tabs__pill { top: 4px; bottom: 4px; }
   .svc__lead { align-items: flex-start; gap: 14px; }
+  .svc__icon { width: 48px; height: 48px; border-radius: 13px; }
+  .svc__icon img { width: 24px; height: 24px; }
   .svc__text { padding: 0; }
   .svc__actions .btn { flex: 1 1 100%; justify-content: center; white-space: nowrap; }
 }
@@ -1519,7 +1579,7 @@ em.hero__word {
   margin: 0;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: -0.04em; /* Figma: -0.56px at 14px */
+  letter-spacing: 0.06em; /* opened up from Figma's -0.04em: capitals read better with air */
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -2162,7 +2222,7 @@ em.hero__word {
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--white);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.03), 0 4px 12px rgb(0 0 0 / 0.025);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.03), 0 4px 12px rgb(0 0 0 / 0.02);
   color: inherit;
   text-decoration: none;
   transition: box-shadow 300ms ease;
@@ -3352,137 +3412,368 @@ main { background: var(--white); }
   color: var(--muted);
 }
 
+/* Centred section heading (About: Mission and vision) */
+.block__head--center { justify-content: center; text-align: center; }
+.block__head--center .block__intro { align-items: center; }
+
 /* ---------- About: mission and vision ---------- */
 
+/* Mission and vision: two open columns on the beige, split by a hairline
+   instead of white boxes */
 .mv {
+  grid-template-columns: repeat(2,minmax(0,1fr));
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
 }
 
 .mv__card {
-  display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: clamp(24px, 3vw, 40px);
-  border-radius: 28px;
-  background: var(--white);
+  gap: 18px;
+  padding: 0 clamp(24px,4vw,56px) 0 0;
+  display: flex;
 }
 
-.mv__label,
-.sd__group h3,
-.visit__list small {
+.mv__card + .mv__card {
+  border-left: 1px solid rgb(67 7 25 / 0.12);
+  padding-left: clamp(24px,4vw,56px);
+  padding-right: 0;
+}
+
+/* Label in the site font, in burgundy */
+.mv__label {
   margin: 0;
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-weight: 500; /* same weight as the How we work point names */
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
   color: var(--accent);
 }
 
-.mv__text {
+.sd__group h3,
+.visit__list small {
+  font-family: var(--font-mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--accent);
   margin: 0;
-  font-size: clamp(19px, 1.8vw, 24px);
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
 }
 
-/* Beliefs: a short statement, then what it means in practice */
-.beliefs {
+/* Same size and colour as the How we work descriptions */
+.mv__text {
+  max-width: 34em;
+  color: var(--muted);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* About: How we work. Heading on the left, the four points stacked on the
+   right as an accordion (one open at a time, the first open on load) */
+.block__inner--split {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 48px 72px;
+  align-items: start;
+}
+.block__head--stack { flex-direction: column; align-items: flex-start; gap: 32px; }
+
+.beliefs {
   margin: 0;
   padding: 0;
   list-style: none;
+  border-bottom: 1px solid rgb(67 7 25 / 0.14);
 }
+.belief {
+  position: relative;
+  border-top: 1px solid rgb(67 7 25 / 0.14);
+}
+.belief__h { margin: 0; font: inherit; }
 
-.beliefs li {
+/* Timer line: fills along the top of the open point (--t, 0 to 1, set in
+   site.js), then the next point opens */
+.belief__bar {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(var(--t, 0));
+  transform-origin: left;
+  opacity: 0;
+}
+.belief.is-open .belief__bar { opacity: 1; }
+
+.belief__btn {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 20px;
-  border-top: 1.5px solid var(--ink);
-}
-
-.beliefs b {
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 1.3;
-  color: var(--ink);
-}
-
-.beliefs span {
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--muted);
-}
-
-/* Office and contact details */
-.visit {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: baseline;
   gap: 16px;
+  width: 100%;
+  padding: 18px 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.belief__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
+
+.belief__num {
+  flex: none;
+  width: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: rgb(67 7 25 / 0.4);
+  transition: color .3s ease;
+}
+.belief.is-open .belief__num { color: var(--accent); }
+
+.belief__name {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.belief__btn:hover .belief__name { color: var(--accent); }
+
+/* Open and close by growing the row from 0 to its content height */
+.belief__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .45s cubic-bezier(.22, 1, .36, 1);
+}
+.belief.is-open .belief__panel { grid-template-rows: 1fr; }
+.belief__inner {
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s .45s;
+}
+.belief.is-open .belief__inner { visibility: visible; transition-delay: 0s; }
+.belief__inner p {
+  margin: 0;
+  /* lines up under the name, past the number */
+  padding: 0 0 20px 40px;
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .block__inner--split { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .block__head--stack { gap: 24px; }
+}
+@media (max-width: 600px) {
+  .belief__btn { gap: 12px; padding: 16px 0; }
+  .belief__name { font-size: 17px; }
+  .belief__inner p { padding-left: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .belief__panel, .belief__num { transition: none; }
+  .belief__bar { display: none; }
+}
+
+.visit {
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 16px;
+  display: grid;
 }
 
 .visit__card {
-  display: flex;
+  background: var(--card);
+  border-radius: 20px;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
   padding: 28px;
-  border-radius: 20px;
-  background: var(--card);
+  display: flex;
 }
 
 .visit__card address {
-  font-style: normal;
-  font-size: 17px;
-  line-height: 26px;
   color: var(--ink);
+  font-size: 17px;
+  font-style: normal;
+  line-height: 26px;
 }
 
 .visit__list {
+  flex-direction: column;
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
-.visit__list li { display: flex; flex-direction: column; gap: 4px; }
-.visit__list small { color: var(--grey); }
+.visit__list li {
+  align-items: center;
+  gap: 14px;
+  display: flex;
+}
+
+/* Label and value beside each contact icon */
+.visit__item {
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  display: flex;
+}
+
+/* Location pin beside the address */
+.visit__place {
+  align-items: flex-start;
+  gap: 14px;
+  display: flex;
+}
+
+.visit__icon {
+  flex: none;
+  color: var(--accent);
+}
+
+.visit__place .visit__icon { margin-top: 1px; }
+
+.visit__list small {
+  color: var(--grey);
+}
 
 .visit__list a,
 .visit__list span {
-  font-size: 17px;
-  line-height: 24px;
   color: var(--ink);
   text-underline-offset: 3px;
+  font-size: 17px;
+  line-height: 24px;
 }
 
-.visit__list a:hover { color: var(--accent); }
+.visit__list a:hover {
+  color: var(--accent);
+}
 
 .text-link {
-  display: inline-flex;
+  color: var(--accent);
+  text-underline-offset: 3px;
   align-items: center;
   gap: 6px;
   margin-top: auto;
   font-size: 15px;
+  display: inline-flex;
+}
+
+/* Address card: "Open in Google Maps" as a small square icon button
+   (just the arrow) in the card's top-right corner */
+.visit__card:has(> .visit__place) { position: relative; }
+
+.visit__place strong {
+  display: inline-block;
+  max-width: calc(100% - 56px); /* clear of the button */
+  margin-bottom: 8px; /* keeps the address lines below the button */
+}
+
+.visit__card > .text-link {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-top: 0;
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.visit__card > .text-link svg { transition: transform 180ms ease; }
+
+.visit__card > .text-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.visit__card > .text-link:hover svg { transform: translate(1px, -1px); }
+
+.visit__card > .text-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Copy the address: a copy icon appears at the end of the address while you
+   hover it; after a click it turns into a tick with "Copied" beside it */
+.copy-addr {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.copy-addr__btn {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
   color: var(--accent);
-  text-underline-offset: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 180ms ease, background-color 180ms ease;
 }
 
-@media (max-width: 1000px) {
-  .beliefs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; }
+.visit__place:hover .copy-addr__btn,
+.copy-addr__btn:focus-visible,
+.copy-addr.is-copied .copy-addr__btn { opacity: 1; }
+
+.copy-addr__btn:hover { background: rgb(112 2 15 / 0.08); }
+
+.copy-addr__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
 }
 
-@media (max-width: 700px) {
-  .mv, .visit, .beliefs { grid-template-columns: 1fr; }
+.copy-addr__check,
+.copy-addr.is-copied .copy-addr__copy { display: none; }
+.copy-addr.is-copied .copy-addr__check { display: block; }
+
+.copy-addr__done {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--accent);
+}
+
+/* Touch screens can't hover, so the icon is always shown */
+@media (hover: none) {
+  .copy-addr__btn { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-addr__btn { transition: none; }
+}
+
+@media (max-width:700px) {
+  .mv,
+  .visit {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stacked on phones: the divider runs across instead of down */
+@media (max-width:700px) {
+  .mv__card { padding: 0 0 28px; }
+  .mv__card + .mv__card {
+    border-left: 0;
+    border-top: 1px solid rgb(67 7 25 / 0.12);
+    padding: 28px 0 0;
+  }
 }
 
 /* ---------- Services page ---------- */
@@ -3941,26 +4232,46 @@ main { background: var(--white); }
 }
 
 /* ---------- Homepage logo intro (burgundy screen before the hero) ---------- */
-/* The stage pins for 80svh of scrolling (height minus one screen). During that
-   stretch the white mark flies into the navbar's logo slot (initIntro in
-   effects.ts). Note: the stage must not create a stacking context (no
-   isolation, z-index, transform or opacity), or the flying mark would end up
-   under the navbar's frosted bar. */
+/* Intro screen (home): a full-screen layer over the hero that plays on its
+   own (site.js), then fades away. --fade (0 to 1) is set during the logo
+   flight; .is-gone removes it once the fade is over */
 .intro {
-  position: relative;
-  height: 180svh;
+  --fade: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 55; /* over the page and navbar background, under the flying logo */
+  height: 100svh;
   background: var(--bg-dark);
+  opacity: calc(1 - var(--fade));
 }
+.intro.is-done {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s ease;
+}
+.intro.is-gone,
+.intro-seen .intro { display: none; }
+/* The navbar styles for the intro (data-stage, data-logo, data-tone, rendered
+   on the homepage before scripts run) are scoped to :root:not(.intro-seen),
+   so a repeat visit shows the bar normally from the first frame. */
+/* No scrolling while it plays (any scroll attempt skips it instead) */
+.intro-lock, .intro-lock body { overflow: hidden; }
 
 .intro__stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
   background: radial-gradient(120% 90% at 30% 90%, #4a0d20 0%, var(--bg-dark) 60%);
+  place-items: center;
+  height: 100svh;
+  display: grid;
+  position: relative;
+  overflow: hidden;
 }
+
+/* The logo and name fade in when the page opens (the name also rises a
+   little; the logo doesn't move, since its flight starts from that spot) */
+.intro.is-playing .intro__slot { animation: intro-fade .6s ease both; }
+.intro.is-playing .intro__name { animation: intro-rise .7s cubic-bezier(.2, .8, .2, 1) .1s both; }
+@keyframes intro-fade { from { opacity: 0; } }
+@keyframes intro-rise { from { opacity: 0; translate: 0 14px; } }
 
 .intro__bg {
   position: absolute;
@@ -4034,7 +4345,7 @@ main { background: var(--white); }
 }
 
 /* The navbar's own logo hides while the big one is on its way */
-.nav[data-logo="flying"] .nav__logo img { opacity: 0; }
+:root:not(.intro-seen) .nav[data-logo="flying"] .nav__logo img { opacity: 0; }
 
 /* The rest of the navbar (frosted bar, links, buttons) stays out of sight
    during the intro and fades in once the logo has landed. visibility keeps the
@@ -4045,7 +4356,7 @@ main { background: var(--white); }
 
 .nav__inner::before { transition: opacity 400ms ease; }
 
-.nav[data-stage="intro"] .nav__end {
+:root:not(.intro-seen) .nav[data-stage="intro"] .nav__end {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -4053,7 +4364,7 @@ main { background: var(--white); }
   transition: opacity 250ms ease, transform 250ms ease, visibility 0s 250ms;
 }
 
-.nav[data-stage="intro"] .nav__inner::before { opacity: 0; }
+:root:not(.intro-seen) .nav[data-stage="intro"] .nav__inner::before { opacity: 0; }
 
 /* Desktop links (on phones they live in the menu, which opens from the
    button above). They arrive a beat after the bar, so the logo lands first. */
@@ -4062,7 +4373,7 @@ main { background: var(--white); }
     transition: opacity 400ms ease 120ms, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms, visibility 0s;
   }
 
-  .nav[data-stage="intro"] .nav__links {
+  :root:not(.intro-seen) .nav[data-stage="intro"] .nav__links {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
@@ -4115,16 +4426,15 @@ main { background: var(--white); }
 .nav .nav__lang,
 .nav .nav__end .nav__cta { transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease, opacity 180ms ease; }
 
-.nav[data-tone="dark"]:not(.is-open) .nav__links a:not(.btn) { color: var(--white); opacity: 0.85; }
-.nav[data-tone="dark"]:not(.is-open) .nav__links a:not(.btn):hover { opacity: 1; }
-.nav[data-tone="dark"] .nav__lang { color: var(--white); border-color: rgb(255 255 255 / 0.4); }
-.nav[data-tone="dark"] .nav__lang:hover,
-.nav[data-tone="dark"] .nav__lang[aria-expanded="true"] { background: rgb(255 255 255 / 0.1); border-color: var(--white); }
-.nav[data-tone="dark"] .nav__end .nav__cta { background: rgb(255 255 255 / 0.14); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.55); }
-.nav[data-tone="dark"] .nav__toggle { background: rgb(255 255 255 / 0.16); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4); }
+:root:not(.intro-seen) .nav[data-tone="dark"]:not(.is-open) .nav__links a:not(.btn) { color: var(--white); opacity: 0.85; }
+:root:not(.intro-seen) .nav[data-tone="dark"]:not(.is-open) .nav__links a:not(.btn):hover { opacity: 1; }
+:root:not(.intro-seen) .nav[data-tone="dark"] .nav__lang { color: var(--white); border-color: rgb(255 255 255 / 0.4); }
+:root:not(.intro-seen) .nav[data-tone="dark"] .nav__lang:hover,
+:root:not(.intro-seen) .nav[data-tone="dark"] .nav__lang[aria-expanded="true"] { background: rgb(255 255 255 / 0.1); border-color: var(--white); }
+:root:not(.intro-seen) .nav[data-tone="dark"] .nav__end .nav__cta { background: rgb(255 255 255 / 0.14); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.55); }
+:root:not(.intro-seen) .nav[data-tone="dark"] .nav__toggle { background: rgb(255 255 255 / 0.16); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4); }
 
 @media (prefers-reduced-motion: reduce) {
-  .intro { height: 100svh; }
   .intro__cue-line { animation: none; }
 }
 
@@ -4170,8 +4480,8 @@ main { background: var(--white); }
 .nav[data-band="dark"]::after { opacity: var(--p); }
 .nav[data-band="dark"]::before { opacity: 0; }
 
-.nav[data-stage="intro"]::before,
-.nav[data-stage="intro"]::after { opacity: 0; }
+:root:not(.intro-seen) .nav[data-stage="intro"]::before,
+:root:not(.intro-seen) .nav[data-stage="intro"]::after { opacity: 0; }
 
 /* ---------- Language switch ---------- */
 /* While the navbar's language switch swaps the page (html[data-lang-switch],
@@ -4186,3 +4496,335 @@ html[data-lang-switch] *::after {
 html[data-lang-switch] .hero [data-intro] { opacity: 1; filter: none; transform: none; }
 html[data-lang-switch] .hero .bars i { transform: none; }
 html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
+
+/* ==========================================================================
+   Type scale: one size and weight per text role, on every page.
+   This block comes last on purpose, so it wins over the older per-section
+   sizes above (and their phone overrides).
+     H1  page titles                       80px → 44px on phones, 500
+     H2  section titles                    64px → 36px, 500
+     H3  card and article sub-headings     24px → 20px, 500
+     H4  list items, questions, small cards 18px, 500
+     Body                                  16px / 1.6, 400
+   Left alone on purpose: the homepage hero name and tagline (display
+   pieces), the mock-up screens inside illustrations, eyebrows, buttons,
+   form fields, small print and footer.
+   ========================================================================== */
+:root {
+  --fs-h1: clamp(44px, 5.556vw, 80px);
+  --fs-h2: clamp(36px, 4.45vw, 64px);
+  --fs-h3: clamp(20px, 1.67vw, 24px);
+  --fs-h4: 18px;
+  --fs-body: 16px;
+}
+
+.page__title,
+.contact__title,
+.article__title {
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.block__title,
+.about__title,
+.clients__title,
+.cases__title,
+.faq__title,
+.services__title,
+.why__title,
+.cta__title,
+.sd__title {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.svc__title,
+.wc__title,
+.prose h2,
+.next-case__title {
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.mv__label,
+.belief__name,
+.qa button,
+.case__title,
+.posts .case__title,
+.svc__plan,
+.way b,
+.steps b,
+.visit__card address strong {
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.hero__lede,
+.page__lede,
+.contact__lede,
+.article__lede,
+.sd__lede,
+.block__lede,
+.about__text,
+.cases__lede,
+.clients__lede,
+.faq__lede,
+.services__lede,
+.why__lede,
+.svc__sub,
+.svc__desc,
+.svc__list li,
+.sd__group .svc__list li,
+.wc__body,
+.mv__text,
+.belief__inner p,
+.prose p,
+.prose li,
+.steps span,
+.way span,
+.qa__a p,
+.case__body,
+.visit__card address,
+.visit__list a {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ---------- Tagline: floating examples around the lines ----------
+   After the Spade reference, with the examples from the Bliss artifact's
+   tagline section: likely buyers (dot grid), searches by hour (bars) and a
+   sponsored ad. Each belongs to one line (people, time, message) and floats
+   in as that line arrives (--l = that line's progress, set on the stage by
+   tagline.js); while pinned they drift up at different speeds (--d). Faint
+   mono labels add depth. All text white. Decorative only (aria-hidden). */
+.tagline__float {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --in animates 0 → 1 on its own (a timed transition, not tied to the
+   scroll speed) once the example's line is in place: tagline.js adds
+   .show-1/2/3 to the stage. --l follows it, and everything inside the
+   example (dots, bars) reads --l. */
+@property --in {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+.tf {
+  --in: 0;
+  --l: var(--in);
+  transition: --in 1.1s cubic-bezier(.2, .8, .2, 1) var(--dl, 0s);
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  opacity: var(--l);
+  transform: translateY(calc((1 - var(--l)) * 28px - var(--progress, 0) * var(--d) * 0.5px)) scale(calc(0.96 + var(--l) * 0.04));
+  will-change: transform, opacity;
+  color: var(--white);
+}
+
+.show-1 .tf[data-line="1"],
+.show-2 .tf[data-line="2"],
+.show-3 .tf[data-line="3"] { --in: 1; }
+/* leaving: fade out quicker, no stagger */
+.tagline__stage:not(.show-1) .tf[data-line="1"],
+.tagline__stage:not(.show-2) .tf[data-line="2"],
+.tagline__stage:not(.show-3) .tf[data-line="3"] { transition-duration: .5s; transition-delay: 0s; }
+
+/* Faint label: mono, with small corner ticks instead of a full border */
+.tf--tag {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 16px 13px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.2;
+  background:
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) top left / 7px 1px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) top left / 1px 7px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) top right / 7px 1px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) top right / 1px 7px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) bottom left / 7px 1px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) bottom left / 1px 7px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) bottom right / 7px 1px,
+    linear-gradient(rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.4)) bottom right / 1px 7px,
+    rgb(255 255 255 / 0.03);
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.tf--tag b { font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
+.tf--far { opacity: calc(var(--l) * 0.5); }
+.tf--tag:not(.tf--far) { opacity: calc(var(--l) * 0.75); }
+
+/* Glass panel holding one example */
+.tf--panel {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px 14px;
+  border-radius: 14px;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  background: rgb(255 255 255 / 0.07);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 16px 40px rgb(10 0 4 / 0.35), inset 0 1px 0 rgb(255 255 255 / 0.1);
+}
+.tf__cap {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* Right people: 36 people, the likely buyers light up as the line arrives */
+.tf__dots { display: grid; grid-template-columns: repeat(12, 10px); gap: 7px; }
+.tf__dots i { width: 10px; height: 10px; border-radius: 50%; background: rgb(255 255 255 / 0.16); }
+.tf__dots i.on {
+  background: var(--white);
+  box-shadow: 0 0 10px rgb(255 255 255 / 0.45);
+  transform: scale(clamp(0, calc(var(--l) * 7 - var(--k) * 0.6), 1));
+}
+
+/* Right time: searches by hour; the bars grow as the line arrives and the
+   busiest hours are lit */
+.tf__bars { display: grid; grid-template-columns: repeat(24, 7px); gap: 3px; height: 52px; align-items: end; }
+.tf__bars i {
+  height: calc(var(--h) * 1%);
+  border-radius: 2px 2px 0 0;
+  background: rgb(255 255 255 / 0.2);
+  transform-origin: bottom;
+  transform: scaleY(clamp(0, calc(var(--l) * 2.2 - var(--k) * 0.05), 1));
+}
+.tf__bars i.on { background: var(--white); }
+.tf__axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10.5px; }
+
+/* Right message: a small search ad that was kept after testing */
+.tf__ad {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  white-space: nowrap; /* each line stays on one line: wide and short */
+  border-radius: 9px;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.05);
+}
+.tf__ad p { margin: 0; }
+.tf__ad-top { font-size: 10.5px; }
+.tf__ad-top b { font-weight: 700; }
+.tf__ad-h { font-size: 13px; font-weight: 600; line-height: 1.3; }
+.tf__ad-d { font-size: 11.5px; line-height: 1.35; }
+.tf--ad { gap: 8px; padding: 12px 14px 10px; }
+.tf__ad-ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 3px !important;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+}
+.tf__ad-ok::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7fd16a;
+  box-shadow: 0 0 0 3px rgb(127 209 106 / 0.2);
+}
+
+/* Ambient motion once the examples are on screen (tagline.js adds
+   .is-live while the section is in view, so nothing runs off screen).
+   Separate properties (translate, scale, opacity) so they don't fight the
+   scroll-driven transform above. */
+.tagline.is-live .tf--panel { animation: tf-bob 6s ease-in-out infinite; }
+.tagline.is-live .tf--bars { animation-duration: 7s; animation-delay: -2s; }
+.tagline.is-live .tf--ad { animation-duration: 6.5s; animation-delay: -4s; }
+@keyframes tf-bob { 50% { translate: 0 -6px; } }
+
+/* Dots: a soft wave ripples across the crowd, and the likely buyers pulse */
+.tagline.is-live .tf__dots i:not(.on) { animation: tf-wave 3.6s ease-in-out infinite; animation-delay: calc(var(--n) * 0.07s); }
+@keyframes tf-wave { 0%, 70%, 100% { background: rgb(255 255 255 / 0.16); } 35% { background: rgb(255 255 255 / 0.4); } }
+.tagline.is-live .tf__dots i.on { animation: tf-pulse 2.4s ease-in-out infinite; animation-delay: calc(var(--k) * 0.35s); }
+@keyframes tf-pulse {
+  50% { box-shadow: 0 0 0 4px rgb(255 255 255 / 0.15), 0 0 14px rgb(255 255 255 / 0.6); }
+}
+
+/* Bars: searches keep coming in, so each bar breathes a little */
+.tagline.is-live .tf__bars i { animation: tf-breathe 2.8s ease-in-out infinite alternate; animation-delay: calc(var(--k) * -0.23s); }
+@keyframes tf-breathe { from { scale: 1 1; } to { scale: 1 0.72; } }
+.tagline.is-live .tf__bars i.on { animation-name: tf-breathe-on; }
+@keyframes tf-breathe-on { from { scale: 1 1; opacity: 1; } to { scale: 1 0.88; opacity: 0.75; } }
+
+/* Ad: a light sweep passes over it now and then; the "kept" dot pulses */
+.tf__ad { position: relative; overflow: hidden; }
+.tf__ad::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.14) 50%, transparent 65%);
+  translate: -100% 0;
+}
+.tagline.is-live .tf__ad::after { animation: tf-sweep 4.5s ease-in-out infinite 1s; }
+@keyframes tf-sweep { 0% { translate: -100% 0; } 45%, 100% { translate: 100% 0; } }
+.tagline.is-live .tf__ad-ok::before { animation: tf-ok 1.8s ease-out infinite; }
+@keyframes tf-ok {
+  0% { box-shadow: 0 0 0 0 rgb(127 209 106 / 0.6); }
+  100% { box-shadow: 0 0 0 8px rgb(127 209 106 / 0); }
+}
+
+/* Labels: a typing cursor blinks after the value */
+.tf--tag span::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  margin-left: 3px;
+  vertical-align: -1px;
+  background: rgb(255 255 255 / 0.7);
+  opacity: 0;
+}
+.tagline.is-live .tf--tag span::after { animation: tf-caret 1.1s steps(1) infinite; }
+@keyframes tf-caret { 50% { opacity: 1; } }
+
+/* Medium screens: a bit smaller, no faint side labels */
+@media (max-width: 1100px) {
+  .tf--panel { scale: 0.85; transform-origin: left top; }
+  .tf--far { display: none; }
+}
+/* Phones: just the dot grid above the lines and the ad below */
+@media (max-width: 700px) {
+  .tf--tag, .tf--bars { display: none; }
+  .tf--panel { scale: 0.78; }
+  .tf--dots { left: 14%; top: 14%; }
+  .tf--ad { left: 10%; top: 72%; }
+}
+/* Short screens: no room above the lines under the navbar */
+@media (max-height: 680px) {
+  .tf--top { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tf { transform: none; transition: none; --in: 1; }
+  .tf__dots i.on, .tf__bars i { transform: none; }
+  .tagline .tf, .tagline .tf *, .tagline .tf *::before, .tagline .tf *::after { animation: none !important; }
+}
+
+/* CTA banner heading: smaller than the other section titles, so each
+   sentence fits on one line next to the button (asked for on Services) */
+.cta__title {
+  font-size: clamp(26px, 2.9vw, 42px);
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+}

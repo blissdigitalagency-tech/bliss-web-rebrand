@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type MouseEvent } from "react";
 import type { Dictionary } from "@/i18n/en";
 import type { Locale } from "@/i18n/config";
-import { initSite, initIntro, initHero, initTagline, initServices, initWhy, markLanguageSwitch } from "@/lib/client/effects";
+import { initSite, initIntro, initHero, initTagline, initServices, initWhy, initBeliefs, markLanguageSwitch } from "@/lib/client/effects";
 import { initSilk } from "@/lib/client/silk";
 import { rich } from "./Rich";
 
@@ -24,7 +24,7 @@ export function SiteEffects() {
   return null;
 }
 
-const inits = { intro: initIntro, hero: initHero, tagline: initTagline, services: initServices, why: initWhy };
+const inits = { intro: initIntro, hero: initHero, tagline: initTagline, services: initServices, why: initWhy, beliefs: initBeliefs };
 
 /** Runs one section's animation script on the section with this class. */
 export function SectionEffects({ section }: { section: keyof typeof inits }) {

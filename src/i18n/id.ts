@@ -9,17 +9,17 @@ export const id: Dictionary = {
     home: {
       title: "Bliss Digital | Agensi digital marketing di Jakarta",
       description:
-        "Anda fokus menjalankan bisnis. Kami pastikan bisnis Anda menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Google Ads, Meta Ads, dan website, kami jalankan untuk Anda.",
+        "Anda fokus menjalankan bisnis. Kami pastikan bisnis Anda menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Google Ads dan website, kami jalankan untuk Anda.",
     },
     about: {
       title: "Tentang kami",
       description:
-        "Bliss Digital adalah agensi pemasaran Google Partner di Jakarta Selatan. Kami menjalankan Google Ads, Meta Ads, dan website untuk bisnis yang ingin fokus pada pekerjaannya.",
+        "Bliss Digital adalah agensi pemasaran Google Partner di Jakarta Selatan. Kami menjalankan Google Ads dan website untuk bisnis yang ingin fokus pada pekerjaannya.",
     },
     services: {
       title: "Layanan",
       description:
-        "Google Ads, Meta Ads, pembuatan website, dan manajemen media sosial, direncanakan dan dijalankan untuk Anda oleh Bliss Digital di Jakarta.",
+        "Google Ads, pembuatan website, dan manajemen media sosial, direncanakan dan dijalankan untuk Anda oleh Bliss Digital di Jakarta.",
     },
     cases: {
       title: "Studi kasus",
@@ -84,7 +84,6 @@ export const id: Dictionary = {
   intro: {
     name: "Bliss",
     nameEm: "Digital",
-    cue: "Gulir",
   },
 
   hero: {
@@ -110,11 +109,33 @@ export const id: Dictionary = {
 
   tagline: ["Orang yang tepat.", "Waktu yang tepat.", "*Pesan yang tepat.*"],
 
+  taglineFloat: {
+    audience: "Audiens",
+    audienceText: "Mencari yang Anda jual",
+    buyersCap: "Contoh · calon pembeli di antara semua orang online",
+    location: "Lokasi",
+    locationText: "Jakarta Selatan",
+    season: "Musim",
+    seasonText: "Puncak Ramadan",
+    hoursCap: "Contoh · pencarian per jam dalam sehari",
+    sponsored: "Bersponsor",
+    adTitle: "Kamar 5 menit dari pantai",
+    adDesc: "Rating 4,8 dari tamu. Pesan lewat WhatsApp.",
+    adKept: "Dipakai setelah diuji",
+    adCap: "Contoh iklan",
+  },
+
   clients: {
     eyebrow: "Klien kami",
     title: "Brand yang",
     titleEm: "Tumbuh Bersama Kami",
     lede: "Inilah brand yang kami kelola dan bantu bertumbuh. Industri berbeda, keterlibatan langsung yang sama dari kami. Kami selalu dekat dengan setiap proyek, dari awal hingga akhir.",
+  },
+
+  aboutHome: {
+    titleA: "Agensi Google Partner",
+    titleB: "*berbasis di Indonesia*",
+    text: "Kami menjalankan Google Ads dan website untuk bisnis di bidang perhotelan, pendidikan, event, FMCG, dan lainnya. Sebagian besar klien kami memiliki satu lokasi. Kami *mengecek tracking sebelum mengeluarkan anggaran*, dan kami jelaskan setiap hasil dengan bahasa yang sederhana.",
   },
 
   about: {
@@ -186,21 +207,6 @@ export const id: Dictionary = {
         },
       ],
     },
-    meta: {
-      title: "Meta Ads",
-      sub: "Iklan Facebook dan Instagram, direncanakan dan dijalankan untuk Anda oleh Bliss.",
-      plan: "Dikelola penuh oleh Bliss",
-      desc: "Kami merencanakan, membangun, dan menjalankan iklan Facebook dan Instagram Anda. Kami menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Langganan bulanan.",
-      button: "Tanya soal kelola penuh",
-      items: [
-        "Orang yang tepat: audiens berdasarkan lokasi, minat, dan orang yang mirip pelanggan Anda",
-        "Waktu yang tepat: pengaturan anggaran dan batas berapa kali satu orang melihat iklan",
-        "Pesan yang tepat: gambar, video, dan caption yang kami uji",
-        "Cek Meta Pixel dan Conversions API sebelum anggaran dipakai",
-        "Tinjauan 360 rutin atas hasil Anda",
-        "Iklan prospek, iklan chat WhatsApp, dan retargeting",
-      ],
-    },
     web: {
       title: "Pembuatan website",
       sub: "Website yang bisa ditemukan orang dan alat pencarian AI, serta mengubah pengunjung menjadi pelanggan.",
@@ -214,6 +220,21 @@ export const id: Dictionary = {
         "Jalur yang jelas ke WhatsApp, booking, atau formulir",
         "GA4 dan tracking konversi terpasang saat peluncuran",
         "Setiap halaman diuji sebelum website tayang",
+      ],
+    },
+    social: {
+      title: "Manajemen media sosial",
+      sub: "Instagram dan TikTok, direncanakan dan diunggah untuk Anda oleh Bliss.",
+      plan: "Dikelola penuh oleh Bliss",
+      desc: "Kami menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan, agar brand Anda tetap konsisten dan terlihat dengan konten yang ingin dilihat audiens Anda. Langganan bulanan.",
+      button: "Tanya soal media sosial",
+      items: [
+        "Rencana konten bulanan sesuai tujuan dan musim Anda",
+        "Copywriting dan caption dengan gaya bahasa brand Anda",
+        "Desain post, carousel, dan video pendek",
+        "Penjadwalan dan pengunggahan",
+        "Membalas komentar dan pesan",
+        "Laporan bulanan tentang jangkauan, interaksi, dan konten berikutnya",
       ],
     },
   },
@@ -279,7 +300,7 @@ export const id: Dictionary = {
     ownership: {
       label: "Milik Anda",
       title: "Akun Anda tetap milik Anda",
-      body: "Akun Google Ads, Meta, dan Analytics atas nama Anda. Anda membayar biaya iklan langsung ke platform, dan Anda bisa masuk kapan saja.",
+      body: "Akun Google Ads dan Analytics atas nama Anda. Anda membayar biaya iklan langsung ke platform, dan Anda bisa masuk kapan saja.",
       owner: "Pemilik setiap akun: bisnis Anda",
       key: "Data Anda, *akses Anda*",
     },
@@ -303,7 +324,7 @@ export const id: Dictionary = {
       {
         q: "Apa saja yang termasuk dalam “dikelola penuh”?",
         a: [
-          "Untuk Google Ads dan Meta Ads, kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Kami menemukan orang yang tepat, memilih waktu yang tepat, serta menulis dan menguji pesan yang tepat. Sebelum anggaran dipakai, kami cek tracking Anda. Kami meninjau hasil secara rutin dan melakukan perubahan lebih awal saat sesuatu tidak berjalan.",
+          "Untuk Google Ads, kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Kami menemukan orang yang tepat, memilih waktu yang tepat, serta menulis dan menguji pesan yang tepat. Sebelum anggaran dipakai, kami cek tracking Anda. Kami meninjau hasil secara rutin dan melakukan perubahan lebih awal saat sesuatu tidak berjalan.",
         ],
       },
       {
@@ -321,7 +342,7 @@ export const id: Dictionary = {
       {
         q: "Berapa biayanya?",
         a: [
-          "Biaya kami tergantung layanan yang Anda pilih dan besarnya pekerjaan. Anggaran iklan terpisah, dan Anda bayar langsung ke Google atau Meta.",
+          "Biaya kami tergantung layanan yang Anda pilih dan besarnya pekerjaan. Anggaran iklan terpisah, dan Anda bayar langsung ke Google.",
           "Kami sampaikan harga lengkap di proposal sebelum Anda memutuskan.",
         ],
       },
@@ -365,7 +386,6 @@ export const id: Dictionary = {
     serviceError: "Mohon pilih layanan.",
     services: [
       { key: "google-ads", label: "Google Ads" },
-      { key: "meta-ads", label: "Meta Ads" },
       { key: "website", label: "Website" },
       { key: "social-media", label: "Media sosial" },
       { key: "consultation", label: "Konsultasi atau pelatihan Google Ads" },
@@ -405,13 +425,15 @@ export const id: Dictionary = {
       ["Satu tujuan jelas dulu", "Penjualan, prospek, atau booking. Kami sepakati sebelum anggaran dipakai, agar setiap keputusan punya alasan."],
       ["Tracking sebelum iklan", "Kami pastikan setiap hasil tercatat dengan benar, dan mengujinya dengan satu aksi nyata."],
       ["Laporan bahasa sederhana", "Tinjauan 360 rutin atas iklan, tracking, website, konten, dan anggaran Anda, dijelaskan tanpa istilah rumit."],
-      ["Akun atas nama Anda", "Google Ads, Meta, dan Analytics tetap atas nama bisnis Anda. Anda membayar biaya iklan langsung ke platform."],
+      ["Akun atas nama Anda", "Google Ads dan Analytics tetap atas nama bisnis Anda. Anda membayar biaya iklan langsung ke platform."],
     ],
     clientsLede: "Hotel, klinik, brand makanan, ritel, dan manufaktur. Industri berbeda, keterlibatan langsung yang sama dari kami.",
     visitEyebrow: "Kunjungi kami",
     visitTitle: "Berbasis di *Jakarta Selatan*",
     visitLede: "Kami bekerja dengan bisnis di seluruh Indonesia. Sebagian besar pertemuan dilakukan lewat panggilan, dan Anda juga dipersilakan datang ke kantor. Kabari kami dulu agar kami ada di sana.",
     maps: "Buka di Google Maps",
+    copyAddress: "Salin alamat",
+    copied: "Disalin",
     phoneLabel: "WhatsApp dan telepon",
     emailLabel: "Email",
     instagramLabel: "Instagram",
@@ -421,7 +443,7 @@ export const id: Dictionary = {
     eyebrow: "Layanan kami",
     title: "Digital marketing, kami *jalankan untuk Anda*",
     lede: "Anda fokus pada bisnis. Kami urus pemasarannya, dari rencana awal hingga pekerjaan harian. Pilih satu layanan atau gabungkan beberapa.",
-    jump: { google: "Google Ads", meta: "Meta Ads", web: "Pembuatan website", social: "Media sosial" },
+    jump: { google: "Google Ads", web: "Pembuatan website", social: "Media sosial" },
     google: {
       title: "Google Ads",
       lede: "Muncul saat orang mencari apa yang Anda jual. Kami membangun kampanye berdasarkan cara pelanggan Anda mencari, dan mengubah pencarian itu menjadi telepon, chat, dan booking.",
@@ -444,22 +466,6 @@ export const id: Dictionary = {
       ],
       tagsTitle: "Jenis kampanye yang kami jalankan",
       tags: ["Search", "Performance Max", "Display", "Demand Gen", "YouTube", "Lokal dan Maps"],
-    },
-    meta: {
-      title: "Meta Ads",
-      lede: "Iklan Facebook dan Instagram yang membuat orang berhenti, tertarik, dan bertindak. Kami merencanakan dan menjalankannya untuk Anda, dan mempertahankan pesan yang mendatangkan pelanggan.",
-      button: "Tanya soal Meta Ads",
-      imageAlt: "Seseorang bekerja di ads manager pada laptop",
-      includedTitle: "Yang termasuk",
-      included: [
-        "Orang yang tepat: audiens berdasarkan lokasi, minat, dan orang yang mirip pelanggan Anda",
-        "Waktu yang tepat: pengaturan anggaran dan batas berapa kali satu orang melihat iklan",
-        "Pesan yang tepat: gambar, video, dan caption yang kami uji",
-        "Meta Pixel dan Conversions API dicek sebelum anggaran dipakai",
-        "Tinjauan 360 rutin atas hasil Anda",
-      ],
-      tagsTitle: "Format iklan yang paling sering kami pakai",
-      tags: ["Iklan prospek", "Iklan chat WhatsApp", "Retargeting", "Reels dan Stories", "Iklan katalog"],
     },
     web: {
       title: "Pembuatan website",
@@ -493,7 +499,6 @@ export const id: Dictionary = {
       ],
       tagsTitle: "Platform",
       tags: ["Instagram", "TikTok"],
-      pair: "Padukan dengan Meta Ads, dan post terbaik Anda bisa menjadi iklan yang menjangkau pelanggan baru.",
     },
     stepsEyebrow: "Cara kami memulai",
     stepsTitle: "Dari obrolan pertama ke *hasil pertama*",

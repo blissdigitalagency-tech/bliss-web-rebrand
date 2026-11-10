@@ -63,7 +63,7 @@ export function PageHead({ eyebrow, title, lede, note, children }: { eyebrow: st
   );
 }
 
-/* ---------- Homepage logo intro: white mark on burgundy that flies into the navbar ---------- */
+/* ---------- Homepage logo intro: plays once per visit, the mark flies into the navbar ---------- */
 
 export function Intro({ t }: { t: Dictionary["intro"] }) {
   return (
@@ -92,10 +92,6 @@ export function Intro({ t }: { t: Dictionary["intro"] }) {
             {t.name} <em>{t.nameEm}</em>
           </p>
         </div>
-        <p className="intro__cue" aria-hidden="true">
-          {t.cue}
-          <span className="intro__cue-line" />
-        </p>
       </div>
     </section>
   );
@@ -251,12 +247,82 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
 
 /* ---------- Scroll-pinned tagline ---------- */
 
-export function Tagline({ lines }: { lines: string[] }) {
+// Example dot grid: three rows of twelve, each row shifted two steps along the
+// wave; the lit dots are the likely buyers ([row, wave step, light order])
+const TF_LIT = [[0, 4, 0], [0, 9, 1], [1, 5, 2], [1, 10, 3], [2, 6, 4], [2, 11, 5], [2, 13, 6]];
+const TF_DOTS = [0, 1, 2].flatMap((row) =>
+  Array.from({ length: 12 }, (_, i) => {
+    const n = row * 2 + i;
+    const lit = TF_LIT.find(([r, step]) => r === row && step === n);
+    return { n, k: lit?.[2] };
+  }),
+);
+// Example searches by hour (0–23); the evening peak is lit
+const TF_BARS = [12, 8, 6, 5, 6, 10, 18, 30, 44, 56, 64, 70, 78, 92, 100, 96, 88, 74, 66, 70, 62, 48, 32, 20];
+
+const tfPos = (line: number, dl: number, x: number, y: number, d: number) => ({
+  "data-line": line,
+  style: { "--dl": `${dl.toFixed(2)}s`, "--x": `${x}%`, "--y": `${y}%`, "--d": d } as CSSProperties,
+});
+
+function TaglineFloat({ t }: { t: Dictionary["taglineFloat"] }) {
+  return (
+    <div className="tagline__float" aria-hidden="true">
+      <div className="tf tf--tag tf--top" {...tfPos(1, 0, 12, 21, 20)}>
+        <b>► {t.audience}</b>
+        <span>{t.audienceText}</span>
+      </div>
+      <div className="tf tf--panel tf--dots tf--top" {...tfPos(1, 0.15, 62, 16, 30)}>
+        <div className="tf__dots">
+          {TF_DOTS.map((dot, i) => (
+            <i key={i} className={dot.k !== undefined ? "on" : undefined} style={{ "--n": dot.n, ...(dot.k !== undefined && { "--k": dot.k }) } as CSSProperties} />
+          ))}
+        </div>
+        <p className="tf__cap">{t.buyersCap}</p>
+      </div>
+      <div className="tf tf--tag tf--far" {...tfPos(1, 0.3, 86, 47, 20)}>
+        <b>► {t.location}</b>
+        <span>{t.locationText}</span>
+      </div>
+      <div className="tf tf--tag tf--far" {...tfPos(2, 0, 4, 44, 20)}>
+        <b>► {t.season}</b>
+        <span>{t.seasonText}</span>
+      </div>
+      <div className="tf tf--panel tf--bars" {...tfPos(2, 0.15, 9, 72, 30)}>
+        <div className="tf__bars">
+          {TF_BARS.map((h, k) => (
+            <i key={k} className={k >= 13 && k <= 16 ? "on" : undefined} style={{ "--h": h, "--k": k } as CSSProperties} />
+          ))}
+        </div>
+        <div className="tf__axis">
+          {["00", "06", "12", "18", "23"].map((h) => (
+            <span key={h}>{h}</span>
+          ))}
+        </div>
+        <p className="tf__cap">{t.hoursCap}</p>
+      </div>
+      <div className="tf tf--panel tf--ad" {...tfPos(3, 0, 68, 71, 30)}>
+        <div className="tf__ad">
+          <p className="tf__ad-top">
+            <b>{t.sponsored}</b> · yourbusiness.com
+          </p>
+          <p className="tf__ad-h">{t.adTitle}</p>
+          <p className="tf__ad-d">{t.adDesc}</p>
+          <p className="tf__ad-ok">{t.adKept}</p>
+        </div>
+        <p className="tf__cap">{t.adCap}</p>
+      </div>
+    </div>
+  );
+}
+
+export function Tagline({ lines, float }: { lines: string[]; float: Dictionary["taglineFloat"] }) {
   return (
     <section className="tagline" id="tagline" aria-labelledby="tagline-title">
       <SectionEffects section="tagline" />
       <div className="tagline__stage">
         <SilkCanvas className="tagline__bg" droplets />
+        <TaglineFloat t={float} />
         <h2 className="tagline__title" id="tagline-title">
           {lines.map((line, i) => (
             <span className="tagline__line" key={i}>
@@ -383,14 +449,14 @@ function Checklist({ items }: { items: string[] }) {
 export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["services"] }) {
   const g = t.google;
   const contact = (service: string) => `/${lang}/contact?service=${service}`;
-  const solo = (key: "meta" | "web", icon: string, alt: string, service: string, i: number) => {
+  const solo = (key: "web" | "social", icon: string, service: string, i: number) => {
     const s = t[key];
     return (
       <article className="svc" data-svc style={{ "--i": i } as CSSProperties}>
         <div className="svc__text">
           <div className="svc__lead">
             <div className="svc__icon">
-              <img src={icon} width={48} height={48} alt={alt} />
+              <img src={icon} width={48} height={48} alt="" />
             </div>
             <div>
               <h3 className="svc__title">{s.title}</h3>
@@ -428,7 +494,7 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
               </p>
             </div>
             <div className="services__rail" role="group" aria-label={t.railLabel} data-reveal style={delay(300)}>
-              {[g.title, t.meta.title, t.web.title].map((label, i) => (
+              {[g.title, t.web.title, t.social.title].map((label, i) => (
                 <button key={label} type="button" data-rail={i} aria-label={label} className={i === 0 ? "is-active" : undefined} />
               ))}
             </div>
@@ -478,8 +544,8 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
                 </div>
               </div>
             </article>
-            {solo("meta", "/images/services/logo-meta.png", "Meta", "meta-ads", 1)}
-            {solo("web", "/images/services/logo-figma.png", "Figma", "website", 2)}
+            {solo("web", "/images/services/icon-website.svg", "website", 1)}
+            {solo("social", "/images/services/icon-social.svg", "social-media", 2)}
           </div>
         </div>
       </div>

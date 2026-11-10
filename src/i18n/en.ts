@@ -11,17 +11,17 @@ export const en = {
     home: {
       title: "Bliss Digital | Digital marketing agency in Jakarta",
       description:
-        "You focus on running your business. We make sure it reaches the right people, at the right time, with the right message. Google Ads, Meta Ads and websites, run for you.",
+        "You focus on running your business. We make sure it reaches the right people, at the right time, with the right message. Google Ads and websites, run for you.",
     },
     about: {
       title: "About us",
       description:
-        "Bliss Digital is a Google Partner marketing agency in South Jakarta. We run Google Ads, Meta Ads and websites for businesses that would rather focus on their work.",
+        "Bliss Digital is a Google Partner marketing agency in South Jakarta. We run Google Ads and websites for businesses that would rather focus on their work.",
     },
     services: {
       title: "Services",
       description:
-        "Google Ads, Meta Ads, website creation and social media management, planned and run for you by Bliss Digital in Jakarta.",
+        "Google Ads, website creation and social media management, planned and run for you by Bliss Digital in Jakarta.",
     },
     cases: {
       title: "Case studies",
@@ -87,7 +87,6 @@ export const en = {
   intro: {
     name: "Bliss",
     nameEm: "Digital",
-    cue: "Scroll",
   },
 
   hero: {
@@ -114,11 +113,36 @@ export const en = {
 
   tagline: ["Right people.", "Right time.", "*Right message.*"],
 
+  // Faint examples that float around the tagline as each line settles
+  // (decorative, hidden from screen readers)
+  taglineFloat: {
+    audience: "Audience",
+    audienceText: "Looking for what you sell",
+    buyersCap: "Example · likely buyers among everyone online",
+    location: "Location",
+    locationText: "South Jakarta",
+    season: "Season",
+    seasonText: "Ramadan peak",
+    hoursCap: "Example · searches by hour of the day",
+    sponsored: "Sponsored",
+    adTitle: "Rooms 5 minutes from the beach",
+    adDesc: "Rated 4.8 by guests. Book on WhatsApp.",
+    adKept: "Kept after testing",
+    adCap: "Example ad",
+  },
+
   clients: {
     eyebrow: "Our clients",
     title: "Brands that",
     titleEm: "Grew With Us",
     lede: "These are brands we’ve managed and helped grow. Different industries, same level of hands-on involvement from our side. We stay close to every project, start to finish.",
+  },
+
+  // Homepage version of the About block
+  aboutHome: {
+    titleA: "A Google Partner agency",
+    titleB: "*based in Indonesia*",
+    text: "We run Google Ads and websites for businesses in hospitality, education, events, FMCG, and more. Most of our clients have one location. We *check the tracking before we spend*, and we explain every result in plain words.",
   },
 
   about: {
@@ -190,21 +214,6 @@ export const en = {
         },
       ],
     },
-    meta: {
-      title: "Meta Ads",
-      sub: "Facebook and Instagram ads, planned and run for you by Bliss.",
-      plan: "Fully managed by Bliss",
-      desc: "We plan, build, and run your Facebook and Instagram ads. We reach the right people, at the right time, with the right message. Monthly subscription.",
-      button: "Ask about full management",
-      items: [
-        "Right people: audiences built on location, interests, and people similar to your customers",
-        "Right time: budget pacing and limits on how often one person sees an ad",
-        "Right message: images, videos, and captions that we test",
-        "Meta Pixel and Conversions API check before any spend",
-        "A regular 360 review of your results",
-        "Lead ads, WhatsApp chat ads, and retargeting",
-      ],
-    },
     web: {
       title: "Website creation",
       sub: "A website that people and AI search tools can find, and that turns visitors into customers.",
@@ -218,6 +227,21 @@ export const en = {
         "A clear path to WhatsApp, booking, or a form",
         "GA4 and conversion tracking set up at launch",
         "Every page tested before we put the website live",
+      ],
+    },
+    social: {
+      title: "Social media management",
+      sub: "Instagram and TikTok, planned and posted for you by Bliss.",
+      plan: "Fully managed by Bliss",
+      desc: "We run your Instagram and TikTok from plan to post, so your brand stays consistent and visible with content your audience wants to see. Monthly subscription.",
+      button: "Ask about social media",
+      items: [
+        "A monthly content plan built around your goals and seasons",
+        "Copywriting and captions in your brand’s voice",
+        "Post, carousel and short video design",
+        "Scheduling and posting",
+        "Replies to comments and messages",
+        "A monthly report on reach, engagement and what to post next",
       ],
     },
   },
@@ -283,7 +307,7 @@ export const en = {
     ownership: {
       label: "Your ownership",
       title: "Your accounts stay yours",
-      body: "Your Google Ads, Meta, and Analytics accounts are in your name. You pay ad spend directly to the platform, and you can log in at any time.",
+      body: "Your Google Ads and Analytics accounts are in your name. You pay ad spend directly to the platform, and you can log in at any time.",
       owner: "Owner on every account: your business",
       key: "Your data, *your access*",
     },
@@ -307,7 +331,7 @@ export const en = {
       {
         q: "What does “fully managed” include?",
         a: [
-          "For Google Ads and Meta Ads, we plan, build, and run your campaigns every day. We find the right people, choose the right time, and write and test the right message. Before any spend, we check your tracking. We review your results regularly and make changes early when something does not work.",
+          "For Google Ads, we plan, build, and run your campaigns every day. We find the right people, choose the right time, and write and test the right message. Before any spend, we check your tracking. We review your results regularly and make changes early when something does not work.",
         ],
       },
       {
@@ -325,7 +349,7 @@ export const en = {
       {
         q: "How much does it cost?",
         a: [
-          "Our fee depends on the service you choose and the size of the work. Your ad budget is separate, and you pay it directly to Google or Meta.",
+          "Our fee depends on the service you choose and the size of the work. Your ad budget is separate, and you pay it directly to Google.",
           "We share the full price in the proposal before you commit.",
         ],
       },
@@ -370,7 +394,6 @@ export const en = {
     // value = what the team sees in the Google Form; key = ?service= links
     services: [
       { key: "google-ads", label: "Google Ads" },
-      { key: "meta-ads", label: "Meta Ads" },
       { key: "website", label: "Website" },
       { key: "social-media", label: "Social media" },
       { key: "consultation", label: "Google Ads consultation or training" },
@@ -410,13 +433,15 @@ export const en = {
       ["One clear goal first", "Sales, leads or bookings. We agree on it before any spend, so every decision has a reason."],
       ["Tracking before ads", "We check that every result is counted correctly, and test it with one real action."],
       ["Plain-word reports", "A regular 360 review of your ads, tracking, website, content and budget, explained without jargon."],
-      ["Your accounts, your name", "Google Ads, Meta and Analytics stay in your business’s name. You pay ad spend to the platform directly."],
+      ["Your accounts, your name", "Google Ads and Analytics stay in your business’s name. You pay ad spend to the platform directly."],
     ],
     clientsLede: "Hotels, clinics, food brands, retailers and manufacturers. Different industries, same level of hands-on involvement from our side.",
     visitEyebrow: "Visit us",
     visitTitle: "Based in *South Jakarta*",
     visitLede: "We work with businesses across Indonesia. Most meetings happen on a call, and you’re welcome at the office too. Message us first so we’re there.",
     maps: "Open in Google Maps",
+    copyAddress: "Copy address",
+    copied: "Copied",
     phoneLabel: "WhatsApp and phone",
     emailLabel: "Email",
     instagramLabel: "Instagram",
@@ -426,7 +451,7 @@ export const en = {
     eyebrow: "Our services",
     title: "Digital marketing, done *for you*",
     lede: "You focus on your business. We handle the marketing, from the first plan to the daily work. Pick one service or combine them.",
-    jump: { google: "Google Ads", meta: "Meta Ads", web: "Website creation", social: "Social media" },
+    jump: { google: "Google Ads", web: "Website creation", social: "Social media" },
     google: {
       title: "Google Ads",
       lede: "Show up when people search for what you sell. We build campaigns around how your customers actually search, and turn those searches into calls, chats and bookings.",
@@ -449,22 +474,6 @@ export const en = {
       ],
       tagsTitle: "Campaign types we run",
       tags: ["Search", "Performance Max", "Display", "Demand Gen", "YouTube", "Local and Maps"],
-    },
-    meta: {
-      title: "Meta Ads",
-      lede: "Facebook and Instagram ads that make people stop, care and act. We plan and run them for you, and keep the messages that bring customers.",
-      button: "Ask about Meta Ads",
-      imageAlt: "Someone working in an ads manager on a laptop",
-      includedTitle: "What’s included",
-      included: [
-        "Right people: audiences built on location, interests, and people similar to your customers",
-        "Right time: budget pacing and limits on how often one person sees an ad",
-        "Right message: images, videos and captions that we test",
-        "Meta Pixel and Conversions API checked before any spend",
-        "A regular 360 review of your results",
-      ],
-      tagsTitle: "Ad formats we use most",
-      tags: ["Lead ads", "WhatsApp chat ads", "Retargeting", "Reels and Stories", "Catalogue ads"],
     },
     web: {
       title: "Website creation",
@@ -498,7 +507,6 @@ export const en = {
       ],
       tagsTitle: "Platforms",
       tags: ["Instagram", "TikTok"],
-      pair: "Pair it with Meta Ads, and your best posts can become ads that reach new customers.",
     },
     stepsEyebrow: "How we start",
     stepsTitle: "From first chat to *first results*",

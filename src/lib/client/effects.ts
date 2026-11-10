@@ -28,6 +28,15 @@ export function markLanguageSwitch() {
 
 const isLanguageSwitch = () => performance.now() < switchUntil;
 
+/* ---------- Homepage intro: done yet? ---------- */
+// The hero's entrance waits for the logo intro; the navbar's colours follow it.
+// initIntro fires this event when the intro finishes (or is skipped).
+const INTRO_DONE = "bliss:intro-done";
+const introPlaying = () => {
+  const intro = document.querySelector(".intro");
+  return !!intro && !intro.classList.contains("is-done");
+};
+
 /* ---------- Every page: navbar, back to top, anchor glide, reveals, counters ---------- */
 
 export function initSite(): () => void {
@@ -58,10 +67,8 @@ export function initSite(): () => void {
       const solid = !document.querySelector(".hero");
       if (nav) {
         nav.style.setProperty("--p", solid ? "1" : Math.min(1, Math.max(0, y / 120)).toFixed(3));
-        // Over the burgundy intro the bar is still see-through, so its links turn white
-        const intro = document.querySelector(".intro");
-        const dark = !!intro && y < 60 && intro.getBoundingClientRect().bottom > 80;
-        if (dark) nav.dataset.tone = "dark";
+        // While the burgundy intro plays the bar is see-through, so its links turn white
+        if (introPlaying()) nav.dataset.tone = "dark";
         else delete nav.dataset.tone;
         // The fade band above the card matches the section scrolling under it:
         // burgundy over the intro and tagline, white everywhere else
@@ -75,6 +82,7 @@ export function initSite(): () => void {
     });
   };
   window.addEventListener("scroll", onScroll, { passive: true, signal });
+  window.addEventListener(INTRO_DONE, onScroll, { signal });
   onScroll();
 
   // In-page links glide to their section with an eased scroll instead of the
@@ -164,6 +172,57 @@ export function initSite(): () => void {
     cleanups.push(() => clearTimeout(clearFlag));
   }
 
+  // Copy the office address (About page) as one line, e.g. "PT Blissindo
+  // Kreasi Digital, Legalyn Indonesia, ...". The icon turns into a tick with
+  // "Copied" beside it for two seconds.
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-address]").forEach((button) => {
+    const wrap = button.closest<HTMLElement>(".copy-addr");
+    const done = wrap?.querySelector<HTMLElement>(".copy-addr__done");
+    const address = button.closest("address");
+    if (!wrap || !done || !address) return;
+    let timer = 0;
+    const addressText = () => {
+      const copy = address.cloneNode(true) as HTMLElement;
+      copy.querySelector(".copy-addr")?.remove();
+      copy.querySelectorAll("br").forEach((br) => br.replaceWith("\n"));
+      return (copy.textContent || "")
+        .split("\n")
+        .map((line) => line.trim().replace(/,$/, ""))
+        .filter(Boolean)
+        .join(", ");
+    };
+    const fallbackCopy = (text: string) => {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.cssText = "position:fixed;opacity:0";
+      document.body.append(area);
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+    };
+    button.addEventListener(
+      "click",
+      async () => {
+        const text = addressText();
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch {
+          fallbackCopy(text);
+        }
+        wrap.classList.add("is-copied");
+        done.textContent = done.dataset.done || "";
+        clearTimeout(timer);
+        timer = window.setTimeout(() => {
+          wrap.classList.remove("is-copied");
+          done.textContent = "";
+        }, 2000);
+      },
+      { signal },
+    );
+    cleanups.push(() => clearTimeout(timer));
+  });
+
   // Numbers: each digit flickers through random digits and settles on the
   // real one, left to right ("3+", "50M+", ...)
   const counters = [...document.querySelectorAll<HTMLElement>("[data-count]")];
@@ -235,12 +294,12 @@ export function initHero(hero: HTMLElement): () => void {
     ro.observe(visual);
   }
 
-  // Entrance: plays once the hero is on screen (it sits below the logo intro),
-  // after the fonts load so words don't swap mid-animation
+  // Entrance: plays once the hero is on screen and the logo intro has
+  // finished, after the fonts load so words don't swap mid-animation
   let fontsReady = false;
   let seen = false;
   const start = () => {
-    if (!alive || !fontsReady || !seen || hero.classList.contains("is-loaded")) return;
+    if (!alive || !fontsReady || !seen || introPlaying() || hero.classList.contains("is-loaded")) return;
     hero.classList.add("is-loaded");
     setTimeout(() => alive && hero.classList.add("is-ready"), 2200);
   };
@@ -271,6 +330,7 @@ export function initHero(hero: HTMLElement): () => void {
     });
   };
   window.addEventListener("scroll", onScroll, { passive: true, signal: ac.signal });
+  window.addEventListener(INTRO_DONE, start, { signal: ac.signal });
   onScroll();
 
   // Chart and website score: after the intro, each drains and fills again
@@ -332,100 +392,134 @@ export function initHero(hero: HTMLElement): () => void {
 /* ---------- Homepage logo intro ---------- */
 
 /**
- * The big white mark in the burgundy intro glides into the navbar's logo slot
- * as the pinned intro scrolls, shrinking and turning from white to the
- * burgundy gradient. Once it lands, the navbar's own logo takes over.
+ * The intro screen plays on its own, no scrolling needed: the logo and name
+ * show for a moment, then the logo flies into the navbar's logo spot (turning
+ * from white to the burgundy gradient) while the dark screen fades away and
+ * the hero starts. Scrolling, a click or a key skips straight to the end.
+ * It plays once per visit (browser tab); after that the page opens on the
+ * hero (the inline script in the layout hides it before the first paint).
  */
-export function initIntro(section: HTMLElement): () => void {
+export function initIntro(intro: HTMLElement): () => void {
   const ac = new AbortController();
-  const logo = section.querySelector<HTMLElement>(".intro__logo");
-  const slot = section.querySelector<HTMLElement>(".intro__slot");
-  const name = section.querySelector<HTMLElement>(".intro__name");
-  const cue = section.querySelector<HTMLElement>(".intro__cue");
-  const stops = [...section.querySelectorAll<SVGStopElement>(".intro__mark stop")];
+  const { signal } = ac;
+  const timers: number[] = [];
+  const logo = intro.querySelector<HTMLElement>(".intro__logo");
+  const slot = intro.querySelector<HTMLElement>(".intro__slot");
+  const name = intro.querySelector<HTMLElement>(".intro__name");
+  const stops = [...intro.querySelectorAll<SVGStopElement>(".intro__mark stop")];
   const nav = document.querySelector<HTMLElement>("[data-nav]");
-  const target = nav?.querySelector<HTMLElement>(".nav__logo img");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (!logo || !slot || !nav || !target) return () => {};
+  const navLogo = nav?.querySelector<HTMLElement>(".nav__logo img");
+  const root = document.documentElement;
+  const HOLD = 1100; // logo and name on screen before the flight
+  const FLY = 1000; // logo flight into the navbar
+  const FADE = 500; // dark screen fading away (CSS .intro.is-done transition)
 
   // Blend the mark's gradient from white (0) to the brand gradient (1)
   const brand = [
     [0x70, 0x02, 0x0f],
     [0x43, 0x07, 0x19],
   ];
-  function tint(k: number) {
+  const tint = (k: number) =>
     stops.forEach((stop, i) => {
       const [r, g, b] = brand[i].map((c) => Math.round(255 + (c - 255) * k));
       stop.setAttribute("stop-color", `rgb(${r} ${g} ${b})`);
     });
-  }
 
-  let ticking = false;
-  function update() {
-    ticking = false;
-    if (reduceMotion.matches) {
-      // No flight: the mark stays in the intro and the navbar shows its own logo
-      logo!.classList.remove("is-flying");
-      logo!.style.removeProperty("transform");
-      logo!.style.removeProperty("width");
-      tint(0);
-      name?.style.removeProperty("--fade");
-      delete nav!.dataset.logo;
-      delete nav!.dataset.stage;
-      return;
-    }
-    const r = section.getBoundingClientRect();
-    const vh = window.innerHeight;
-    // 0 at the top of the page, 1 when the pinned intro is about to scroll away
-    const p = clamp(-r.top / Math.max(1, r.height - vh));
-    const e = (1 - Math.cos(Math.PI * p)) / 2; // ease in-out: gentle start and landing
-
-    // From where the logo sits in the intro (its slot) to the navbar logo
-    const from = slot!.getBoundingClientRect();
-    const size = from.width;
-    const to = target!.getBoundingClientRect();
-    const x = from.left + (to.left - from.left) * e;
-    const y = from.top + (to.top - from.top) * e;
-    const w = size + (to.width - size) * e;
-
-    // The logo is resized for real (not scaled with a transform), so the browser
-    // redraws the vector at every size and the edges stay crisp
-    logo!.classList.add("is-flying");
-    logo!.style.width = `${w.toFixed(2)}px`;
-    // Whole pixels: a half-pixel position blurs every edge
-    logo!.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
-    // White for the first third of the flight, then blends into the burgundy gradient
-    tint(clamp((e - 0.3) / 0.6));
-    const landed = p >= 1;
-    logo!.classList.toggle("is-landed", landed);
-    // While the big mark travels, the navbar stays out of sight (its logo, bar,
-    // links and buttons). When the mark lands, the navbar fades in around it.
-    if (landed) {
-      delete nav!.dataset.logo;
-      delete nav!.dataset.stage;
-    } else {
-      nav!.dataset.logo = "flying";
-      nav!.dataset.stage = "intro";
-    }
-    // The name and the scroll hint fade away early, while the logo carries on
-    if (name) name.style.setProperty("--fade", String(Math.min(1, p * 3)));
-    if (cue) cue.style.opacity = String(Math.max(0, 1 - p * 4));
-  }
-  const onScroll = () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-  };
-  window.addEventListener("scroll", onScroll, { passive: true, signal: ac.signal });
-  window.addEventListener("resize", onScroll, { signal: ac.signal });
-  reduceMotion.addEventListener("change", update, { signal: ac.signal });
-  update();
-
-  return () => {
-    ac.abort();
+  const clearNav = () => {
+    if (!nav) return;
     delete nav.dataset.logo;
     delete nav.dataset.stage;
+  };
+  const announce = () => window.dispatchEvent(new Event(INTRO_DONE));
+
+  let seen = false;
+  try {
+    seen = sessionStorage.getItem("bliss-intro") === "1";
+  } catch {}
+  if (seen || reduced() || window.scrollY > 10 || isLanguageSwitch() || !logo || !slot || !nav || !navLogo) {
+    intro.classList.add("is-done", "is-gone");
+    clearNav();
+    announce();
+    return () => {};
+  }
+
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    try {
+      sessionStorage.setItem("bliss-intro", "1");
+    } catch {}
+    logo.classList.add("is-landed");
+    clearNav();
+    root.classList.remove("intro-lock");
+    intro.classList.add("is-done");
+    ac.abort(); // stop listening for skips
+    announce();
+    timers.push(window.setTimeout(() => intro.classList.add("is-gone"), FADE));
+  };
+
+  // Flight progress p: 0 = big logo in the middle, 1 = in the navbar spot.
+  // The logo is resized for real (not scaled), so the vector stays crisp.
+  const place = (p: number) => {
+    const e = (1 - Math.cos(Math.PI * p)) / 2; // ease in-out: gentle start and landing
+    const from = slot.getBoundingClientRect();
+    const to = navLogo.getBoundingClientRect();
+    logo.classList.add("is-flying");
+    logo.style.width = `${(from.width + (to.width - from.width) * e).toFixed(2)}px`;
+    // Whole pixels: a half-pixel position blurs every edge
+    logo.style.transform = `translate(${Math.round(from.left + (to.left - from.left) * e)}px, ${Math.round(from.top + (to.top - from.top) * e)}px)`;
+    // White for the first third of the flight, then blends into the burgundy gradient
+    tint(clamp((e - 0.3) / 0.6));
+    name?.style.setProperty("--fade", String(Math.min(1, p * 3)));
+    // The dark screen starts fading in the second half of the flight
+    intro.style.setProperty("--fade", String(clamp((p - 0.45) / 0.55)));
+  };
+
+  root.classList.add("intro-lock");
+  nav.dataset.logo = "flying";
+  nav.dataset.stage = "intro";
+  intro.classList.add("is-playing");
+  for (const type of ["wheel", "touchmove", "keydown", "pointerdown"]) {
+    window.addEventListener(type, finish, { passive: true, signal });
+  }
+
+  // Start once the fonts are in, so the name doesn't swap mid-way
+  let started = false;
+  const go = () => {
+    if (started) return;
+    started = true;
+    timers.push(
+      window.setTimeout(() => {
+        if (finished) return;
+        // The logo leaves the intro layer, so it stays visible in the navbar
+        // while the dark screen fades away around it
+        document.body.appendChild(logo);
+        place(0);
+        let t0 = 0;
+        const step = (now: number) => {
+          if (finished) return;
+          if (!t0) t0 = now;
+          const p = clamp((now - t0) / FLY);
+          place(p);
+          if (p < 1) requestAnimationFrame(step);
+          else finish();
+        };
+        requestAnimationFrame(step);
+      }, HOLD),
+    );
+  };
+  document.fonts.ready.then(go);
+  timers.push(window.setTimeout(go, 800));
+
+  return () => {
+    finished = true;
+    ac.abort();
+    timers.forEach(clearTimeout);
+    // The logo was moved to <body> for the flight; React doesn't know about it
+    if (logo.parentElement === document.body) logo.remove();
+    root.classList.remove("intro-lock");
+    clearNav();
   };
 }
 
@@ -444,18 +538,30 @@ export function initTagline(track: HTMLElement): () => void {
   function update() {
     ticking = false;
     if (reduceMotion.matches) {
-      lines.forEach((l) => l.style.setProperty("--e", "1"));
-      return;
+      lines.forEach((l, i) => {
+        l.style.setProperty("--e", "1");
+        stage.classList.add(`show-${i + 1}`);
+      });
     }
     const r = track.getBoundingClientRect();
     const vh = window.innerHeight;
     const entry = clamp(1 - r.top / vh);
-    const pinned = clamp(-r.top / (r.height - vh));
-    lines.forEach((line, i) => {
-      const w = windows[i];
-      const x = w ? clamp((pinned - w[0]) / (w[1] - w[0])) : entry;
-      line.style.setProperty("--e", easeOut(x).toFixed(4));
-    });
+    // The last screen of the section is when Our clients slides over it
+    const pinned = clamp(-r.top / (r.height - 2 * vh));
+    const cover = clamp((-r.top - (r.height - 2 * vh)) / vh);
+    stage.style.setProperty("--cover", cover.toFixed(4));
+    if (!reduceMotion.matches) {
+      lines.forEach((line, i) => {
+        const w = windows[i];
+        const x = w ? clamp((pinned - w[0]) / (w[1] - w[0])) : entry;
+        line.style.setProperty("--e", easeOut(x).toFixed(4));
+        // This line's floating examples start their (timed) entrance once the
+        // line has nearly settled, so they never sit in the way of the big
+        // rising words. Line 1 settles before the section pins, so its
+        // examples wait for the pin.
+        stage.classList.toggle(`show-${i + 1}`, i === 0 ? pinned > 0.02 : x > 0.8);
+      });
+    }
     stage.style.setProperty("--progress", pinned.toFixed(4));
     if (bg) bg.dataset.drift = (entry + pinned * 2).toFixed(4);
   }
@@ -465,11 +571,17 @@ export function initTagline(track: HTMLElement): () => void {
       requestAnimationFrame(update);
     }
   };
+  // The examples' ambient loops only run while the section is on screen
+  const live = new IntersectionObserver(([e]) => track.classList.toggle("is-live", e.isIntersecting));
+  live.observe(track);
   window.addEventListener("scroll", onScroll, { passive: true, signal: ac.signal });
   window.addEventListener("resize", onScroll, { signal: ac.signal });
   reduceMotion.addEventListener("change", update, { signal: ac.signal });
   update();
-  return () => ac.abort();
+  return () => {
+    ac.abort();
+    live.disconnect();
+  };
 }
 
 /* ---------- Homepage services: stacking cards and the Google Ads tabs ---------- */
@@ -690,5 +802,66 @@ export function initWhy(section: HTMLElement): () => void {
   return () => {
     alive = false;
     io.disconnect();
+  };
+}
+
+/* ---------- About, How we work: rotating accordion ---------- */
+
+/**
+ * One point open at a time. While the list is on screen each point stays open
+ * for a few seconds (a line fills along its top), then the next one opens,
+ * round and round. Hovering or keyboard focus pauses it; clicking a point
+ * opens it and restarts its timer.
+ */
+export function initBeliefs(list: HTMLElement): () => void {
+  const ac = new AbortController();
+  const { signal } = ac;
+  const points = [...list.querySelectorAll<HTMLElement>(".belief")];
+  const HOLD = 5000; // ms each point stays open
+  let current = Math.max(0, points.findIndex((p) => p.classList.contains("is-open")));
+  let elapsed = 0;
+  let inView = false;
+  let paused = false;
+  let last = 0;
+  let frame = 0;
+
+  const openPoint = (index: number) => {
+    current = index;
+    elapsed = 0;
+    points.forEach((point, i) => {
+      const on = i === index;
+      point.classList.toggle("is-open", on);
+      point.querySelector(".belief__btn")?.setAttribute("aria-expanded", String(on));
+      point.style.setProperty("--t", "0");
+    });
+  };
+  points.forEach((point, i) => point.querySelector(".belief__btn")?.addEventListener("click", () => openPoint(i), { signal }));
+  if (reduced() || !points.length) return () => ac.abort();
+
+  const tick = (now: number) => {
+    const dt = last ? Math.min(now - last, 100) : 0;
+    last = now;
+    if (inView && !paused) {
+      elapsed += dt;
+      if (elapsed >= HOLD) openPoint((current + 1) % points.length);
+      points[current].style.setProperty("--t", (elapsed / HOLD).toFixed(4));
+    }
+    frame = requestAnimationFrame(tick);
+  };
+  frame = requestAnimationFrame(tick);
+
+  const io = new IntersectionObserver(([e]) => { inView = e.isIntersecting; }, { threshold: 0.5 });
+  io.observe(list);
+  list.addEventListener("mouseenter", () => { paused = true; }, { signal });
+  // Keyboard focus pauses too (a mouse click focuses the button, but that
+  // shouldn't stop the timer once the pointer leaves)
+  list.addEventListener("mouseleave", () => { paused = !!list.querySelector(":focus-visible"); }, { signal });
+  list.addEventListener("focusin", (e) => { if ((e.target as HTMLElement).matches(":focus-visible")) paused = true; }, { signal });
+  list.addEventListener("focusout", (e) => { if (!list.contains(e.relatedTarget as Node | null)) paused = list.matches(":hover"); }, { signal });
+
+  return () => {
+    ac.abort();
+    io.disconnect();
+    cancelAnimationFrame(frame);
   };
 }

@@ -21,9 +21,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     <>
       <Intro t={t.intro} />
       <Hero lang={lang} t={t.hero} common={t.common} />
-      <Tagline lines={t.tagline} />
+      <Tagline lines={t.tagline} float={t.taglineFloat} />
       <Clients t={t.clients} logos={getClients()} />
-      <AboutBlock lang={lang} t={t.about} common={t.common} />
+      <AboutBlock lang={lang} t={{ ...t.about, ...t.aboutHome }} common={t.common} />
       <ServicesStack lang={lang} t={t.services} />
       <Why t={t.why} />
       <CasesSection lang={lang} t={t.cases} common={t.common} cases={getCaseStudies(lang)} />

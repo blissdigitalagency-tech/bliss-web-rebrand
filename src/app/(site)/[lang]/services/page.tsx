@@ -23,7 +23,7 @@ type Service = {
   id: string;
   icon: string;
   image?: { src: string; alt: string };
-  copy: Copy["google"] | Copy["meta"] | Copy["web"] | Copy["social"];
+  copy: Copy["google"] | Copy["web"] | Copy["social"];
   contactKey: string;
 };
 
@@ -82,7 +82,6 @@ function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Se
                 <li key={tag}>{tag}</li>
               ))}
             </ul>
-            {"pair" in c && <p>{c.pair}</p>}
           </div>
         </div>
       </div>
@@ -98,15 +97,13 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
 
   const services: Service[] = [
     { id: "google-ads", icon: "/images/services/logo-google-ads.png", image: { src: "/images/services/google-ads.jpg", alt: p.google.imageAlt }, copy: p.google, contactKey: "google-ads" },
-    { id: "meta-ads", icon: "/images/services/logo-meta.png", image: { src: "/images/services/meta-ads.jpg", alt: p.meta.imageAlt }, copy: p.meta, contactKey: "meta-ads" },
-    { id: "website", icon: "/images/services/logo-figma.png", image: { src: "/images/services/website.jpg", alt: p.web.imageAlt }, copy: p.web, contactKey: "website" },
-    { id: "social-media", icon: "/images/services/logo-instagram.svg", copy: p.social, contactKey: "social-media" },
+    { id: "website", icon: "/images/services/icon-website.svg", image: { src: "/images/services/website.jpg", alt: p.web.imageAlt }, copy: p.web, contactKey: "website" },
+    { id: "social-media", icon: "/images/services/icon-social.svg", copy: p.social, contactKey: "social-media" },
   ];
   const jump: [string, string, string][] = [
     ["google-ads", "/images/services/logo-google-ads.png", p.jump.google],
-    ["meta-ads", "/images/services/logo-meta.png", p.jump.meta],
-    ["website", "/images/services/logo-figma.png", p.jump.web],
-    ["social-media", "/images/services/logo-instagram.svg", p.jump.social],
+    ["website", "/images/services/icon-website.svg", p.jump.web],
+    ["social-media", "/images/services/icon-social.svg", p.jump.social],
   ];
 
   return (
