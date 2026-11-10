@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, hasLocale } from "@/i18n/config";
 import { getCaseStudies, getClients } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
+import { COMING_SOON } from "@/lib/launch";
 import { AboutBlock, CasesSection, Clients, Cta, FaqSection, Hero, Intro, ServicesStack, Tagline, Why } from "@/components/sections";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">) {
@@ -26,7 +27,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <AboutBlock lang={lang} t={{ ...t.about, ...t.aboutHome }} common={t.common} />
       <ServicesStack lang={lang} t={t.services} />
       <Why t={t.why} />
-      <CasesSection lang={lang} t={t.cases} common={t.common} cases={getCaseStudies(lang)} />
+      {/* Hidden while case studies are a "Coming soon" placeholder (src/lib/launch.ts) */}
+      {!COMING_SOON.cases && <CasesSection lang={lang} t={t.cases} common={t.common} cases={getCaseStudies(lang)} />}
       <FaqSection t={t.faq} />
       <Cta lang={lang} title={t.cta.title} titleEm={t.cta.titleEm} button={t.common.letsChat} />
     </>
