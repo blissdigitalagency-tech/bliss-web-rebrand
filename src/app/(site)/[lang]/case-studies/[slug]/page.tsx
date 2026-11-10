@@ -5,6 +5,8 @@ import { getCaseStudies, getCaseStudy, translations } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { pageMetadata } from "@/lib/seo";
 import { BackLink, NextLink } from "@/components/sections";
+import { COMING_SOON } from "@/lib/launch";
+import { ComingSoonView, comingSoonMetadata } from "@/components/ComingSoonView";
 
 export const dynamicParams = false;
 export const generateStaticParams = () =>
@@ -13,6 +15,7 @@ export const generateStaticParams = () =>
 export async function generateMetadata({ params }: PageProps<"/[lang]/case-studies/[slug]">) {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) return {};
+  if (COMING_SOON.cases) return comingSoonMetadata(lang, "cases");
   const c = getCaseStudy(lang, slug);
   if (!c) return {};
   const paths = Object.fromEntries(
@@ -24,6 +27,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/case-studi
 export default async function CaseStudyPage({ params }: PageProps<"/[lang]/case-studies/[slug]">) {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
+  if (COMING_SOON.cases) return <ComingSoonView lang={lang} section="cases" />;
   const all = getCaseStudies(lang);
   const i = all.findIndex((c) => c.slug === slug);
   if (i < 0) notFound();

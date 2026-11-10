@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, siteUrl, type Locale } from "@/i18n/config";
 import { getCaseStudies, getPosts, translations } from "@/lib/content";
+import { COMING_SOON } from "@/lib/launch";
 
 // Every page in both languages, with links between the translations
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,7 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
   const everywhere = (path: string) => Object.fromEntries(locales.map((l) => [l, path]));
 
-  const pages = ["", "/about", "/services", "/case-studies", "/blog", "/contact", "/privacy"].flatMap((p) => entry(everywhere(p)));
+  // Sections showing a "Coming soon" placeholder are left out (src/lib/launch.ts)
+  const pages = ["", "/about", "/services", ...(COMING_SOON.cases ? [] : ["/case-studies"]), ...(COMING_SOON.blog ? [] : ["/blog"]), "/contact", "/privacy"].flatMap((p) =>
+    entry(everywhere(p)),
+  );
 
   // One entry per article, linked to its translation when there is one
   const articles = <T extends { slug: string; date: string; translationOf?: string }>(
@@ -33,5 +37,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   };
 
-  return [...pages, ...articles(getCaseStudies, "/case-studies"), ...articles(getPosts, "/blog")];
+  return [...pages, ...(COMING_SOON.cases ? [] : articles(getCaseStudies, "/case-studies")), ...(COMING_SOON.blog ? [] : articles(getPosts, "/blog"))];
 }

@@ -577,6 +577,20 @@ export const id: Dictionary = {
     ],
   },
 
+  comingSoon: {
+    badge: "Segera hadir",
+    home: "Kembali ke beranda",
+    contact: "Mari ngobrol",
+    cases: {
+      title: "Studi kasus *segera hadir*",
+      text: "Kami sedang menulis hasil nyata dari brand yang kami tangani. Sementara itu, kami siap menjelaskannya lewat panggilan.",
+    },
+    blog: {
+      title: "Blog kami *segera hadir*",
+      text: "Panduan sederhana tentang iklan, tracking, dan website sedang kami siapkan. Ada pertanyaan sekarang? Tanyakan langsung ke kami.",
+    },
+  },
+
   notFound: {
     title: "Halaman tidak ditemukan",
     text: "Halaman ini mungkin sudah dipindahkan, atau tautannya salah ketik. Mari kembali ke jalur yang benar.",

@@ -5,6 +5,8 @@ import { getPost, getPosts, translations } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { pageMetadata } from "@/lib/seo";
 import { BackLink, NextLink } from "@/components/sections";
+import { COMING_SOON } from "@/lib/launch";
+import { ComingSoonView, comingSoonMetadata } from "@/components/ComingSoonView";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => locales.flatMap((lang) => getPosts(lang).map((p) => ({ lang, slug: p.slug })));
@@ -12,6 +14,7 @@ export const generateStaticParams = () => locales.flatMap((lang) => getPosts(lan
 export async function generateMetadata({ params }: PageProps<"/[lang]/blog/[slug]">) {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) return {};
+  if (COMING_SOON.blog) return comingSoonMetadata(lang, "blog");
   const p = getPost(lang, slug);
   if (!p) return {};
   const paths = Object.fromEntries(Object.entries(translations(getPosts, lang, slug)).map(([l, s]) => [l, `/blog/${s}`]));
@@ -21,6 +24,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/blog/[slug
 export default async function BlogPostPage({ params }: PageProps<"/[lang]/blog/[slug]">) {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
+  if (COMING_SOON.blog) return <ComingSoonView lang={lang} section="blog" />;
   const all = getPosts(lang);
   const i = all.findIndex((p) => p.slug === slug);
   if (i < 0) notFound();

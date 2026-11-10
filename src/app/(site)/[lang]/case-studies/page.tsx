@@ -3,10 +3,13 @@ import { getDictionary, hasLocale } from "@/i18n/config";
 import { getCaseStudies } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 import { PageHead, caseCard } from "@/components/sections";
+import { COMING_SOON } from "@/lib/launch";
+import { ComingSoonView, comingSoonMetadata } from "@/components/ComingSoonView";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/case-studies">) {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
+  if (COMING_SOON.cases) return comingSoonMetadata(lang, "cases");
   const t = getDictionary(lang).meta.cases;
   return pageMetadata({ locale: lang, title: t.title, description: t.description, paths: "/case-studies" });
 }
@@ -14,6 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/case-studi
 export default async function CaseStudiesPage({ params }: PageProps<"/[lang]/case-studies">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
+  if (COMING_SOON.cases) return <ComingSoonView lang={lang} section="cases" />;
   const t = getDictionary(lang);
   const cases = getCaseStudies(lang);
 

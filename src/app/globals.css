@@ -4085,6 +4085,27 @@ main { background: var(--white); }
 
 .lost__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
+/* "Coming soon" placeholder (case studies, blog): the 404 layout with a pill
+   instead of the big number */
+.lost__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid rgb(112 2 15 / 0.2);
+  border-radius: 999px;
+  background: rgb(112 2 15 / 0.04);
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lost--soon .lost__title { font-size: var(--fs-h1, clamp(44px, 5.556vw, 80px)); line-height: 1.05; letter-spacing: -0.05em; text-wrap: balance; }
+.lost--soon .lost__title em { color: var(--accent); }
+.lost--soon p:not(.lost__badge) { max-width: 480px; }
+
 /* ---------- Next.js site additions ---------- */
 
 /* Navbar right side: language menu, button and phone menu toggle */

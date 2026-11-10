@@ -586,6 +586,21 @@ export const en = {
     ] as { h: string; p: (string | string[])[] }[],
   },
 
+  // Placeholder for sections that aren't ready (see src/lib/launch.ts)
+  comingSoon: {
+    badge: "Coming soon",
+    home: "Back to home",
+    contact: "Let’s chat",
+    cases: {
+      title: "Case studies are *coming soon*",
+      text: "We’re writing up real results from the brands we work with. In the meantime, we’re happy to walk you through them on a call.",
+    },
+    blog: {
+      title: "Our blog is *coming soon*",
+      text: "Plain-word guides on ads, tracking and websites are on the way. Have a question now? Ask us directly.",
+    },
+  },
+
   notFound: {
     title: "Page not found",
     text: "This page may have moved, or the link has a typo. Let’s get you back on track.",
