@@ -3360,6 +3360,9 @@ main { background: var(--white); }
 
 /* A page header on its own, followed by full sections */
 .page--intro { padding-bottom: 0; }
+/* Services: the jump pills end the header, so leave room under them or they
+   sit right on the edge of the first section */
+.page--intro .jump { margin-bottom: clamp(32px, 4vw, 56px); }
 
 /* Section shell for the inner pages */
 .block {
