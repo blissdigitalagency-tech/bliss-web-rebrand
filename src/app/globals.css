@@ -3206,36 +3206,41 @@ em.hero__word {
 
 /* ---------- Back to top (not in Figma) ---------- */
 
-/* Sits above the WhatsApp button, centred on it, with a 12px gap */
+/* A smaller white circle above the WhatsApp button, centred on it with a
+   12px gap: the same shape as WhatsApp, quieter, so WhatsApp stays the main one */
 .to-top {
+  --tt-size: 48px;
   position: fixed;
-  right: calc(clamp(16px, 2.78vw, 40px) + (var(--wa-size) - 52px) / 2);
+  right: calc(clamp(16px, 2.78vw, 40px) + (var(--wa-size) - var(--tt-size)) / 2);
   bottom: calc(clamp(16px, 2.78vw, 40px) + var(--wa-size) + 12px);
   z-index: 40;
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  color: var(--white);
-  background: var(--accent);
-  box-shadow: 0 8px 24px rgb(67 7 25 / 0.3);
+  width: var(--tt-size);
+  height: var(--tt-size);
+  border: 1px solid rgb(67 7 25 / 0.12);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 6px 18px rgb(67 7 25 / 0.14);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
-  transition: opacity 250ms ease, transform 250ms ease, box-shadow 180ms ease, visibility 0s 250ms;
+  transition: opacity 250ms ease, transform 250ms ease, box-shadow 180ms ease, color 180ms ease, border-color 180ms ease, visibility 0s 250ms;
 }
 
 .to-top.is-shown {
   opacity: 1;
   visibility: visible;
   transform: none;
-  transition: opacity 250ms ease, transform 250ms ease, box-shadow 180ms ease;
+  transition: opacity 250ms ease, transform 250ms ease, box-shadow 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .to-top:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgb(67 7 25 / 0.4);
+  color: var(--accent);
+  border-color: rgb(112 2 15 / 0.3);
+  box-shadow: 0 10px 24px rgb(67 7 25 / 0.18);
 }
 
 .to-top:active { transform: scale(0.95); }
