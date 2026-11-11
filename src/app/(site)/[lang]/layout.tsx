@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../../globals.css";
 import { jakarta, fragment } from "../../fonts";
 import { getDictionary, hasLocale, htmlLang, locales, siteUrl } from "@/i18n/config";
@@ -92,6 +93,7 @@ if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEve
         <Footer lang={lang} t={t.footer} nav={t.nav} />
         <ToTop label={t.nav.backToTop} />
         <SiteEffects />
+        <SpeedInsights />
         {GA_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
