@@ -639,6 +639,7 @@ export const id: Dictionary = {
     },
     results: {
       title: "Hasil Anda",
+      jump: "Lihat Semua Hasil",
       empty: "Isi biaya iklan untuk melihat ROAS Anda.",
       roas: "ROAS",
       roasSub: "Rp{n} penjualan untuk setiap Rp1 biaya iklan",

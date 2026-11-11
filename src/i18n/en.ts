@@ -655,6 +655,8 @@ export const en = {
     },
     results: {
       title: "Your Results",
+      // The bar at the bottom of the screen on phones, which jumps to the results
+      jump: "See All Results",
       empty: "Enter your ad spend to see your ROAS.",
       roas: "ROAS",
       roasSub: "Rp{n} in sales for every Rp1 spent on ads",

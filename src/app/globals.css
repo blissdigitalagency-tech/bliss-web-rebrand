@@ -5393,6 +5393,62 @@ html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
 }
 .roas-explain__list p { margin: 12px 0 0; font-size: 15px; line-height: 22px; color: var(--muted); }
 
+/* Phones: the main result in a bar at the bottom, beside the WhatsApp button */
+.roas-bar { display: none; }
+
+/* Jumping to the results stops below the fixed navbar */
+.roas__results { scroll-margin-top: 100px; }
+
+@media (max-width: 960px) {
+  .roas-bar {
+    position: fixed;
+    left: clamp(16px, 2.78vw, 40px);
+    right: calc(clamp(16px, 2.78vw, 40px) + var(--wa-size) + 12px);
+    bottom: clamp(16px, 2.78vw, 40px);
+    z-index: 41;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: var(--wa-size);
+    padding: 0 16px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--bg-dark);
+    color: var(--white);
+    font-family: var(--font-body);
+    text-align: left;
+    box-shadow: 0 8px 24px rgb(46 5 17 / 0.35);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity 200ms ease, transform 200ms ease, visibility 0s 200ms;
+  }
+  .roas-bar.is-shown { opacity: 1; visibility: visible; transform: none; transition: opacity 200ms ease, transform 200ms ease; }
+  .roas-bar:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .roas-bar__label { font-size: 13px; line-height: 16px; color: rgb(255 255 255 / 0.7); }
+  .roas-bar__value { font-weight: 500; font-size: 20px; line-height: 24px; font-variant-numeric: tabular-nums; }
+  .roas-bar__jump { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; font-size: 13px; color: rgb(255 255 255 / 0.8); }
+
+  /* Plan a Budget has five fields: show the answer above them */
+  .roas__grid--plan .roas__results { order: -1; }
+}
+
+@media (max-width: 420px) {
+  /* Narrow phones: the arrow alone, the words kept for screen readers */
+  .roas-bar__jump-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+@media (max-width: 560px) {
+  /* Short labels on phones: no need to reserve two lines */
+  .roas-row__nums .field label { min-height: 0; }
+  .roas-row { gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roas-bar { transition: none; }
+}
+
 @media (max-width: 960px) {
   .roas-explain__list { grid-template-columns: 1fr; }
   .roas__grid { grid-template-columns: 1fr; }
@@ -5406,6 +5462,7 @@ html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
   .roas__tabs { width: 100%; }
   .roas__tab { flex: 1; padding-inline: 8px; font-size: 14px; white-space: nowrap; }
   .roas-row { padding: 14px; }
-  .roas-row__nums > :last-child { grid-column: 1 / -1; }
+  /* Count beside Became sales, Items per sale beside the wider value field */
+  .roas-row__nums { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
   .roas__example { border-radius: 8px; }
 }

@@ -5,7 +5,7 @@
 // ROAS spreadsheet; "Plan a Budget" works out the most a click or a sale can
 // cost. The math is in src/lib/roas.ts. Nothing leaves the browser.
 
-import { useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/en";
 import { checkResults, parseMoney, parseNum, planBudget } from "@/lib/roas";
@@ -134,6 +134,23 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
   const r = t.results;
   const p = t.planResults;
 
+  // Phones: the results sit below the inputs, so a bar at the bottom of the
+  // screen shows the main number as you type, while the results are still
+  // further down. It hides once they're on screen or scrolled past.
+  const results = useRef<HTMLElement>(null);
+  const [resultsInView, setResultsInView] = useState(true);
+  useEffect(() => {
+    const el = results.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setResultsInView(e.isIntersecting || e.boundingClientRect.top < 0), { threshold: 0.15 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [tab]);
+  const bar =
+    tab === "check"
+      ? { label: r.roas, value: check.roas === null ? "—" : f.ratio(check.roas) }
+      : { label: p.breakEven, value: plan === null ? "—" : f.ratio(plan.breakEven) };
+
   return (
     <div className="roas">
       <div className="roas__tabs" role="tablist" aria-label={t.tabs.label} onKeyDown={onTabKey}>
@@ -167,7 +184,7 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
               <p className="roas__text">{t.check.salesText}</p>
               <p className="roas__example">{t.example}</p>
               <ul className="roas-rows">
-                {rows.map((row) => {
+                {rows.map((row, i) => {
                   const id = `roas-row-${row.key}`;
                   return (
                     <li className="roas-row" key={row.key}>
@@ -177,7 +194,7 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
                       </div>
                       <div className="roas-row__nums">
                         <Field id={`${id}-count`} label={t.check.count} value={row.count} onChange={(v) => setRow(row.key, { count: v })} kind="number" group={f.group} />
-                        <Field id={`${id}-rate`} label={t.check.rate} hint={t.check.rateHint} value={row.rate} onChange={(v) => setRow(row.key, { rate: v })} kind="percent" group={f.group} />
+                        <Field id={`${id}-rate`} label={t.check.rate} hint={i === 0 ? t.check.rateHint : undefined} value={row.rate} onChange={(v) => setRow(row.key, { rate: v })} kind="percent" group={f.group} />
                         <Field id={`${id}-per`} label={t.check.per} value={row.per} onChange={(v) => setRow(row.key, { per: v })} kind="number" group={f.group} />
                         <Field id={`${id}-value`} label={t.check.value} value={row.value} onChange={(v) => setRow(row.key, { value: v })} kind="money" group={f.group} />
                       </div>
@@ -187,14 +204,17 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
                             <input
                               type="checkbox"
                               checked={row.estimate}
-                              aria-describedby={`${id}-estimate-hint`}
+                              aria-describedby={i === 0 || row.estimate ? `${id}-estimate-hint` : undefined}
                               onChange={(e) => setRow(row.key, { estimate: e.target.checked })}
                             />
                             {t.check.estimate}
                           </label>
-                          <p className="roas-field__hint roas-check__hint" id={`${id}-estimate-hint`}>
-                            {t.check.estimateHint}
-                          </p>
+                          {/* What ticking does: on the first row, and on any other row once ticked */}
+                          {(i === 0 || row.estimate) && (
+                            <p className="roas-field__hint roas-check__hint" id={`${id}-estimate-hint`}>
+                              {t.check.estimateHint}
+                            </p>
+                          )}
                         </div>
                         {rows.length > 1 && (
                           <button type="button" className="roas-row__remove" onClick={() => setRows((rs) => rs.filter((x) => x.key !== row.key))} aria-label={`${t.check.remove}: ${row.name}`}>
@@ -223,7 +243,7 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
             </section>
           </div>
 
-          <aside className="roas__results" aria-labelledby="roas-results-title">
+          <aside className="roas__results" aria-labelledby="roas-results-title" ref={results}>
             <h2 className="roas__results-title" id="roas-results-title">
               {r.title}
             </h2>
@@ -262,7 +282,7 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
           </aside>
         </div>
       ) : (
-        <div className="roas__grid" role="tabpanel" id="roas-panel-plan" aria-labelledby="roas-tab-plan">
+        <div className="roas__grid roas__grid--plan" role="tabpanel" id="roas-panel-plan" aria-labelledby="roas-tab-plan">
           <div className="roas__inputs">
             <section className="roas__card" aria-labelledby="roas-plan">
               <h2 className="roas__h" id="roas-plan">
@@ -280,7 +300,7 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
             </section>
           </div>
 
-          <aside className="roas__results" aria-labelledby="roas-plan-results">
+          <aside className="roas__results" aria-labelledby="roas-plan-results" ref={results}>
             <h2 className="roas__results-title" id="roas-plan-results">
               {r.title}
             </h2>
@@ -301,6 +321,23 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
           </aside>
         </div>
       )}
+
+      <button
+        type="button"
+        className={`roas-bar${resultsInView ? "" : " is-shown"}`}
+        aria-hidden={resultsInView}
+        tabIndex={resultsInView ? -1 : 0}
+        onClick={() => results.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+      >
+        <span className="roas-bar__label">{bar.label}</span>
+        <span className="roas-bar__value">{bar.value}</span>
+        <span className="roas-bar__jump">
+          <span className="roas-bar__jump-text">{r.jump}</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M7 2.5v9M3 7.5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </button>
     </div>
   );
 }
