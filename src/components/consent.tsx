@@ -92,6 +92,26 @@ function loadMeta(id: string) {
   fbq("track", "PageView");
 }
 
+/**
+ * Conversion events, sent to the Meta Pixel and to GA4 under their standard
+ * names. Does nothing when the tags aren't loaded (no ID set, or the visitor
+ * declined while the banner is on). No personal details: only the event and
+ * the service or channel.
+ */
+const GA_NAMES = { Lead: "generate_lead", Contact: "contact" } as const;
+export function trackEvent(name: keyof typeof GA_NAMES, detail: string) {
+  window.fbq?.("track", name, { content_name: detail });
+  window.gtag?.("event", GA_NAMES[name], { method: detail });
+}
+
+/** Contact links anywhere on the site, by where they lead */
+function contactChannel(href: string) {
+  if (href.startsWith("https://wa.me/") || href.startsWith("https://api.whatsapp.com/")) return "WhatsApp";
+  if (href.startsWith("tel:")) return "Phone";
+  if (href.startsWith("mailto:")) return "Email";
+  return null;
+}
+
 /** Deletes Google Analytics, Google Ads and Meta cookies on this site and its parent domains. */
 function clearTrackingCookies() {
   const names = document.cookie.split(";").map((c) => c.split("=")[0].trim()).filter((n) => /^(_ga|_gid|_gat|_gcl|_fbp|_fbc)/.test(n));
@@ -124,6 +144,17 @@ export function ConsentBanner({ t, privacyHref, gaId, pixelId, askFirst }: { t: 
     firstPath.current = pathname;
     window.fbq?.("track", "PageView");
   }, [pathname]);
+
+  // Contact event: a click on any WhatsApp, phone or email link, now or added later
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const link = (e.target as Element | null)?.closest?.("a[href]");
+      const channel = link && contactChannel(link.getAttribute("href") || "");
+      if (channel) trackEvent("Contact", channel);
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, []);
 
   // "Cookie settings" in the footer
   useEffect(() => {

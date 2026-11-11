@@ -10,6 +10,7 @@ import type { Locale } from "@/i18n/config";
 import { initSite, initIntro, initHero, initTagline, initServices, initWhy, initBeliefs, markLanguageSwitch } from "@/lib/client/effects";
 import { initSilk } from "@/lib/client/silk";
 import { rich } from "./Rich";
+import { trackEvent } from "./consent";
 
 /* ---------- Behaviour hooks ---------- */
 
@@ -450,6 +451,8 @@ export function ContactForm({ t, serviceValues }: { t: ContactCopy; serviceValue
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || res.statusText);
       setStatus({ kind: "sent", name: value("name").split(" ")[0] });
+      // Meta Pixel and GA4 conversion, only once the message has really gone through
+      trackEvent("Lead", value("service"));
     } catch {
       setStatus({ kind: "failed" });
     }
