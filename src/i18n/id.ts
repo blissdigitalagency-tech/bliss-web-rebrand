@@ -486,7 +486,7 @@ export const id: Dictionary = {
       lede: "Website cepat yang bisa ditemukan orang, Google, dan alat pencarian AI, dengan jalur jelas dari minat ke WhatsApp, booking, atau formulir. Bliss Digital merencanakan, menulis, mendesain, dan membangun setiap halaman. Setiap halaman dibuat agar mudah ditemukan di Google (SEO) dan memberi jawaban jelas yang bisa dibaca ChatGPT, Gemini, dan Google AI Overviews (GEO). GA4 dan pelacakan konversi dipasang saat peluncuran, dan setiap halaman diuji di ponsel dan komputer sebelum tayang.",
       button: "Tanya Soal Website Baru",
       imageAlt: "Desain aplikasi terbuka di Figma pada monitor",
-      includedTitle: "Yang Termasuk",
+      includedTitle: "Yang Termasuk dalam Pembuatan Website",
       included: [
         "Merencanakan, menulis, mendesain, dan membangun setiap halaman",
         "Muncul di Google (SEO): halaman cepat, struktur jelas, dan kata pencarian yang tepat",
@@ -502,7 +502,7 @@ export const id: Dictionary = {
       title: "Manajemen Media Sosial",
       lede: "Bliss Digital menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan. Setiap bulan dimulai dengan rencana konten yang disusun sesuai tujuan dan musim bisnis Anda. Tim kami menulis caption dengan gaya bahasa brand Anda, mendesain post, carousel, dan video pendek, menjadwalkan semuanya, serta membalas komentar dan pesan. Laporan bulanan menunjukkan jangkauan dan engagement Anda, serta apa yang sebaiknya diunggah berikutnya.",
       button: "Tanya Soal Media Sosial",
-      includedTitle: "Yang Termasuk",
+      includedTitle: "Yang Termasuk dalam Manajemen Media Sosial",
       included: [
         "Rencana konten bulanan sesuai tujuan dan musim Anda",
         "Copywriting dan caption dengan gaya bahasa brand Anda",

@@ -165,7 +165,7 @@ export const en = {
   about: {
     eyebrow: "About Us",
     titleA: "Built on",
-    titleB: "a simple *Belief*",
+    titleB: "a simple *belief*",
     text: "At Bliss, we believe good digital marketing starts with doing the *right things*, the *right way.*",
     imageAlt: "A smiling woman working on her laptop at home",
     stats: [
@@ -497,7 +497,7 @@ export const en = {
       lede: "A fast website that people, Google and AI search tools can find, with a clear path from interest to WhatsApp, booking or a form. Bliss Digital plans, writes, designs and builds every page. Each page is built to be found on Google (SEO) and to give clear answers that ChatGPT, Gemini and Google AI Overviews can read (GEO). GA4 and conversion tracking are set up at launch, and every page is tested on phones and computers before it goes live.",
       button: "Ask About a New Website",
       imageAlt: "An app design open in Figma on a desktop monitor",
-      includedTitle: "What’s Included",
+      includedTitle: "What a New Website Includes",
       included: [
         "Plan, write, design and build every page",
         "Found on Google (SEO): fast pages, clear structure and the right search words",
@@ -513,7 +513,7 @@ export const en = {
       title: "Social Media Management",
       lede: "Bliss Digital runs your Instagram and TikTok from plan to post. Each month starts with a content plan built around your goals and seasons. The team writes captions in your brand’s voice, designs posts, carousels and short videos, schedules everything and replies to comments and messages. A monthly report shows your reach and engagement, and what to post next.",
       button: "Ask About Social Media",
-      includedTitle: "What’s Included",
+      includedTitle: "What Social Media Management Includes",
       included: [
         "A monthly content plan built around your goals and seasons",
         "Copywriting and captions in your brand’s voice",

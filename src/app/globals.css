@@ -3603,6 +3603,7 @@ main { background: var(--white); }
   transition: color .3s ease;
 }
 .belief.is-open .belief__num { color: var(--accent); }
+.belief__num::before { content: attr(data-num); }
 
 .belief__name {
   flex: 1;

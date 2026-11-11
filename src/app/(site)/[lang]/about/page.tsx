@@ -78,7 +78,9 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
                 <span className="belief__bar" aria-hidden="true" />
                 <h3 className="belief__h">
                   <button type="button" className="belief__btn" id={`belief-btn-${i + 1}`} aria-expanded={i === 0} aria-controls={`belief-panel-${i + 1}`}>
-                    <span className="belief__num">{String(i + 1).padStart(2, "0")}</span>
+                    {/* Drawn by CSS from data-num and hidden from screen readers, so the
+                        heading reads "One clear goal first", not "01One clear goal first" */}
+                    <span className="belief__num" data-num={String(i + 1).padStart(2, "0")} aria-hidden="true" />
                     <span className="belief__name">{title}</span>
                   </button>
                 </h3>
