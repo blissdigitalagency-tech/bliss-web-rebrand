@@ -516,7 +516,7 @@ export const ID_ENGINE: { exact: Record<string, string>; patterns: [string, stri
     "The site's security certificate is not valid, so we stopped. Browsers show a warning for this site too.": "Sertifikat keamanan situs ini tidak valid, jadi kami berhenti. Browser juga menampilkan peringatan untuk situs ini.",
     "The site's server did not accept the connection. Check that the site is online.": "Server situs tidak menerima koneksi. Pastikan situsnya online.",
     "The site closed the connection before sending the page.": "Situs menutup koneksi sebelum mengirim halaman.",
-    "Enter a website address that starts with http or https.": "Masukkan alamat website yang diawali http atau https.",
+    "This tool checks secure sites only. Enter an address that starts with https://.": "Alat ini hanya memeriksa situs yang aman. Masukkan alamat yang diawali https://.",
     "Remove the user name and password from the address, then try again.": "Hapus nama pengguna dan kata sandi dari alamat, lalu coba lagi.",
     "Enter the address without a port number, such as example.com.": "Masukkan alamat tanpa nomor port, misalnya example.com.",
     "The pasted page is too large. The limit is 3 MB.": "Halaman yang ditempel terlalu besar. Batasnya 3 MB.",

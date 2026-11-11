@@ -107,12 +107,16 @@ let fails = 0;
 const t = (name, got, exp) => { const ok = got === exp; if (!ok) fails++; console.log((ok ? "PASS" : "FAIL") + "  " + name.padEnd(58) + " got " + got + "  expected " + exp); };
 
 server.listen(P, "0.0.0.0", async () => {
+  let r0;
   // --- security: the live setting, private addresses refused ---
   delete process.env.BLISS_ALLOW_PRIVATE;
   for (const u of [H("/secret"), "localhost:" + P + "/secret", "http://2130706433:" + P + "/", "http://169.254.169.254/latest/meta-data/", "http://[::1]/", "http://[::ffff:127.0.0.1]/", "http://user:pw@example.com/", "file:///etc/passwd", "http://metadata/"]) {
     const r = await scan(u);
     t("refuses " + u.slice(0, 44), r.code + (r.d.page ? " LEAK" : ""), "400");
   }
+  // Secure sites only: http:// is refused before anything is fetched
+  r0 = await scan("http://example.com/");
+  t("refuses http://example.com/ (https only)", r0.code + " " + (r0.d.error || "").includes("https://"), "400 true");
   const leak = await scan(H("/secret"));
   t("  no internal text in the answer", /SEKRET/.test(JSON.stringify(leak.d)), false);
 

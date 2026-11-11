@@ -1181,7 +1181,7 @@ function loadError(e, headers) {
 }
 
 const URL_PROBLEM_TEXT = {
-  scheme: "Enter a website address that starts with http or https.",
+  scheme: "This tool checks secure sites only. Enter an address that starts with https://.",
   credentials: "Remove the user name and password from the address, then try again.",
   port: "Enter the address without a port number, such as example.com.",
   private: "Enter a public website address. This tool cannot check private or local networks.",
@@ -1215,7 +1215,10 @@ exports.handler = async (event) => {
   }
   const target = normaliseUrl(params.url);
   if (!target) return { statusCode: 400, headers, body: JSON.stringify({ error: "Enter a valid website address." }) };
-  const why = urlProblem(target);
+  // Secure sites only. An address typed without a scheme already got https://
+  // in normaliseUrl; one typed with http:// is refused, not upgraded. The tests
+  // (private addresses allowed) run their local servers over http.
+  const why = target.protocol !== "https:" && !allowPrivate() ? "scheme" : urlProblem(target);
   if (why) return { statusCode: 400, headers, body: JSON.stringify({ error: URL_PROBLEM_TEXT[why] || URL_PROBLEM_TEXT.private }) };
 
   // Vercel sets x-real-ip and x-forwarded-for itself and overwrites what the
