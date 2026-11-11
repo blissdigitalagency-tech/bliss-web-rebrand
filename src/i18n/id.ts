@@ -7,7 +7,7 @@ export const id: Dictionary = {
   meta: {
     siteName: "Bliss Digital",
     home: {
-      title: "Bliss Digital | Agensi digital marketing di Jakarta",
+      title: "Bliss Digital | Agensi Digital Marketing, Google Partner Indonesia",
       description:
         "Anda fokus menjalankan bisnis. Kami pastikan bisnis Anda menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Google Ads dan website, kami jalankan untuk Anda.",
     },

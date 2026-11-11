@@ -9,7 +9,7 @@ export const en = {
   meta: {
     siteName: "Bliss Digital",
     home: {
-      title: "Bliss Digital | Digital marketing agency in Jakarta",
+      title: "Bliss Digital | Digital Marketing Agency, Google Partner Indonesia",
       description:
         "You focus on running your business. We make sure it reaches the right people, at the right time, with the right message. Google Ads and websites, run for you.",
     },
