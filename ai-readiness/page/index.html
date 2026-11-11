@@ -926,6 +926,25 @@ footer{margin-top:0}
   .tmenu__list{position:static;width:auto;padding:4px 10px 8px;border-radius:0;box-shadow:none}
 }
 .navlinks a.btn.line{color:var(--brand)}
+/* Phones: the summary card jumps to what to do, and the detailed page
+   numbers fold behind a button so the tips and WhatsApp button come sooner */
+a.fsum{color:inherit;text-decoration:none}
+#whattodo{scroll-margin-top:100px}
+.fsjump,.pdet__btn{display:none}
+@media(max-width:640px){
+  .fsjump{display:block;margin:-4px 0 18px}
+  .fsjump a{display:flex;align-items:center;justify-content:center;gap:8px;height:44px;border-radius:12px;background:var(--ink);color:#fff;font:500 14px/1 var(--sans);text-decoration:none}
+  .pdet__btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:44px;margin:0 0 18px;border:1px solid var(--line);border-radius:12px;background:#fff;font:500 14px/1 var(--sans);color:var(--ink);cursor:pointer}
+  .pdet__btn svg{transition:transform .2s}
+  .pdet.open .pdet__btn svg{transform:rotate(180deg)}
+  .pdet__hide,.pdet.open .pdet__show{display:none}
+  .pdet.open .pdet__hide{display:inline}
+  .pdet:not(.open) .pdet__body{display:none}
+  /* "main · 22 sections" moves under the number as a whole instead of breaking */
+  .kpi .u{display:inline-block;white-space:nowrap}
+  .oli .tg{font-size:11.5px}
+}
+@media print{.pdet__body{display:block !important}}
 </style>
 <script>(function(){var m=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(!m&&'IntersectionObserver' in window)document.documentElement.classList.add('motion');})();</script>
 </head>
@@ -1684,14 +1703,15 @@ footer{margin-top:0}
       return '<div class="fs'+(fg==='var(--fail)'?' bad':fg==='var(--pass)'?' good':'')+'"><span class="ic">'+icon(ic, 20)+'</span>'+
         '<span><b>'+n+'</b><small>'+label+'</small></span></div>';
     };
-    return '<div class="fsum">'+
+    return '<a class="fsum" href="#whattodo">'+
       tile(ok+' of '+CH.length, CH.some(function(k){ return d.channels[k].unverified; }) ? 'AI channels can probably read your text' : 'AI channels can read your text', 'check', ok===CH.length?'var(--passbg)':'var(--failbg)', ok===CH.length?'var(--pass)':'var(--fail)')+
       (real.length || !tips
         ? tile(real.length, real.length===1?'thing to fix':'things to fix', 'wrench', real.length?'var(--failbg)':'var(--passbg)', real.length?'var(--fail)':'var(--pass)')
         : tile(tips, tips===1?'tip to reach A':'tips to reach A', 'wrench', 'var(--line2)', 'var(--body)'))+
       tile(you, 'you can do yourself', 'person', 'var(--line2)', 'var(--body)')+
       tile(dev, 'for your web developer', 'code', 'var(--line2)', 'var(--body)')+
-    '</div>'+
+    '</a>'+
+    '<p class="fsjump noprint"><a href="#whattodo">See what to do<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 2.5v9M3 7.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>'+
     (real.length && tips ? '<p class="fsnote">Plus '+tips+(tips===1?' tip':' tips')+' to reach A, listed after the fixes.</p>' : '')+
     (ask ? '<p class="fsnote">Plus '+(ask===1?'one question':ask+' questions')+' for your developer, marked ? in the list below.</p>' : '');
   }
@@ -1863,13 +1883,17 @@ footer{margin-top:0}
     html += gradeHero(d);
     html += fixSummary(d);
     html += servedPanel(d);
+    // The page numbers, folded on phones (see .pdet in the styles)
+    html += '<div class="pdet"><button type="button" class="pdet__btn noprint" aria-expanded="false" aria-controls="pdet">'+
+      '<span class="pdet__show">Show page details</span><span class="pdet__hide">Hide page details</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5 7 9l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pdet__body" id="pdet">';
     html += kpiStrip(d);
     html += (p.renderedUnverified
         ? shellNote('Paragraphs and titles', p.rawUnconfirmed)
         : '<div class="grid g2">'+spreadChart(d)+outlineCard(d)+'</div>');
+    html += '</div></div>';
 
     /* PART 2: what happened on the site, and what to do. */
-    html += partHead(2, 'What we found, and what to do');
+    html += '<div id="whattodo"></div>' + partHead(2, 'What we found, and what to do');
     html += verdict(d);
     html += '<div class="sechead"><h3>Why each grade</h3></div>' + whyGrades(d);
     html += auditPanel(d);
@@ -1909,6 +1933,12 @@ footer{margin-top:0}
   /* ---------- buttons ---------- */
 
   function bindResultButtons(){
+    var pd = document.querySelector('.pdet__btn');
+    if(pd) pd.addEventListener('click', function(){
+      var open = pd.getAttribute('aria-expanded') !== 'true';
+      pd.setAttribute('aria-expanded', open ? 'true' : 'false');
+      pd.parentNode.classList.toggle('open', open);
+    });
     var bf = document.getElementById('tabfix'), ba = document.getElementById('taball');
     if(bf) bf.addEventListener('click', function(){ showView('fix'); });
     if(ba) ba.addEventListener('click', function(){ showView('all'); });

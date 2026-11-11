@@ -321,6 +321,8 @@ export const ID_PAGE: [string, string][] = [
   q('<p class="gradenote">The grade shows if AI can read and quote this page. It does not show if AI will choose your business.</p>', '<p class="gradenote">Nilai ini menunjukkan apakah AI bisa membaca dan mengutip halaman ini, bukan apakah AI akan memilih bisnis Anda.</p>'),
   q("Paragraphs and titles", "Paragraf dan judul"),
   q("What we found, and what to do", "Temuan kami, dan yang perlu dilakukan"),
+  [">See what to do<svg", ">Lihat yang perlu dilakukan<svg"],
+  ['<span class="pdet__show">Show page details</span><span class="pdet__hide">Hide page details</span>', '<span class="pdet__show">Tampilkan detail halaman</span><span class="pdet__hide">Sembunyikan detail halaman</span>'],
   q('<div class="sechead"><h3>Why each grade</h3></div>', '<div class="sechead"><h3>Alasan setiap nilai</h3></div>'),
   q('<div class="sechead"><h3>What we cannot check</h3></div><div class="grid g3">', '<div class="sechead"><h3>Yang tidak bisa kami cek</h3></div><div class="grid g3">'),
   q("Hi Bliss, I ran the AI readiness check on ", "Halo Bliss, saya menjalankan cek AI readiness untuk "),
