@@ -116,17 +116,17 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
             {t.pill}
           </p>
           <h1 className="hero__title" id="hero-title">
-            <span className="hero__word" data-intro style={d(120)}>
+            <span className="hero__word" data-intro style={d(60)}>
               {t.title}
             </span>{" "}
-            <em className="hero__word" data-intro style={d(220)}>
+            <em className="hero__word" data-intro style={d(110)}>
               {t.titleEm}
             </em>
           </h1>
-          <p className="hero__lede" data-intro style={d(360)}>
+          <p className="hero__lede" data-intro style={d(180)}>
             {t.lede}
           </p>
-          <div className="hero__actions" data-intro style={d(480)}>
+          <div className="hero__actions" data-intro style={d(240)}>
             <Link className="btn btn--solid" href={`/${lang}/contact`}>
               {common.letsChat} <ButtonIcon />
             </Link>
@@ -139,7 +139,7 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
         {/* Decorative examples: a Google search ad, an Instagram ad, a results chart and a website score */}
         <div className="hero__visual" aria-hidden="true">
           <div className="hv">
-            <div className="hv__item hv__search" data-intro style={d(380)}>
+            <div className="hv__item hv__search" data-intro style={d(200)}>
               <div className="hv__float" style={f("7s", "0s")}>
                 <div className="hv-card hv-search">
                   <div className="search__bar">
@@ -180,7 +180,7 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
               </div>
             </div>
 
-            <div className="hv__item hv__meta" data-intro style={d(560)}>
+            <div className="hv__item hv__meta" data-intro style={d(280)}>
               <div className="hv__float" style={f("8s", "-2s")}>
                 <div className="hv-card hv-meta">
                   <div className="meta__head">
@@ -204,7 +204,7 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
               </div>
             </div>
 
-            <div className="hv__item hv__stats" data-intro style={d(720)}>
+            <div className="hv__item hv__stats" data-intro style={d(360)}>
               <div className="hv__float" style={f("6s", "-1s")}>
                 <div className="hv-card hv-stats">
                   <p className="stats__label">
@@ -221,7 +221,7 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
               </div>
             </div>
 
-            <div className="hv__item hv__site" data-intro style={d(860)}>
+            <div className="hv__item hv__site" data-intro style={d(440)}>
               <div className="hv__float" style={f("7.5s", "-3s")}>
                 <div className="hv-card hv-site">
                   <div className="ring">

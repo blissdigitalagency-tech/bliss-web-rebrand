@@ -648,12 +648,12 @@ em.hero__word {
 /* ----- Intro on load: each piece sharpens into place in turn ----- */
 .motion .hero [data-intro] {
   opacity: 0;
-  filter: blur(12px);
+  filter: blur(6px);
   transform: translateY(18px);
   transition:
-    opacity 900ms ease,
-    filter 1000ms ease,
-    transform 1000ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 500ms ease,
+    filter 550ms ease,
+    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-delay: var(--d, 0ms);
 }
 
@@ -664,17 +664,17 @@ em.hero__word {
 }
 
 /* Chart bars grow and the score ring fills once its card is in */
-.motion .hero .bars i { transform: scaleY(0); transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.motion .hero .bars i { transform: scaleY(0); transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1); }
 .motion .hero.is-loaded .bars i { transform: none; }
-.motion .hero.is-loaded .bars i:nth-child(1) { transition-delay: 1000ms; }
-.motion .hero.is-loaded .bars i:nth-child(2) { transition-delay: 1060ms; }
-.motion .hero.is-loaded .bars i:nth-child(3) { transition-delay: 1120ms; }
-.motion .hero.is-loaded .bars i:nth-child(4) { transition-delay: 1180ms; }
-.motion .hero.is-loaded .bars i:nth-child(5) { transition-delay: 1240ms; }
-.motion .hero.is-loaded .bars i:nth-child(6) { transition-delay: 1300ms; }
-.motion .hero.is-loaded .bars i:nth-child(7) { transition-delay: 1360ms; }
+.motion .hero.is-loaded .bars i:nth-child(1) { transition-delay: 520ms; }
+.motion .hero.is-loaded .bars i:nth-child(2) { transition-delay: 550ms; }
+.motion .hero.is-loaded .bars i:nth-child(3) { transition-delay: 580ms; }
+.motion .hero.is-loaded .bars i:nth-child(4) { transition-delay: 610ms; }
+.motion .hero.is-loaded .bars i:nth-child(5) { transition-delay: 640ms; }
+.motion .hero.is-loaded .bars i:nth-child(6) { transition-delay: 670ms; }
+.motion .hero.is-loaded .bars i:nth-child(7) { transition-delay: 700ms; }
 
-.motion .hero .ring__fill { stroke-dashoffset: 113.1; transition: stroke-dashoffset 1200ms cubic-bezier(0.2, 0.8, 0.2, 1) 1200ms; }
+.motion .hero .ring__fill { stroke-dashoffset: 113.1; transition: stroke-dashoffset 800ms cubic-bezier(0.2, 0.8, 0.2, 1) 600ms; }
 .motion .hero.is-loaded .ring__fill { stroke-dashoffset: 2.3; }
 
 /* After the intro the chart and the score replay on a loop (site.js adds
