@@ -40,7 +40,7 @@ function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Se
           <p className="sd__lede" data-reveal>
             {c.lede}
           </p>
-          <Link className="btn btn--solid" href={`/${lang}/contact?service=${s.contactKey}`} data-reveal>
+          <Link className="btn btn--solid" href={`/${lang}/contact#service=${s.contactKey}`} data-reveal>
             {c.button}
           </Link>
         </div>
@@ -59,7 +59,7 @@ function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Se
                   <div className={`way${i === 0 ? " way--main" : ""}`} key={key}>
                     <b>{title}</b>
                     <span>{text}</span>
-                    <Link href={`/${lang}/contact?service=${key}`}>{link}</Link>
+                    <Link href={`/${lang}/contact#service=${key}`}>{link}</Link>
                   </div>
                 ))}
               </div>

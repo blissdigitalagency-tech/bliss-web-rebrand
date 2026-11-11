@@ -4260,8 +4260,11 @@ main { background: var(--white); }
 
 .lang-menu__check { margin-left: auto; color: var(--accent); }
 
-/* Tools menu: a navbar item, after Blog, that opens the list of free tools */
-.tools { position: relative; }
+/* Tools menu: a navbar item, after Blog, that opens the list of free tools.
+   Flex, so the wrapper is exactly as tall as its button: as a plain block it
+   took the page's line height and sat the label 1-2px below the other links.
+   A column, so on phones the list opens below the button. */
+.tools { position: relative; display: flex; flex-direction: column; }
 
 .nav__tools {
   display: inline-flex;

@@ -408,7 +408,7 @@ export const en = {
     service: "I need help with*",
     servicePlaceholder: "Select service",
     serviceError: "Please choose a service.",
-    // value = what the team sees in the Google Form; key = ?service= links
+    // value = what the team sees in the Google Form; key = #service= links
     services: [
       { key: "google-ads", label: "Google Ads" },
       { key: "website", label: "Website" },

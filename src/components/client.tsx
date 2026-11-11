@@ -395,9 +395,14 @@ export function ContactForm({ t, serviceValues }: { t: ContactCopy; serviceValue
   const [invalid, setInvalid] = useState<Record<string, boolean>>({});
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
-  // Links from the service cards pick the matching service (?service=...)
+  // Links from the service cards pick the matching service (#service=...).
+  // A hash keeps the link free of URL parameters; old ?service= links still work.
   useEffect(() => {
-    const key = new URLSearchParams(location.search).get("service");
+    const fromHash = new URLSearchParams(location.hash.slice(1)).get("service");
+    // Next.js looks for an element named by the hash, finds none, and keeps the
+    // previous page's scroll position; start this page at the top instead
+    if (fromHash) window.scrollTo(0, 0);
+    const key = fromHash ?? new URLSearchParams(location.search).get("service");
     const preset = key === "training" ? "consultation" : key;
     const select = form.current?.elements.namedItem("service") as HTMLSelectElement | null;
     if (select && preset && t.services.some((s) => s.key === preset)) select.value = preset;

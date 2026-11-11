@@ -329,6 +329,8 @@ export function Tagline({ lines, float }: { lines: string[]; float: Dictionary["
           {lines.map((line, i) => (
             <span className="tagline__line" key={i}>
               {rich(line)}
+              {/* A space between lines, so the heading reads "Right time. Right message." to search engines */}
+              {i < lines.length - 1 && " "}
             </span>
           ))}
         </h2>
@@ -450,7 +452,7 @@ function Checklist({ items }: { items: string[] }) {
 
 export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["services"] }) {
   const g = t.google;
-  const contact = (service: string) => `/${lang}/contact?service=${service}`;
+  const contact = (service: string) => `/${lang}/contact#service=${service}`;
   const solo = (key: "web" | "social", icon: string, service: string, i: number) => {
     const s = t[key];
     return (
@@ -467,7 +469,7 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
           </div>
           <div className="svc__panel svc__panel--solo">
             <div>
-              <h4 className="svc__plan">{s.plan}</h4>
+              <p className="svc__plan">{s.plan}</p>
               <p className="svc__desc">{s.desc}</p>
               <Link className="btn btn--solid" href={contact(service)}>
                 {s.button}
@@ -534,7 +536,7 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
                   {g.tabs.map((tab, i) => (
                     <div key={tab.id} className="svc__panel" id={`gtab-${tab.id}`} role="tabpanel" aria-labelledby={`gtab-${tab.id}-tab`} hidden={i !== 0}>
                       <div>
-                        <h4 className="svc__plan">{tab.plan}</h4>
+                        <p className="svc__plan">{tab.plan}</p>
                         <p className="svc__desc">{tab.desc}</p>
                         <Link className={`btn ${i === 0 ? "btn--solid" : "btn--outline"}`} href={contact(tab.service)}>
                           {tab.button}
@@ -572,7 +574,7 @@ export function Why({ t }: { t: Dictionary["why"] }) {
         <header className="why__head">
           <div className="why__intro">
             <h2 className="why__title" id="why-title" data-reveal>
-              <span className="why__title-line">{t.titleA}</span>
+              <span className="why__title-line">{t.titleA}</span>{" "}
               <em className="why__title-line">{t.titleB}</em>
             </h2>
             <p className="why__lede" data-reveal>
