@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import "../../globals.css";
 import { jakarta, fragment } from "../../fonts";
 import { getDictionary, hasLocale, htmlLang, locales, siteUrl } from "@/i18n/config";
-import { Nav, SiteEffects } from "@/components/client";
+import { InlineScript, Nav, SiteEffects } from "@/components/client";
 import { Footer, ToTop, WhatsAppFloat, EMAIL, INSTAGRAM, LINKEDIN, PHONE } from "@/components/sections";
 import { ConsentBanner } from "@/components/consent";
 
@@ -81,13 +81,11 @@ export default async function SiteLayout({ children, params }: LayoutProps<"/[la
             the browser restoring the old scroll position. Fresh visits,
             Back/Forward and language switches keep their usual behaviour; the
             browser's restoring is switched back on once the page has loaded. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion");
+        <InlineScript
+          html={`if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion");
 try{if(sessionStorage.getItem("bliss-intro")==="1"||!document.documentElement.classList.contains("motion"))document.documentElement.classList.add("intro-seen")}catch(e){}
 (function(){var n=performance.getEntriesByType("navigation")[0];
-if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEventListener("load",function(){scrollTo(0,0);setTimeout(function(){history.scrollRestoration="auto"},0)})}})()`,
-          }}
+if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEventListener("load",function(){scrollTo(0,0);setTimeout(function(){history.scrollRestoration="auto"},0)})}})()`}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

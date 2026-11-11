@@ -12,6 +12,23 @@ import { initSilk } from "@/lib/client/silk";
 import { rich } from "./Rich";
 import { trackEvent } from "./consent";
 
+/**
+ * An inline script that runs from the server HTML before the first paint.
+ * React warns when it renders a <script> in the browser (it would never run
+ * there), so in the browser the same tag is marked text/plain and left alone.
+ * suppressHydrationWarning accepts the type difference. Pattern from Next's
+ * guide "Preventing flash before hydration".
+ */
+export function InlineScript({ html }: { html: string }) {
+  return (
+    <script
+      type={typeof window === "undefined" ? "text/javascript" : "text/plain"}
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+}
+
 /* ---------- Behaviour hooks ---------- */
 
 // The scroll scripts run as layout effects: after React has put the new page in
