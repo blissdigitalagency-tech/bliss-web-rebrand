@@ -47,6 +47,11 @@ export const en = {
     services: "Services",
     cases: "Case studies",
     blog: "Blog",
+    // Free tools, in the navbar's Tools menu. Each is one English page under /tools.
+    tools: "Tools",
+    toolList: [
+      { href: "/tools/ai-readiness", name: "AI Readiness Check", note: "Can AI read your website? Free check." },
+    ],
     contact: "Contact us",
     cta: "Let’s chat",
     openMenu: "Open menu",

@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Free AI Readiness Check | Can AI Find Your Website? | Bliss Digital</title>
+<meta name="description" content="Free check from Bliss Digital. See whether Google AI Overviews, Gemini, ChatGPT and Meta AI can read your page. Four channels graded separately, A to E, with the fix for each result.">
+<link rel="canonical" href="https://blissdigital.id/tools/ai-readiness">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bliss Digital">
+<meta property="og:url" content="https://blissdigital.id/tools/ai-readiness">
+<meta property="og:title" content="Free AI Readiness Check | Bliss Digital">
+<meta property="og:description" content="Google reads your page after JavaScript runs. ChatGPT and Meta AI read it before. Check both, free.">
+<link rel="preload" href="/tools/ai-readiness/fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/tools/ai-readiness/fonts/plus-jakarta-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/tools/ai-readiness/fonts/plus-jakarta-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:italic;font-weight:400;font-display:swap;src:url(/tools/ai-readiness/fonts/plus-jakarta-sans-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/tools/ai-readiness/fonts/plus-jakarta-sans-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:italic;font-weight:600;font-display:swap;src:url(/tools/ai-readiness/fonts/plus-jakarta-sans-latin-600-italic.woff2) format('woff2')}
+@font-face{font-family:'Fragment Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/tools/ai-readiness/fonts/fragment-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans Fallback';src:local('Arial');size-adjust:104%;ascent-override:96%;descent-override:21%}
+</style>
+<style>
+/* Clean white analytics look: white ground, thin grey borders, small radius,
+   colour only where it carries a status. */
+:root{
+  --ink:#430719; --body:#55595C; --muted:#686C70;
+  --line:#E6E6E6; --line2:#EFEDE9;
+  --cream:#FFFFFF; --card:#FFFFFF; --blush:#F6F4F0; --blush2:#FAF9F7; --surface:#F6F4F0;
+  --brand:#70020F; --brand2:#430719; --rose:#B5636E; --rose2:#C9C4BD;
+  --link:#70020F;
+  --teal:#2F7A4F; --pass:#2F7A4F; --passbg:#F6F4F0;
+  --warn:#8E2A37; --warnbg:#F6F4F0; --amber:#B5636E;
+  --fail:#70020F; --failbg:#F6F4F0;
+  --grey:#C9C4BD;
+  --gA:#2F7A4F; --gB:#427A50; --gC:#A4525D; --gD:#8E2A37; --gE:#70020F; --gU:#696D72;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#FFFFFF;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;font-variant-numeric:tabular-nums}
+a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media(max-width:620px){.wrap{padding:0 16px}}
+.mono{font-family:var(--monof)}
+.eyb{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 8px}
+h1,h2{font-family:var(--sans);font-weight:600;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,4vw,44px);line-height:1.12}
+h2{font-size:clamp(22px,2.6vw,28px);line-height:1.2}
+h3{font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0}
+section{padding:48px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g6{grid-template-columns:repeat(6,minmax(0,1fr))}
+@media(max-width:1000px){.g6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.g2,.g3{grid-template-columns:minmax(0,1fr)}.g4,.g6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* header */
+.nav{background:#fff;border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;min-height:60px}
+.logo{font-family:var(--sans);font-size:26px;font-weight:600;color:var(--brand);text-decoration:none;line-height:1}
+.logo:hover{text-decoration:none}
+.logo small{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--muted);margin-left:10px;letter-spacing:0}
+.navlinks{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.navlinks a{font-size:14px;font-weight:500;color:var(--body);padding:10px 0}
+.navlinks a.on{color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--brand);padding:19px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px/1 var(--sans);color:#fff;background:var(--brand);border:1px solid var(--brand);border-radius:6px;padding:0 22px;min-height:46px;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--brand2);border-color:var(--brand2);color:#fff;text-decoration:none}
+.btn.sm{font-size:14px;padding:0 16px;min-height:38px}
+.btn.line{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.line:hover{background:var(--surface);color:var(--ink)}
+.btn.light{background:var(--brand);color:#fff}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+/* hero */
+.hero{padding:44px 0 40px;border-bottom:1px solid var(--line)}
+.heroin{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:40px;align-items:start}
+@media(max-width:900px){.heroin{grid-template-columns:minmax(0,1fr)}}
+.scanbox{display:flex;margin:0 0 10px;max-width:640px;border:1px solid #C9CBD6;border-radius:6px;overflow:hidden;background:#fff}
+.scanbox:focus-within{border-color:var(--link);box-shadow:0 0 0 3px rgba(29,111,216,.14)}
+.scanbox input{flex:1 1 auto;min-width:0;min-height:50px;padding:0 16px;font:400 16px var(--sans);color:var(--ink);background:#fff;border:0;outline:0}
+.scanbox input::placeholder{color:#6B6E7C}
+.lbl{display:block;margin:22px 0 6px;font-size:13.5px;font-weight:600;color:var(--ink)}
+.scanbox .btn{border-radius:0;min-height:50px}
+@media(max-width:480px){.scanbox{flex-direction:column}.scanbox .btn{width:100%}}
+.hchs{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:13.5px;color:var(--body)}
+.hchs span{display:inline-flex;align-items:center;gap:8px}
+.hstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:28px;border:1px solid var(--line);border-radius:8px}
+.hstats>div{padding:14px 16px;border-left:1px solid var(--line)}
+.hstats>div:first-child{border-left:0}
+@media(max-width:620px){.hstats{grid-template-columns:repeat(2,minmax(0,1fr))}.hstats>div:nth-child(3){border-left:0}.hstats>div:nth-child(n+3){border-top:1px solid var(--line)}}
+.hstats b{display:block;font-size:26px;font-weight:600;color:var(--ink);line-height:1.1}
+.hstats small{display:block;margin-top:4px;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.chl{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line2)}
+.chl strong{font-size:14px;font-weight:600}
+.rd-pill{font-size:12px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.rd-r{background:var(--passbg);color:var(--pass)}
+.rd-w{background:var(--warnbg);color:var(--warn)}
+/* channel logo: the uploaded logo when there is one, else a plain initial */
+.lg{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;border-radius:6px;overflow:hidden}
+.lg img{width:100%;height:100%;object-fit:contain;display:block}
+.lg.mono0{background:var(--surface);border:1px solid var(--line);color:var(--body);font:600 11px var(--sans)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13.5px}
+.footin{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footin nav{display:flex;gap:20px;flex-wrap:wrap}
+.footin a{color:var(--body)}
+.hide{display:none !important}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto !important;transition:none !important}}
+/* ---------- dashboard ---------- */
+#results{display:none}
+.dhead{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.durl{font-family:var(--monof);font-size:20px;font-weight:500;word-break:break-all;margin:0}
+.dmeta{font-size:13px;color:var(--muted);margin:5px 0 0}
+.verdict{border-left:4px solid var(--teal);background:var(--card);border-radius:0 18px 18px 0;padding:18px 22px;margin-bottom:18px;font-size:16.5px}
+.verdict.bad{border-left-color:var(--fail)}
+.verdict.mid{border-left-color:var(--amber)}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:30px 0 12px}
+.sechead h3{font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.sechead p{margin:0;font-size:13.5px;color:var(--muted);max-width:620px}
+
+/* KPI tile */
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 14px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.kpi .v{font-family:var(--sans);letter-spacing:-.03em;font-size:32px;font-weight:600;line-height:1;display:block}
+.kpi .u{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--muted);margin-left:3px}
+.kpi .l{display:block;margin:7px 0 9px;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.kpi .t{display:block;margin-top:auto;padding-top:7px;border-top:1px dashed var(--line);
+        font-family:var(--monof);font-size:11px;color:var(--muted)}
+.kpi .t b{font-weight:600;color:var(--ink)}
+.kpi::after{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.kpi.s-good::after{background:var(--teal)}
+.kpi.s-warn::after{background:var(--amber)}
+.kpi.s-bad::after{background:var(--fail)}
+.kpi.s-flat::after{background:var(--grey)}
+.kpi.s-good .v{color:var(--teal)}
+.kpi.s-warn .v{color:#A3434E}
+.kpi.s-bad .v{color:var(--fail)}
+
+/* grade tile */
+.gt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.gt .top{display:flex;align-items:center;gap:13px}
+.badge{width:52px;height:52px;flex:0 0 auto;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:600;font-size:27px;font-weight:600;color:#fff}
+.gA,.gB{background:var(--teal)}
+.gC,.gD{background:var(--amber);color:var(--ink)}
+.gE{background:var(--fail)}
+.gU{background:var(--grey);color:var(--ink)}
+.gt .nm{font-size:15px;font-weight:600;line-height:1.25;display:block}
+.gt .rd{font-size:11.5px;color:var(--muted);display:block;margin-top:3px}
+.track{display:flex;gap:3px;margin:14px 0 10px}
+.track i{flex:1;height:6px;border-radius:2px;background:var(--line);display:block}
+.track i.on{background:var(--teal)}
+.track i.onw{background:var(--amber)}
+.track i.onb{background:var(--fail)}
+.gt .why{margin:0;font-size:13px;color:var(--body);line-height:1.5}
+
+/* provenance chip */
+.src{display:inline-block;font-family:var(--monof);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap}
+.src-p{color:var(--ink);background:#EFE7E1;border:1px solid #E5D9D2}
+.src-m{color:var(--brand);background:var(--blush);border:1px solid var(--line)}
+
+/* chart */
+.bar{display:grid;grid-template-columns:76px 1fr 52px;align-items:center;gap:12px;margin-bottom:9px}
+.bar .bl{font-family:var(--monof);font-size:12.5px;color:var(--muted);text-align:right}
+.bar .bt{background:var(--line2);border-radius:3px;height:24px;position:relative;overflow:hidden}
+.bar .bf{position:absolute;left:0;top:0;bottom:0;border-radius:3px;min-width:2px;background:var(--grey)}
+.bar.q .bf{background:var(--teal)}
+.bar .bn{font-family:var(--monof);font-size:13px;font-weight:600}
+.zone{display:flex;align-items:center;gap:8px;margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line2);font-size:12.5px;color:var(--muted)}
+.goal{margin:14px 0 0;padding:14px 16px;border-radius:14px;background:var(--passbg);border:1px solid #E3E4EA;font-size:13.5px;line-height:1.5;color:#454856}
+.goal.miss{background:var(--warnbg);border-color:#E3E4EA;color:#454856}
+.goal b{display:block;margin-bottom:3px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.by{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:3px;margin-left:7px;vertical-align:1px;white-space:nowrap}
+.by-e{color:var(--teal);background:var(--passbg)}
+.by-d{color:#454856;background:var(--warnbg)}
+.ex{margin:10px 0 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--blush2)}
+.ex .exh{padding:8px 14px;background:var(--line2);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ex .exb{padding:14px 16px}
+.ex .exttl{font-family:var(--sans);font-size:19px;font-weight:600;letter-spacing:-.02em;margin:0 0 7px;color:var(--ink)}
+.ex .exp{margin:0;font-size:14px;color:var(--body);line-height:1.55}
+.ex .exp.ghost{color:var(--muted);font-style:italic}
+.swatch{width:11px;height:11px;border-radius:2px;flex:0 0 auto}
+
+/* emphasis */
+.hg{color:var(--teal);font-weight:600}
+.hr{color:var(--fail);font-weight:600}
+.hk{color:var(--ink);font-weight:600}
+.hc{font-family:var(--monof);font-size:.9em;font-weight:600;color:var(--ink);background:var(--line2);padding:1px 5px;border-radius:3px}
+
+/* title outline */
+.ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:620px){.ol{grid-template-columns:minmax(0,1fr)}}
+.olc h4{margin:0 0 9px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.oli{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:10px;background:var(--blush2);margin-bottom:6px;font-size:13.5px;line-height:1.35}
+.oli.l2{margin-left:18px}.oli.l3,.oli.l4{margin-left:36px}
+.oli.bad{background:var(--failbg)}
+.oli.ideal{background:var(--passbg)}
+.oli .tg{flex:0 0 auto;font-family:var(--monof);font-size:10px;font-weight:600;padding:2px 6px;border-radius:5px;background:var(--ink);color:#FBF5EC;margin-top:1px}
+.oli.bad .tg{background:var(--fail)}
+.oli.ideal .tg{background:var(--teal)}
+.oli .ph{color:var(--muted);font-style:italic}
+.olnone{padding:12px;border:1px dashed #E3E4EA;border-radius:6px;background:var(--failbg);font-size:13.5px;color:#454856}
+
+/* audit table */
+.at{width:100%;min-width:760px;border-collapse:collapse;font-size:14px}
+.at th{padding:9px 12px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+       color:var(--muted);text-align:left;border-bottom:1px solid var(--line)}
+.at td{padding:11px 12px;border-bottom:1px solid var(--line2);vertical-align:top;line-height:1.4}
+.at tr.ok td{color:var(--muted)}
+.at tr.ok td.ck{font-weight:500;color:var(--body)}
+.at tr:last-child td{border-bottom:none}
+.at tr.r-fail td{background:#FFFFFF}
+.at tr.r-weak td{background:#FFFFFF}
+.at td.st{width:34px;padding-left:16px}
+.at td.ck{width:24%;color:var(--ink);font-weight:600}
+.at td.nd{width:19%;color:var(--muted);font-family:var(--monof);font-size:12.5px}
+.at td.fd{width:19%;font-family:var(--monof);font-size:12.5px;font-weight:500}
+.at td.fx{width:30%;color:var(--body);font-size:13.5px}
+.at tr.r-fail td.fd{color:var(--fail)}
+.at tr.r-weak td.fd{color:#A3434E}
+.at tr.grp td{background:var(--blush2);padding:10px 16px;font-size:11px;font-weight:600;
+              letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line)}
+.dim{color:var(--grey)}
+.mk{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;
+    font-size:11px;font-weight:600;color:#fff;flex:0 0 auto}
+.mk.p{background:var(--teal)}
+.mk.f{background:var(--fail)}
+.mk.w{background:var(--amber);color:var(--ink)}
+.mk.u{background:var(--grey);color:var(--ink)}
+.atwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmk{display:inline-flex;align-items:center;justify-content:center;height:18px;padding:0 7px;border-radius:40px;
+     background:var(--blush);color:var(--body);font-family:var(--monof);font-size:10px;font-weight:600;
+     letter-spacing:.04em}
+.chs{display:inline-flex;gap:4px;flex-wrap:wrap;margin-left:7px;vertical-align:2px}
+.rowsrc{display:inline-block;margin-left:7px;vertical-align:1px}
+
+/* fix-first panel */
+.fx1{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.fx1 .hd{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;
+         justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fx1 .hd h3{font-size:16px}
+.fx1 .hd span{font-size:13px;color:var(--muted)}
+.tabs{display:flex;gap:6px}
+.tab{font:600 12.5px/1 var(--sans);color:var(--muted);background:transparent;border:1px solid var(--line);
+     border-radius:40px;padding:9px 15px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.fxr{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 22px;border-bottom:1px solid var(--line2)}
+.fxr:last-child{border-bottom:none}
+.fxn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+     font-family:var(--monof);font-size:13px;font-weight:600;color:#fff;background:var(--fail)}
+.fxn.m{background:var(--amber);color:var(--ink)}
+.fxn.u{background:var(--grey);color:var(--ink)}
+.fxr .ft{font-size:15px;font-weight:600;margin:0 0 6px}
+.fxr .fmeta{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 7px;font-family:var(--monof);font-size:12.5px}
+.fxr .fmeta b{font-weight:500;color:var(--muted)}
+.fxr .fmeta i{font-style:normal;color:var(--fail);font-weight:600}
+.fxr .fdo{margin:0;font-size:14px;color:var(--body)}
+.allclear{padding:26px 22px;text-align:center;color:var(--teal);font-size:15.5px;font-weight:600}
+
+/* two-part report */
+.part{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:34px 0 16px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.part .pl{display:flex;align-items:center;gap:12px}
+.part .pn{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font:600 14px var(--monof);flex:0 0 auto}
+.part h2{font-size:clamp(22px,2.6vw,28px);margin:0}
+.part p{margin:0;font-size:13.5px;color:var(--muted)}
+.gh{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 16px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.gh .ch{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;line-height:1.2}
+.gh .cm{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:22px;padding:0 6px;border-radius:40px;background:var(--ink);color:#fff;font:600 10px var(--monof);letter-spacing:.04em}
+.gh .big{width:88px;height:88px;border-radius:22px;font-size:50px}
+.gh .stw{font-size:14px;font-weight:600;color:var(--body)}
+.gh .track{width:100%;margin:2px 0 0}
+.fsum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 18px}
+@media(max-width:760px){.fsum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fs{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.fs .ic{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.fs b{display:block;font:600 24px/1 var(--sans);letter-spacing:-.02em}
+.fs small{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .ic{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--line2);color:var(--body);margin-bottom:10px}
+.kpi.s-good .ic{background:var(--passbg);color:var(--pass)}
+.kpi.s-bad .ic{background:var(--failbg);color:var(--fail)}
+.kpi.s-warn .ic{background:var(--warnbg);color:var(--warn)}
+.wr{display:grid;grid-template-columns:44px minmax(120px,190px) 1fr auto;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line2)}
+.wr:last-child{border-bottom:none}
+@media(max-width:620px){.wr{grid-template-columns:44px 1fr}.wr .wx,.wr .wc{grid-column:2}}
+.wr .badge{width:40px;height:40px;font-size:20px;border-radius:11px}
+.wr .wn{font-weight:600;font-size:14.5px}
+.wr .wx{font-size:14px;color:var(--body)}
+.wr .wx small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+
+/* confidence */
+.conf{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:40px;white-space:nowrap}
+.conf i{width:7px;height:7px;border-radius:50%;display:block}
+.conf-c{background:var(--passbg);color:var(--pass)}.conf-c i{background:var(--pass)}
+.conf-l{background:var(--warnbg);color:var(--warn)}.conf-l i{background:var(--amber)}
+.conf-n{background:var(--line2);color:var(--muted)}.conf-n i{background:var(--grey)}
+.proof{grid-column:1 / -1;margin-top:-4px;font-family:var(--monof);font-size:11.5px;color:var(--muted);
+       white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.proof b{color:var(--ink);font-weight:500}
+
+/* who gets what */
+.wg{display:grid;grid-template-columns:190px 1fr 92px 118px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line2)}
+.wg:last-child{border-bottom:none}
+@media(max-width:620px){.wg{grid-template-columns:1fr 70px;}.wg .wbar{grid-column:1 / -1;order:3}}
+.wg .wn{font-size:14.5px;font-weight:600;line-height:1.3}
+.wg .wn small{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+.wg .wbar{height:12px;background:var(--line2);border-radius:6px;overflow:hidden}
+.wg .wbar i{display:block;height:100%;border-radius:6px}
+.wg .ww{font-family:var(--monof);font-size:13px;font-weight:600;text-align:right}
+.wg .ws{justify-self:end}
+
+/* chips *//* chips */
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:20px;padding:8px 15px;font-size:13.5px;background:var(--card)}
+.chip.f{border-color:#E3E4EA;background:var(--failbg);color:#454856}
+.chip .d{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:0 0 auto}
+.chip.f .d{background:var(--fail)}
+
+/* search terms */
+.qrow{padding:16px 0;border-bottom:1px solid var(--line2)}
+.qrow:last-child{border-bottom:none}
+.qtop{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.qq{font-family:var(--monof);font-size:15px;font-weight:500}
+.cov{background:var(--line2);border-radius:3px;height:8px;position:relative;overflow:hidden;margin:8px 0 10px}
+.cov i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--teal)}
+.cov i.w{background:var(--amber)}
+.cov i.b{background:var(--fail)}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:40px}
+.p-pass{color:var(--pass);background:var(--passbg)}
+.p-warn{color:var(--warn);background:var(--warnbg)}
+.p-fail{color:#fff;background:var(--fail)}
+.qsub{display:flex;flex-wrap:wrap;gap:7px}
+.qsub span{font-size:12px;padding:4px 10px;border-radius:40px;background:var(--line2);color:var(--muted)}
+.qsub span.w{background:var(--warnbg);color:var(--warn)}
+
+.qfield label{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.qfield input{width:100%;min-height:48px;padding:0 18px;font-family:var(--monof);font-size:14px;color:var(--ink);background:var(--blush2);border:1px solid var(--line);border-radius:40px}
+.err{background:var(--failbg);color:var(--fail);border-radius:14px;padding:16px 20px;margin-top:20px;font-size:15px}
+.spin{font-size:15px;color:var(--muted);margin-top:20px}
+
+@media print{
+  .tabs{display:none}
+  #viewfix,#viewall{display:block !important}
+  .nav,footer,#hero,#learn,.noprint{display:none !important}
+  body{background:#fff;font-size:12px}
+  .card,.kpi,.gt{break-inside:avoid;border-color:#ccc}
+  section{padding:0}
+  #results{display:block !important}
+}
+.gradenote{margin:6px 0 20px;font-size:15px;font-weight:600;color:var(--ink);line-height:1.5}
+.fsnote{margin:8px 0 0;font-size:13.5px;color:var(--muted)}
+
+.durl{color:var(--ink)}
+.at{font-family:var(--sans)}
+
+/* ---------- clean white theme: overrides for the report ---------- */
+#results>section{padding-top:28px !important}
+.dhead{align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:0}
+.dhead .eyb{display:none}
+.durl{font:600 22px/1.3 var(--sans);letter-spacing:-.01em;word-break:break-all}
+.dmeta{font-size:13px}
+
+/* report tabs instead of numbered circles */
+.part{margin:26px 0 16px;padding-bottom:0;border-bottom:1px solid var(--line);align-items:flex-end}
+.part .pl{gap:10px}
+.part .pn{display:none}
+.part h2{font-size:15px;font-weight:600;letter-spacing:0;padding:0 2px 11px;box-shadow:inset 0 -2px 0 var(--brand);color:var(--ink)}
+.part p{font-size:13px;padding-bottom:11px}
+
+.sechead{margin:28px 0 10px}
+.sechead h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.sechead p{font-size:13px}
+.card{border-radius:8px}
+.card h3{font-size:15px}
+
+/* grade widgets: logo + name, a ring, the status */
+.gh{border-radius:8px;padding:16px 16px 18px;align-items:stretch;text-align:left;gap:6px}
+.gh .ch{font-size:14px;font-weight:600;gap:9px;color:var(--ink)}
+.gh .ring{position:relative;width:128px;height:128px;margin:10px auto 4px}
+.gh .ring svg{display:block}
+.gh .ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 46px/1 var(--sans);letter-spacing:-.02em}
+.gh .stw{font-size:14px;font-weight:600;text-align:center;color:var(--ink)}
+.gh .cf{text-align:center;font-size:12.5px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px}
+.gh .cf i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.gh .cf.c i{background:var(--teal)} .gh .cf.l i{background:var(--amber)} .gh .cf.n i{background:var(--grey)}
+.tA{color:var(--gA)} .tB{color:var(--gB)} .tC{color:var(--gC)} .tD{color:var(--gD)} .tE{color:var(--gE)} .tU{color:var(--gU)}
+
+/* small grade squares elsewhere */
+.badge{border-radius:6px;font-family:var(--sans);font-weight:600}
+.gA{background:var(--gA);color:#fff} .gB{background:var(--gB);color:#fff}
+.gC{background:var(--gC);color:#fff} .gD{background:var(--gD);color:#fff}
+.gE{background:var(--gE);color:#fff} .gU{background:var(--gU);color:#fff}
+
+/* summary counters */
+.fsum{gap:0;border:1px solid var(--line);border-radius:8px;margin:16px 0}
+.fs{border:0;border-left:1px solid var(--line);border-radius:0;padding:14px 18px;align-items:flex-start;flex-direction:column;gap:6px}
+.fs:first-child{border-left:0}
+@media(max-width:760px){.fs:nth-child(3){border-left:0}.fs:nth-child(n+3){border-top:1px solid var(--line)}}
+.fs .ic{width:auto;height:auto;border-radius:0;background:transparent !important;color:var(--muted) !important;order:2}
+.fs .ic svg{width:15px;height:15px}
+.fs{position:relative}
+.fs>span:last-child{order:1}
+.fs b{font:600 28px/1.1 var(--sans);letter-spacing:-.01em}
+.fs small{font-size:13px;color:var(--body);margin-top:4px}
+.fs .ic{position:absolute;top:14px;right:16px}
+.fs.bad b{color:var(--fail)} .fs.good b{color:var(--pass)}
+
+/* number tiles: no side stripe, the number carries the colour */
+.kpi{border-radius:8px;padding:14px 16px}
+.kpi::after{display:none}
+.kpi .ic{width:auto;height:auto;background:transparent !important;color:var(--muted) !important;margin:0 0 8px;border-radius:0}
+.kpi .v{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:-.02em}
+.kpi .u{font-family:var(--sans);font-size:13px;font-weight:500}
+.kpi .l{font-size:13px;color:var(--body)}
+.kpi .t{font-family:var(--sans);font-size:12px;border-top:1px solid var(--line2)}
+.kpi.s-warn .v{color:var(--gD)}
+
+/* what each reader gets */
+.wg .ww{font-family:var(--sans)}
+.wg .wbar{height:10px;border-radius:5px}
+.proof{font-family:var(--monof);font-size:11.5px}
+
+/* charts */
+.bar .bl,.bar .bn{font-family:var(--sans)}
+.bar .bt{border-radius:2px;height:20px}
+.bar .bf{border-radius:2px}
+.zone{border-top:1px solid var(--line2)}
+.oli{border-radius:4px;background:var(--surface);font-size:13.5px}
+.oli .tg{font-family:var(--sans);font-size:10.5px;font-weight:600;border-radius:3px;background:#5B5E6B;color:#fff}
+.olnone{border-radius:4px;border-color:var(--line);background:var(--surface);color:var(--body)}
+.olc h4{font-size:12px;letter-spacing:.02em;text-transform:none}
+
+/* notices instead of side rails */
+.verdict{border:1px solid #E3E4EA;border-radius:8px;background:var(--passbg);padding:14px 18px 14px 50px;position:relative;font-size:15px}
+.verdict::before{content:'';position:absolute;left:18px;top:17px;width:18px;height:18px;border-radius:50%;background:var(--teal)}
+.verdict.bad{border-color:#E3E4EA;background:var(--failbg)}
+.verdict.bad::before{background:var(--fail)}
+.verdict.mid{border-color:#E3E4EA;background:var(--warnbg)}
+.verdict.mid::before{background:var(--amber)}
+.goal{border-radius:6px;font-size:13.5px}
+.goal b{font-size:13.5px;letter-spacing:0;text-transform:none}
+
+/* why each grade */
+.wr .badge{width:34px;height:34px;font-size:17px;border-radius:6px}
+.wr{grid-template-columns:34px minmax(150px,220px) 1fr auto}
+@media(max-width:620px){.wr{grid-template-columns:34px 1fr}}
+.wr .wn{display:flex;align-items:center;gap:8px;font-weight:600}
+
+/* chips and labels in normal case */
+.src{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:0;text-transform:none;padding:2px 8px;border-radius:4px}
+.src-p{color:var(--ink);background:var(--surface);border:1px solid var(--line)}
+.src-m{color:var(--body);background:#fff;border:1px solid var(--line)}
+.by{border-radius:4px;font-size:11.5px}
+.cmk{height:22px;padding:0 8px 0 3px;border-radius:4px;background:var(--surface);border:1px solid var(--line);font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:0;gap:5px;color:var(--body)}
+.cmk.nl{padding:0 8px}
+.pill{font-size:12px;letter-spacing:0;text-transform:none;padding:3px 9px;border-radius:4px}
+.conf{border-radius:4px}
+
+/* fix list */
+.fx1{border-radius:8px}
+.fx1 .hd{padding:14px 20px}
+.fx1 .hd h3{font-size:15px}
+.tabs{gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.tab{font:600 13px/1 var(--sans);border:0;border-radius:0;padding:9px 14px;color:var(--body);background:#fff}
+.tab+.tab{border-left:1px solid var(--line)}
+.tab[aria-pressed="true"]{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:inset 0 -2px 0 var(--brand)}
+.fxr{padding:16px 20px}
+.fxn{width:24px;height:24px;border-radius:50%;font:600 12px var(--sans)}
+.fxr .ft{font-size:15px;font-weight:600;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.fxr .ft .by,.fxr .ft .chs{margin-left:4px}
+.fxr .fmeta{font-family:var(--sans);font-size:13px;gap:6px 20px}
+.fxr .fmeta b{color:var(--muted);font-weight:500}
+.fxr .fdo{font-size:14px}
+
+/* audit table */
+.at{font-family:var(--sans)}
+.at th{font-size:12px;letter-spacing:0;text-transform:none;background:var(--surface)}
+.at td.nd,.at td.fd{font-family:var(--sans);font-size:13px}
+.at tr.grp td{background:#fff;font-size:12.5px;letter-spacing:0;text-transform:none;color:var(--ink)}
+.at tr.r-fail td{background:#FFFFFF}
+.at tr.r-weak td{background:#FFFFFF}
+.mk{width:20px;height:20px;font-size:11px}
+
+/* search terms */
+.qq{font-family:var(--sans);font-weight:600}
+.qfield label{font-size:12.5px;letter-spacing:0;text-transform:none;color:var(--body);font-weight:600}
+.qfield input{font-family:var(--sans);border-radius:6px;background:#fff;border-color:#C9CBD6;min-height:44px}
+.ex{border-radius:6px;background:var(--surface)}
+.ex .exttl{font-family:var(--sans);font-weight:600;letter-spacing:-.01em;font-size:17px}
+.hc{font-family:var(--monof);border-radius:3px}
+.hg{color:var(--pass)}
+
+/* numbered notes */
+#results .mono{font-family:var(--sans);color:var(--muted) !important}
+
+/* hand-off and closing notes: light panels, no dark blocks */
+.card.dark{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.card.dark p{color:var(--body)}
+.card.dark strong{color:var(--ink) !important}
+.err{border-radius:6px}
+.stepn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--body)}
+.kpi .ic{align-self:flex-start}
+@media(max-width:620px){
+  .wg .ws{order:4;justify-self:start}
+  .wg .proof{order:5;white-space:normal;margin-top:0}
+  .dhead{align-items:flex-start}
+  .durl{font-size:18px}
+}
+
+/* ---------- review fixes, 27 Sep 2026 ---------- */
+.sev{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.sev-b{background:var(--failbg);color:#7A1417}
+.sev-l{background:var(--warnbg);color:var(--warn)}
+.sev-u{background:var(--line2);color:var(--muted)}
+.by-e{color:var(--pass)} .allclear{color:var(--pass)}
+.err{color:#7A1417;background:var(--failbg)}
+#status .err,#status .spin{margin-top:12px}
+.bar.q .bf{background:#9CC3A9} .bar.q.ideal .bf{background:var(--teal)}
+.bar{grid-template-columns:92px 1fr 52px}
+.oli span,.fmeta i,.fmeta span,.qq,.exttl,.at td,.durl,.wx,.fdo,.ft,.goal{overflow-wrap:anywhere}
+.fxr{grid-template-columns:34px minmax(0,1fr)}
+.tab{min-height:44px}
+.btn.sm{min-height:44px}
+.printhead{display:none}
+@media print{
+  .printhead{display:block;font-size:12px;color:#454856;border-bottom:1px solid #E3E4EA;padding:0 0 8px;margin:0 0 8px}
+  .atwrap{overflow:visible}
+  .at{min-width:0}
+  .badge,.mk,.fxn,.pill,.sev,.bar .bf,.wg .wbar i,.ring svg,.gh .cf i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .gh,.fs,.fxr,.wr,.qrow{break-inside:avoid}
+}
+
+/* ---------- Bliss palette: no tinted warning boxes ----------
+   Status colour lives only in small marks (rings, dots, numbers, icons).
+   Good is a deep green; problems use the Bliss rose and maroon. */
+.verdict{background:none;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;padding:16px 0;font-size:17px;line-height:1.55}
+.verdict::before{display:none}
+.verdict strong{color:var(--ink)}
+.goal,.goal.miss{background:#fff;border:1px solid var(--line);color:var(--body)}
+.goal b,.goal.miss b{color:var(--brand)}
+.err{background:none;border:0;padding:0;color:var(--brand);font-weight:600}
+.by,.by-e,.by-d{background:#fff;border:1px solid var(--line);color:var(--body)}
+.sev{background:none !important;padding:0 0 0 13px;position:relative;color:var(--body) !important}
+.sev::before{content:'';position:absolute;left:0;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--grey)}
+.sev-b::before{background:var(--brand)} .sev-l::before{background:var(--amber)}
+.pill,.p-pass,.p-warn,.p-fail{background:#fff !important;border:1px solid var(--line);color:var(--body) !important}
+.p-fail{color:var(--brand) !important;border-color:#E6CFD1} .p-pass{color:var(--pass) !important}
+.oli.bad{background:var(--surface)} .oli.bad .tg{background:var(--brand)}
+.oli.ideal{background:#fff;border:1px dashed #C9CBD6} .oli.ideal .tg{background:var(--pass)}
+.olnone{background:var(--surface);border-color:var(--line);color:var(--body)}
+.at tr.r-fail td,.at tr.r-weak td{background:none}
+.mk.w{color:#fff}
+.fxn{background:var(--brand)} .fxn.m{background:var(--amber);color:#fff}
+.kpi.s-warn .v{color:var(--gC)}
+.rd-pill,.rd-r,.rd-w{background:#fff;border:1px solid var(--line);color:var(--body)}
+.rd-r{color:var(--pass)} .rd-w{color:var(--gC)}
+.verdict.bad,.verdict.mid{background:none}
+.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 5px 0 0;vertical-align:1px}
+
+.durl:focus{outline:none}
+/* could-not-read page: robots.txt rows and the paste box */
+.accwrap{border:1px solid var(--line);border-radius:8px;padding:2px 16px;max-width:780px}
+.accr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line2);flex-wrap:wrap}
+.accr:first-child{border-top:0}
+.accn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px}
+.acc{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--body)}
+.acc i{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--grey)}
+.acc.ok i{background:var(--teal)} .acc.no{color:var(--brand);font-weight:600} .acc.no i{background:var(--brand)}
+.pastebox{margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--line);max-width:780px}
+.pastebox textarea{width:100%;font:13px/1.5 var(--monof);color:var(--ink);border:1px solid #C9CBD6;border-radius:6px;padding:10px 12px;resize:vertical;background:#fff}
+.pastebox textarea:focus{outline:2px solid var(--link);outline-offset:1px}
+/* paste steps per device */
+.devsw{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0 10px;font-size:13px;color:var(--muted)}
+.devsw span{margin-right:2px}
+.devsw button{font:inherit;font-size:13px;color:var(--body);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;min-height:34px;cursor:pointer}
+.devsw button[aria-pressed="true"]{border-color:var(--brand);color:var(--brand);font-weight:600}
+.psteps{margin:0 0 12px;padding-left:20px;font-size:14px;color:var(--body);line-height:1.6}
+.psteps li{margin:0 0 4px}
+.psteps-p{margin:0 0 12px;font-size:14px;color:var(--body)}
+.psteps kbd{font:600 12.5px/1 var(--monof);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 5px}
+.vsrc{font:12.5px var(--monof);color:var(--ink);background:var(--surface);border-radius:4px;padding:2px 5px;word-break:break-all}
+.psteps .btn.sm{padding:4px 10px;min-height:30px;font-size:12.5px;vertical-align:middle;margin-left:4px}
+/* why each grade: one name per line, shared rows */
+.wnn{display:flex;align-items:center;gap:8px;line-height:1.35}
+.wr .wn{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.lgs{display:inline-flex;gap:3px;margin-right:4px}
+.fx1{margin-top:18px}
+.gradenote{margin:6px 0 20px;font-size:15px;font-weight:600;color:var(--ink);line-height:1.5}
+.fsnote{margin:8px 0 0;font-size:13.5px;color:var(--muted)}
+
+/* ==========================================================================
+   Bliss website theme, November 2026.
+   Taken from www.blissdigital.id/en: Plus Jakarta Sans (400, 600, italics),
+   Fragment Mono for small labels, ink #430719, accent #70020F, cream cards
+   #F6F4F0, green #2F7A4F, soft layered shadows, 10-12px buttons that lift on
+   hover, 20-28px cards, and fade-up motion with cubic-bezier(.2,.8,.2,1).
+   ========================================================================== */
+:root{
+  --sans:'Plus Jakarta Sans','Plus Jakarta Sans Fallback',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --monof:'Fragment Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --track:#E8E4DE;
+  --field:#EBE9E5; --fieldline:#D9D6D1;
+  --dark:#2E0511;
+  --shadow-float:0 .5px 1px #00000008,0 1px 2px #00000008,0 2px 4px #00000008,0 4px 8px #00000009,0 8px 16px #00000009,0 16px 32px #0000000a;
+  --shadow-bar:0 0 0 1px #43071912,0 1px 1px -.5px #43071903,0 2px 2px -1px #43071905,0 3px 3px -1.5px #43071905,0 5px 5px -2.5px #43071903,0 10px 10px -5px #43071903,0 24px 24px -8px #43071905;
+  --shadow-btn:0 .5px .5px -.25px #4307190a,0 1px 1px -.5px #43071908,0 2px 2px -1px #43071908,0 4px 4px -2px #43071905,0 8px 8px -4px #43071905,0 16px 12px -6px #43071905;
+  --shadow-btn-hover:0 .5px .5px -.25px #4307190f,0 1px 1px -.5px #4307190d,0 2px 2px -1px #4307190d,0 4px 4px -2px #4307190a,0 8px 8px -4px #4307190a,0 16px 14px -6px #4307190a;
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:16px;line-height:1.6;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::selection{background:#70020F1F}
+a{color:var(--brand);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.btn,.btn:hover,.navlinks a,.logo,.footlinks a,.social a{text-decoration:none}
+input:focus-visible,button:focus-visible,a:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+strong,b{font-weight:600}
+
+/* type: large, tight and light, with an italic accent word */
+h1,h2,h3{font-family:var(--sans);color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(42px,5.4vw,76px);font-weight:600;line-height:1.04;letter-spacing:-.045em}
+h2{font-size:clamp(32px,3.9vw,54px);font-weight:400;line-height:1.08;letter-spacing:-.05em}
+h3{font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.02em}
+h1 em,h2 em{font-style:italic;color:var(--brand)}
+h1 em{padding-right:.04em}
+.lead{font-size:18px;line-height:1.6;color:var(--body);max-width:560px;margin:20px 0 0}
+.mono{font-family:var(--monof)}
+
+/* eyebrow: small caps label with a maroon dot, as on the Bliss site */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;margin:0 0 18px;font-size:14px;line-height:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--brand);flex:none}
+.kicker{display:block;font-family:var(--monof);font-size:11px;line-height:13px;letter-spacing:.02em;text-transform:uppercase;color:var(--brand)}
+
+/* buttons */
+.btn{font:400 16px/20px var(--sans);border-radius:10px;min-height:48px;padding:0 26px;gap:12px;background:var(--brand);border:0;color:#fff;
+     box-shadow:var(--shadow-btn);transition:transform .18s,box-shadow .18s,background-color .18s,color .18s}
+.btn:hover{background:var(--brand);color:#fff;box-shadow:var(--shadow-btn-hover);transform:translateY(-2px)}
+.btn:active{box-shadow:none;transform:scale(.95)}
+.btn:disabled{opacity:.7;cursor:default;transform:none}
+.btn.sm{font-size:15px;min-height:44px;padding:0 20px}
+.btn.line{background:transparent;color:var(--brand);border:1.5px solid var(--brand);box-shadow:none}
+.btn.line:hover{background:#70020F0D;color:var(--brand)}
+.btn.light{background:var(--brand);color:#fff}
+.btn.go{padding:0 8px 0 22px}
+.btn.go::after{content:'';flex:none;width:30px;height:30px;border-radius:7px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2370020F' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E") center/15px no-repeat;transition:transform .18s}
+.btn.go:hover::after{transform:translate(2px,-2px)}
+
+/* header: transparent at the top, a floating white bar once you scroll */
+.nav{position:sticky;top:0;z-index:50;background:transparent;border:0;padding:14px 0}
+.navin{min-height:64px;flex-wrap:nowrap;border-radius:18px;padding:0 14px 0 18px;margin:0 auto;max-width:1200px;transition:background-color .3s,box-shadow .3s}
+.nav.stuck .navin{background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--shadow-bar)}
+.logo{display:inline-flex;align-items:center;gap:12px;font:600 15px/1 var(--sans);color:var(--ink);letter-spacing:-.01em}
+.logo svg{width:36px;height:36px;display:block;flex:none}
+.logo small{margin:0;padding-left:12px;border-left:1px solid var(--line);font:400 14px/1 var(--sans);color:var(--muted);letter-spacing:0}
+.navlinks{gap:34px;flex-wrap:nowrap}
+.navlinks a{font-size:15px;font-weight:400;color:var(--ink);padding:8px 0;transition:color .18s}
+.navlinks a:hover{color:var(--brand)}
+.navlinks a[aria-current="page"]{font-weight:600}
+.navlinks a.btn{color:#fff;margin-left:8px;padding:0 22px}
+.menubtn{display:none;width:44px;height:44px;border:0;border-radius:10px;background:var(--brand);color:#fff;cursor:pointer;align-items:center;justify-content:center;box-shadow:var(--shadow-btn)}
+.menubtn svg{width:20px;height:20px}
+@media(max-width:960px){
+  .navlinks a:not(.btn){display:none}
+  .navlinks a.btn{margin-left:0}
+}
+@media(max-width:620px){
+  .logo small{display:none}
+  .nav{padding:10px 0}
+  .navin{padding:0 10px 0 14px;min-height:60px}
+}
+
+/* hero */
+.hero{position:relative;padding:56px 0 72px;border:0;margin-top:-92px;padding-top:148px;
+      background:radial-gradient(55% 65% at 80% 45%,rgba(112,2,15,.07),rgba(0,0,0,0) 70%)}
+.heroin{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:center}
+@media(max-width:960px){.heroin{grid-template-columns:minmax(0,1fr);gap:40px}}
+.hpill{display:inline-flex;align-items:center;gap:10px;margin:0 0 28px;padding:9px 18px;border-radius:99px;background:rgba(112,2,15,.05);box-shadow:inset 0 0 0 1px rgba(112,2,15,.10);font-size:15px;line-height:20px;color:var(--ink)}
+.hpill::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--brand);opacity:.35;flex:none}
+.lbl{margin:34px 0 10px;font-size:15px;font-weight:400;color:var(--ink)}
+.scanbox{max-width:620px;margin:0 0 12px;padding:6px;gap:6px;border:1.5px solid var(--fieldline);border-radius:14px;background:#fff;overflow:visible;box-shadow:var(--shadow-float);transition:border-color .18s,box-shadow .18s}
+.scanbox:focus-within{border-color:var(--brand);box-shadow:var(--shadow-float),0 0 0 4px rgba(112,2,15,.10)}
+.scanbox input{min-height:48px;padding:0 12px;font:400 16px var(--sans);color:var(--ink);background:transparent;border-radius:10px}
+.scanbox input::placeholder{color:#8B8E91}
+.scanbox .btn{border-radius:10px;min-height:48px;flex:none}
+@media(max-width:480px){.scanbox{flex-direction:column}.scanbox input{min-height:46px}.scanbox .btn{width:100%;justify-content:space-between}}
+.hnote{font-size:14px;color:var(--muted);margin:0}
+.hchs{gap:10px 22px;margin-top:26px;font-size:14px;color:var(--ink)}
+.hstats{display:flex;flex-wrap:wrap;gap:20px 44px;margin-top:40px;border:0;border-radius:0}
+.hstats>div{padding:0;border:0 !important}
+.hstats b{font-size:clamp(34px,3.4vw,44px);font-weight:400;letter-spacing:-.05em;line-height:1;color:var(--brand)}
+.hstats small{margin-top:8px;font-size:13px;line-height:1.35;color:var(--muted);max-width:120px}
+.hero .chcard{background:#fff;border:0;border-radius:20px;padding:22px 24px 12px;box-shadow:var(--shadow-float)}
+.hero .chcard h3{font-size:17px}
+.chl{padding:13px 0;border-top:1px solid var(--line)}
+.chl strong{font-size:15px;font-weight:400;color:var(--ink)}
+.rd-pill,.rd-r,.rd-w{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 11px 5px 9px;font-size:12px;font-weight:400;color:var(--muted)}
+.rd-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--grey)}
+.rd-r::before{background:var(--pass)} .rd-w::before{background:var(--brand)}
+.rd-r,.rd-w{color:var(--ink)}
+.lg{border-radius:8px}
+.lg.mono0{font:600 11px var(--sans);background:var(--surface);border-color:var(--line)}
+
+/* landing sections */
+section{padding:clamp(64px,6.94vw,100px) 0}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-bottom:40px}
+.shead h2{margin:0}
+.shead p{margin:0;max-width:420px;font-size:16px;color:var(--body)}
+.center{text-align:center}
+.center .shead{flex-direction:column;align-items:center;text-align:center}
+.card{background:var(--surface);border:0;border-radius:24px;padding:24px}
+.card h3{font-size:18px}
+.step{display:flex;flex-direction:column;gap:10px;min-height:220px;padding:26px}
+.step p{margin:auto 0 0;font-size:15px;color:var(--body)}
+.step h3{font-size:22px;font-weight:400;letter-spacing:-.03em;line-height:1.2;margin:4px 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:14px 28px;padding:22px 24px}
+.legend>span{display:flex;align-items:center;gap:12px;flex:1 1 190px;font-size:14px;color:var(--body)}
+.legend .badge{width:34px;height:34px;font-size:16px;border-radius:10px}
+.src{border-radius:999px !important}
+
+/* FAQ as an accordion, like the Bliss site */
+.faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px;text-align:left}
+.faq details{background:var(--surface);border-radius:16px;transition:background-color .2s}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px 18px 24px;font-size:16px;line-height:1.4;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'';flex:none;width:22px;height:22px;border-radius:6px;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(180deg)}
+.faq details p{margin:0;padding:0 24px 20px;font-size:15px;color:var(--body);max-width:720px}
+.faqsub{margin:16px 0 0;font-size:16px;color:var(--body)}
+
+/* closing band: the dark maroon panel the Bliss site ends with */
+.band{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:44px 48px;border-radius:28px;color:#fff;
+      background:radial-gradient(70% 120% at 85% 0%,rgba(140,18,40,.55),rgba(0,0,0,0) 60%),radial-gradient(60% 90% at 10% 100%,rgba(112,2,15,.45),rgba(0,0,0,0) 60%),var(--dark)}
+.band h2{color:#fff;font-size:clamp(28px,3.2vw,42px);letter-spacing:-.04em}
+.band h2 em{display:block;color:#B5B5B5}
+.band p{margin:12px 0 0;color:#E6E6E6;font-size:15px;max-width:560px}
+.band .btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.55);color:#fff;box-shadow:none}
+.band .btn:hover{background:rgba(255,255,255,.12)}
+.band small{display:block;margin-top:10px;font-size:13px;color:#C9C4BD}
+@media(max-width:620px){.band{padding:32px 24px}}
+
+/* footer, as on the Bliss site */
+footer{background:var(--surface);border:0;padding:48px 0 0;margin-top:40px;color:var(--body);font-size:14px}
+.foot{display:grid;grid-template-columns:1.1fr 1.3fr 1fr;gap:32px;padding-bottom:36px}
+@media(max-width:860px){.foot{grid-template-columns:1fr}}
+.fbrand{display:inline-flex;align-items:center;gap:10px;font:600 22px/1 var(--sans);letter-spacing:-.03em;color:var(--ink)}
+.fbrand svg{width:28px;height:28px}
+.foot p{margin:14px 0 0;line-height:1.55}
+.foot b{color:var(--ink);font-weight:600}
+.social{display:flex;gap:10px;margin-top:22px}
+.social a{width:36px;height:36px;border-radius:8px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .18s}
+.social a:hover{transform:translateY(-2px);color:#fff}
+.social svg{width:17px;height:17px}
+.fcontact a{display:flex;align-items:center;gap:12px;color:var(--ink);margin-bottom:12px}
+.fcontact svg{width:18px;height:18px;color:var(--brand);flex:none}
+.footlinks{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px;padding:20px 0 26px;border-top:1px solid #E6E2DC}
+.footlinks a{color:var(--body);font-size:14px}
+.footlinks a:hover{color:var(--brand)}
+
+/* ---------- the report ---------- */
+#results>section{padding-top:36px !important}
+.eyb{font-size:13px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dhead{border-bottom:1px solid var(--line);padding-bottom:20px}
+.durl{font:600 clamp(22px,2.4vw,30px)/1.2 var(--sans);letter-spacing:-.03em;color:var(--ink)}
+.dmeta{font-size:13.5px;color:var(--muted)}
+.part{margin:44px 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line);align-items:flex-end}
+.part .pn{display:inline-flex;width:auto;height:auto;border-radius:0;background:none;color:var(--brand);font:400 12px/1 var(--monof);letter-spacing:.04em;align-self:center}
+.part .pn::before{content:'PART 0'}
+.part h2{font-size:clamp(26px,2.8vw,36px);font-weight:400;letter-spacing:-.045em;line-height:1.1;padding:0;box-shadow:none}
+.part p{font-size:14px;padding-bottom:4px}
+.sechead{margin:40px 0 14px}
+.sechead h3{font-size:clamp(20px,1.67vw,24px);font-weight:400;letter-spacing:-.03em}
+.sechead p{font-size:14px}
+.gradenote{font-size:16px;font-weight:600}
+
+/* tiles: cream, no border, rounded like the site's cards */
+.gh,.gt,.kpi{background:var(--surface);border:0;border-radius:20px}
+.gh{padding:18px 18px 20px}
+.gh .ch{font-size:15px;font-weight:600}
+.gh .ring b{font:600 46px/1 var(--sans);letter-spacing:-.04em}
+.gh .stw{font-size:14.5px;font-weight:600}
+.gh .cf{font-size:13px}
+.fsum{border:0;border-radius:20px;background:var(--surface);overflow:hidden}
+.fs{background:transparent;border-left:1px solid #E6E2DC}
+@media(max-width:760px){.fs:nth-child(n+3){border-top:1px solid #E6E2DC}}
+.fs b{font:400 34px/1.05 var(--sans);letter-spacing:-.05em}
+.kpi{padding:18px 18px 16px}
+.kpi .v{font-weight:400;font-size:34px;letter-spacing:-.05em}
+.kpi .t{border-top:1px solid #E6E2DC}
+.badge{border-radius:10px;font-weight:600;font-family:var(--sans)}
+.wr .badge{border-radius:9px}
+.verdict{font-size:17px}
+.card .card{background:#fff}
+
+/* lists and tables inside cream cards sit on white */
+.oli{background:#fff;border-radius:8px}
+.oli .tg{font-family:var(--monof);font-weight:400;border-radius:4px;background:var(--ink)}
+.oli.ideal{background:#fff;border:1px dashed var(--grey)}
+.olnone{background:#fff;border-radius:10px}
+.olc h4,.ex .exh{font:400 11px/1.3 var(--monof);letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+.ex{background:#fff;border:0;border-radius:12px}
+.ex .exh{background:transparent;border-bottom:1px solid var(--line)}
+.ex .exttl{font-weight:600}
+.bar .bt{background:#fff;border-radius:6px}
+.bar .bf{border-radius:6px}
+.wg .wbar{background:#fff}
+.goal,.goal.miss{border-radius:12px}
+
+/* fix list: white panel with the site's segmented switch */
+.fx1{background:#fff;border:1px solid var(--line);border-radius:20px}
+.fx1 .hd{padding:16px 22px}
+.fx1 .hd h3{font-size:17px;font-weight:600}
+.tabs{gap:4px;padding:4px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:visible}
+.tab{font:400 14px/1 var(--sans);min-height:38px;border:0 !important;border-radius:9px;padding:0 16px;color:var(--ink);background:transparent;box-shadow:none;transition:background-color .18s,color .18s}
+.tab:hover{background:var(--surface)}
+.tab[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.fxn{font:600 12px var(--sans)}
+.fxr .ft{font-weight:600}
+
+/* audit table */
+.at th{background:transparent;font:400 11px/1.3 var(--monof);letter-spacing:.03em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+.at td.ck{font-weight:600}
+.at tr.grp td{font-weight:600;background:transparent}
+.card .at tr.grp td{background:transparent}
+
+/* chips */
+.src,.src-p,.src-m,.by,.cmk,.pill,.conf,.sev{border-radius:999px}
+.src-p{background:#fff}
+.cmk{background:#fff}
+.chip{border-radius:999px}
+.devsw button{border-radius:999px}
+.devsw button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:400}
+.accwrap{border-radius:16px;background:#fff}
+.pastebox textarea{border:1.5px solid var(--fieldline);border-radius:10px;background:var(--field);font-family:var(--monof)}
+.pastebox textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(112,2,15,.10)}
+.psteps kbd{font-family:var(--monof);font-weight:400}
+.spin{display:flex;align-items:center;gap:12px}
+.spin::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--brand);flex:none;animation:live-blink 1.2s ease-in-out infinite}
+.card.dark{background:var(--surface)}
+.card.dark strong{color:var(--ink) !important}
+
+/* ---------- motion, matching the site ---------- */
+@keyframes intro-rise{0%{opacity:0;translate:0 14px}}
+@keyframes live-blink{50%{opacity:.3;box-shadow:0 0 4px #70020f1a}}
+@keyframes hv-float{50%{transform:translateY(-8px)}}
+@keyframes pop{40%{transform:scale(1.06)}}
+.motion .hero [data-in]{animation:intro-rise .9s var(--ease-out) both;animation-delay:var(--d,0s)}
+.motion .hero .chcard{animation:intro-rise .9s var(--ease-out) .35s both,hv-float 7s ease-in-out 1.4s infinite}
+.motion [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--delay,0s)}
+.motion [data-reveal].is-in{opacity:1;transform:none}
+.motion #results .dhead,.motion #results .part,.motion #results .gh,.motion #results .fsum,.motion #results .kpi,.motion #results .gradenote{animation:intro-rise .7s var(--ease-out) both}
+.motion #results .gh:nth-child(2){animation-delay:.07s} .motion #results .gh:nth-child(3){animation-delay:.14s} .motion #results .gh:nth-child(4){animation-delay:.21s}
+.motion #results .kpi:nth-child(2){animation-delay:.05s} .motion #results .kpi:nth-child(3){animation-delay:.1s} .motion #results .kpi:nth-child(4){animation-delay:.15s}
+.motion #results .gh .ring b{animation:pop .6s var(--ease) .5s both}
+@media (prefers-reduced-motion: reduce){
+  .motion .hero [data-in],.motion .hero .chcard,.motion #results *{animation:none !important}
+  .motion [data-reveal]{opacity:1;transform:none;transition:none}
+  .btn:hover,.social a:hover{transform:none}
+  .spin::before{animation:none}
+}
+@media print{
+  .motion [data-reveal]{opacity:1 !important;transform:none !important}
+  *{animation:none !important}
+  .nav,.band,footer{display:none !important}
+  .gh,.kpi,.fsum,.card{background:#fff !important;border:1px solid #E6E2DC !important}
+  body{font-size:12px}
+}
+@keyframes ring-draw{from{stroke-dasharray:0 340}}
+.motion #results .ring .arc{animation:ring-draw 1.1s var(--ease-out) .2s both}
+@media (prefers-reduced-motion: reduce){.motion #results .ring .arc{animation:none}}
+/* fixes after first preview */
+#results,#status{scroll-margin-top:104px}
+.kpi .u,.fs small{letter-spacing:0}
+.kpi .u{font-size:13px;margin-left:4px}
+#results .mono{font-family:var(--monof) !important;font-weight:400 !important;color:var(--brand) !important;letter-spacing:.02em}
+footer{margin-top:0}
+.step{min-height:200px}
+@media(max-width:960px){
+  .menubtn{display:inline-flex}
+  .navlinks{gap:10px}
+  .nav.open .navin{background:#fff;box-shadow:var(--shadow-bar);border-radius:18px 18px 0 0}
+  .nav.open .navlinks a:not(.btn){display:block;position:absolute;left:0;right:0;padding:14px 22px;background:#fff;font-size:17px;border-top:1px solid var(--line)}
+  .nav.open .navin{position:relative}
+  .nav.open .navlinks a:nth-child(1){top:64px} .nav.open .navlinks a:nth-child(2){top:116px} .nav.open .navlinks a:nth-child(3){top:168px}
+  .nav.open .navlinks a:nth-child(4){top:220px} .nav.open .navlinks a:nth-child(5){top:272px;border-radius:0 0 18px 18px;box-shadow:0 18px 24px -12px #4307191f}
+}
+@media(max-width:620px){
+  .nav.open .navlinks a:nth-child(1){top:60px} .nav.open .navlinks a:nth-child(2){top:112px} .nav.open .navlinks a:nth-child(3){top:164px}
+  .nav.open .navlinks a:nth-child(4){top:216px} .nav.open .navlinks a:nth-child(5){top:268px}
+}
+.menubtn[hidden]{display:none !important}
+.navlinks a.btn.line{color:var(--brand)}
+</style>
+<script>(function(){var m=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(!m&&'IntersectionObserver' in window)document.documentElement.classList.add('motion');})();</script>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="wrap"><div class="navin">
+    <a class="logo" href="/en" aria-label="Bliss Digital home"><svg viewBox="0 0 676 676" aria-hidden="true"><defs><linearGradient id="bmk1" x1="0" y1="0" x2="676" y2="676" gradientUnits="userSpaceOnUse"><stop stop-color="#70020F"/><stop offset="1" stop-color="#430719"/></linearGradient></defs><path fill="url(#bmk1)" d="M169 0C262.336 0 338 75.664 338 169V676C293.615 676 249.666 667.255 208.659 650.271C167.651 633.284 130.376 608.396 98.99 577.01C67.604 545.624 42.716 508.349 25.73 467.341C8.745 426.334 0 382.385 0 338V169C0 75.664 75.664 0 169 0ZM507 338C600.336 338 676 413.664 676 507C676 600.336 600.336 676 507 676C413.664 676 338 600.336 338 507C338 413.664 413.664 338 507 338Z"/></svg><small>AI Readiness Check</small></a>
+    <nav class="navlinks" aria-label="Main">
+      <a href="/en/about">About us</a>
+      <a href="/en/services">Services</a>
+      <a href="/en/case-studies">Case studies</a>
+      <a href="/en/blog">Blog</a>
+      <a href="/tools/ai-readiness" aria-current="page">Tools</a>
+      <a href="/en/contact">Contact us</a>
+      <a class="btn sm" href="/en/contact">Let&rsquo;s chat</a>
+      <button class="menubtn" type="button" aria-label="Open menu" aria-expanded="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </nav>
+  </div></div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap heroin">
+    <div>
+      <p class="hpill" data-in>Free tool &middot; Updated September 2026</p>
+      <h1 data-in style="--d:.08s">Can AI read <em>your website?</em></h1>
+      <p class="lead" data-in style="--d:.16s">Check one page against four AI channels. Each gets its own grade from A to E, with the fix.</p>
+
+      <div data-in style="--d:.24s">
+      <label for="url" class="lbl">Page address</label>
+      <form id="scanform" class="scanbox">
+        <input id="url" name="url" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="yoursite.com/your-page" required>
+        <button class="btn go" type="submit" id="scanbtn">Check my site</button>
+      </form>
+      <p class="hnote">Free. No sign up. The check takes a few seconds.</p>
+      <div id="status" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="hchs" aria-label="Channels we grade" data-in style="--d:.32s">
+        <span><span data-logo="aio" data-size="20"></span>AI Overviews</span>
+        <span><span data-logo="gemini" data-size="20"></span>Gemini</span>
+        <span><span data-logo="chatgpt" data-size="20"></span>ChatGPT</span>
+        <span><span data-logo="meta" data-size="20"></span>Meta AI</span>
+      </div>
+
+      <div class="hstats" data-in style="--d:.4s">
+        <div><b>4</b><small>AI channels, graded separately</small></div>
+        <div><b>6</b><small>Page checks we run</small></div>
+        <div><b>3</b><small>AI crawlers we visit your page as</small></div>
+        <div><b>0</b><small>Made-up scores or weights</small></div>
+      </div>
+    </div>
+
+    <div class="card chcard">
+      <span class="kicker">What each channel reads</span>
+      <h3 style="margin:8px 0 4px">Two of them never see what JavaScript adds</h3>
+      <p style="margin:0 0 12px;font-size:14px;color:var(--muted)">Google runs your page&rsquo;s code. ChatGPT and Meta AI read the page before it runs.</p>
+      <div class="chl"><span data-logo="aio" data-size="26"></span><strong>Google AI Overviews</strong><span class="rd-pill rd-r">After JavaScript</span></div>
+      <div class="chl"><span data-logo="gemini" data-size="26"></span><strong>Gemini</strong><span class="rd-pill rd-r">After JavaScript</span></div>
+      <div class="chl"><span data-logo="chatgpt" data-size="26"></span><strong>ChatGPT</strong><span class="rd-pill rd-w">Before JavaScript</span></div>
+      <div class="chl"><span data-logo="meta" data-size="26"></span><strong>Meta AI</strong><span class="rd-pill rd-w">Before JavaScript</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><p class="printhead">Bliss Digital &middot; AI Readiness Check &middot; blissdigital.id/tools/ai-readiness &middot; WhatsApp +62 813-7903-995</p><div id="results"></div></div>
+
+<div id="learn">
+
+<section>
+  <div class="wrap">
+    <div class="shead" data-reveal>
+      <div><p class="eyebrow">How it works</p><h2>How AI <em>picks websites</em></h2></div>
+      <p>AI answers are built from short pieces of text. Your page has to be readable before it can be one of them.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card step" data-reveal><span class="kicker">01 &middot; Search</span>
+        <h3>One question becomes many</h3>
+        <p>&ldquo;Best dinner in Seminyak&rdquo; becomes several smaller searches that you never see.</p></div>
+      <div class="card step" data-reveal style="--delay:.08s"><span class="kicker">02 &middot; Collect</span>
+        <h3>It collects short pieces of text</h3>
+        <p>Not whole pages. Paragraphs of roughly 70 to 150 words.</p></div>
+      <div class="card step" data-reveal style="--delay:.16s"><span class="kicker">03 &middot; Choose</span>
+        <h3>It picks a few and names them</h3>
+        <p>One paragraph of yours competes against paragraphs from other sites.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="shead" data-reveal>
+      <div><p class="eyebrow">Grading</p><h2>How the <em>grade works</em></h2></div>
+      <p>Worst tier wins. No weights. No overall grade, because a channel you do not care about should not move your result.</p>
+    </div>
+    <div class="grid g2" style="margin-bottom:16px">
+      <div class="card" data-reveal style="padding:28px">
+        <span class="src src-p">AI company rule</span>
+        <h3 style="margin:14px 0 6px">Published by the channel</h3>
+        <p style="margin:0;font-size:15px;color:var(--body)">A blocked crawler, a <span class="mono">noindex</span> tag, or a page that will not load. Only these reach <strong>E</strong>.</p>
+      </div>
+      <div class="card" data-reveal style="padding:28px;--delay:.08s">
+        <span class="src src-m">Our check</span>
+        <h3 style="margin:14px 0 6px">Bliss&rsquo;s own threshold</h3>
+        <p style="margin:0;font-size:15px;color:var(--body)">Titles, paragraph length, a visible date. No channel publishes these numbers, so they stop at <strong>D</strong>.</p>
+      </div>
+    </div>
+    <div class="card legend" data-reveal>
+      <span><span class="badge gA">A</span>Nothing to fix</span>
+      <span><span class="badge gB">B</span>1 page issue, a missed tip, or small site setup gaps</span>
+      <span><span class="badge gC">C</span>2 page issues, or 3+ site setup gaps</span>
+      <span><span class="badge gD">D</span>3+ page issues, or a limit on quoting</span>
+      <span><span class="badge gE">E</span>Blocked by a rule the AI company published</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap center">
+    <div class="shead" data-reveal>
+      <p class="eyebrow">FAQ</p><h2>Questions <em>people ask</em></h2>
+      <p class="faqsub" style="max-width:none">Cannot find your answer? <a href="https://wa.me/628137903995">Message us on WhatsApp.</a></p>
+    </div>
+    <div class="faq" data-reveal>
+      <details open>
+        <summary>My site looks fine, but ChatGPT and Meta AI scored D. How?</summary>
+        <p>Your page probably builds its content with JavaScript. Google runs that code, so Google sees the full page. An independent test by Vercel (December 2024) found that OpenAI&rsquo;s and Meta&rsquo;s crawlers do not run JavaScript, and no newer test has shown a change. Switch JavaScript off in your browser and reload the page. What stays on screen is what those two see.</p>
+      </details>
+      <details>
+        <summary>I blocked Google-Extended to stay out of AI Overviews. Did it work?</summary>
+        <p>No. Google states that Google-Extended does not affect inclusion or ranking in Google Search. AI Overviews runs on Googlebot instead. Blocking Google-Extended stops the Gemini app from using your pages. You stay in AI Overviews.</p>
+      </details>
+      <details>
+        <summary>Do I need an llms.txt file, or schema markup?</summary>
+        <p>Google says you do not need special files such as llms.txt, or special markup, to appear in its AI features. Schema markup still helps you get rich results in Google, so keep it. Neither one is required, so this tool does not grade either of them.</p>
+      </details>
+      <details>
+        <summary>I got four A grades. Why is my brand still missing?</summary>
+        <p>An A means nothing blocks you. It does not mean AI will pick you. Research across 75,000 brands found that mentions on other websites matter about three times more than backlinks for AI visibility. Reviews, articles and directories all count.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band" data-reveal>
+      <div>
+        <h2>Want the full picture? <em>Ask our team.</em></h2>
+        <p>Send us your website. Our team will go through the result with you and tell you what to change first.</p>
+      </div>
+      <div>
+        <a class="btn go" href="https://wa.me/628137903995?text=Hi%20Bliss%2C%20I%20would%20like%20your%20team%20to%20review%20my%20website%20for%20AI%20search.">Talk to our team</a>
+        <small>+62 813-7903-995 &middot; replies on weekdays</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /#learn -->
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="fbrand" href="/en" style="text-decoration:none"><svg viewBox="0 0 676 676" aria-hidden="true"><defs><linearGradient id="bmk2" x1="0" y1="0" x2="676" y2="676" gradientUnits="userSpaceOnUse"><stop stop-color="#70020F"/><stop offset="1" stop-color="#430719"/></linearGradient></defs><path fill="url(#bmk2)" d="M169 0C262.336 0 338 75.664 338 169V676C293.615 676 249.666 667.255 208.659 650.271C167.651 633.284 130.376 608.396 98.99 577.01C67.604 545.624 42.716 508.349 25.73 467.341C8.745 426.334 0 382.385 0 338V169C0 75.664 75.664 0 169 0ZM507 338C600.336 338 676 413.664 676 507C676 600.336 600.336 676 507 676C413.664 676 338 600.336 338 507C338 413.664 413.664 338 507 338Z"/></svg>Bliss Digital</a>
+        <p>&copy; 2026 Bliss Digital Agency. All rights reserved.</p>
+        <div class="social">
+          <a href="https://wa.me/628137903995" aria-label="WhatsApp (opens in a new tab)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+          <a href="https://www.instagram.com/blissdigital.id" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+          <a href="https://www.linkedin.com/company/bliss-digital-agency/" aria-label="LinkedIn (opens in a new tab)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0"><b>PT Blissindo Kreasi Digital</b><br>Legalyn Indonesia, Kawasan Rasuna Epicentrum,<br>Epiwalk Office Suite Lt. 5 Unit A501,<br>Jl. HR Rasuna Said, Jakarta Selatan, DKI Jakarta 12940</p>
+      </div>
+      <div class="fcontact">
+        <a href="mailto:admin@blissdigital.id"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>admin@blissdigital.id</a>
+        <a href="tel:+628137903995"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+62 813-7903-995</a>
+      </div>
+    </div>
+    <nav class="footlinks" aria-label="Footer">
+      <a href="/en">Home</a><a href="/en/about">About us</a><a href="/en/services">Services</a><a href="/en/case-studies">Case studies</a><a href="/en/blog">Blog</a><a href="/en/contact">Contact us</a><a href="/en/privacy">Privacy policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* Site motion: fade-up on scroll and the floating header bar. Content stays
+   visible when JavaScript is off, because .motion is only added here. */
+(function(){
+  var root = document.documentElement, reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.querySelector('.nav');
+  function onScroll(){ nav.classList.toggle('stuck', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var mb = document.querySelector('.menubtn');
+  if(mb){
+    mb.hidden = false;
+    mb.addEventListener('click', function(){
+      var open = !nav.classList.contains('open');
+      nav.classList.toggle('open', open);
+      mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    document.addEventListener('click', function(e){ if(!nav.contains(e.target)){ nav.classList.remove('open'); mb.setAttribute('aria-expanded','false'); } });
+  }
+  if(!root.classList.contains('motion')) return;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+
+<script>
+(function(){
+  "use strict";
+  var form = document.getElementById('scanform');
+  var btn = document.getElementById('scanbtn');
+  var out = document.getElementById('results');
+  var learn = document.getElementById('learn');
+  var statusEl = document.getElementById('status');
+  var lastUrl = '';
+  var CH = ['aio','gemini','chatgpt','meta'];
+  var SHORT = {aio:'AI Overviews', gemini:'Gemini', chatgpt:'ChatGPT', meta:'Meta AI'};
+  var MARK  = {aio:'AIO', gemini:'GEM', chatgpt:'GPT', meta:'META'};
+  // Channel logos, filled in from the files Bliss supplied. A plain initial shows until then.
+  var LOGO = {"aio": "data:image/png;base64,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", "gemini": "data:image/png;base64,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", "chatgpt": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAbGklEQVR42t17eVgU17bv2ruq6W5QUeahaURAZkEmg4qN2IJHGSIRB8QpUcHZiIJjGhLi0YhizEkcjpLgELWJmvjURGMMDidOoMdEMZo44YCzMRFCQ1et98et3a/sYPSYmHvvq++rD6q7qvfea6/1W781FAcv8EBEAgA8ANArV66ILdxCoqKiFN27dydnzpyBoqIi+P/ikBbOWX3GIaLaYDCodu3apUREdatWrR57LjMzkwMA8lfO9UUMxgGAIC263Zo1a/ouXbpU26FDh351dXVOly5dEiilGBoaqiSEnCaEHBkwYEBVTk7ON4SQX5kgKioqhP9Vu24wGCgAUACAe/fueU2aNKkkPj7+nru7O9rY2CAAtHja2tqip6cn9uvXr7awsHAWItpKP0n/12iAwWCgRUVFolKphEGDBo2rrq6efe3aNc3Dhw9B0gaBEMJM4/8NTggiIgCAAgCIm5sbaLXa40OHDp07bdq0PYIgUESEwsLC34xZWFiIhBD8n7LzgIje2dnZW52dndnuNksnAgBSStHV1RW9vb3R29sbHR0d2QJQEpAZAMwAgP7+/jhv3rwSGxubpw1P/yhukD+6+MLCQgSA9tnZ2Tu3bdsW1NDQIFBKQRRFqlariZeXl8nf3//kt99+W5Gbm2uKiIggZrOZ7N27V9y9e7eTRqPJvHHjRsj58+dBFEUghIiICM7OzjQxMXHxpk2bPv7ggw9Ux48f5+rr66lGozHl5uZix44db6vV6kuNjY0AAKDT6fjKykrhr9QKAgAEEcnIkSNPKhQKBIAmSqkAAKjRaHDcuHGbP//88zhE5An5raw5jgNEtNu9e/fgfv36HVKr1SYAECmlIgAI7dq1Q51OZwoMDGx2d3cXXFxcBK1W2xwXF9ek1+vrXn311f9TXFw8GhHV1hr5l6g+IpJBgwYt5HkeAcBMKRUopdipU6faefPmJSsUCvkjvMFgsJw6nY6XbJ8CALRt2xZmz569ycHBAQHALO2kIJmI2MKJCoUCXVxcMCQk5PTEiRNzEFElc6cv7mAD7Nq1KyksLAwBQJB2XoyIiLh4+PDhINmi6RMEyLP/T58+HZydnb3Ox8enged5JISIhBBRwhDhCR6kSTrNAIBOTk44YMCAEx988EHACxUCItKoqCgFIiqHDRv2tUKhECmlZgAQw8PDzevWrYuxXuCT3CUiOg4aNGhOaGjoXVtbWwQAlBZuBgC0t7dHPz8/7Nat26O0tLT61NTUh0lJSfUhISG/uru7M0Gw8ZsBADt27Hhzw4YNYyWT4/5stLfs5o4dO4I0Go0ZAERCiLldu3aYl5dXyPM8SOrdEjukAAAKhQKWLl2ardPpztnb2//Ga7Rq1QojIyMv5ufnLy0vL09BRA0i+iCiFyK237p1a1BpaemsjIyMf2k0Gva8WRIEhoaGotFoHP2naIKc1trY2EBjY2PAtGnTXk5KSjpCKUXJfWGnTp2+R8S2DBjlzzOBKJVKWL9+fbeYmJhtHh4eloUTQiwL79at253BgwdPQES7Z5nb0qVL+yYlJZ1r1aqVBYcAQAwICGhctmxZ+B8CRvmDS5YsCcnNzd3SvXv3e66urshxHPPjZqVSiX379p3LcdxjEpf/bzQaPSdOnPhRcHCwSCllQGexcY1G0zRlypTViBjCntHpdLzRaOQMBgNloIuIRLrmmRtHRNehQ4eulgBUYJoQHx//rSRIYk3CnhnoENF+9OjR72o0modKpdJCXCTyggAg+Pn54Y4dO4YAADEajZwVQWozceLEPG9v7+uMEksLNwMA+vj4YL9+/fYVFxdHUGqRN4+I7LeojPD85mDapVKpIC0t7QOVSoWEEIEQYra3t8eCgoI3eZ7/z7SADbZx40ZfnU53rCU7lQEWhoeH3z116pRGZjIEAGDBggX9UlNTv5d25jd2Hh0dXbVq1arhsqiQYzvN8MLOzg7Uaoubb3EnEZFK3ynT09PPEkKQAXNiYuJtRNTK5vZ0lAcAOHToULxOp7vGXA6zdTs7OwwODhYk3y8CAPbu3fuytQ/+4osvwn19fRut7FxUqVQYGxv704QJE2YhotKaVzC84Xkevvrqq76vvvrq9uHDh2/5/PPP9YxXZGZmctaLYTu8YcOGWB8fn0Zpbua2bdvi6NGjxzLNehbAg/Pnzzt36dLlgkxdBYmjN48bN66krKysQAIxMwBgcnLyZQZaY8eOVQAALF++fIqbmxsSQpokV4UdOnTAIUOGfHT27NkAxgzZYuRus66uzmfkyJFrO3XqhDzPI8dxGBoaiiNHjlx35coVD2v1f5xcchAdHf2RZJ4mjuPEyMjI7dLGPtUMOES06d+//z6JkDQTQgSe57F79+5nP/vss24AAAsXLhzq5eXFVJoJwFbu/xctWpTr6ekpAoDZyclJSE1N3bt69eqeMjvnAIBY8YJ2ubm5M6Kjox+oVCqGNU1MexQKBYaHh9fNnz/fgIguzCzY7rPAaNKkSakSTxAAAIOCgh49ePCg7dPiHw4AYMqUKWMcHR0fo7bdunU7euvWLTd239KlS0dJ/veJAigtLR3n7u6OlFLs06fPNpmdU2nCFnVXq9WwZs2aIXq9/qyTk5PFtFQqFTKCJI1lBgB0cXFBvV7/fWlpaYYMHzgGwHfu3ImJioqqZ2bg5+cnbt68eYjkjR4DUypTfRERnQ8dOlRw7949ZBFdbGzsHaPRmOnq6npzxIgRKgAQWBD/DHgChBAQBOHuo0ePQGKQWFlZSQEAeZ4Xtm7dGtetW7cdb7755sd79+4NvHv3Ljg7O5OePXt+m5aW1nvQoEGvR0VF/aJSqXgAoJRS4fbt28LevXsDSkpKtvTo0WNPeXl5HMdxwsCBAwUA4JycnL7jOO6CJGTh0aNH5OrVqz4AAGfOnHlMA3gAgIEDB1IAEFauXDn45s2bvgAgiKJINBqNkJKSMsbT07PWYDDwISEhzeXl5c9DphSISKKjo4Fxh0OHDnkYjca33njjjRFnz57lBEEQlEolFxwcfKtXr14lixYt+oAQ0gAAe0+fPl1ZVlY2u6KiIuPq1auchCnC9evXyY0bN3rX1tb2Gj169KqUlJTi1NTU6wCAHh4ejWz8pqYmuH//fnNLc+MRkUgxuGrQoEHDb968iQAg8jyv6NGjR+WcOXO2z507l7755pvmzZs3Py+tJBLoNSOiXX5+/vgRI0bk1tXVdWhoaBABwNymTRvutddeK1+yZMl0QsjdkpISwjxKaGjov9Vq9cB58+bFHT58ePGpU6fiamtrWbbJfPbsWe7SpUu5X3/9dd9p06a9DwArzGZzs2xw4DiuRdun0sTw5MmTrc+dOxcmCAIBAOru7g4vvfTSNkIIZmZmkmfU+iet3sTzPObl5fXLyMioLisre+fChQsdGhoaLGYoCAJeu3YtNC8vL1xyd1hRUYFGo1E0GAz0119/5WbPnn14+/btPQoKCkZHRUXV2NracojIA4DQ2NhoPn/+vLa8vHxhenr6kYsXL/qw4Vu1agXe3t4tCoA3GAxcUVGRuaqq6m/Xrl1TSFLlOI67GRUV9ZkEHGJLCY1nWDiIoggqlcqvf//+G9avX59169YtAABwdXWFqKioGgCA6urq4Fu3bkFFRUWUu7v73qSkpE/nz59fGhkZeYAQAjqdjkNEobCwkEp8ZA0ifjx27FjDmTNnJlRXV7cymUxACDHfu3ePbN++PYgQAlIeUqFQKARbW9s90rTEFuPygoKCmRL6myR2dwQRH1N5hqClpaUjn+YFSkpKxjGu0LZtW5YZFhUKBXbs2LFu4cKFcxGxHSK2W7Ro0dzAwMA6Kask8DyPkZGROGzYsPcQ0VnOUOWcgVIKtbW1oQMHDtwgC4/NkpBYTgHj4uJuIGLrlpgkraysBACAffv2NdfX11u+iIyM5J/KnJ7x+Omnn9BsNkN4eDgZPHjw2k2bNnUqKCgoJoQ8IIQ8mDFjRvH27ds7DR48eG1ERARFRDhx4gQYjcaJERER3xUWFr6OiOqKigpBAhMREYkoipxWqz29ZcuWobm5uT3S0tKOODs7c4jIyRKuwHHcbVareGIwERISMl0KdkwAgDk5OVVyqvpHNMDBwaE5NTV1V1VVVU9GZ3U6Hc+iOzYHhUIBVVVVPVNTU3c5Ojpa/L6Hhwf27t37+NKlS1Ps7OzkpM2aSJG5c+cWtG/f/rbEYgWWW8zJyfk7IpLfBFVs8CFDhsyQgh4TAKBerz8qAcxzCcCKCG1WqVQWrXtCQGMJgFQqFSQlJW2WNqSZESMfHx/MzMz8fPv27THy+csWRgEA/vnPf8bGxsbekoIiAQDMAQEBuGHDhlTrMJ0mJCQAAEB0dLSJ4zgLVfzxxx/tHj582LqlKEoiQtZugViHnIwImc3mXxobG0lUVJRCsk1sATARAMSoqChFY2MjEUXxFykJQ9zd3R/Z2NjApUuXxK1bt/aZOXPmv3Jycv5RVVXltH//fjMhBIxGo8ieHzNmzLGMjIxUR0fHu6IoIiEEz507B6tXr56EiFxFRYUoZ4LsYpetra1JytSKNjY2IZ999lmcjCjJD6W0OAQAEEWRAoBYVFQkHj16lGthh3kAwOrq6qfW+6R7EAB4s9kMDg4O3BtvvPH37OzsxUFBQVQQBKipqeHWr18/YejQoQeKi4snIyKV5kKqq6ubo6KiFDNnzjzWr1+/txwcHNh8xIsXLyauWrWqHwCgRQvYZBHRPi0t7b4kkGZbW1ucPn36ap7nLXGCLOTUdezY0ZKddXR0NI8cOXLvxo0bOzJ3+c4770xwc3NDjuNQr9d/+B/U+ygAgF6v/5DjOHRzc8PS0tIxPM9DWVlZYnJy8n5XV1dLJOru7o4pKSlbrl+/biuvVUjhdZu0tLQfJOE0qVQqHD58uBER6WPaytzLlClT/tG2bVuLbUdHR/9aW1sbaq3elFIYN25cbrdu3X5Sq9UIAMhxHGq12kcTJkx4HxHdP/zww5EeHh5/lgDGyRMkxcXFw319fX+SkN3k7e2NK1asyJbbN/trMBimS+U6MwBgbGzsz4jYhm0+BQAIDg5GQgh27959uaOj408SQzSfOnVKlZWVNZNSikVFRRYfOm/ePLp8+fIV+/btSxg2bFi5VqttFgQBamtr7davXz8+KSlp/7Fjx/Qmk0m0igCfKwPNCMykSZOU9fX1sHDhwrWBgYH3pXlSs9ks1tfXK6SFA1sTAJCEhIS9Dg4OD5m5X7x4UV1aWhrbkmlTSimkp6cvVavVLNsrtGnTBmfMmLFQqVQCAFDmCZiEeZ6H+fPnxwwZMuRI+/btLYULKZ5vVqlU2KdPn+XSGIrfS0tJ3ykAAPr27bvcSgOYhyGI2DopKekyC5M1Gg2WlpaObCncRURFQEDAMelek7OzMy5YsGAWS95QmdRBFEVSXl6+LCws7DoicpRS+Pnnn8WKior87Ozst9VqtchCTqPRKCIiNZvN3OzZs49//PHHXfPz84eHhYWdbN26NUhFSzSbzfDo0aO4EydOhHMc10wIwZbqBjqdjieEICGk+cSJE+G//PJLnCiKSCkFQXgMO1k1+VkVisbExFhubmhogD179jQBAJw7d+5xb8Skt379+qzAwMBGKcUsAoBgZ2eHffr0+aqmpiZJcpcWHyxXb0S0mTt37ttdu3Z9KGmByPM8hoWFmWbMmPEeIrrJsUfukxHRNScn5+9hYWEmiRY3e3h4YElJiVwDABFtk5OTn1UDbCZOnHicaYBSqcSgoKDpT0ip/RfY2dnZQWho6OcSm7IUKnmex86dO+Mrr7zyfn19vUYeT8gZHcdx8MMPP4SkpKR86OXlxeoHgr29PXbp0uVKXl7eKOviSV5e3qiXXnrpigTCIgt1/wwBZGVlWUzAzs4O9Xp93hMFAABw4cIF+5CQkJ+kxgbRqolBtLGxwc6dO99buXLlm4jYzooIWVJdhBBYtmyZPj09/aAsWEEnJydMSEjYv27duqSKioqkhISE/bLGCvT29sbg4GDznyUAX1/fKiYAJycnCwasXLlSQa3qAVQKjOIaGhpa/xfHEYmNjQ2q1WoqRYdCU1OT+eTJkw6FhYXzEhMTD6xatWoAIkJRUZEoUV1R8sN08uTJez/99NMeWVlZQ2JjY3+0tbWFu3fvmg8cONBj/vz5u4uKinbv37+/x507d0R7e3uIjo7+YcKECQM6d+78KaWUQ0RgJvccVS2yZ8+ezhzHBUkCUCCiGQD2AwDcuHFDeEwA7dq1owAAP//8c3RjYyOVfCdERkb+e+rUqSVRUVFmpVLJAwBHKRXq6uqEr7/+OnT+/PkVAwcO/Grnzp3RUlUGKysrKSKi0WjkCCHc4sWLNx09ejQkLy9vVdu2bTlEFM6ePSucPn1a5DgOwsPDm7Kzs+cfP348Lj8/f8u1a9ceSvH8c0WgNTU1hBCCX375Zcrdu3dtJZMiQUFB9QUFBd+xPqPHbEBSU7h//36jyWSSf960bNmyGceOHfvk7bffnnbo0KGM2tpaXjIL4fLly6S2trbnmTNnvsnKyvpHQUHBwk6dOt1i2SYpkUpzcnJSrl27pmtsbESJSnM+Pj4YHx//2fjx44u7dOlS9f7770NmZib38OHD567qSmk+RET75OTkrPv374PUkQbBwcE7AaA+MzOTI4QI9PcSeOwwmUz46NEjRUhIyFGj0TgoLy9Pn5GRcVyr1XKSWSAiCjU1NYpPPvnk9aFDh/5LiuFtFAqFuHPnzpfT09P3bdu2bcuuXbsCGhsbqZeXF5eSklI1ffp0vdFofLlLly5VAMDpdDo+ODgYRVF87v6lhIQEjlIqjhkzZvY333zTQUqM8K6urma9Xv+RdP3kro3ly5fPksLdJok+/oiIzohIGXIiomrBggWvBQUFfSdrbrDU/lxcXDA9Pb06OTn5o5CQEOYJRFtbWwwPD/++tLR0HCunWdUEFQAAf/vb31ZQSlsiQr8HgsTPz08JADBnzhy9VqttZuBNCMFevXrtYnXE3y2Hr1u3LsbPz4/F4UJERARWVVUlSiyMWvluu9dff31JdHT0I5bSkld/OY6zuNAuXbr8mp+f/w9ZM6QlDmGCpZTC2bNnuyYkJNQAgPisXmDx4sWvMRdcXFzcLzAw8AFLnwOAEBwcjBUVFQm/2zQhiwxbRURE3GQ5NltbWzElJWWUvIIknzTP83DkyJHw3r17l8saH8xMgzw9PbF3795rL1++HClFl9aJDDa+S2ZmZnFMTIzAiJBGoxFLSkom/J4AtFotrlmzZgAi0qlTp5b4+Pg0y1x4s729PY4dO3am5E2eii0cIlK9Xr9amoSJUorx8fH/RkQbloqy4g6U7d67776b3rdv36M+Pj7o4+ODL7/8ctWiRYtSZTVB2kIqS7FixYoZMTEx1yX2yDI5TU5OTrhy5cpXrQRgJxOA4OjoiNOnT98WGRl53M7OTv58s729PY4fP34Hi2We2hvJdqSkpORljUYjSO5DdHFxwdLS0llSmpp/gvkw7VCuWLEie82aNdmyvCJnXQJv1aoVGAyGPj169KiUiq3yzhFs06YNJiUlna6rq7Oz0lBV165dr8h7FGQ1RAthc3Z2xqlTp+6SWnfof9IlQhBRnZ6eflQKUMwAIERHR5u/+OKLcHkZ/EkCbOGzx9T94MGDUXl5eV9otVpLqw1rauA4DsPCwpomT568SN7cwHoXjh071jU4OLiBpb6l55vlbXMBAQE4ZsyYWYioeObmCOtFlJeXZ/n5+SEANLPmo4SEhIu3b9/uKC+ttSRAo9HIGY1GrgU7dxg7dmxJaGhovVQreAw0PTw88JVXXtm5Z8+el2TemMhp7pIlS0Z7enr+pqFSoVCgVqvFXr16HVi5cqXu97pKnkkIiEgyMjLWsNieECJyHIdxcXEXKioqUuTNzKwDNDMzkzMYDLykIfKF07feeisnNjb2e6mj67GSt0ajwf79+58uLS1NluwVWsAbiogkPj6+nGkNAIheXl6YmJh4e+TIkTvKysqyZM88f4sc6/VBRJeMjIzvpJYYS7dIaGgo9unT5921a9f6WVeQrH5HXVZWNigtLe2wm5sbttQyEx4e/uM777wzFREdn5RBYte7d+8ODQwM/JnV/nmex5ycnAWI2F6Wen/m/kDyjJRS27dv3y+++uqroKamJoFSSkRRJDzPE41G09ipU6eT/v7+XwcGBjbcuXOn2sPDw9tkMmkOHz7c7urVqyk1NTXedXV1wFLiiEg4jqOhoaFifHx82XvvvVdACLnPJm79tog0D4qIZMSIEfs2btwYLwiCIIoi7dy588MTJ074EULuAQCXmZkJUtr7z+kal7W7te/fv3+lFK8zlmjpGHNwcECNRoO+vr7o7++PHh4eyFwSixlYgcPT0xP1ev2m/fv3d7WuFD1hfJ7jOJg0adIsFxcXC9Lb29vj5MmTS+UM9UW/FEHmzJnzRnR0tFnWM8gIT6NUVRIkwTQCQCOl1NJPaGdnJ2RmZlavXr36FVmIS39n4Rxjd7NmzZrJ+pI4jhMAQOzZs+cNRPT/S9rkWXxNKYWqqqrI5OTkRb6+vtc8PDxQqVSihBGWk1Jq+Uzy1SytdmDVqlUaxgitepT4Ft4n8OnTp08Z6x2S2J3Zzc0NR48enfxH+4GfJ+KyVJMQ0b2kpER/7969/ufOnWt98+ZND4VC4SUFH99rtdoHBw4c6Hb58mV7qQuFAgD4+vo2JiYmbkxISPgkKytrPwA0K5XKJkEQwGw28wDAHzx4sEtlZWXGjh07sk6dOuVkMpmQUoqiKIoajYYfP378gsLCwlmzZs2iUiLmrzuYXbJrlUoFKpUKELE1IvojYgdEtFGpVDBmzBidv7//XYb+7I0SKTmJISEh340aNep4ZGTkYg8PD8OoUaO+iYmJOREcHGyWd6gydtixY0csLCx8W8IODv47D6uqLHlS692uXbteSklJ+VEGiuxlhye9DMESo4zdoZSQvb9y5copEv+gz0VwXvBBZHyfWAFou1GjRi0ODw9vkO0sK8ebJND8VXaNAIBqtRrbt29vio+PX/Pll1+Gyczwf9zin0qtKaVQU1MTOn369HeTk5Mve3l5NTk7O8sDGVQqlejk5IQuLi7Yu3fvn3Jycta+9957ccxr/NmvwpC/0lxYewuL6JYsWeKvVCqTNm/eTA4ePGip6Q0dOpTjef5wfn7+tzzPP5QqQ5zBYMC/HPBeBID+h7tIX6SPJ/+dAFpYWEhYo9b+/fsZI4SAgADy4MEDUWrPe6EvQv5f+lxyVYm93dYAAAAASUVORK5CYII=", "meta": "data:image/png;base64,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"};
+  var INIT = {aio:'G', gemini:'G', chatgpt:'C', meta:'M'};
+  var KEYOF = {'Google AI Overviews':'aio','AI Overviews':'aio','Gemini app':'gemini','Gemini':'gemini','ChatGPT':'chatgpt','Meta AI':'meta'};
+  function logo(k, size){
+    var z = size || 22;
+    if(LOGO[k]) return '<span class="lg" style="width:'+z+'px;height:'+z+'px"><img src="'+LOGO[k]+'" alt=""></span>';
+    return '<span class="lg mono0" style="width:'+z+'px;height:'+z+'px;font-size:'+Math.round(z*0.45)+'px" aria-hidden="true">'+INIT[k]+'</span>';
+  }
+  document.querySelectorAll('[data-logo]').forEach(function(el){
+    el.outerHTML = logo(el.getAttribute('data-logo'), +el.getAttribute('data-size') || 22);
+  });
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
+  function num(n){ n = Number(n); return isFinite(n) ? n : 0; }
+  function words(n){ n = num(n); return n.toLocaleString('en-US') + (n === 1 ? ' word' : ' words'); }
+  // Fill in anything missing, so one absent field never breaks the whole report.
+  function tidy(d){
+    d.page = d.page || {}; d.fitness = d.fitness || {}; d.fitness.checks = d.fitness.checks || [];
+    d.warnings = d.warnings || []; d.cannotCheck = d.cannotCheck || []; d.fixes = d.fixes || []; d.searchTerms = d.searchTerms || [];
+    d.channels = d.channels || {};
+    CH.forEach(function(k){
+      var c = d.channels[k] = d.channels[k] || {};
+      c.grade = /^[A-E?]$/.test(c.grade) ? c.grade : '?';
+      c.blockers = c.blockers || []; c.limits = c.limits || [];
+      c.name = c.name || SHORT[k];
+    });
+    return d;
+  }
+
+  // Emphasis for long fix text. Targets go green and bold, code goes in a
+  // grey box, and the example after "such as" goes bold, so a reader who only
+  // skims still catches the number they need to hit.
+  function hl(t){
+    var h = esc(t);
+    h = h.replace(/(User-agent: [\w-]+ then Allow: \/)/g, '<span class="hc">$1</span>');
+    h = h.replace(/\b(max-snippet:-1|max-snippet:0|data-nosnippet|nosnippet|noindex|NOARCHIVE|NOCACHE|X-Robots-Tag|robots\.txt|sitemap\.xml)\b/g,
+                  '<span class="hc">$1</span>');
+    h = h.replace(/\b(\d+ to \d+ (?:words|sentences))\b/g, '<span class="hg">$1</span>');
+    h = h.replace(/\b(at least (?:one|two|three|four|five|\d+)(?: paragraphs?)?)\b/g, '<span class="hg">$1</span>');
+    h = h.replace(/\b(Heading [12])\b/g, '<span class="hg">$1</span>');
+    h = h.replace(/\b(server-side rendering|pre-rendering|gzip|Brotli)\b/g, '<span class="hk">$1</span>');
+    h = h.replace(/such as (\u201c[^\u201d]{1,60}\u201d|[^.?!]{1,40}[?]?)(\.?)$/, 'such as <span class="hk">$1</span>$2');
+    return h;
+  }
+
+  // Plain names for checks whose engine label is technical.
+  var NICE = {
+    'Main text is in the raw HTML': 'Text is in the page before JavaScript runs',
+    'Main text reaches this channel': 'Enough text reaches the crawler',
+    'Snippets allowed': 'Quoting allowed (no nosnippet)',
+    'max-snippet not capped': 'No limit on quote length (max-snippet)',
+    'No data-nosnippet on main text': 'Main text not hidden (data-nosnippet)',
+    'Canonical points here': 'Canonical tag points to this page',
+    'Listed in sitemap.xml': 'Page is in sitemap.xml',
+    'Compression on': 'Compression switched on',
+    'Server answers fast': 'Server answers within 2 seconds',
+    'Sentences name your business': 'Sentences name your business, not we, it, this or they'
+  };
+  function nice(l){ return NICE[l] || l; }
+  // Grade reasons are written for one channel. A shared row speaks of several.
+  function plural(t){
+    return t.replace('This crawler gets', 'These crawlers get').replace('this crawler is not known', 'these crawlers are not known')
+      .replace('This channel runs JavaScript, so it probably sees', 'These channels run JavaScript, so they probably see')
+      .replace('Nothing blocks it', 'Nothing blocks them').replace('so this channel cannot', 'so these channels cannot').replace(/this crawler/g, 'these crawlers');
+  }
+
+  function byChip(by){
+    if(!by) return '';
+    return by === 'editor'
+      ? '<span class="by by-e">You can do this</span>'
+      : '<span class="by by-d">Ask your web developer</span>';
+  }
+
+  function srcChip(src){
+    if(src === 'unknown') return '<span class="src" style="background:var(--line2);color:var(--muted);border:1px solid var(--line)">Not confirmed</span>';
+    return src === 'measure'
+      ? '<span class="src src-m" title="Bliss set this threshold">Our check</span>'
+      : '<span class="src src-p" title="Published by Google, OpenAI or Meta">AI company rule</span>';
+  }
+
+  /* ---------- icons (simple line drawings, no logos) ---------- */
+
+  var ICONS = {
+    words:  'M4 6h16M4 11h16M4 16h10',
+    para:   'M13 4v16M17 4v16M19 4H9.5a4.5 4.5 0 0 0 0 9H13',
+    ruler:  'M3 17 17 3l4 4L7 21H3zM7 13l2 2M10 10l2 2M13 7l2 2',
+    title:  'M6 4v16M18 4v16M6 12h12',
+    person: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',
+    weight: 'M6 9h12l2 11H4zM9 9a3 3 0 0 1 6 0',
+    wrench: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z',
+    code:   'M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14',
+    ask:    'M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z',
+    check:  'M20 6 9 17l-5-5'
+  };
+  function icon(n, size){
+    var z = size || 18;
+    return '<svg width="'+z+'" height="'+z+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+ICONS[n]+'"/></svg>';
+  }
+  var STATUS = {A:'Ready', B:'Nearly ready', C:'Needs work', D:'Needs work', E:'Blocked', '?':'Could not grade'};
+  function conf(c){
+    var k = c.confidence || (c.grade === '?' ? 'unconfirmed' : c.unverified ? 'likely' : 'confirmed');
+    return {confirmed:'c', likely:'l', unconfirmed:'n'}[k];
+  }
+  function rawNames(d){
+    var n = CH.filter(function(k){ return d.channels[k].reads === 'raw'; }).map(function(k){ return SHORT[k]; });
+    return n.length > 1 ? n.slice(0,-1).join(', ') + ' and ' + n[n.length-1] : (n[0] || 'AI');
+  }
+
+  /* ---------- what the site sends to each reader ---------- */
+
+  function servedPanel(d){
+    var sv = d.page && d.page.served;
+    if(!sv) return '';
+    var who = {};
+    CH.forEach(function(k){ var t = d.channels[k].token; (who[t] = who[t] || []).push(SHORT[k]); });
+    var rows = Object.keys(sv);
+    var max = rows.reduce(function(m,k){ return Math.max(m, sv[k] || 0); }, 1);
+    var html = rows.map(function(k){
+      var n = sv[k], isTool = k === 'Our tool';
+      // The first row is what a browser receives BEFORE it runs JavaScript. People
+      // then see a full page, so it must never be labelled as what they see.
+      var label = isTool ? 'Our tool (like a browser with JavaScript off)' : k;
+      var sub = isTool ? (n !== null && n < 60 ? 'Then JavaScript builds the page people see' : '') : 'Used by ' + (who[k] || []).join(' and ');
+      var full = n !== null && n >= 60;
+      var det0 = (d.page.servedDetail || {})[k] || {};
+      var serverErr = det0.refused && /^error 5/.test(det0.why || '');
+      var pill = n === null ? '<span class="pill" style="background:var(--line2);color:var(--muted)">'+(serverErr ? 'Server error' : det0.refused ? 'Refused' : 'Not checked')+'</span>'
+        : full ? '<span class="pill p-pass">Full page</span>'
+        : isTool ? '<span class="pill" style="background:var(--line2);color:var(--muted)">No text yet</span>'
+        : '<span class="pill p-fail">Empty page</span>';
+      var w = n ? Math.max(Math.round(n / max * 100), 2) : 0;
+      var det = (d.page.servedDetail || {})[k] || {};
+      var proof = det.bytes !== undefined
+        ? '<span class="proof">'+(det.first ? 'Starts: <b>\u201c'+esc(det.first)+'\u2026\u201d</b>' : 'No text')+'</span>'
+        : '<span class="proof">'+(serverErr ? 'Your server had an error ('+esc(String(det.why).replace(/^error\s*/,''))+')' : det.refused ? 'Your site refused this request' : det.error ? 'No answer in time' : 'Not asked: robots.txt tells this crawler to stay out')+'</span>';
+      return '<div class="wg"><span class="wn">'+esc(label)+(sub ? '<small>'+esc(sub)+'</small>' : '')+'</span>'+
+        '<span class="wbar"><i style="width:'+w+'%;background:'+(full ? 'var(--teal)' : isTool ? 'var(--grey)' : 'var(--fail)')+'"></i></span>'+
+        '<span class="ww">'+(n === null ? '&mdash;' : n.toLocaleString('en-US')+' words')+'</span>'+
+        '<span class="ws">'+pill+'</span>'+proof+'</div>';
+    }).join('');
+    return '<div class="card" style="margin-bottom:18px"><h3 style="margin:0 0 10px;font-size:15px">What each crawler gets from your page</h3>'+
+      html+'</div>';
+  }
+
+  /* ---------- KPI tiles ---------- */
+
+  function kpi(value, unit, label, state, ideal, ic){
+    return '<div class="kpi s-'+state+'">'+(ic ? '<span class="ic">'+icon(ic)+'</span>' : '')+'<span class="v">'+esc(value)+
+      (unit?'<span class="u">'+esc(unit)+'</span>':'')+'</span>'+
+      '<span class="l">'+label+'</span>'+
+      '<span class="t">'+(ideal === 'info' ? 'Not graded' : 'Ideal: <b>'+esc(ideal)+'</b>')+'</span></div>';
+  }
+
+  function kpiStrip(d){
+    var f = d.fitness || {};
+    var p = d.page || {};
+    // When we measured the page sent to Googlebot, the weight tile describes that page too.
+    var wBytes = p.measuredOn && p.displayBytes ? p.displayBytes : p.htmlBytes;
+    var wWords = p.measuredOn && p.displayWords ? p.displayWords : p.rawWords;
+    var kb = wBytes ? Math.max(1, Math.round(wBytes/1024)) : 0;
+    var kbv = kb >= 1000 ? (kb/1024).toFixed(1) : kb, kbu = kb >= 1000 ? 'MB' : 'KB';
+    var perKb = wBytes ? Math.round(num(wWords) / (wBytes/1024/100)) : 0;
+    var subs = f.subheads == null ? 0 : f.subheads;
+    var named = (f.sentences||0) - (f.leaning||0);
+    if(p.renderedUnverified){
+      var nm = function(label, ic){ return '<div class="kpi s-flat"><span class="ic">'+icon(ic)+'</span><span class="v" style="color:var(--grey)">&mdash;</span>'+
+        '<span class="l">'+label+'</span><span class="t">'+(p.rawUnconfirmed?'Could not measure':'Not measured yet')+'</span></div>'; };
+      return '<div class="grid g6" style="margin-bottom:18px">'+
+        kpi(p.rawWords, 'words', 'Words before JavaScript', p.rawUnconfirmed?'flat':'bad', '60 or more', 'words')+
+        nm('Quotable paragraphs', 'para')+
+        nm('Longest paragraph', 'ruler')+
+        nm('Titles', 'title')+
+        nm('Sentences that do not start with we, it, this or they', 'person')+
+        kpi(kbv, kbu, 'Size of the HTML file', 'flat', 'info', 'weight')+
+        '</div>';
+    }
+
+    // Words the raw-page readers get: the crawler page if we asked as one, else ours.
+    var sv = p.served || null;
+    var rawK = CH.filter(function(k){ return d.channels[k].reads === 'raw'; });
+    var rawW = p.rawWords, rawWho = rawNames(d);
+    if(sv){
+      var known = rawK.filter(function(k){ return sv[d.channels[k].token] != null; });
+      if(known.length){
+        var low = known.reduce(function(m,k){ return sv[d.channels[k].token] < sv[d.channels[m].token] ? k : m; }, known[0]);
+        rawW = sv[d.channels[low].token];
+        var same = known.filter(function(k){ return sv[d.channels[k].token] === rawW; }).map(function(k){ return SHORT[k]; });
+        rawWho = same.length > 1 ? same.slice(0,-1).join(', ') + ' and ' + same[same.length-1] : same[0];
+      }
+    }
+    // On a homepage, paragraph checks are tips: shown as "improve", never as "fail".
+    var tipState = function(st){ return p.isHomepage && st === 'bad' ? 'warn' : st; };
+    return '<div class="grid g6" style="margin-bottom:18px">'+
+      kpi(num(rawW).toLocaleString('en-US'), rawW===1?'word':'words', 'Words '+esc(rawWho)+' can read'+
+          (f.paraWords != null && num(rawW) === num(p.displayWords || p.rawWords) ? ', including '+num(f.paraWords).toLocaleString('en-US')+' in paragraphs' : ''),
+          rawW>=60?'good':'bad', '60 or more', 'words')+
+      kpi(f.passages, 'of '+num(f.blocks).toLocaleString('en-US'), 'Quotable paragraphs',
+          tipState(f.passages>=3?'good':f.passages>=1?'warn':'bad'), '3 or more', 'para')+
+      kpi(f.longestBlockWords, 'words', 'Longest paragraph',
+          tipState(f.longestBlockWords>=40?'good':'bad'), '40 or more (best 70 to 150)', 'ruler')+
+      kpi(p.h1, 'main \u00b7 '+subs+(subs===1?' section':' sections'), 'Titles',
+          (p.h1===1&&subs>=2)?'good':(p.h1===1||subs>=2)?'warn':'bad', '1 main, 2+ sections', 'title')+
+      kpi(named, 'of '+num(f.sentences).toLocaleString('en-US'), 'Sentences that do not start with we, it, this or they',
+          (f.sentences&&named/f.sentences>0.65)?'good':'warn', '2 in 3 or more', 'person')+
+      kpi(kbv, kbu, 'Size of the HTML file', 'flat', 'info', 'weight')+
+      '</div>';
+  }
+
+  /* ---------- grade tiles ---------- */
+
+  function track(g){
+    var order = ['E','D','C','B','A'];
+    var idx = order.indexOf(g);
+    var cls = (g==='A'||g==='B') ? 'on' : (g==='E' ? 'onb' : 'onw');
+    return '<div class="track">'+order.map(function(x,i){
+      return '<i class="'+(i<=idx?cls:'')+'"></i>';
+    }).join('')+'</div>';
+  }
+
+  // How sure we are: measured on this channel's own page, likely, or not confirmed.
+  function confBadge(c){
+    var k = conf(c);
+    var label = {c:'Confirmed', l:'Best estimate', n:'Not confirmed'}[k];
+    var tip = c.confidenceNote || {c:'Measured on the page this channel\u2019s crawler receives.',
+               l:'This channel runs JavaScript. We could not see the finished page.',
+               n:'This site may send this crawler a page we could not see.'}[k];
+    return '<p style="margin:0 0 8px"><span class="conf conf-'+k+'" title="'+esc(tip)+'"><i></i>'+label+'</span></p>';
+  }
+
+  function gradeTiles(d){
+    return '<div class="grid g4" style="margin-bottom:8px">'+CH.map(function(k){
+      var c = d.channels[k];
+      return '<div class="gt"><div class="top"><span class="badge g'+(c.grade==='?'?'U':c.grade)+'">'+c.grade+'</span>'+
+        '<span><span class="nm">'+esc(c.name)+'</span>'+
+        '<span class="rd">Reads the '+esc(c.reads)+' page · '+esc(c.token)+'</span></span></div>'+
+        track(c.grade)+confBadge(c)+
+        '<p class="why">'+esc(c.reason)+'</p>'+
+        '<div style="margin-top:10px">'+srcChip(c.basis)+'</div>'+
+        '</div>';
+    }).join('')+'</div>';
+  }
+
+  /* ---------- block length chart ---------- */
+
+  function shellNote(title, unconfirmed){
+    if(unconfirmed) return '<div class="card"><h3 style="margin:0 0 4px;font-size:15px">'+title+'</h3>'+
+      '<div class="goal miss" style="margin-top:14px;background:var(--line2);border-color:var(--line);color:var(--body)"><b>Could not measure</b>'+
+      'The page we received was almost empty, so there were no paragraphs or titles to count. '+
+      'AI crawlers may receive a full version that we cannot see.</div></div>';
+    return '<div class="card"><h3 style="margin:0 0 4px;font-size:15px">'+title+'</h3>'+
+      '<div class="goal miss" style="margin-top:14px"><b>Not measured yet</b>'+
+      'Your page adds its text with <span class="hk">JavaScript</span>, so AI first receives an almost empty page. '+
+      'Fix that first (number 1 in the list below), then check this page again.</div></div>';
+  }
+
+  function spreadChart(d, mode){
+    if(d.page && d.page.renderedUnverified) return mode === 'goal' ? '' : shellNote('How long your paragraphs are');
+    var f = d.fitness || {};
+    var sp = f.blockSpread || [];
+    var max = sp.reduce(function(m,x){return Math.max(m,x.count);},0) || 1;
+    var quotable = {'40-69':1,'70-150':2,'150+':1};
+    var rows = sp.map(function(x){
+      var w = Math.round((x.count/max)*100);
+      return '<div class="bar'+(quotable[x.band]===2?' q ideal':quotable[x.band]?' q':'')+'">'+
+        '<span class="bl">'+esc(x.band)+' words</span>'+
+        '<span class="bt"><i class="bf" style="width:'+(x.count?Math.max(w,3):0)+'%"></i></span>'+
+        '<span class="bn" style="color:'+(x.count&&quotable[x.band]?'var(--pass)':'var(--muted)')+'">'+num(x.count)+'</span>'+
+      '</div>';
+    }).join('');
+
+    var have = f.passages || 0;
+    var hit  = have >= 3;
+    var goal = hit
+      ? '<div class="goal"><b>You are there</b>'+have+' paragraphs are long enough for AI to lift out and quote. Three is the target.</div>'
+      : '<div class="goal miss"><b>The ideal: 3 paragraphs in the green bands</b>'+
+        'You have <span class="hr">'+have+'</span>. Your longest paragraph is <span class="hr">'+(f.longestBlockWords||0)+' words</span>. '+
+        'Write <span class="hg">'+(3-have)+' more paragraph'+((3-have)===1?'':'s')+'</span> of <span class="hg">70 to 150 words</span>, '+
+        'about <span class="hg">5 to 8 sentences</span> each. Put each one under its own section title.</div>';
+
+    if(mode === 'goal') return goal;
+    var tot = num((d.page||{}).displayWords || (d.page||{}).rawWords);
+    return '<div class="card"><h3 style="margin:0 0 4px;font-size:15px">Paragraph length</h3>'+
+      (f.paraWords != null ? '<p style="margin:0 0 12px;font-size:13px;color:var(--muted)">'+words(f.paraWords)+' of the '+tot.toLocaleString('en-US')+' on this page are in paragraphs. The rest is menus, buttons, titles and captions.</p>' : '')+
+      rows+
+      '<div class="zone"><span class="swatch" style="background:var(--teal)"></span>Ideal, 70 to 150 words'+
+      '<span class="swatch" style="background:#9CC3A9;margin-left:14px"></span>Can be quoted'+
+      '<span class="swatch" style="background:var(--grey);margin-left:14px"></span>Too short</div></div>';
+  }
+
+  /* ---------- title outline: now vs ideal ---------- */
+
+  function outlineCard(d, mode){
+    if(d.page && d.page.renderedUnverified) return mode === 'goal' ? '' : shellNote('Your page\u2019s titles');
+    var p = d.page || {};
+    var items = p.outline || [];
+    var h1s = 0;
+
+    var more = Math.max((p.titles || items.length) - Math.min(items.length, 8), 0);
+    var now = items.length
+      ? items.slice(0, 8).map(function(x){
+          var lv = Math.min(Math.max(x.level,1),4);
+          var bad = false;
+          if(lv === 1){ h1s++; bad = h1s > 1; }        // every main title after the first is one too many
+          return '<div class="oli l'+lv+(bad?' bad':'')+'"><span class="tg">H'+lv+'</span><span>'+esc(x.text)+'</span></div>';
+        }).join('') + (more ? '<div class="olnone">+ '+more+' more title'+(more===1?'':'s')+'</div>' : '')
+      : '<div class="olnone">No titles found on this page.</div>';
+
+    var ideal = '<div class="oli ideal l1"><span class="tg">H1</span><span class="ph">Your business, and what this page is about</span></div>'+
+      '<div class="oli ideal l2"><span class="tg">H2</span><span class="ph">A question your customers ask</span></div>'+
+      '<div class="oli ideal l2"><span class="tg">H2</span><span class="ph">Another question your customers ask</span></div>'+
+      '<div class="oli ideal l2"><span class="tg">H2</span><span class="ph">A third question</span></div>';
+
+    var subs = (d.fitness && d.fitness.subheads) || 0;
+    var good = p.h1 === 1 && subs >= 2;
+    var goal = good
+      ? '<div class="goal"><b>You are there</b>One main title, and '+subs+' section titles under it.</div>'
+      : '<div class="goal miss"><b>How to get there</b>'+
+        'Your page has <span class="hr">'+p.h1+' main title'+(p.h1===1?'':'s')+'</span> and <span class="hr">'+subs+' section title'+(subs===1?'':'s')+'</span>. '+
+        'Keep <span class="hg">one main title</span> (Heading 1). Under it, add a <span class="hg">section title</span> (Heading 2) for each question your customers ask'+
+        '.</div>';
+
+    if(mode === 'goal') return goal;
+    return '<div class="card"><h3 style="margin:0 0 14px;font-size:15px">Titles: now and ideal</h3>'+
+      '<div class="ol">'+
+        '<div class="olc"><h4>Now</h4>'+now+'</div>'+
+        '<div class="olc"><h4>Ideal</h4>'+ideal+'</div>'+
+      '</div></div>';
+  }
+
+  /* ---------- one panel, two views: the fix list and the full audit ---------- */
+
+  function fixList(d){
+    var f = d.fixes || [];
+    if(!f.length) return '<p class="allclear">Every check passed. Nothing on this page needs changing.</p>';
+    // Only real fixes are numbered. Tips get a dot and questions a "?".
+    var num = 0;
+    return f.map(function(x){
+      var mark = x.state==='unknown' ? '?' : x.tip ? '&bull;' : String(++num);
+      return '<div class="fxr">'+
+        '<span class="fxn'+(x.state==='unknown'||x.tip?' u':x.rank===1?'':' m')+'">'+mark+'</span>'+
+        '<span><p class="ft">'+esc(nice(x.label))+
+          '<span class="sev '+(x.state==='unknown'||x.tip?'sev-u':x.rank===1?'sev-b':'sev-l')+'">'+
+            (x.state==='unknown'?'Question':(x.tip?'Tip':/^Main text/.test(x.label)?'AI gets no text':({1:'Stops a channel',2:'Limits AI use',3:'Page quality',4:'Site setup'})[x.rank]||'To check'))+'</span>'+byChip(x.by)+
+          (x.channels && x.channels.length
+            ? '<span class="chs">'+x.channels.map(function(c){var k = KEYOF[c]; return '<span class="cmk">'+(k?logo(k,16):'')+esc(k?SHORT[k]:c)+'</span>';}).join('')+'</span>'
+            : '')+'</p>'+
+        '<p class="fmeta"><span><b>AI needs:</b> '+esc(x.need)+'</span>'+
+          '<span><b>Your page:</b> <i'+(x.state==='unknown'?' style="color:var(--muted)"':'')+'>'+esc(x.found||'—')+'</i></span></p>'+
+        '<p class="fdo">'+hl(x.fix)+'</p></span></div>';
+    }).join('');
+  }
+
+  function row(c, chips, soft0){
+    // "unknown" means we could not confirm it either way. It is shown in grey
+    // and never counted against the grade.
+    var unk = c.state === 'unknown' || /Not confirmed|^Not checked/.test(c.found || ''), pass = c.state === 'pass' && !unk;
+    var cls = pass || unk ? 'ok' : ((soft0 || c.state === 'weak' || c.src === 'measure') ? 'r-weak' : 'r-fail');
+    // Red only for a published platform rule. Our own measures are amber, as in the fix list.
+    var soft = soft0 || c.state === 'weak' || (c.state === 'fail' && c.src === 'measure');
+    var mk  = pass ? 'p' : unk ? 'u' : (soft ? 'w' : 'f');
+    var gl  = pass ? '&#10003;' : unk ? '?' : (soft ? '!' : '&#10007;');
+    return '<tr class="'+cls+'">'+
+      '<td class="st"><span class="mk '+mk+'">'+gl+'</span></td>'+
+      '<td class="ck">'+esc(nice(c.label))+
+        (chips ? '<span class="chs">'+chips+'</span>' : '')+
+        '<span class="rowsrc">'+srcChip(c.src)+'</span></td>'+
+      '<td class="nd">'+esc(c.need||'')+'</td>'+
+      '<td class="fd">'+esc(c.found||'—')+'</td>'+
+      '<td class="fx">'+(c.fix ? hl(c.fix)+'<br>'+byChip(c.by).replace('margin-left:7px','') : '<span class="dim">&mdash;</span>')+'</td>'+
+    '</tr>';
+  }
+
+  function accessRows(d){
+    var map = {}, order = [];
+    CH.forEach(function(k){
+      d.channels[k].blockers.concat(d.channels[k].limits).forEach(function(c){
+        var key = c.label + '|' + c.need;
+        if(!(key in map)){ map[key] = {c:c, ch:[]}; order.push(key); }
+        map[key].ch.push(k);
+        if(c.state !== 'pass') map[key].c = c;   // a failure anywhere is what matters
+      });
+    });
+    return order.map(function(key){
+      var e = map[key];
+      var chips = e.ch.length === CH.length
+        ? '<span class="cmk nl">All four</span>'
+        : e.ch.map(function(k){return '<span class="cmk">'+logo(k,16)+esc(SHORT[k])+'</span>';}).join('');
+      return row(e.c, chips);
+    }).join('');
+  }
+
+  function auditTable(d){
+    function grp(t){ return '<tr class="grp"><td colspan="5">'+t+'</td></tr>'; }
+    return '<div class="atwrap"><table class="at">'+
+      '<thead><tr><th></th><th>Check</th><th>What AI needs</th><th>Your page</th><th>What to do</th></tr></thead>'+
+      '<tbody>'+
+        grp('Access rules')  + accessRows(d) +
+        grp('Page quality')  + (d.fitness.checks||[]).map(function(c){
+          if(d.page.renderedUnverified) c = {label:c.label, need:c.need, src:c.src, state:'unknown', fix:null,
+            found: d.page.rawUnconfirmed ? 'Could not measure' : 'Not measured yet. Check again after fix 1.'};
+          return row(c, null, true);
+        }).join('') +
+        grp('Site setup')    + d.warnings.map(function(c){return row(c, null, true);}).join('') +
+      '</tbody></table></div>';
+  }
+
+  function auditPanel(d){
+    var n = (d.fixes||[]).filter(function(x){ return x.state !== 'unknown' && !x.tip; }).length;
+    var q = (d.fixes||[]).filter(function(x){ return x.state === 'unknown'; }).length;
+    var tp = (d.fixes||[]).filter(function(x){ return x.tip; }).length;
+    return '<div class="fx1">'+
+      '<div class="hd">'+
+        '<h3>'+(n ? 'What to fix, in order' : q ? (q === 1 ? 'Nothing to fix. One question to check' : 'Nothing to fix. '+q+' questions to check') : tp ? 'Nothing to fix. Tips for this page' : 'The full list of checks')+'</h3>'+
+        '<span class="tabs">'+
+          '<button type="button" class="tab" id="tabfix" aria-pressed="'+(n||q||tp?'true':'false')+'">'+
+            (n ? n + (n>1?' things to fix':' thing to fix') : q ? q + (q>1?' things to check':' thing to check') : tp ? tp + (tp>1?' tips':' tip') : 'Fix list')+'</button>'+
+          '<button type="button" class="tab" id="taball" aria-pressed="'+(n||q||tp?'false':'true')+'">All checks</button>'+
+        '</span></div>'+
+      '<div id="viewfix"'+(n||q||tp?'':' class="hide"')+'>'+fixList(d)+'</div>'+
+      '<div id="viewall"'+(n||q||tp?' class="hide"':'')+'>'+auditTable(d)+'</div>'+
+    '</div>';
+  }
+
+  function showView(which){
+    var f = document.getElementById('viewfix'), a = document.getElementById('viewall');
+    var bf = document.getElementById('tabfix'), ba = document.getElementById('taball');
+    if(!f || !a) return;
+    f.classList.toggle('hide', which !== 'fix');
+    a.classList.toggle('hide', which === 'fix');
+    if(bf) bf.setAttribute('aria-pressed', which === 'fix' ? 'true' : 'false');
+    if(ba) ba.setAttribute('aria-pressed', which === 'fix' ? 'false' : 'true');
+  }
+
+  /* ---------- verdict ---------- */
+
+  function verdict(d){
+    var blockedFirst = CH.filter(function(k){return d.channels[k].grade==='E';});
+    if(blockedFirst.length){
+      var bn = blockedFirst.map(function(k){ return SHORT[k]; });
+      var bj = bn.length > 1 ? bn.slice(0,-1).join(', ') + ' and ' + bn[bn.length-1] : bn[0];
+      // Say why in the site's own terms, from each blocked channel's reason.
+      var whys = [];
+      blockedFirst.forEach(function(k){ var r = d.channels[k].reason; if(r && whys.indexOf(r) < 0) whys.push(r); });
+      return '<div class="verdict bad"><p style="margin:0"><strong>'+esc(bj)+' cannot use this page.</strong> '+
+        esc(whys.join(' '))+' The fix is below.</p></div>';
+    }
+    var sv = d.page && d.page.served;
+    if(sv){
+      var fullT = [], emptyT = [];
+      CH.forEach(function(k){ var t = d.channels[k].token, n = sv[t];
+        if(n === null || n === undefined) return;
+        (n >= 60 ? fullT : emptyT).push(SHORT[k]); });
+      var jn2 = function(a){ return a.length > 1 ? a.slice(0,-1).join(', ') + ' and ' + a[a.length-1] : a[0]; };
+      if(fullT.length && emptyT.length)
+        return '<div class="verdict bad"><p style="margin:0"><strong>Your site sends a full page to '+esc(jn2(fullT))+', and an empty page to '+esc(jn2(emptyT))+'.</strong> '+
+          'Fix 1 below explains the change. It is usually one setting.</p></div>';
+    }
+    if(d.page && d.page.rawUnconfirmed){
+      var ro = CH.filter(function(k){ return d.channels[k].grade === '?'; }).map(function(k){ return d.channels[k].name; });
+      if(!ro.length) ro = CH.filter(function(k){ return d.channels[k].unverified; }).map(function(k){ return d.channels[k].name; });
+      var jn = function(a){ return a.length > 1 ? a.slice(0,-1).join(', ') + ' and ' + a[a.length-1] : a[0]; };
+      return '<div class="verdict mid"><p style="margin:0"><strong>We received an empty page, but AI crawlers may not.</strong> '+
+        'This site sends different pages to different visitors. We cannot confirm what '+esc(jn(ro))+(ro.length>1?' receive':' receives')+'.</p></div>';
+    }
+    if(d.page && d.page.renderedUnverified){
+      var rawOnly = CH.filter(function(k){ return d.channels[k].reads === 'raw'; }).map(function(k){ return SHORT[k]; });
+      var renders = CH.filter(function(k){ return d.channels[k].reads !== 'raw'; }).map(function(k){ return SHORT[k]; });
+      var join = function(a){ return a.length > 1 ? a.slice(0,-1).join(', ') + ' and ' + a[a.length-1] : a[0]; };
+      return '<div class="verdict bad"><p style="margin:0"><strong>'+esc(join(rawOnly))+' '+(rawOnly.length>1?'get':'gets')+' an empty page.</strong> '+
+        'Your text is added by JavaScript. '+esc(join(renders))+' run JavaScript, so they can probably read it.</p></div>';
+    }
+    var f = d.fitness;
+    var fx = d.fixes || [];
+    var n = fx.filter(function(x){ return x.state !== 'unknown' && !x.tip; }).length;
+    var tips = fx.filter(function(x){ return x.tip; }).length;
+    var qs = fx.filter(function(x){ return x.state === 'unknown'; }).length;
+    var qLine = qs ? ' We also have '+(qs === 1 ? 'one question' : qs+' questions')+' for your developer.' : '';
+    // A channel limited by a published rule, such as data-nosnippet, is not "nothing blocks".
+    var limited = CH.filter(function(k){ return (d.channels[k].limits||[]).some(function(l){ return l.state === 'fail'; }); });
+    if(limited.length)
+      return '<div class="verdict mid"><p style="margin:0"><strong>AI can reach this page, but '+esc(limited.map(function(k){ return SHORT[k]; }).join(' and '))+
+        ' cannot quote all of it.</strong> '+esc(d.channels[limited[0]].reason)+qLine+'</p></div>';
+    // On a homepage, paragraphs are only tips, so they never lead the summary.
+    if(f.passages === 0 && !(d.page && d.page.isHomepage))
+      return '<div class="verdict bad"><p style="margin:0"><strong>AI can reach this page, but it has no paragraph long enough to quote.</strong> '+
+        'Your longest paragraph is <span class="hr">'+f.longestBlockWords+' words</span>. AI usually quotes paragraphs of <span class="hg">70 to 150 words</span>.'+qLine+'</p></div>';
+    if(n)
+      return '<div class="verdict mid"><p style="margin:0"><strong>Nothing blocks this page.</strong> '+n+
+        ' thing'+(n>1?'s':'')+' to fix before AI can use it well.'+qLine+'</p></div>';
+    if(tips)
+      return '<div class="verdict mid"><p style="margin:0"><strong>Nothing blocks this page.</strong> '+
+        (tips === 1 ? 'One tip can' : 'Some tips can')+' help you reach A.'+qLine+'</p></div>';
+    return '<div class="verdict"><p style="margin:0"><strong>Every check passed.</strong> AI can reach this page, and it has clear text to quote.'+qLine+'</p></div>';
+  }
+
+  /* ---------- part 1: the scorecard ---------- */
+
+  function partHead(n, title, sub){
+    return '<div class="part"><div class="pl"><span class="pn">'+n+'</span><h2>'+title+'</h2></div>'+(sub?'<p>'+sub+'</p>':'')+'</div>';
+  }
+
+  var FILL = {A:1, B:0.8, C:0.6, D:0.4, E:0.15, '?':0};
+  function ring(g){
+    var r = 54, len = 2*Math.PI*r, f = FILL[g] || 0, t = g === '?' ? 'U' : g;
+    return '<div class="ring"><svg width="128" height="128" viewBox="0 0 128 128" aria-hidden="true">'+
+      '<circle cx="64" cy="64" r="'+r+'" fill="none" stroke="#E8E4DE" stroke-width="12"/>'+
+      (f ? '<circle cx="64" cy="64" r="'+r+'" fill="none" stroke="var(--g'+t+')" stroke-width="12" stroke-linecap="round" class="arc" '+
+           'stroke-dasharray="'+(len*f).toFixed(1)+' '+len.toFixed(1)+'" transform="rotate(-90 64 64)"/>' : '')+
+      '</svg><b class="t'+t+'">'+g+'</b></div>';
+  }
+  function gradeHero(d){
+    return '<div class="grid g4">'+CH.map(function(k){
+      var c = d.channels[k], cf = conf(c);
+      var label = {c:'Confirmed', l:'Best estimate', n:'Not confirmed'}[cf];
+      var tip = c.confidenceNote || '';
+      return '<div class="gh" role="group" aria-label="'+esc(SHORT[k])+': grade '+c.grade+'">'+
+        '<span class="ch">'+logo(k, 24)+esc(SHORT[k])+'</span>'+
+        ring(c.grade)+
+        '<span class="stw">'+STATUS[c.grade]+'</span>'+
+        '<span class="cf '+cf+'" title="'+esc(tip)+'"><i></i>'+label+'</span>'+
+      '</div>';
+    }).join('')+'</div>';
+  }
+
+  function fixSummary(d){
+    var f = d.fixes || [];
+    var real = f.filter(function(x){ return x.state !== 'unknown' && !x.tip; });
+    // With nothing to fix, the "who does it" tiles describe the tips instead.
+    var work = real.length ? real : f.filter(function(x){ return x.tip; });
+    var you = work.filter(function(x){ return x.by === 'editor'; }).length;
+    var dev = work.filter(function(x){ return x.by !== 'editor'; }).length;
+    var ask = f.filter(function(x){ return x.state === 'unknown'; }).length;
+    var tips = f.filter(function(x){ return x.tip; }).length;
+    // A channel can read the text when nothing it publishes as a rule is failing.
+    var ok = CH.filter(function(k){ var c = d.channels[k];
+      return c.grade !== '?' && !(c.blockers||[]).some(function(b){ return b.state === 'fail' || b.state === 'unknown'; }); }).length;
+    var tile = function(n, label, ic, bg, fg){
+      return '<div class="fs'+(fg==='var(--fail)'?' bad':fg==='var(--pass)'?' good':'')+'"><span class="ic">'+icon(ic, 20)+'</span>'+
+        '<span><b>'+n+'</b><small>'+label+'</small></span></div>';
+    };
+    return '<div class="fsum">'+
+      tile(ok+' of '+CH.length, CH.some(function(k){ return d.channels[k].unverified; }) ? 'AI channels can probably read your text' : 'AI channels can read your text', 'check', ok===CH.length?'var(--passbg)':'var(--failbg)', ok===CH.length?'var(--pass)':'var(--fail)')+
+      (real.length || !tips
+        ? tile(real.length, real.length===1?'thing to fix':'things to fix', 'wrench', real.length?'var(--failbg)':'var(--passbg)', real.length?'var(--fail)':'var(--pass)')
+        : tile(tips, tips===1?'tip to reach A':'tips to reach A', 'wrench', 'var(--line2)', 'var(--body)'))+
+      tile(you, 'you can do yourself', 'person', 'var(--line2)', 'var(--body)')+
+      tile(dev, 'for your web developer', 'code', 'var(--line2)', 'var(--body)')+
+    '</div>'+
+    (real.length && tips ? '<p class="fsnote">Plus '+tips+(tips===1?' tip':' tips')+' to reach A, listed after the fixes.</p>' : '')+
+    (ask ? '<p class="fsnote">Plus '+(ask===1?'one question':ask+' questions')+' for your developer, marked ? in the list below.</p>' : '');
+  }
+
+  /* ---------- part 2: the explanation ---------- */
+
+  // Channel names for one row. Channels with the same grade and reason share a row.
+  function chNames(ks){
+    if(ks.length === CH.length) return '<span class="wnn"><span class="lgs">'+CH.map(function(k){ return logo(k, 18); }).join('')+'</span>All four channels</span>';
+    return ks.map(function(k){ return '<span class="wnn">'+logo(k, 20)+esc(SHORT[k])+'</span>'; }).join('');
+  }
+  function whyGrades(d){
+    var groups = [], at = {};
+    CH.forEach(function(k){
+      var c = d.channels[k], key = c.grade+'|'+c.reason+'|'+c.basis;
+      if(!(key in at)){ at[key] = groups.length; groups.push({c:c, ks:[]}); }
+      groups[at[key]].ks.push(k);
+    });
+    return '<div class="card" style="padding:6px 22px">'+groups.map(function(g){
+      var c = g.c;
+      return '<div class="wr"><span class="badge g'+(c.grade==='?'?'U':c.grade)+'">'+c.grade+'</span>'+
+        '<span class="wn">'+chNames(g.ks)+'</span>'+
+        '<span class="wx">'+esc(g.ks.length > 1 ? plural(c.reason) : c.reason)+'</span>'+
+        '<span class="wc">'+(c.grade === 'A' ? '' : srcChip(c.basis))+'</span></div>';
+    }).join('')+'</div>';
+  }
+
+  /* ---------- render ---------- */
+
+  // A page we could not read: what robots.txt says per channel, and a way for
+  // the owner to check the page by pasting its source.
+  function robotsRows(acc){
+    if(!acc) return '<p style="margin:0;font-size:14px;color:var(--muted)">We could not read robots.txt either.</p>';
+    var mark = (typeof logo === 'function') ? logo : function(){ return ''; };
+    return CH.map(function(k){
+      var a = acc[k];
+      var st = a === true ? '<span class="acc ok"><i></i>Allowed</span>'
+             : a === false ? '<span class="acc no"><i></i>Blocked. Grade E: '+esc(SHORT[k])+' cannot use your site</span>'
+             : '<span class="acc un"><i></i>Not known</span>';
+      return '<div class="accr"><span class="accn">'+mark(k, 20)+esc(SHORT[k])+'</span>'+st+'</div>';
+    }).join('');
+  }
+  // Paste steps depend on the device. Phones and tablets have no keyboard
+  // shortcuts, and iPhone and iPad cannot show page source at all.
+  function deviceKind(){
+    var ua = navigator.userAgent || '';
+    var pf = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+    if(/iPhone|iPad|iPod/.test(ua) || (/Mac/.test(pf) && navigator.maxTouchPoints > 1)) return 'ios';
+    if(/Android/.test(ua)) return 'android';
+    if(/Mac/.test(pf) || /Macintosh/.test(ua)) return 'mac';
+    return 'pc';
+  }
+  function pasteSteps(kind, url){
+    var k = function(t){ return '<kbd>'+t+'</kbd>'; };
+    if(kind === 'ios') return '<p class="psteps-p">iPhone and iPad cannot show the source of a page. '+
+      'Open this tool on a computer or an Android phone, check the page again, and follow the steps there. '+
+      'You can also send the page to Bliss on WhatsApp.</p>';
+    if(kind === 'android') return '<ol class="psteps">'+
+      '<li>Copy this address: <span class="vsrc">view-source:'+esc(url)+'</span> '+
+        '<button class="btn sm line" type="button" id="vsrcbtn">Copy</button></li>'+
+      '<li>Open a new tab in Chrome. Paste the address and open it. You see the page source.</li>'+
+      '<li>Press and hold on the text. Tap <b>Select all</b>, then tap <b>Copy</b>.</li>'+
+      '<li>Come back to this tab. Press and hold in the box below, then tap <b>Paste</b>.</li></ol>';
+    var m = kind === 'mac';
+    return '<ol class="psteps">'+
+      '<li>Open the page in '+(m ? 'Chrome' : 'Chrome or Edge')+'.</li>'+
+      '<li>Press '+(m ? k('Cmd')+' + '+k('Option')+' + '+k('U') : k('Ctrl')+' + '+k('U'))+'. The page source opens in a new tab.</li>'+
+      '<li>Press '+(m ? k('Cmd')+' + '+k('A') : k('Ctrl')+' + '+k('A'))+' to select everything, then '+(m ? k('Cmd')+' + '+k('C') : k('Ctrl')+' + '+k('C'))+' to copy it.</li>'+
+      '<li>Come back to this tab. Click in the box below and press '+(m ? k('Cmd')+' + '+k('V') : k('Ctrl')+' + '+k('V'))+'.</li></ol>';
+  }
+  var srcUrl = '';
+  function pasteBox(url){
+    srcUrl = url;
+    var kind = deviceKind();
+    var DEV = [['mac','Mac'],['pc','Windows'],['android','Android phone'],['ios','iPhone or iPad']];
+    return '<div class="pastebox noprint">'+
+      '<h3 style="margin:0 0 4px;font-size:17px">Is this your site? Paste the page source to check it</h3>'+
+      '<div class="devsw" role="group" aria-label="Steps for your device"><span>Steps for:</span>'+
+        DEV.map(function(x){ return '<button type="button" data-dev="'+x[0]+'" aria-pressed="'+(x[0] === kind)+'">'+x[1]+'</button>'; }).join('')+
+      '</div>'+
+      '<div id="psteps">'+pasteSteps(kind, srcUrl)+'</div>'+
+      '<label for="pastefield" class="lbl" style="margin:0 0 6px">Page source</label>'+
+      '<textarea id="pastefield" rows="6" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="<!doctype html> ..."></textarea>'+
+      '<button class="btn sm" type="button" id="pastebtn" style="margin-top:10px">Check the pasted page</button>'+
+      '<p id="pastenote" role="status" aria-live="polite" style="margin:8px 0 0;font-size:13.5px;color:var(--fail)"></p>'+
+      '<p style="margin:10px 0 0;font-size:13px;color:var(--muted)">The result is based on what your browser received. AI crawlers usually receive the same page. '+
+      'Your developer can also allow <span class="hc">BlissAccessCheck</span> in your bot protection, and then the normal check works.</p>'+
+    '</div>';
+  }
+  // Called after the paste box is on the page.
+  function bindPasteSteps(){
+    var sw = document.querySelectorAll('.devsw button'), box = document.getElementById('psteps');
+    function bindCopy(){
+      var b = document.getElementById('vsrcbtn');
+      if(!b) return;
+      b.addEventListener('click', function(){
+        var t = 'view-source:' + srcUrl;
+        var done = function(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy'; }, 2000); };
+        if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function(){ b.textContent = 'Copy it by hand'; });
+        else b.textContent = 'Copy it by hand';
+      });
+    }
+    sw.forEach(function(b){
+      b.addEventListener('click', function(){
+        sw.forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+        box.innerHTML = pasteSteps(b.getAttribute('data-dev'), srcUrl);
+        bindCopy();
+      });
+    });
+    bindCopy();
+  }
+
+  function renderBlocked(d){
+    var c = d.couldNotCheck, host = '';
+    try{ host = new URL(d.url).host; }catch(e){ host = d.url; }
+    var why = c.what === 'certificate'
+      ? '<span class="hk">'+esc(host)+'</span> has a security certificate that is not valid, so we stopped. Browsers show a warning for this site too. Ask your web developer to renew or fix the certificate. AI crawlers may also stop at this.'
+      : c.what === 'refused'
+      ? '<span class="hk">'+esc(host)+'</span> did not accept the connection. Check that the site is online. If it opens in your browser, the server may block connections from other countries or from automated tools.'
+      : c.what === 'timeout'
+      ? '<span class="hk">'+esc(host)+'</span> did not answer in time. We check from a server in Singapore. If the page opens quickly in your browser, the site may be slow for visitors from other countries, or it may block automated tools. This does <span class="hk">not</span> mean AI is blocked.'
+      : c.what === 'connect'
+      ? '<span class="hk">'+esc(host)+'</span> closed the connection before sending the page. If the page opens in your browser, the site probably blocks automated tools. This does <span class="hk">not</span> mean AI is blocked.'
+      : '<span class="hk">'+esc(host)+'</span> refused to show our tool '+(c.what === 'page' ? 'this page' : 'its robots.txt file')+' (<span class="hr">'+esc(c.reason)+'</span>). '+
+        'Many large sites block automated tools but let verified AI crawlers through. So this does <span class="hk">not</span> mean AI is blocked.';
+    var html = '<section style="padding:40px 0 48px">'+
+      '<div class="dhead"><div><p class="eyb" style="margin-bottom:5px">Results for</p>'+
+        '<p class="durl">'+esc(d.url)+'</p></div>'+
+        '<div class="noprint"><button class="btn sm line" type="button" id="againbtn">Check another page</button></div></div>'+
+      '<div class="card" style="padding:26px 28px">'+
+        '<h3 style="margin:0 0 8px;font-size:22px">'+(c.what === 'robots.txt' ? 'We could not read your robots.txt file' : 'We could not read this page')+'</h3>'+
+        '<p style="margin:0 0 18px;font-size:15px;color:var(--body);max-width:780px">'+why+'</p>'+
+        '<h3 style="margin:0 0 6px;font-size:16px">What robots.txt says</h3>'+
+        (c.access ? '<p style="margin:0 0 8px;font-size:13.5px;color:var(--muted)">This part does not need the page, so it is certain.</p>' : '')+
+        '<div class="accwrap">'+robotsRows(c.access)+'</div>'+
+        (c.canPaste !== false ? pasteBox(d.url) : '')+
+        '<p style="margin:18px 0 0"><a class="btn sm'+(c.canPaste !== false ? ' line' : '')+'" id="blockedcta" href="https://wa.me/628137903995?text='+encodeURIComponent('Hi Bliss, your AI readiness tool could not check '+d.url+'. Could your team check it for me?')+'">Send it to Bliss on WhatsApp</a></p>'+
+      '</div></section>';
+    out.innerHTML = html;
+    out.style.display = 'block';
+    learn.classList.add('hide');
+    bindResultButtons();
+    out.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function render(d, opts){
+    if(d.couldNotCheck){ renderBlocked(d); return; }
+    tidy(d);
+    var p = d.page;
+    var when = '';
+    try{ when = new Date(d.scannedAt).toLocaleString('en-GB', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'}); }catch(e){}
+    var html = '<section style="padding:40px 0 0">'+
+      '<div class="dhead"><div>'+
+        '<p class="eyb" style="margin-bottom:5px">Results for</p>'+
+        '<p class="durl">'+esc(d.url)+'</p>'+
+        '<p class="dmeta">Checked '+esc(when)+(p.measuredOn ? ' · measured on the page sent to '+esc(p.measuredOn) : '')+'</p>'+
+        (p.toolRefused ? '<p class="dmeta">Your site '+(/^error/.test(p.toolRefused) ? 'answered our tool with '+esc(p.toolRefused) : 'sent our tool '+esc(p.toolRefused))+', so we checked the page that AI crawlers get.</p>' : '')+
+        (p.pasted ? '<p class="dmeta">Checked from the page source you pasted. Speed, compression and redirects could not be checked.</p>' : '')+
+        (p.isHomepage ? '<p class="dmeta">On a homepage, paragraphs, sentences and dates are only tips. They can stop an A, but they never make a grade lower than B. For a full test, also check a service page or a blog post.</p>' : '')+
+      '</div>'+
+      '<div class="noprint" style="display:flex;gap:10px;flex-wrap:wrap">'+
+        '<button class="btn sm line" type="button" id="againbtn">Check another page</button>'+
+        '<button class="btn sm" type="button" id="pdfbtn">Save as PDF</button>'+
+      '</div></div>';
+
+    /* PART 1: the scorecard. Numbers and pictures, almost no sentences. */
+    html += partHead(1, 'Your result');
+    html += '<p class="gradenote">The grade shows if AI can read and quote this page. It does not show if AI will choose your business.</p>';
+    html += gradeHero(d);
+    html += fixSummary(d);
+    html += servedPanel(d);
+    html += kpiStrip(d);
+    html += (p.renderedUnverified
+        ? shellNote('Paragraphs and titles', p.rawUnconfirmed)
+        : '<div class="grid g2">'+spreadChart(d)+outlineCard(d)+'</div>');
+
+    /* PART 2: what happened on the site, and what to do. */
+    html += partHead(2, 'What we found, and what to do');
+    html += verdict(d);
+    html += '<div class="sechead"><h3>Why each grade</h3></div>' + whyGrades(d);
+    html += auditPanel(d);
+
+    html += '<div class="sechead"><h3>What we cannot check</h3></div><div class="grid g3">'+
+      d.cannotCheck.map(function(t,i){
+        return '<div class="card"><span class="mono" style="font-size:11.5px;font-weight:600;color:var(--teal)">0'+(i+1)+'</span>'+
+          '<p style="margin:7px 0 0;font-size:14px;color:var(--body)">'+esc(t)+'</p></div>';
+      }).join('')+'</div>';
+
+    var gradeLine = CH.map(function(k){ return SHORT[k]+' '+d.channels[k].grade; }).join(', ');
+    var waText = 'Hi Bliss, I ran the AI readiness check on '+d.url+'. Grades: '+gradeLine+'. Could your team review it with me?';
+    html += '<div class="card noprint" style="margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">'+
+      '<div style="max-width:520px"><h3 style="margin:0 0 4px">Want Bliss to help with this?</h3>'+
+      '<p style="margin:0;font-size:13.5px;color:var(--muted)">Send us this result on WhatsApp. Your page address and grades are already in the message.</p></div>'+
+      '<div style="text-align:right"><a class="btn" href="https://wa.me/628137903995?text='+encodeURIComponent(waText)+'">Send to Bliss on WhatsApp</a>'+
+      '<p style="margin:8px 0 0;font-size:12.5px;color:var(--muted)">+62 813-7903-995 &middot; replies on weekdays</p></div></div>';
+
+    html += '<div class="card dark noprint" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">'+
+      '<p style="margin:0;font-size:15px;max-width:620px"><strong style="color:#FBF5EC">Being readable is only the first step.</strong> '+
+      'AI also looks at how often other websites mention your business. In a May 2026 study of 25 million links in AI answers, 84 in 100 came from other websites '+
+      '(<a href="https://muckrack.com/blog/what-is-ai-reading-may-2026" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Muck Rack</a>).</p>'+
+      '<a class="btn light" href="/en/contact">See how we help</a></div>';
+
+    html += '<div style="height:48px"></div></section>';
+
+    out.innerHTML = html;
+    out.style.display = 'block';
+    learn.classList.add('hide');
+    bindResultButtons();
+    var head = out.querySelector('.durl');
+    if(head){ head.setAttribute('tabindex','-1'); }
+    out.scrollIntoView({behavior:'smooth', block:'start'});
+    if(head) head.focus({preventScroll:true});
+  }
+
+  /* ---------- buttons ---------- */
+
+  function bindResultButtons(){
+    var bf = document.getElementById('tabfix'), ba = document.getElementById('taball');
+    if(bf) bf.addEventListener('click', function(){ showView('fix'); });
+    if(ba) ba.addEventListener('click', function(){ showView('all'); });
+
+    var pbtn = document.getElementById('pastebtn');
+    if(pbtn) bindPasteSteps();
+    if(pbtn) pbtn.addEventListener('click', function(){
+      var box = document.getElementById('pastefield'), note = document.getElementById('pastenote');
+      var html = box ? box.value : '';
+      if(html.trim().length < 50){ note.textContent = 'Paste the full page source first.'; return; }
+      var payload = JSON.stringify({url: lastUrl, html: html});
+      if(new Blob([payload]).size > 4000000){ note.textContent = 'The pasted page is too large. The limit is 3 MB.'; return; }
+      pbtn.disabled = true; pbtn.textContent = 'Checking…'; note.textContent = '';
+      fetch('/tools/ai-readiness/api/scan', {method:'POST', headers:{'Content-Type':'application/json'}, body: payload})
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if(d.error){ pbtn.disabled = false; pbtn.textContent = 'Check the pasted page'; note.textContent = d.error; return; }
+          render(d);
+        })
+        .catch(function(e){ console.error(e); pbtn.disabled = false; pbtn.textContent = 'Check the pasted page'; note.textContent = 'That did not work. Please try again.'; });
+    });
+
+    var again = document.getElementById('againbtn');
+    if(again) again.addEventListener('click', function(){
+      out.style.display = 'none';
+      learn.classList.remove('hide');
+      document.getElementById('url').focus();
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    var pdf = document.getElementById('pdfbtn');
+    if(pdf) pdf.addEventListener('click', function(){ window.print(); });
+
+  }
+
+  /* ---------- submit ---------- */
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = document.getElementById('url').value.trim();
+    if(!v) return;
+    // People type "example.com". Add the scheme so the rest of the flow,
+    // and the address we display back, are always absolute.
+    if(!/^https?:\/\//i.test(v)) v = 'https://' + v;
+    lastUrl = v;
+    btn.disabled = true; btn.textContent = 'Checking…';
+    out.style.display='none';
+    statusEl.innerHTML = '<p class="spin">Checking the page and its robots.txt. This usually takes a few seconds, and up to 30 for slow sites.</p>';
+    var showError = function(msg){
+      btn.disabled=false; btn.textContent='Check my site';
+      statusEl.innerHTML = '<div class="err">'+esc(msg)+'</div>';
+      learn.classList.remove('hide');
+      statusEl.scrollIntoView({block:'nearest'});
+    };
+
+    fetch('/tools/ai-readiness/api/scan?url='+encodeURIComponent(v))
+      .then(function(r){
+        return r.json().catch(function(){ throw new Error(r.status === 502 || r.status === 504 ? 'slow' : 'bad'); });
+      })
+      .then(function(d){
+        statusEl.innerHTML='';
+        btn.disabled=false; btn.textContent='Check my site';
+        if(d.error && d.canPaste){
+          statusEl.innerHTML = '';
+          renderBlocked({url: v, couldNotCheck: {what: ({timeout:1, certificate:1, refused:1})[d.kind] ? d.kind : 'connect', reason: d.error, access: d.access, canPaste: true}});
+          return;
+        }
+        if(d.error){ showError(d.error); return; }
+        try { render(d); } catch(err){ console.error(err); showError('We could not show this result. Please try again.'); }
+      })
+      .catch(function(err){
+        console.error(err);
+        showError(err && err.message === 'slow' ? 'The check took too long. Please try again in a minute.' : 'Something went wrong. Please try again.');
+      });
+  });
+})();
+</script>
+
+</body>
+</html>

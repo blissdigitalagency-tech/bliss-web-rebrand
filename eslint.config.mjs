@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // AI Readiness Check engine and tests: plain Node (CommonJS), tested by
+    // its own suite (npm run test:ai-readiness)
+    "ai-readiness/**",
   ]),
 ]);
 

@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
     // 404 page for addresses outside /en and /id (src/app/global-not-found.tsx)
     globalNotFound: true,
   },
+  // The AI Readiness Check is a plain HTML page (public/tools/ai-readiness/),
+  // kept out of React so ChatGPT and Meta AI, which don't run JavaScript, can
+  // read it. This serves it at its clean address.
+  async rewrites() {
+    return [{ source: "/tools/ai-readiness", destination: "/tools/ai-readiness/index.html" }];
+  },
   async headers() {
     return [
       {

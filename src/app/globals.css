@@ -4191,6 +4191,86 @@ main { background: var(--white); }
 
 .lang-menu__check { margin-left: auto; color: var(--accent); }
 
+/* Tools menu: a navbar item, after Blog, that opens the list of free tools */
+.tools { position: relative; }
+
+.nav__tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 17.64px;
+  color: var(--ink);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+}
+
+.nav__tools:hover,
+.nav__tools[aria-expanded="true"] { opacity: 1; }
+.nav__tools:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.nav__tools[aria-expanded="true"] .nav__lang-chevron { transform: rotate(180deg); }
+
+.tools-menu {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -14px;
+  z-index: 60;
+  width: 280px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: var(--shadow-bar), 0 16px 32px rgb(67 7 25 / 0.1);
+  animation: lang-in 160ms ease-out;
+}
+
+/* .nav__links a:not(.btn) styles every navbar link; these override it */
+.nav__links .tools-menu a {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.nav__links .tools-menu a:hover,
+.nav__links .tools-menu a:focus-visible { background: var(--card); outline: none; }
+
+.tools-menu__name { font-size: 15px; line-height: 20px; font-weight: 600; }
+.tools-menu__note { font-size: 13px; line-height: 18px; color: var(--grey); }
+
+/* Phone menu: Tools is a row like the others, and its list opens in place */
+@media (max-width: 900px) {
+  .nav__tools {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tools-menu {
+    position: static;
+    width: auto;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .nav__links .tools-menu a { border-bottom: 0; }
+}
+
 /* Phone menu: both languages side by side */
 .nav__links .lang-row { display: none; }
 

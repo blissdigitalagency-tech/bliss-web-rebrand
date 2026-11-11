@@ -4,7 +4,7 @@
 // and sends no JavaScript.
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type MouseEvent } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent } from "react";
 import type { Dictionary } from "@/i18n/en";
 import type { Locale } from "@/i18n/config";
 import { initSite, initIntro, initHero, initTagline, initServices, initWhy, initBeliefs, markLanguageSwitch } from "@/lib/client/effects";
@@ -64,14 +64,13 @@ const LANGUAGES: { code: Locale; name: string; short: string }[] = [
 ];
 
 /**
- * Desktop: a button with the current language and an arrow that opens a short
- * list. Arrow keys move through the list; Escape or a click outside closes it.
+ * A button that opens a short list of links (the language and Tools menus).
+ * Arrow keys move through the list; Escape or a click outside closes it.
  */
-function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Dictionary["nav"]; hrefFor: (code: Locale) => string; onSwitch: (e: MouseEvent) => void }) {
+function useMenu(itemSelector: string) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
-  const current = LANGUAGES.find((l) => l.code === lang)!;
   // Set when the list is opened from the keyboard, so focus moves into it
   const focusFirst = useRef(false);
 
@@ -79,7 +78,7 @@ function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Diction
     if (!open) return;
     if (focusFirst.current) {
       focusFirst.current = false;
-      root.current?.querySelector<HTMLAnchorElement>(".lang-menu a")?.focus();
+      root.current?.querySelector<HTMLAnchorElement>(itemSelector)?.focus();
     }
     const onPointer = (e: PointerEvent) => {
       if (!root.current?.contains(e.target as Node)) setOpen(false);
@@ -96,14 +95,36 @@ function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Diction
       document.removeEventListener("pointerdown", onPointer);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [open, itemSelector]);
 
-  const items = () => [...(root.current?.querySelectorAll<HTMLAnchorElement>(".lang-menu a") ?? [])];
+  const items = () => [...(root.current?.querySelectorAll<HTMLAnchorElement>(itemSelector) ?? [])];
   const focusItem = (step: number) => {
     const list = items();
     const i = list.indexOf(document.activeElement as HTMLAnchorElement);
     list[(i + step + list.length) % list.length]?.focus();
   };
+  const onButtonKey = (e: ReactKeyboardEvent) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      focusFirst.current = true;
+      if (open) items()[0]?.focus();
+      else setOpen(true);
+    }
+  };
+  const onListKey = (e: ReactKeyboardEvent) => {
+    const step = ({ ArrowDown: 1, ArrowUp: -1 } as Record<string, number>)[e.key];
+    if (step) {
+      e.preventDefault();
+      focusItem(step);
+    }
+  };
+  return { open, setOpen, root, button, onButtonKey, onListKey };
+}
+
+/** Desktop: a button with the current language and an arrow that opens a short list. */
+function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Dictionary["nav"]; hrefFor: (code: Locale) => string; onSwitch: (e: MouseEvent) => void }) {
+  const { open, setOpen, root, button, onButtonKey, onListKey } = useMenu(".lang-menu a");
+  const current = LANGUAGES.find((l) => l.code === lang)!;
 
   return (
     <div className="lang" ref={root}>
@@ -116,31 +137,13 @@ function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Diction
         aria-controls="lang-menu"
         aria-label={`${t.chooseLanguage}: ${current.name}`}
         onClick={() => setOpen((o) => !o)}
-        onKeyDown={(e) => {
-          if (e.key === "ArrowDown") {
-            e.preventDefault();
-            focusFirst.current = true;
-            if (open) items()[0]?.focus();
-            else setOpen(true);
-          }
-        }}
+        onKeyDown={onButtonKey}
       >
         <Globe />
         <span>{current.short}</span>
         <Chevron />
       </button>
-      <ul
-        className="lang-menu"
-        id="lang-menu"
-        hidden={!open}
-        onKeyDown={(e) => {
-          const step = ({ ArrowDown: 1, ArrowUp: -1 } as Record<string, number>)[e.key];
-          if (step) {
-            e.preventDefault();
-            focusItem(step);
-          }
-        }}
-      >
+      <ul className="lang-menu" id="lang-menu" hidden={!open} onKeyDown={onListKey}>
         {LANGUAGES.map((l) => {
           const isCurrent = l.code === lang;
           return (
@@ -163,6 +166,42 @@ function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Diction
             </li>
           );
         })}
+      </ul>
+    </div>
+  );
+}
+
+/**
+ * Tools: a navbar item that opens the list of free tools. On phones it sits in
+ * the menu as a row that opens the list in place. The tools are plain HTML
+ * pages outside the app, so they use <a>, not <Link>.
+ */
+function ToolsMenu({ t }: { t: Dictionary["nav"] }) {
+  const { open, setOpen, root, button, onButtonKey, onListKey } = useMenu(".tools-menu a");
+  return (
+    <div className="tools" ref={root}>
+      <button
+        ref={button}
+        type="button"
+        className="nav__tools"
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls="tools-menu"
+        onClick={() => setOpen((o) => !o)}
+        onKeyDown={onButtonKey}
+      >
+        {t.tools}
+        <Chevron />
+      </button>
+      <ul className="tools-menu" id="tools-menu" hidden={!open} onKeyDown={onListKey}>
+        {t.toolList.map((tool) => (
+          <li key={tool.href}>
+            <a href={tool.href}>
+              <span className="tools-menu__name">{tool.name}</span>
+              <span className="tools-menu__note">{tool.note}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -255,9 +294,12 @@ export function Nav({ lang, t }: { lang: Locale; t: Dictionary["nav"] }) {
           onClick={(e) => (e.target as HTMLElement).closest("a") && setOpen(false)}
         >
           {links.map(([path, label]) => (
-            <Link key={path} href={`/${lang}${path}`} aria-current={current(path) ? "page" : undefined}>
-              {label}
-            </Link>
+            <Fragment key={path}>
+              <Link href={`/${lang}${path}`} aria-current={current(path) ? "page" : undefined}>
+                {label}
+              </Link>
+              {path === "/blog" && <ToolsMenu t={t} />}
+            </Fragment>
           ))}
           {/* Phone menu: both languages side by side, the current one filled in */}
           <div className="lang-row" role="group" aria-label={t.language}>

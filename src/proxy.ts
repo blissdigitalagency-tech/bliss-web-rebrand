@@ -30,6 +30,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next internals, the API, the Keystatic editor and any file with an extension
-  matcher: ["/((?!_next|api|keystatic|.*\\..*).*)"],
+  // Skip Next internals, the API, the Keystatic editor, the free tools (one
+  // English page each, under /tools) and any file with an extension
+  matcher: ["/((?!_next|api|keystatic|tools/|.*\\..*).*)"],
 };

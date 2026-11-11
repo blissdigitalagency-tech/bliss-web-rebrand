@@ -37,5 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   };
 
-  return [...pages, ...(COMING_SOON.cases ? [] : articles(getCaseStudies, "/case-studies")), ...(COMING_SOON.blog ? [] : articles(getPosts, "/blog"))];
+  // Free tools: one English page each, outside /en and /id
+  const tools = [{ url: `${siteUrl}/tools/ai-readiness`, lastModified: new Date("2026-11-11") }];
+
+  return [...pages, ...tools,...(COMING_SOON.cases ? [] : articles(getCaseStudies, "/case-studies")), ...(COMING_SOON.blog ? [] : articles(getPosts, "/blog"))];
 }
