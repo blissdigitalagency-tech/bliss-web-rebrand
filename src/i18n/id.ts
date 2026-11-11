@@ -47,7 +47,7 @@ export const id: Dictionary = {
     blog: "Blog",
     tools: "Tools",
     toolList: [
-      { href: "/tools/ai-readiness", name: "AI Readiness Check", note: "Cek apakah AI bisa membaca website Anda. Gratis." },
+      { href: "/id/tools/ai-readiness", name: "AI Readiness Check", note: "Cek apakah AI bisa membaca website Anda. Gratis." },
     ],
     contact: "Kontak",
     cta: "Mari Ngobrol",

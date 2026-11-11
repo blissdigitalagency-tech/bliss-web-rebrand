@@ -37,8 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   };
 
-  // Free tools: one English page each, outside /en and /id
-  const tools = [{ url: `${siteUrl}/tools/ai-readiness`, lastModified: new Date("2026-11-11") }];
+  // Free tools (src/lib/ai-readiness-page.ts builds the AI Readiness Check)
+  const tools = entry(everywhere("/tools/ai-readiness"), "2026-11-11");
 
   return [...pages, ...tools,...(COMING_SOON.cases ? [] : articles(getCaseStudies, "/case-studies")), ...(COMING_SOON.blog ? [] : articles(getPosts, "/blog"))];
 }

@@ -1,13 +1,14 @@
 # Bliss AI Readiness Check — notes
 
-A free tool at **www.blissdigital.id/tools/ai-readiness**, part of the main
+A free tool at **www.blissdigital.id/en/tools/ai-readiness**, part of the main
 website (this repository). It is listed in the navbar under **Tools**
 (`nav.toolList` in `src/i18n/en.ts` and `id.ts`; add later tools there).
+The first address, /tools/ai-readiness, redirects there.
 
 The page is plain HTML, not a React page. blissdigital.id builds its pages
 with JavaScript, and ChatGPT and Meta AI do not run JavaScript, so a page
-rebuilt in React would fail its own check. Served as a static file, it
-arrives as plain HTML and every channel can read it.
+rebuilt in React would fail its own check. Built once at deploy time from a
+template, it arrives as plain HTML and every channel can read it.
 
 (Until 11 November 2026 the tool was planned as its own site at
 tools.blissdigital.id, for the same reason.)
@@ -16,7 +17,10 @@ tools.blissdigital.id, for the same reason.)
 
 ## Where the parts live
 
-    public/tools/ai-readiness/index.html       the page people see
+    ai-readiness/page/index.html               the page template (text, styles, report script)
+    src/lib/ai-readiness-page.ts               builds the page from the template
+    src/app/(site)/[lang]/tools/ai-readiness/route.ts
+                                               serves /{lang}/tools/ai-readiness, built at deploy
     public/tools/ai-readiness/fonts/           the two Bliss website fonts
     src/app/tools/ai-readiness/api/scan/route.ts
                                                answers /tools/ai-readiness/api/scan
@@ -25,17 +29,24 @@ tools.blissdigital.id, for the same reason.)
     ai-readiness/test/                         the tests (see "Run the tests")
     ai-readiness/README.md                     this file
 
-How it is wired into the site:
+What the builder (`src/lib/ai-readiness-page.ts`) fills into the template:
 
-- `next.config.ts` serves `/tools/ai-readiness` from `index.html` (a rewrite).
-- `src/proxy.ts` skips `/tools/`, so the language redirect does not send it
-  to `/en/tools/...`. The tool page is English only.
-- `src/app/sitemap.ts` lists the page. `robots.ts` already allows it.
-- Every path the page uses starts with `/tools/ai-readiness/`: the fonts and
-  the check. Root paths such as `/api/` belong to the rest of the site.
-- The page has its own copy of the site header and footer. Change them there
-  when the site's navbar changes.
-- The check needs `htmlparser2` and `undici` (in the site's `package.json`).
+- **Header, footer and Tools menu** from the site's own text files
+  (`src/i18n`) and contact details (`src/lib/contact.ts`), so they always match
+  the rest of the site. The phone menu stacks however many links there are.
+- **Language:** `<html lang>`, the canonical address and the `hreflang` links.
+  `TOOL_LOCALES` lists the languages the page exists in.
+- **Meta Pixel and GA4** from the same settings as the site
+  (`NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_COOKIE_BANNER`),
+  plus a Contact event on WhatsApp, phone and email links.
+- **Content-Security-Policy:** only the page's own inline scripts may run (their
+  hashes are worked out from the built page), plus Meta's and Google's
+  domains when those tags are set up. The report shows text taken from other
+  websites, so this is the safety net if escaping ever fails.
+
+Also: `src/app/sitemap.ts` lists the page; the check needs `htmlparser2` and
+`undici` (in the site's `package.json`); and every path the page uses for its
+fonts and the check starts with `/tools/ai-readiness/`.
 
 ---
 
@@ -212,7 +223,7 @@ on the page its own crawler receives, and the result shows a panel: "What your
 site sends to each reader". The tool keeps its own name in every one of these
 requests, for example:
 
-    Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html) BlissAccessCheck/1.0 (+https://www.blissdigital.id/tools/ai-readiness)
+    Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html) BlissAccessCheck/1.0 (+https://www.blissdigital.id/en/tools/ai-readiness)
 
 so a site owner can see in their logs who really asked. On 27 September 2026,
 Agoda still recognised Googlebot with our name added (801,941 bytes, the same

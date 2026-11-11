@@ -30,7 +30,7 @@ The site is available in English (/en) and Bahasa Indonesia (/id).
 - [Case Studies](https://www.blissdigital.id/en/case-studies)
 - [Blog](https://www.blissdigital.id/en/blog)
 - [Contact Us](https://www.blissdigital.id/en/contact)
-- [AI Readiness Check](https://www.blissdigital.id/tools/ai-readiness): free
+- [AI Readiness Check](https://www.blissdigital.id/en/tools/ai-readiness): free
   check of whether Google AI Overviews, Gemini, ChatGPT and Meta AI can read a page
 
 ## Contact

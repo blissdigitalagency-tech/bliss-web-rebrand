@@ -15,13 +15,8 @@ import { Faq, SectionEffects, SilkCanvas } from "./client";
 import { CookieSettingsButton } from "./consent";
 import { ArrowUpRight, ArrowRight, ArrowLeft, MARK_PATH, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
 
-export const WHATSAPP = "https://wa.me/628137903995";
-export const EMAIL = "admin@blissdigital.id";
-export const PHONE = "+62 813-7903-995";
-export const PHONE_HREF = "tel:+628137903995";
-export const INSTAGRAM = "https://www.instagram.com/blissdigital.id";
-export const LINKEDIN = "https://www.linkedin.com/company/bliss-digital-agency/";
-export const PARTNER = "https://www.google.com/partners/agency?id=3691602641";
+import { WHATSAPP, EMAIL, PHONE, PHONE_HREF, INSTAGRAM, LINKEDIN, PARTNER } from "@/lib/contact";
+export { WHATSAPP, EMAIL, PHONE, PHONE_HREF, INSTAGRAM, LINKEDIN, PARTNER };
 
 const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 

@@ -24,7 +24,7 @@ const { Agent, fetch: uFetch } = require("undici");
 
 /* ------------------------------------------------------------------ config */
 
-const UA = "BlissAccessCheck/1.0 (+https://www.blissdigital.id/tools/ai-readiness)";
+const UA = "BlissAccessCheck/1.0 (+https://www.blissdigital.id/en/tools/ai-readiness)";
 const MAX_REDIRECTS = 5;
 const SCAN_DEADLINE_MS = 25000; // Vercel allows 300 s; 25 s keeps the visitor's wait short
 const PER_REQUEST_MS = 10000;
