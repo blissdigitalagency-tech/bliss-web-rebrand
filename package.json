@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:ai-readiness": "node ai-readiness/test/run.js && node ai-readiness/test/edge.js && node ai-readiness/test/vercel.mjs"
+    "test:ai-readiness": "node ai-readiness/test/run.js && node ai-readiness/test/edge.js && node ai-readiness/test/vercel.mjs && node ai-readiness/test/glossary.js"
   },
   "dependencies": {
     "@keystatic/core": "^0.6.9",

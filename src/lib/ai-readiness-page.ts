@@ -149,12 +149,12 @@ function tracking() {
 </script>`;
 }
 
-/** Only the page's own inline scripts may run, plus Meta's and Google's when set up */
+/** Only the page's own inline scripts and its own files (the glossary) may run, plus Meta's and Google's when set up */
 function policy(html: string) {
   const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(
     ([, code]) => `'sha256-${createHash("sha256").update(code, "utf8").digest("base64")}'`,
   );
-  const script = [...hashes, PIXEL_ID && "https://connect.facebook.net", GA_ID && "https://www.googletagmanager.com"];
+  const script = ["'self'", ...hashes, PIXEL_ID && "https://connect.facebook.net", GA_ID && "https://www.googletagmanager.com"];
   const connect = ["'self'", PIXEL_ID && "https://www.facebook.com https://connect.facebook.net", GA_ID && "https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com"];
   const img = ["'self' data:", PIXEL_ID && "https://www.facebook.com", GA_ID && "https://*.google-analytics.com https://www.googletagmanager.com"];
   const list = (a: (string | false)[]) => a.filter(Boolean).join(" ");
