@@ -1,11 +1,17 @@
 "use client";
 
-// Cookie consent. Nothing from Google or Meta loads until the visitor clicks
-// Accept in the banner; Decline loads nothing. The choice is kept in this
-// browser, and "Cookie settings" in the footer opens the banner again. If the
-// visitor switches from Accept to Decline, their Google and Meta cookies are
-// deleted and the page reloads without the tags. See the privacy policy,
-// "Cookies and analytics", which describes this to visitors.
+// Analytics and ad tags (Google tag with GA4, Meta Pixel), in two modes:
+//
+// - Banner off (askFirst false, the current setting): the tags load on every
+//   visit, with no banner. A visitor who declined while the banner was on
+//   keeps their choice.
+// - Banner on (NEXT_PUBLIC_COOKIE_BANNER=on): nothing loads until the visitor
+//   clicks Accept; Decline loads nothing. The choice is kept in this browser,
+//   and "Cookie Settings" in the footer opens the banner again. Switching from
+//   Accept to Decline deletes the Google and Meta cookies and reloads.
+//
+// The privacy policy ("Cookies and Analytics") describes the current mode, so
+// change it too when switching.
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
@@ -94,7 +100,7 @@ function clearTrackingCookies() {
   for (const n of names) for (const d of domains) document.cookie = `${n}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${d}`;
 }
 
-export function ConsentBanner({ t, privacyHref, gaId, pixelId }: { t: Dictionary["consent"]; privacyHref: string; gaId?: string; pixelId?: string }) {
+export function ConsentBanner({ t, privacyHref, gaId, pixelId, askFirst }: { t: Dictionary["consent"]; privacyHref: string; gaId?: string; pixelId?: string; askFirst: boolean }) {
   // "pending" on the server and in the first client render, so the HTML matches
   const choice = useSyncExternalStore(subscribe, readChoice, () => "pending" as const);
   const [reopened, setReopened] = useState(false);
@@ -102,12 +108,15 @@ export function ConsentBanner({ t, privacyHref, gaId, pixelId }: { t: Dictionary
   const pathname = usePathname();
   const firstPath = useRef(pathname);
 
-  // Load the tags once the visitor has accepted (now or on an earlier visit)
+  // Load the tags: with the banner on, once the visitor has accepted (now or
+  // on an earlier visit); with it off, on every visit unless they declined
+  // while the banner was on
+  const load = askFirst ? choice === "granted" : choice === null || choice === "granted";
   useEffect(() => {
-    if (choice !== "granted") return;
+    if (!load) return;
     if (gaId) loadGoogle(gaId);
     if (pixelId) loadMeta(pixelId);
-  }, [choice, gaId, pixelId]);
+  }, [load, gaId, pixelId]);
 
   // Meta counts each page; GA4 counts in-app page changes by itself
   useEffect(() => {
@@ -144,7 +153,7 @@ export function ConsentBanner({ t, privacyHref, gaId, pixelId }: { t: Dictionary
     dispatchEvent(new Event(CHANGED));
   };
 
-  if (!gaId && !pixelId) return null; // nothing to ask about
+  if (!askFirst || (!gaId && !pixelId)) return null; // banner off, or nothing to ask about
   if (choice === "pending" || (choice !== null && !reopened)) return null;
 
   return (

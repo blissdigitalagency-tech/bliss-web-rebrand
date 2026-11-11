@@ -562,7 +562,7 @@ export const id: Dictionary = {
       {
         h: "Siapa Lagi yang Melihatnya",
         p: [
-          "Kiriman formulir disimpan di Google, yang menyediakan formulir dan spreadsheet yang kami gunakan. Jika kita bekerja sama, anggota tim kami yang menangani akun Anda dapat melihat detail Anda. Jika Anda menerima cookie, Google dan Meta juga menerima informasi tentang kunjungan Anda, seperti dijelaskan di bagian “Cookie dan Analitik”. Selain itu, kami membagikan data kepada pihak lain hanya jika diwajibkan hukum.",
+          "Kiriman formulir disimpan di Google, yang menyediakan formulir dan spreadsheet yang kami gunakan. Jika kita bekerja sama, anggota tim kami yang menangani akun Anda dapat melihat detail Anda. Saat Anda mengunjungi situs ini, Google dan Meta juga menerima informasi tentang kunjungan Anda, seperti dijelaskan di bagian “Cookie dan Analitik”. Selain itu, kami membagikan data kepada pihak lain hanya jika diwajibkan hukum.",
         ],
       },
       {
@@ -574,13 +574,12 @@ export const id: Dictionary = {
       {
         h: "Cookie dan Analitik",
         p: [
-          "Situs ini memakai alat berikut hanya jika Anda menerimanya di banner cookie:",
+          "Situs ini memakai alat berikut, yang memasang cookie di browser Anda saat Anda berkunjung:",
           [
             "Google Analytics 4, yang dimuat lewat Google tag, untuk menghitung kunjungan, melihat halaman yang dibuka pengunjung, dan mengukur iklan Google Ads kami",
             "Meta Pixel, untuk mengukur iklan kami di Facebook dan Instagram",
           ],
-          "Jika Anda menolak, keduanya tidak dimuat. Anda bisa mengubah pilihan kapan saja lewat “Pengaturan Cookie” di bagian bawah setiap halaman. Jika Anda menarik persetujuan, kami menghapus cookie Google dan Meta yang dipasang situs ini di browser Anda.",
-          "Anda juga bisa membatasi pelacakan di luar situs ini: add-on browser untuk menolak Google Analytics (tools.google.com/dlpage/gaoptout), My Ad Center dari Google (myadcenter.google.com), preferensi iklan di Accounts Center milik Meta, atau pengaturan cookie di browser Anda.",
+          "Anda bisa menghentikan atau membatasi pelacakan ini kapan saja: blokir atau hapus cookie lewat pengaturan browser Anda, gunakan add-on browser untuk menolak Google Analytics (tools.google.com/dlpage/gaoptout), matikan personalisasi iklan di My Ad Center dari Google (myadcenter.google.com), atau ubah preferensi iklan di Accounts Center milik Meta.",
         ],
       },
       {

@@ -103,13 +103,16 @@ again, because `NEXT_PUBLIC_` values are built into the site:
 - `NEXT_PUBLIC_SITE_URL`: the live address, for canonical links and the sitemap
 - `NEXT_PUBLIC_GA_ID`: Google Analytics 4 ID; leave empty for no analytics
 - `NEXT_PUBLIC_META_PIXEL_ID`: Meta Pixel ID; leave empty for no Pixel
+- `NEXT_PUBLIC_COOKIE_BANNER`: `on` to ask before loading the tags; empty for no banner
 - the five Keystatic values above
 
-Google Analytics and the Meta Pixel load only after a visitor clicks Accept in
-the cookie banner (`src/components/consent.tsx`); Decline loads neither.
-"Cookie settings" in the footer opens the banner again. With neither ID set,
-there is no banner. The privacy policy ("Cookies and analytics" in
-`src/i18n/en.ts` and `id.ts`) describes this, so update it if you add a tag.
+The cookie banner is off for now (`NEXT_PUBLIC_COOKIE_BANNER` unset), so
+Google Analytics and the Meta Pixel load on every visit. Set
+`NEXT_PUBLIC_COOKIE_BANNER=on` to load them only after a visitor clicks
+Accept, with "Cookie Settings" in the footer to change the choice
+(`src/components/consent.tsx`). The privacy policy ("Cookies and Analytics" in
+`src/i18n/en.ts` and `id.ts`) describes the current mode: update it, and have
+it checked, whenever you switch or add a tag.
 
 ## Contact form
 

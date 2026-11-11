@@ -574,7 +574,7 @@ export const en = {
       {
         h: "Who Else Sees It",
         p: [
-          "Form submissions are stored with Google, which provides the form and spreadsheet we use. If we work together, people on our team who run your account can see your details. If you accept cookies, Google and Meta also receive information about your visit, as described under “Cookies and Analytics”. Otherwise, we share data with others only when the law requires it.",
+          "Form submissions are stored with Google, which provides the form and spreadsheet we use. If we work together, people on our team who run your account can see your details. When you visit this site, Google and Meta also receive information about your visit, as described under “Cookies and Analytics”. Otherwise, we share data with others only when the law requires it.",
         ],
       },
       {
@@ -586,13 +586,12 @@ export const en = {
       {
         h: "Cookies and Analytics",
         p: [
-          "This site uses the following tools only if you accept them in the cookie banner:",
+          "This site uses the following tools, which set cookies in your browser when you visit:",
           [
             "Google Analytics 4, loaded through the Google tag, to count visits, see which pages people use, and measure our Google Ads",
             "the Meta Pixel, to measure our ads on Facebook and Instagram",
           ],
-          "If you decline, neither loads. You can change your choice at any time with “Cookie Settings” at the bottom of every page. If you withdraw your consent, we delete the Google and Meta cookies this site set in your browser.",
-          "You can also limit tracking beyond this site: Google’s Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout), Google’s My Ad Center (myadcenter.google.com), the ad preferences in Meta’s Accounts Center, or your browser’s cookie settings.",
+          "You can stop or limit this tracking at any time: block or clear cookies in your browser’s settings, use Google’s Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout), turn off ad personalisation in Google’s My Ad Center (myadcenter.google.com), or change your ad preferences in Meta’s Accounts Center.",
         ],
       },
       {
