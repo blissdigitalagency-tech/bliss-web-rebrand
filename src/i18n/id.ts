@@ -538,7 +538,6 @@ export const id: Dictionary = {
     lede: "Bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi yang Anda bagikan kepada kami.",
     updated: "Terakhir diperbarui:",
     updatedValue: "11 November 2026",
-    draft: "Draf · minta penasihat hukum memeriksanya sebelum peluncuran",
     sections: [
       {
         h: "Siapa Kami",

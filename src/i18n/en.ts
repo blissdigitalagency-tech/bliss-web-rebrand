@@ -549,7 +549,6 @@ export const en = {
     lede: "How we collect, use and protect the information you share with us.",
     updated: "Last updated:",
     updatedValue: "11 November 2026",
-    draft: "Draft · have this checked by a legal adviser before launch",
     // Each section: heading, then paragraphs; a paragraph that is an array is a bullet list
     sections: [
       {

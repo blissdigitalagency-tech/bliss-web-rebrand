@@ -29,9 +29,6 @@ export default async function PrivacyPage({ params }: PageProps<"/[lang]/privacy
         <p className="article__meta" data-reveal>
           {t.updated} {rich(t.updatedValue)}
         </p>
-        <span className="sample-note" data-reveal>
-          {t.draft}
-        </span>
       </header>
 
       <div className="prose prose--policy">
