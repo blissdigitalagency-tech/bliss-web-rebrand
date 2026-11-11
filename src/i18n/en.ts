@@ -249,7 +249,7 @@ export const en = {
     social: {
       title: "Social Media Management",
       sub: "Instagram and TikTok, planned and posted for you by Bliss.",
-      plan: "Fully Managed by Bliss",
+      plan: "Planned and Posted by Bliss",
       desc: "We run your Instagram and TikTok from plan to post. Monthly subscription.",
       button: "Ask About Social Media",
       items: [

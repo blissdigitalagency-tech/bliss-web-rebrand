@@ -239,7 +239,7 @@ export const id: Dictionary = {
     social: {
       title: "Manajemen Media Sosial",
       sub: "Instagram dan TikTok, direncanakan dan diunggah untuk Anda oleh Bliss.",
-      plan: "Dikelola Penuh oleh Bliss",
+      plan: "Direncanakan dan Diunggah oleh Bliss",
       desc: "Kami menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan. Langganan bulanan.",
       button: "Tanya Soal Media Sosial",
       items: [
