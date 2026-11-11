@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
 
   // Free tools (src/lib/ai-readiness-page.ts builds the AI Readiness Check)
-  const tools = entry(everywhere("/tools/ai-readiness"), "2026-11-11");
+  const tools = ["/tools/ai-readiness", "/tools/roas-calculator"].flatMap((p) => entry(everywhere(p), "2026-11-11"));
 
   return [...pages, ...tools,...(COMING_SOON.cases ? [] : articles(getCaseStudies, "/case-studies")), ...(COMING_SOON.blog ? [] : articles(getPosts, "/blog"))];
 }

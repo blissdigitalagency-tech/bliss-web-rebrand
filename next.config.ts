@@ -17,7 +17,10 @@ const nextConfig: NextConfig = {
   // src/lib/ai-readiness-page.ts, which also sets its Content-Security-Policy).
   // Its first address, /tools/ai-readiness, now leads there.
   async redirects() {
-    return [{ source: "/tools/ai-readiness", destination: "/en/tools/ai-readiness", permanent: false }];
+    return [
+      { source: "/tools/ai-readiness", destination: "/en/tools/ai-readiness", permanent: false },
+      { source: "/tools/roas-calculator", destination: "/en/tools/roas-calculator", permanent: false },
+    ];
   },
   async headers() {
     return [

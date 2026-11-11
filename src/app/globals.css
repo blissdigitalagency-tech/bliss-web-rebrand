@@ -5058,3 +5058,354 @@ html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
   line-height: 1.18;
   letter-spacing: -0.04em;
 }
+
+/* ---------- ROAS Calculator (/tools/roas-calculator) ---------- */
+.roas-page { padding-bottom: clamp(48px, 5.5vw, 80px); }
+
+.roas {
+  max-width: 1200px;
+  margin: 48px auto 0;
+}
+
+.roas__tabs {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 24px;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.roas__tab {
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font: 500 15px/20px var(--font-body);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.roas__tab:hover { color: var(--ink); }
+.roas__tab[aria-selected="true"] { background: var(--white); color: var(--ink); box-shadow: var(--shadow-chip); }
+.roas__tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.roas__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.roas__inputs { display: grid; gap: 24px; }
+
+.roas__card {
+  padding: clamp(20px, 2.2vw, 32px);
+  border-radius: 20px;
+  background: var(--card);
+}
+
+.roas__h {
+  margin: 0;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.roas__text {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--muted);
+}
+
+.roas__example {
+  display: inline-block;
+  margin: 16px 0 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--white);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.roas__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 16px;
+  margin-top: 20px;
+}
+
+.roas-field__hint {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--grey);
+}
+
+/* Rp before money, % after percentages */
+.roas-affix { position: relative; }
+.roas-affix > span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--grey);
+  pointer-events: none;
+}
+.roas-affix--money > span { left: 14px; }
+.roas-affix--money input { padding-left: 42px; }
+.roas-affix--percent > span { right: 14px; }
+.roas-affix--percent input { padding-right: 34px; }
+
+.roas-rows {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roas-row {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.roas-row .field input { background-color: var(--card); }
+.roas-row .field input:focus { background-color: var(--white); }
+.roas-row .field label { font-size: 13px; line-height: 18px; color: var(--muted); }
+
+.roas-row__nums {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: 12px;
+  align-items: start;
+}
+
+/* Labels that wrap to two lines keep every input in the row level */
+.roas-row__nums .field label { min-height: 36px; display: flex; align-items: flex-end; }
+
+.roas-row__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.roas-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.roas-check input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.roas-row__remove {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: 400 14px/20px var(--font-body);
+  color: var(--grey);
+  cursor: pointer;
+}
+
+.roas-row__remove:hover { color: var(--accent); background: rgb(112 2 15 / 0.05); }
+
+.roas__add {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: 1px dashed var(--tan);
+  border-radius: 10px;
+  background: transparent;
+  font: 500 15px/20px var(--font-body);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.roas__add:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Results: a dark card that stays in view beside the inputs */
+.roas__results {
+  position: sticky;
+  top: 120px;
+  padding: clamp(24px, 2.2vw, 32px);
+  border-radius: 20px;
+  background: var(--bg-dark);
+  color: var(--white);
+}
+
+.roas__results-title {
+  margin: 0 0 8px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.roas__empty { margin: 16px 0 0; font-size: 15px; line-height: 22px; color: rgb(255 255 255 / 0.75); }
+
+.roas-results { margin: 0; }
+
+.roas-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.roas-result dt { font-size: 14px; line-height: 20px; color: rgb(255 255 255 / 0.75); }
+.roas-result dd { margin: 0; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.roas-result__value { font-weight: 500; font-size: 17px; line-height: 24px; font-variant-numeric: tabular-nums; }
+.roas-result__sub { max-width: 240px; margin-top: 4px; font-size: 12px; line-height: 16px; color: rgb(255 255 255 / 0.6); }
+
+.roas-result--big { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 0 20px; border-top: 0; }
+.roas-result--big dd { align-items: flex-start; text-align: left; }
+.roas-result--big .roas-result__value { font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: -0.04em; }
+.roas-result--big .roas-result__sub { max-width: none; margin-top: 10px; font-size: 14px; line-height: 20px; color: rgb(255 255 255 / 0.75); }
+
+.roas__status {
+  margin: 8px 0 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.roas__status--good { background: rgb(47 122 79 / 0.3); color: #c9f0d8; }
+.roas__status--bad { background: rgb(255 120 120 / 0.16); color: #ffd1d1; }
+
+.roas__private {
+  margin: 20px 0 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgb(255 255 255 / 0.55);
+}
+
+/* How to count conversions */
+.roas-tips {
+  max-width: 1200px;
+  margin: clamp(56px, 6vw, 88px) auto 0;
+}
+
+.roas-tips__title {
+  margin: 0 0 24px;
+  font-weight: 500;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.roas-tips__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: tip;
+}
+
+.roas-tips__list li {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--card);
+  counter-increment: tip;
+}
+
+.roas-tips__list li::before {
+  content: "0" counter(tip);
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.roas-tips__list h3 { margin: 0; font-weight: 500; font-size: 18px; line-height: 24px; color: var(--ink); }
+.roas-tips__list p { margin: 8px 0 0; font-size: 15px; line-height: 22px; color: var(--muted); }
+
+/* What ticking "estimate" does, under the checkbox */
+.roas-row__foot { align-items: flex-start; }
+.roas-check__wrap { display: grid; gap: 4px; }
+.roas-check__hint { padding-left: 24px; }
+
+/* How the numbers work */
+.roas-explain {
+  max-width: 1200px;
+  margin: clamp(56px, 6vw, 88px) auto 0;
+}
+
+.roas-explain__lede {
+  max-width: 640px;
+  margin: -8px 0 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--muted);
+}
+
+.roas-explain__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.roas-explain__list > div {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.roas-explain__list dt { font-weight: 500; font-size: 18px; line-height: 24px; color: var(--ink); }
+.roas-explain__list dd { margin: 12px 0 0; }
+.roas-explain__list code {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--card);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--accent);
+}
+.roas-explain__list p { margin: 12px 0 0; font-size: 15px; line-height: 22px; color: var(--muted); }
+
+@media (max-width: 960px) {
+  .roas-explain__list { grid-template-columns: 1fr; }
+  .roas__grid { grid-template-columns: 1fr; }
+  .roas__results { position: static; }
+  .roas-row__nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .roas-tips__list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .roas__fields { grid-template-columns: 1fr; }
+  .roas__tabs { width: 100%; }
+  .roas__tab { flex: 1; padding-inline: 8px; font-size: 14px; white-space: nowrap; }
+  .roas-row { padding: 14px; }
+  .roas-row__nums > :last-child { grid-column: 1 / -1; }
+  .roas__example { border-radius: 8px; }
+}
