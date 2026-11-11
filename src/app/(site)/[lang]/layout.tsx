@@ -6,6 +6,7 @@ import { getDictionary, hasLocale, htmlLang, locales, siteUrl } from "@/i18n/con
 import { Nav, SiteEffects } from "@/components/client";
 import { Footer, ToTop, EMAIL, INSTAGRAM, LINKEDIN, PHONE } from "@/components/sections";
 import { ConsentBanner } from "@/components/consent";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Only /en and /id exist; anything else is a 404
 export const dynamicParams = false;
@@ -96,6 +97,7 @@ if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEve
         <ToTop label={t.nav.backToTop} />
         <SiteEffects />
         <ConsentBanner t={t.consent} privacyHref={`/${lang}/privacy`} gaId={GA_ID} pixelId={PIXEL_ID} />
+        <SpeedInsights />
       </body>
     </html>
   );
