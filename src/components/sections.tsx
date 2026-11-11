@@ -9,6 +9,7 @@ import type { Dictionary } from "@/i18n/en";
 import type { Locale } from "@/i18n/config";
 import type { CaseStudy, ClientLogo, Post } from "@/lib/content";
 import { formatDate } from "@/lib/format";
+import { lastUpdated } from "@/lib/updated";
 import { rich } from "./Rich";
 import { Faq, SectionEffects, SilkCanvas } from "./client";
 import { ArrowUpRight, ArrowRight, ArrowLeft, MARK_PATH, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
@@ -887,6 +888,7 @@ export function Footer({ lang, t, nav }: { lang: Locale; t: Dictionary["footer"]
     ["/contact", nav.contact],
     ["/privacy", t.privacy],
   ];
+  const updated = lastUpdated(lang);
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -898,6 +900,9 @@ export function Footer({ lang, t, nav }: { lang: Locale; t: Dictionary["footer"]
             </Link>
           </div>
           <p className="footer__copy">{t.copyright}</p>
+          <p className="footer__updated">
+            {t.updated} <time dateTime={updated.iso}>{updated.label}</time>
+          </p>
           <div className="footer__social">
             <a className="social-btn" href={WHATSAPP} target="_blank" rel="noopener" aria-label={`WhatsApp (${t.newTab})`}>
               <WhatsApp />

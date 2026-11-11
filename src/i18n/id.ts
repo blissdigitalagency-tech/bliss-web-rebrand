@@ -61,6 +61,7 @@ export const id: Dictionary = {
 
   footer: {
     copyright: "© 2026 Bliss Digital Agency. Hak cipta dilindungi.",
+    updated: "Terakhir diperbarui",
     links: "Footer",
     homeLink: "Beranda",
     privacy: "Kebijakan privasi",

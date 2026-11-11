@@ -3074,6 +3074,14 @@ em.hero__word {
   font-style: normal;
 }
 
+/* "Last updated November 2026": a quiet line under the copyright */
+.footer__updated {
+  margin: -8px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--muted);
+}
+
 .footer__address {
   flex: 0 1 414px;
 }

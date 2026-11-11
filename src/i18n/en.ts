@@ -64,6 +64,8 @@ export const en = {
 
   footer: {
     copyright: "© 2026 Bliss Digital Agency. All rights reserved.",
+    // Followed by the month the site was last built (src/lib/updated.ts)
+    updated: "Last updated",
     links: "Footer",
     homeLink: "Home",
     privacy: "Privacy policy",
