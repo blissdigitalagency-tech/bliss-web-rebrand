@@ -35,12 +35,23 @@ function header(lang: Locale) {
   const tools = t.toolList
     .map((tool) => `<a href="${esc(tool.href)}"${tool.href === toolPath(lang) ? ' aria-current="page"' : ""}><span class="tmenu__name">${esc(tool.name)}</span><span class="tmenu__note">${esc(tool.note)}</span></a>`)
     .join("");
-  // The other language's version of this page, styled like the site's
-  // language button (globe and language code), next to the call to action
-  const other = TOOL_LOCALES.find((l) => l !== lang);
+  // Language switch, as on the rest of the site (src/components/client.tsx):
+  // on desktop a button with the current language that opens a short list;
+  // in the phone menu a "Language" row with both languages side by side
+  const LANGS: { code: Locale; name: string }[] = [
+    { code: "en", name: "English" },
+    { code: "id", name: "Bahasa Indonesia" },
+  ].filter((l) => TOOL_LOCALES.includes(l.code as Locale)) as { code: Locale; name: string }[];
+  const current = LANGS.find((l) => l.code === lang)!;
   const GLOBE = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.3"/><path d="M1.75 8h12.5M8 1.75c1.7 1.8 2.5 3.9 2.5 6.25S9.7 12.45 8 14.25C6.3 12.45 5.5 10.35 5.5 8S6.3 3.55 8 1.75Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>`;
-  const OTHER_NAME: Record<Locale, string> = { en: "English", id: "Bahasa Indonesia" };
-  const langLink = other ? `<a class="langbtn" href="${toolPath(other)}" hreflang="${other}" lang="${other}" title="${OTHER_NAME[other]}" aria-label="${esc(`${t.chooseLanguage}: ${OTHER_NAME[other]}`)}">${GLOBE}<span>${other.toUpperCase()}</span></a>` : "";
+  const CHECK = `<svg class="lang-menu__check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.3 6.5 11.2 12.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const langAttrs = (l: { code: Locale }) => `href="${toolPath(l.code)}" hreflang="${l.code}" lang="${l.code}"${l.code === lang ? ' aria-current="true"' : ""}`;
+  const langMenu = LANGS.length > 1
+    ? `<div class="lang"><button type="button" class="nav__lang" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="${esc(`${t.chooseLanguage}: ${current.name}`)}">${GLOBE}<span>${lang.toUpperCase()}</span>${CHEVRON.replace("<svg ", '<svg class="nav__lang-chevron" ')}</button><ul class="lang-menu" id="lang-menu" hidden>${LANGS.map((l) => `<li><a ${langAttrs(l)}><span class="lang-menu__short">${l.code.toUpperCase()}</span>${l.name}${l.code === lang ? CHECK : ""}</a></li>`).join("")}</ul></div>`
+    : "";
+  const langRow = LANGS.length > 1
+    ? `<div class="lang-row" role="group" aria-label="${esc(t.language)}"><span class="lang-row__label">${esc(t.language)}</span>${LANGS.map((l) => `<a ${langAttrs(l)}>${l.name}</a>`).join("")}</div>`
+    : "";
   return `<header class="nav" id="top">
   <div class="wrap"><div class="navin">
     <a class="logo" href="/${lang}" aria-label="${esc(t.home)}">${MARK("bmk1")}</a>
@@ -52,8 +63,9 @@ function header(lang: Locale) {
         ${link("/blog", t.blog)}
         <div class="tmenu"><button class="tmenu__btn is-current" type="button" aria-expanded="false" aria-controls="tools-menu">${esc(t.tools)}${CHEVRON}</button><div class="tmenu__list" id="tools-menu" hidden>${tools}</div></div>
         ${link("/contact", t.contact)}
+        ${langRow}
       </div>
-      ${langLink}
+      ${langMenu}
       <a class="btn sm" href="/${lang}/contact">${esc(t.cta)}</a>
       <button class="menubtn" type="button" aria-label="${esc(t.openMenu)}" aria-expanded="false" aria-controls="site-menu" data-open="${esc(t.openMenu)}" data-close="${esc(t.closeMenu)}" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </nav>
