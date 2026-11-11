@@ -125,9 +125,9 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
             <Link className="btn btn--solid" href={`/${lang}/contact`}>
               {common.letsChat} <ButtonIcon />
             </Link>
-            <a className="btn btn--outline" href="#services">
+            <Link className="btn btn--outline" href={`/${lang}/services`}>
               {common.ourServices}
-            </a>
+            </Link>
           </div>
         </div>
 
