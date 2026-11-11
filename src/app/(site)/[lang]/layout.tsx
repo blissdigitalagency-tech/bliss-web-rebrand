@@ -4,7 +4,7 @@ import "../../globals.css";
 import { jakarta, fragment } from "../../fonts";
 import { getDictionary, hasLocale, htmlLang, locales, siteUrl } from "@/i18n/config";
 import { Nav, SiteEffects } from "@/components/client";
-import { Footer, ToTop, EMAIL, INSTAGRAM, LINKEDIN, PHONE } from "@/components/sections";
+import { Footer, ToTop, WhatsAppFloat, EMAIL, INSTAGRAM, LINKEDIN, PHONE } from "@/components/sections";
 import { ConsentBanner } from "@/components/consent";
 
 // Only /en and /id exist; anything else is a 404
@@ -95,6 +95,7 @@ if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEve
         <Nav lang={lang} t={t.nav} />
         <main id="top">{children}</main>
         <Footer lang={lang} t={t.footer} nav={t.nav} cookieSettings={ASK_FIRST && Boolean(GA_ID || PIXEL_ID)} />
+        <WhatsAppFloat label={t.common.whatsappFloat} greeting={t.common.whatsappGreeting} />
         <ToTop label={t.nav.backToTop} />
         <SiteEffects />
         <ConsentBanner t={t.consent} privacyHref={`/${lang}/privacy`} gaId={GA_ID} pixelId={PIXEL_ID} askFirst={ASK_FIRST} />

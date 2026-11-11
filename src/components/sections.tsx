@@ -956,6 +956,19 @@ export function Footer({ lang, t, nav, cookieSettings }: { lang: Locale; t: Dict
   );
 }
 
+/**
+ * Floating WhatsApp button, bottom right on every page (the back-to-top button
+ * sits above it). Opens WhatsApp with a greeting already typed; clicks count
+ * as a Contact event (src/components/consent.tsx).
+ */
+export function WhatsAppFloat({ label, greeting }: { label: string; greeting: string }) {
+  return (
+    <a className="wa-float" href={`${WHATSAPP}?text=${encodeURIComponent(greeting)}`} target="_blank" rel="noopener" aria-label={label} title={label}>
+      <WhatsApp size={28} />
+    </a>
+  );
+}
+
 export function ToTop({ label }: { label: string }) {
   return (
     <a className="to-top" href="#top" aria-label={label} data-to-top>

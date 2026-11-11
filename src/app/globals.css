@@ -3160,12 +3160,57 @@ em.hero__word {
   .footer__inner > * { flex-basis: auto; }
 }
 
+/* ---------- Floating WhatsApp button: bottom right, every page ---------- */
+
+/* 56px on phones and tablets; 72px on desktop, where there's room for it to
+   stand out (--wa-size also places the back-to-top button above it) */
+:root { --wa-size: 56px; }
+@media (min-width: 901px) {
+  :root { --wa-size: 72px; }
+}
+
+.wa-float {
+  --edge: clamp(16px, 2.78vw, 40px);
+  position: fixed;
+  right: var(--edge);
+  bottom: var(--edge);
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: var(--wa-size);
+  height: var(--wa-size);
+  border-radius: 50%;
+  color: #fff;
+  background: #25d366; /* WhatsApp green */
+  box-shadow: 0 8px 24px rgb(18 140 70 / 0.35);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.wa-float:hover {
+  transform: translateY(-2px);
+  background: #1ebe5b;
+  box-shadow: 0 12px 28px rgb(18 140 70 / 0.45);
+}
+
+.wa-float:active { transform: scale(0.95); }
+.wa-float svg { width: 50%; height: 50%; } /* icon: 28px on phones, 36px on desktop */
+.wa-float:focus-visible { outline: 2px solid #128c46; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { transition: none; }
+}
+
+@media print {
+  .wa-float, .to-top { display: none; }
+}
+
 /* ---------- Back to top (not in Figma) ---------- */
 
+/* Sits above the WhatsApp button, centred on it, with a 12px gap */
 .to-top {
   position: fixed;
-  right: clamp(16px, 2.78vw, 40px);
-  bottom: clamp(16px, 2.78vw, 40px);
+  right: calc(clamp(16px, 2.78vw, 40px) + (var(--wa-size) - 52px) / 2);
+  bottom: calc(clamp(16px, 2.78vw, 40px) + var(--wa-size) + 12px);
   z-index: 40;
   display: grid;
   place-items: center;

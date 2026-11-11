@@ -84,6 +84,8 @@ export const id: Dictionary = {
     viewMore: "Lihat Semua",
     partnerAlt: "Google Partner (terbuka di tab baru)",
     whatsappUs: "WhatsApp Kami",
+    whatsappFloat: "Chat dengan kami di WhatsApp",
+    whatsappGreeting: "Halo Bliss, saya ingin tahu lebih lanjut tentang layanan Anda.",
     sampleCases: "Contoh konten · ganti sebelum peluncuran",
     sampleCase: "Contoh studi kasus · ganti sebelum peluncuran",
     draftPosts: "Draf artikel · tinjau sebelum peluncuran",

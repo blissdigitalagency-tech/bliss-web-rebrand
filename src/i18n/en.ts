@@ -89,6 +89,9 @@ export const en = {
     viewMore: "View More",
     partnerAlt: "Google Partner (opens in a new tab)",
     whatsappUs: "WhatsApp Us",
+    // Floating WhatsApp button: its label for screen readers, and the message it starts
+    whatsappFloat: "Chat with us on WhatsApp",
+    whatsappGreeting: "Hi Bliss, I’d like to know more about your services.",
     sampleCases: "Sample content · replace before launch",
     sampleCase: "Sample case study · replace before launch",
     draftPosts: "Draft articles · review before launch",
