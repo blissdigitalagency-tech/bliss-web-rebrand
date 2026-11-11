@@ -14,7 +14,7 @@ export const en = {
         "You focus on running your business. We make sure it reaches the right people, at the right time, with the right message. Google Ads and websites, run for you.",
     },
     about: {
-      title: "About us",
+      title: "About Us",
       description:
         "Bliss Digital is a Google Partner marketing agency in South Jakarta. We run Google Ads and websites for businesses that would rather focus on their work.",
     },
@@ -24,36 +24,36 @@ export const en = {
         "Google Ads, website creation and social media management, planned and run for you by Bliss Digital in Jakarta.",
     },
     cases: {
-      title: "Case studies",
+      title: "Case Studies",
       description: "How Bliss Digital helps businesses reach the right people, at the right time, with the right message.",
     },
     blog: {
       title: "Blog",
-      description: "Plain-word guides to Google Ads, Meta Ads, tracking and websites from the Bliss Digital team.",
+      description: "Plain-word guides to Google Ads, tracking and websites from the Bliss Digital team.",
     },
     contact: {
-      title: "Contact us",
+      title: "Contact Us",
       description: "Tell us about your business and we’ll be in touch within 24–48 hours.",
     },
     privacy: {
-      title: "Privacy policy",
+      title: "Privacy Policy",
       description: "How Bliss Digital collects, uses and protects the information you share with us.",
     },
   },
 
   nav: {
     home: "Bliss Digital, home",
-    about: "About us",
+    about: "About Us",
     services: "Services",
-    cases: "Case studies",
+    cases: "Case Studies",
     blog: "Blog",
     // Free tools, in the navbar's Tools menu. Each is one English page under /tools.
     tools: "Tools",
     toolList: [
       { href: "/tools/ai-readiness", name: "AI Readiness Check", note: "Can AI read your website? Free check." },
     ],
-    contact: "Contact us",
-    cta: "Let’s chat",
+    contact: "Contact Us",
+    cta: "Let’s Chat",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     main: "Main",
@@ -68,25 +68,35 @@ export const en = {
     updated: "Last updated",
     links: "Footer",
     homeLink: "Home",
-    privacy: "Privacy policy",
+    privacy: "Privacy Policy",
+    cookieSettings: "Cookie Settings",
     newTab: "opens in a new tab",
   },
 
+  // Cookie banner (src/components/consent.tsx). Shown until the visitor chooses.
+  consent: {
+    label: "Cookie Choice",
+    text: "With your permission, we use Google Analytics and the Meta Pixel to see how visitors use this site and to measure our ads. Nothing loads until you choose.",
+    policy: "Privacy Policy",
+    accept: "Accept",
+    decline: "Decline",
+  },
+
   common: {
-    letsChat: "Let’s chat",
-    startProject: "Start your project",
-    ourServices: "Our services",
-    viewMore: "View more",
+    letsChat: "Let’s Chat",
+    startProject: "Start Your Project",
+    ourServices: "Our Services",
+    viewMore: "View More",
     partnerAlt: "Google Partner (opens in a new tab)",
-    whatsappUs: "WhatsApp us",
+    whatsappUs: "WhatsApp Us",
     sampleCases: "Sample content · replace before launch",
     sampleCase: "Sample case study · replace before launch",
     draftPosts: "Draft articles · review before launch",
     draftPost: "Draft article · review before launch",
-    nextCase: "Next case study",
-    allCases: "All case studies",
-    nextPost: "Next article",
-    allPosts: "All articles",
+    nextCase: "Next Case Study",
+    allCases: "All Case Studies",
+    nextPost: "Next Article",
+    allPosts: "All Articles",
     minRead: "min read",
   },
 
@@ -139,10 +149,10 @@ export const en = {
   },
 
   clients: {
-    eyebrow: "Our clients",
+    eyebrow: "Our Clients",
     title: "Brands that",
-    titleEm: "Grew With Us",
-    lede: "These are brands we’ve managed and helped grow. Different industries, same level of hands-on involvement from our side. We stay close to every project, start to finish.",
+    titleEm: "grew with us",
+    lede: "These are brands we’ve managed and helped grow, in many different industries. For each one, the same small team stays close from the first call to every regular review.",
   },
 
   // Homepage version of the About block
@@ -153,7 +163,7 @@ export const en = {
   },
 
   about: {
-    eyebrow: "About us",
+    eyebrow: "About Us",
     titleA: "Built on",
     titleB: "a simple *Belief*",
     text: "At Bliss, we believe good digital marketing starts with doing the *right things*, the *right way.*",
@@ -166,7 +176,7 @@ export const en = {
   },
 
   services: {
-    eyebrow: "Our services",
+    eyebrow: "Our Services",
     titleA: "Digital marketing,",
     titleB: "done *for you*",
     lede: "You focus on your business. We handle the marketing, from the first plan to the daily work.",
@@ -178,10 +188,10 @@ export const en = {
       tabs: [
         {
           id: "managed",
-          tab: "Fully managed",
-          plan: "Fully managed by Bliss",
-          desc: "We plan, build, and run your campaigns every day. We reach the right people, at the right time, with the right message. Monthly subscription.",
-          button: "Ask about full management",
+          tab: "Fully Managed",
+          plan: "Fully Managed by Bliss",
+          desc: "We plan, build, and run your campaigns every day. Monthly subscription.",
+          button: "Ask About Full Management",
           service: "google-ads",
           items: [
             "Right people: audience and keyword research",
@@ -194,9 +204,9 @@ export const en = {
         {
           id: "consult",
           tab: "Consultation",
-          plan: "In-depth consultation",
+          plan: "In-Depth Consultation",
           desc: "For businesses that run Google Ads themselves and want an expert analysis. You get a written action plan.",
-          button: "Ask about consultation",
+          button: "Ask About Consultation",
           service: "consultation",
           items: [
             "Conversion tracking check and setup",
@@ -208,9 +218,9 @@ export const en = {
         {
           id: "training",
           tab: "Training",
-          plan: "Google Ads training",
+          plan: "Google Ads Training",
           desc: "For company teams and individuals who want to run Google Ads themselves.",
-          button: "Ask about training",
+          button: "Ask About Training",
           service: "training",
           items: [
             "Training for company teams",
@@ -222,11 +232,11 @@ export const en = {
       ],
     },
     web: {
-      title: "Website creation",
+      title: "Website Creation",
       sub: "A website that people and AI search tools can find, and that turns visitors into customers.",
-      plan: "Fully built by Bliss",
+      plan: "Fully Built by Bliss",
       desc: "We handle every step, from the first plan to launch day. We set your website up so Google and AI tools, such as ChatGPT, Gemini, and Google AI Overviews, can read it clearly.",
-      button: "Ask about a new website",
+      button: "Ask About a New Website",
       items: [
         "Plan, write, design, and build every page",
         "Found on Google (SEO): fast pages, clear structure, and the right search words",
@@ -237,11 +247,11 @@ export const en = {
       ],
     },
     social: {
-      title: "Social media management",
+      title: "Social Media Management",
       sub: "Instagram and TikTok, planned and posted for you by Bliss.",
-      plan: "Fully managed by Bliss",
-      desc: "We run your Instagram and TikTok from plan to post, so your brand stays consistent and visible with content your audience wants to see. Monthly subscription.",
-      button: "Ask about social media",
+      plan: "Fully Managed by Bliss",
+      desc: "We run your Instagram and TikTok from plan to post. Monthly subscription.",
+      button: "Ask About Social Media",
       items: [
         "A monthly content plan built around your goals and seasons",
         "Copywriting and captions in your brand’s voice",
@@ -254,20 +264,20 @@ export const en = {
   },
 
   why: {
-    eyebrow: "Why us",
+    eyebrow: "Why Us",
     titleA: "You run the business.",
     titleB: "We run the marketing.",
     lede: "One team handles your ads, website, and social media. We take care of the daily work, and we explain every result in plain words.",
     example: "Example",
     people: {
-      label: "Right people",
+      label: "Right People",
       title: "We find the people most likely to buy",
       body: "We study your customers: what they search for, what they like, and where they spend time. Then we show your ads to them, not to everyone.",
       rows: ["Everyone online", "Looking for what you sell", "Ready to buy"],
       sig: "The right *people.*",
     },
     time: {
-      label: "Right time",
+      label: "Right Time",
       title: "We reach them when they are ready",
       body: "We plan around the hours, days, and seasons when your customers decide. More of your budget goes to those moments.",
       days: ["M", "T", "W", "T", "F", "S", "S"],
@@ -276,7 +286,7 @@ export const en = {
       sig: "The right *time.*",
     },
     message: {
-      label: "Right message",
+      label: "Right Message",
       title: "We say what makes them choose you",
       body: "We write ads that answer your customer’s real questions. We test them, keep the messages that work, and replace the ones that do not.",
       a: "Ad message A",
@@ -288,7 +298,7 @@ export const en = {
       sig: "The right *message.*",
     },
     numbers: {
-      label: "Clear numbers",
+      label: "Clear Numbers",
       title: "We count what matters to your business",
       body: "Before any spend, we agree on one goal, such as sales, leads, or bookings. Then we check that it is tracked correctly. If we cannot install tracking ourselves, we tell you what we can and cannot see.",
       chips: [
@@ -300,7 +310,7 @@ export const en = {
       sig: "Tracking *first.*",
     },
     reports: {
-      label: "Honest reports",
+      label: "Honest Reports",
       title: "We tell you when it is not working",
       body: "Our regular 360 review looks at your ads, tracking, website, content, and budget together. When something does not work, we tell you early and show you what we will change.",
       now: "Now",
@@ -312,7 +322,7 @@ export const en = {
       sig: "Honest results, *clear next steps.*",
     },
     ownership: {
-      label: "Your ownership",
+      label: "Your Ownership",
       title: "Your accounts stay yours",
       body: "Your Google Ads and Analytics accounts are in your name. You pay ad spend directly to the platform, and you can log in at any time.",
       owner: "Owner on every account: your business",
@@ -321,7 +331,7 @@ export const en = {
   },
 
   cases: {
-    eyebrow: "Case studies",
+    eyebrow: "Case Studies",
     title: "Case",
     titleEm: "studies",
     lede: "Partner with a team that treats your growth with the care it deserves. We combine smart strategy, creative execution, and honest communication to help your business move forward with clarity.",
@@ -368,23 +378,23 @@ export const en = {
       },
       {
         q: "What happens if the results are not good?",
-        a: ["We tell you clearly and early. We explain what we think went wrong, and we show you what we will change. You always know the next step."],
+        a: ["We tell you clearly and early. We explain what we think went wrong, and we show you what we will change."],
       },
     ],
   },
 
   cta: {
-    title: "Ready to focus on your business?",
+    title: "Focus on your business.",
     titleEm: "Let us handle the marketing.",
     servicesTitle: "Not sure which service you need?",
     servicesTitleEm: "Tell us your goal. We’ll suggest a plan.",
   },
 
   contact: {
-    eyebrow: "Contact us",
-    title: "Let’s build",
-    titleEm: "together",
-    lede: "Fill out the form below and we’ll be in touch shortly.",
+    eyebrow: "Contact Us",
+    title: "Let’s talk about",
+    titleEm: "your business",
+    lede: "Fill out the form below and tell us what you need help with.",
     name: "Name*",
     namePlaceholder: "John Doe",
     nameError: "Please add your name.",
@@ -419,58 +429,58 @@ export const en = {
   },
 
   aboutPage: {
-    eyebrow: "About us",
+    eyebrow: "About Us",
     title: "A small team that *stays close*",
-    lede: "We started small, stayed intentional, and grew alongside the brands we work with. Every project we take on is a partnership, not a one-off job.",
-    storyEyebrow: "Our story",
+    lede: "We started small and grew alongside the brands we work with. Today we run Google Ads, websites and social media for businesses across Indonesia.",
+    storyEyebrow: "Our Story",
     storyText:
-      "Most business owners don’t have time to learn ad platforms, read dashboards and rewrite their website. So we do that work for them, every day, and explain the results in plain words.",
-    mvEyebrow: "Mission and vision",
+      "Most business owners don’t have time to learn ad platforms, read dashboards and rewrite their website. Bliss Digital does that work for them, every day, and explains the results in plain words. The agency is a Google Partner based in South Jakarta and works with businesses across Indonesia: hotels, clinics, food brands, retailers and manufacturers. Most clients have one location, and the same small team stays close to each account, from the first call to every regular review.",
+    mvEyebrow: "Mission and Vision",
     mvTitle: "Why we *do this*",
-    mission: "Our mission",
+    mission: "Our Mission",
     missionText:
-      "We help brands grow through clear strategy, thoughtful creative work and reliable execution. We bring professionalism, trust and purpose to every engagement, and build partnerships that make a real and lasting difference.",
-    vision: "Our vision",
+      "Bliss Digital’s mission is to help businesses grow by doing a few things the right way, every time. Every engagement starts with one goal agreed before any spend: sales, leads or bookings. Tracking is tested with one real action before the ads go live, results are reported without jargon, and your Google Ads and Analytics accounts stay in your business’s name.",
+    vision: "Our Vision",
     visionText:
-      "To be a trusted partner for modern brands, bringing creative energy, clear direction and a professional standard of work. We want our marketing to drive growth and build brand value that lasts.",
-    beliefsEyebrow: "How we work",
+      "Bliss Digital’s vision is to be a trusted marketing partner for businesses across Indonesia, known for creative work held to a professional standard. The goal for every campaign, website and post is growth you can measure in sales, leads and bookings, reported in plain words so you always know what your budget is doing.",
+    beliefsEyebrow: "How We Work",
     beliefsTitle: "Four things we *always do*",
-    beliefsLink: "See why clients choose us",
+    beliefsLink: "See Why Clients Choose Us",
     beliefs: [
       ["One clear goal first", "Sales, leads or bookings. We agree on it before any spend, so every decision has a reason."],
       ["Tracking before ads", "We check that every result is counted correctly, and test it with one real action."],
       ["Plain-word reports", "A regular 360 review of your ads, tracking, website, content and budget, explained without jargon."],
       ["Your accounts, your name", "Google Ads and Analytics stay in your business’s name. You pay ad spend to the platform directly."],
     ],
-    clientsLede: "Hotels, clinics, food brands, retailers and manufacturers. Different industries, same level of hands-on involvement from our side.",
-    visitEyebrow: "Visit us",
+    clientsLede: "A few of the brands we work with, from hotels and clinics to food brands, retailers and manufacturers.",
+    visitEyebrow: "Visit Us",
     visitTitle: "Based in *South Jakarta*",
     visitLede: "We work with businesses across Indonesia. Most meetings happen on a call, and you’re welcome at the office too. Message us first so we’re there.",
     maps: "Open in Google Maps",
-    copyAddress: "Copy address",
+    copyAddress: "Copy Address",
     copied: "Copied",
-    phoneLabel: "WhatsApp and phone",
+    phoneLabel: "WhatsApp and Phone",
     emailLabel: "Email",
     instagramLabel: "Instagram",
   },
 
   servicesPage: {
-    eyebrow: "Our services",
+    eyebrow: "Our Services",
     title: "Digital marketing, done *for you*",
     lede: "You focus on your business. We handle the marketing, from the first plan to the daily work. Pick one service or combine them.",
-    jump: { google: "Google Ads", web: "Website creation", social: "Social media" },
+    jump: { google: "Google Ads", web: "Website Creation", social: "Social Media" },
     google: {
       title: "Google Ads",
-      lede: "Show up when people search for what you sell. We build campaigns around how your customers actually search, and turn those searches into calls, chats and bookings.",
-      button: "Ask about Google Ads",
+      lede: "Show up when people search for what you sell. Bliss Digital builds Google Ads campaigns around the words your customers actually type, then turns those searches into calls, WhatsApp chats and bookings. Before any money is spent, the team checks that every result is tracked correctly in Google Ads and GA4. After launch, the team adjusts bids, keywords and ads every day. In a regular 360 review, you hear in plain words what worked, what didn’t and what comes next. Your Google Ads account stays in your business’s name, and you pay ad spend to Google directly.",
+      button: "Ask About Google Ads",
       imageAlt: "Google search open on a laptop",
-      waysTitle: "Three ways to work with us",
+      waysTitle: "Three Ways to Work with Us",
       ways: [
-        ["Fully managed", "We plan, build and run your campaigns every day. Monthly subscription.", "Ask about full management", "google-ads"],
-        ["Consultation", "You run Google Ads yourself and want an expert review. You get a written action plan.", "Ask about consultation", "consultation"],
-        ["Training", "For company teams and individuals who want to run Google Ads themselves.", "Ask about training", "training"],
+        ["Fully Managed", "We plan, build and run your campaigns every day. Monthly subscription.", "Ask About Full Management", "google-ads"],
+        ["Consultation", "You run Google Ads yourself and want an expert review. You get a written action plan.", "Ask About Consultation", "consultation"],
+        ["Training", "For company teams and individuals who want to run Google Ads themselves.", "Ask About Training", "training"],
       ],
-      includedTitle: "What full management includes",
+      includedTitle: "What Full Management Includes",
       included: [
         "Right people: audience and keyword research",
         "Right time: schedules, seasons and budget pacing",
@@ -479,15 +489,15 @@ export const en = {
         "Daily checks and changes to bids, keywords and ads",
         "A regular 360 review of your results",
       ],
-      tagsTitle: "Campaign types we run",
+      tagsTitle: "Campaign Types We Run",
       tags: ["Search", "Performance Max", "Display", "Demand Gen", "YouTube", "Local and Maps"],
     },
     web: {
-      title: "Website creation",
-      lede: "A fast website that people, Google and AI search tools can find, with a clear path from interest to WhatsApp, booking or a form.",
-      button: "Ask about a new website",
+      title: "Website Creation",
+      lede: "A fast website that people, Google and AI search tools can find, with a clear path from interest to WhatsApp, booking or a form. Bliss Digital plans, writes, designs and builds every page. Each page is built to be found on Google (SEO) and to give clear answers that ChatGPT, Gemini and Google AI Overviews can read (GEO). GA4 and conversion tracking are set up at launch, and every page is tested on phones and computers before it goes live.",
+      button: "Ask About a New Website",
       imageAlt: "An app design open in Figma on a desktop monitor",
-      includedTitle: "What’s included",
+      includedTitle: "What’s Included",
       included: [
         "Plan, write, design and build every page",
         "Found on Google (SEO): fast pages, clear structure and the right search words",
@@ -496,14 +506,14 @@ export const en = {
         "GA4 and conversion tracking set up at launch",
         "Every page tested on phones and computers before launch",
       ],
-      tagsTitle: "Design work",
+      tagsTitle: "Design Work",
       tags: ["Web design", "Mobile UI", "Wireframes", "Prototypes", "Design systems"],
     },
     social: {
-      title: "Social media management",
-      lede: "We run your Instagram and TikTok from plan to post, so your brand stays consistent and visible with content your audience wants to see.",
-      button: "Ask about social media",
-      includedTitle: "What’s included",
+      title: "Social Media Management",
+      lede: "Bliss Digital runs your Instagram and TikTok from plan to post. Each month starts with a content plan built around your goals and seasons. The team writes captions in your brand’s voice, designs posts, carousels and short videos, schedules everything and replies to comments and messages. A monthly report shows your reach and engagement, and what to post next.",
+      button: "Ask About Social Media",
+      includedTitle: "What’s Included",
       included: [
         "A monthly content plan built around your goals and seasons",
         "Copywriting and captions in your brand’s voice",
@@ -515,7 +525,7 @@ export const en = {
       tagsTitle: "Platforms",
       tags: ["Instagram", "TikTok"],
     },
-    stepsEyebrow: "How we start",
+    stepsEyebrow: "How We Start",
     stepsTitle: "From first chat to *first results*",
     stepsLede: "After the setup, we handle the daily work. We need you for the regular review and to approve new offers or ad messages.",
     steps: [
@@ -535,21 +545,21 @@ export const en = {
 
   privacy: {
     eyebrow: "Legal",
-    title: "Privacy policy",
+    title: "Privacy Policy",
     lede: "How we collect, use and protect the information you share with us.",
     updated: "Last updated:",
-    updatedValue: "[[Fill in: date]]",
+    updatedValue: "11 November 2026",
     draft: "Draft · have this checked by a legal adviser before launch",
     // Each section: heading, then paragraphs; a paragraph that is an array is a bullet list
     sections: [
       {
-        h: "Who we are",
+        h: "Who We Are",
         p: [
           "This website is run by PT Blissindo Kreasi Digital (“Bliss Digital”, “we”), Epiwalk Office Suite Lt. 5 Unit A501, Kawasan Rasuna Epicentrum, Jl. HR Rasuna Said, Jakarta Selatan, DKI Jakarta 12940, Indonesia. We handle personal data in line with Indonesia’s Personal Data Protection Law (Law No. 27 of 2022).",
         ],
       },
       {
-        h: "What we collect",
+        h: "What We Collect",
         p: [
           "When you send us the contact form, we collect:",
           ["your name and email address", "your WhatsApp number and company website, if you give them", "the service you’re interested in and your message"],
@@ -557,37 +567,43 @@ export const en = {
         ],
       },
       {
-        h: "How we use it",
+        h: "How We Use It",
         p: [
           "We use your information only to reply to your enquiry, prepare a proposal, and, if you become a client, run the work we agreed. We don’t sell your data, and we don’t add you to a mailing list without asking.",
         ],
       },
       {
-        h: "Who else sees it",
+        h: "Who Else Sees It",
         p: [
-          "Form submissions are stored with Google, which provides the form and spreadsheet we use. If we work together, people on our team who run your account can see your details. We share data with others only when the law requires it.",
+          "Form submissions are stored with Google, which provides the form and spreadsheet we use. If we work together, people on our team who run your account can see your details. If you accept cookies, Google and Meta also receive information about your visit, as described under “Cookies and Analytics”. Otherwise, we share data with others only when the law requires it.",
         ],
       },
       {
-        h: "How long we keep it",
+        h: "How Long We Keep It",
         p: [
-          "We keep enquiries for as long as we need them to follow up, and client records for as long as the law requires for business and tax purposes. [[Fill in: retention period]]",
+          "We keep enquiries for 180 days, and client records for as long as the law requires for business and tax purposes.",
         ],
       },
       {
-        h: "Cookies and analytics",
+        h: "Cookies and Analytics",
         p: [
-          "[[Fill in: which analytics or ad tags the live site uses, for example Google Analytics 4, the Google tag or the Meta Pixel, and how visitors can opt out.]]",
+          "This site uses the following tools only if you accept them in the cookie banner:",
+          [
+            "Google Analytics 4, loaded through the Google tag, to count visits, see which pages people use, and measure our Google Ads",
+            "the Meta Pixel, to measure our ads on Facebook and Instagram",
+          ],
+          "If you decline, neither loads. You can change your choice at any time with “Cookie Settings” at the bottom of every page. If you withdraw your consent, we delete the Google and Meta cookies this site set in your browser.",
+          "You can also limit tracking beyond this site: Google’s Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout), Google’s My Ad Center (myadcenter.google.com), the ad preferences in Meta’s Accounts Center, or your browser’s cookie settings.",
         ],
       },
       {
-        h: "Your rights",
+        h: "Your Rights",
         p: [
           "You can ask us to show you the data we hold about you, correct it, or delete it. You can also withdraw your consent at any time. Email admin@blissdigital.id and we will reply within the time the law requires.",
         ],
       },
       {
-        h: "Changes to this policy",
+        h: "Changes to This Policy",
         p: ["If we change this policy, we will update the date at the top of this page."],
       },
     ] as { h: string; p: (string | string[])[] }[],
@@ -595,9 +611,9 @@ export const en = {
 
   // Placeholder for sections that aren't ready (see src/lib/launch.ts)
   comingSoon: {
-    badge: "Coming soon",
-    home: "Back to home",
-    contact: "Let’s chat",
+    badge: "Coming Soon",
+    home: "Back to Home",
+    contact: "Let’s Chat",
     cases: {
       title: "Case studies are *coming soon*",
       text: "We’re writing up real results from the brands we work with. In the meantime, we’re happy to walk you through them on a call.",
@@ -609,10 +625,10 @@ export const en = {
   },
 
   notFound: {
-    title: "Page not found",
-    text: "This page may have moved, or the link has a typo. Let’s get you back on track.",
-    home: "Back to home",
-    contact: "Contact us",
+    title: "Page Not Found",
+    text: "This page may have moved, or the link has a typo.",
+    home: "Back to Home",
+    contact: "Contact Us",
   },
 };
 

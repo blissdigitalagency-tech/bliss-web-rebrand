@@ -1,6 +1,6 @@
 # Bliss AI Readiness Check — notes
 
-A free tool at **blissdigital.id/tools/ai-readiness**, part of the main
+A free tool at **www.blissdigital.id/tools/ai-readiness**, part of the main
 website (this repository). It is listed in the navbar under **Tools**
 (`nav.toolList` in `src/i18n/en.ts` and `id.ts`; add later tools there).
 
@@ -73,7 +73,7 @@ Scan these on a Vercel preview deployment before a change goes live.
 |---|---|
 | studiopepebali.com | D on all four channels, 3 things to change and 2 tips, all marked "You can do this" |
 | blissdigital.id | If the main site still builds its pages with JavaScript: ChatGPT and Meta AI at D, with "Main text is in the raw HTML" as fix number 1 |
-| blissdigital.id/tools/ai-readiness itself | A on all four channels. The page passes its own check. It is not a homepage, so the paragraph and date checks count in full |
+| www.blissdigital.id/tools/ai-readiness itself | A on all four channels. The page passes its own check. It is not a homepage, so the paragraph and date checks count in full |
 | Any WordPress site | No raw HTML problem. WordPress sends its text in the first response |
 
 The report explains each grade by naming the issues behind it, for example
@@ -212,7 +212,7 @@ on the page its own crawler receives, and the result shows a panel: "What your
 site sends to each reader". The tool keeps its own name in every one of these
 requests, for example:
 
-    Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html) BlissAccessCheck/1.0 (+https://blissdigital.id/tools/ai-readiness)
+    Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html) BlissAccessCheck/1.0 (+https://www.blissdigital.id/tools/ai-readiness)
 
 so a site owner can see in their logs who really asked. On 27 September 2026,
 Agoda still recognised Googlebot with our name added (801,941 bytes, the same

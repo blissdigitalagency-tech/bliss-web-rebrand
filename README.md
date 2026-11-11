@@ -65,7 +65,7 @@ Settings it needs, locally and on the host:
   `.env` when the app was created; keep them secret, they are not in git)
 
 The app accepts sign-ins from your computer (`127.0.0.1`, any port) and from
-`https://blissdigital.id`. To edit on another address, such as a Netlify
+`https://www.blissdigital.id` (add it as a callback URL if sign-in fails there). To edit on another address, such as a Netlify
 preview, add its callback URL in the app's settings on GitHub
 (Organization → Settings → Developer settings → GitHub Apps →
 blissdigitalagency-tech-keystatic → Callback URL):
@@ -102,7 +102,14 @@ again, because `NEXT_PUBLIC_` values are built into the site:
 
 - `NEXT_PUBLIC_SITE_URL`: the live address, for canonical links and the sitemap
 - `NEXT_PUBLIC_GA_ID`: Google Analytics 4 ID; leave empty for no analytics
+- `NEXT_PUBLIC_META_PIXEL_ID`: Meta Pixel ID; leave empty for no Pixel
 - the five Keystatic values above
+
+Google Analytics and the Meta Pixel load only after a visitor clicks Accept in
+the cookie banner (`src/components/consent.tsx`); Decline loads neither.
+"Cookie settings" in the footer opens the banner again. With neither ID set,
+there is no banner. The privacy policy ("Cookies and analytics" in
+`src/i18n/en.ts` and `id.ts`) describes this, so update it if you add a tag.
 
 ## Contact form
 

@@ -17,7 +17,7 @@ export const ogLocale: Record<Locale, string> = { en: "en_US", id: "id_ID" };
 // The live site's address, for canonical links, the sitemap and social
 // previews. Set NEXT_PUBLIC_SITE_URL on the host; the fallback is the domain
 // in the current site's llms.txt.
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://blissdigital.id").replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.blissdigital.id").replace(/\/$/, "");
 
 /** A path inside a locale: href(locale, "/about") → "/en/about" */
 export const href = (locale: Locale, path = "") => `/${locale}${path === "/" ? "" : path}`;

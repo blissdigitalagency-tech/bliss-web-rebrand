@@ -12,7 +12,7 @@ export const id: Dictionary = {
         "Anda fokus menjalankan bisnis. Kami pastikan bisnis Anda menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Google Ads dan website, kami jalankan untuk Anda.",
     },
     about: {
-      title: "Tentang kami",
+      title: "Tentang Kami",
       description:
         "Bliss Digital adalah agensi pemasaran Google Partner di Jakarta Selatan. Kami menjalankan Google Ads dan website untuk bisnis yang ingin fokus pada pekerjaannya.",
     },
@@ -22,35 +22,35 @@ export const id: Dictionary = {
         "Google Ads, pembuatan website, dan manajemen media sosial, direncanakan dan dijalankan untuk Anda oleh Bliss Digital di Jakarta.",
     },
     cases: {
-      title: "Studi kasus",
+      title: "Studi Kasus",
       description: "Bagaimana Bliss Digital membantu bisnis menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat.",
     },
     blog: {
       title: "Blog",
-      description: "Panduan sederhana tentang Google Ads, Meta Ads, tracking, dan website dari tim Bliss Digital.",
+      description: "Panduan sederhana tentang Google Ads, tracking, dan website dari tim Bliss Digital.",
     },
     contact: {
-      title: "Hubungi kami",
+      title: "Hubungi Kami",
       description: "Ceritakan tentang bisnis Anda, dan kami akan menghubungi Anda dalam 24–48 jam.",
     },
     privacy: {
-      title: "Kebijakan privasi",
+      title: "Kebijakan Privasi",
       description: "Bagaimana Bliss Digital mengumpulkan, menggunakan, dan melindungi informasi yang Anda bagikan kepada kami.",
     },
   },
 
   nav: {
     home: "Bliss Digital, beranda",
-    about: "Tentang kami",
+    about: "Tentang Kami",
     services: "Layanan",
-    cases: "Studi kasus",
+    cases: "Studi Kasus",
     blog: "Blog",
     tools: "Tools",
     toolList: [
       { href: "/tools/ai-readiness", name: "AI Readiness Check", note: "Cek apakah AI bisa membaca website Anda. Gratis." },
     ],
     contact: "Kontak",
-    cta: "Mari ngobrol",
+    cta: "Mari Ngobrol",
     openMenu: "Buka menu",
     closeMenu: "Tutup menu",
     main: "Utama",
@@ -64,25 +64,34 @@ export const id: Dictionary = {
     updated: "Terakhir diperbarui",
     links: "Footer",
     homeLink: "Beranda",
-    privacy: "Kebijakan privasi",
+    privacy: "Kebijakan Privasi",
+    cookieSettings: "Pengaturan Cookie",
     newTab: "terbuka di tab baru",
   },
 
+  consent: {
+    label: "Pilihan Cookie",
+    text: "Dengan izin Anda, kami memakai Google Analytics dan Meta Pixel untuk melihat cara pengunjung memakai situs ini dan mengukur iklan kami. Tidak ada yang dimuat sebelum Anda memilih.",
+    policy: "Kebijakan Privasi",
+    accept: "Terima",
+    decline: "Tolak",
+  },
+
   common: {
-    letsChat: "Mari ngobrol",
-    startProject: "Mulai proyek Anda",
-    ourServices: "Layanan kami",
-    viewMore: "Lihat semua",
+    letsChat: "Mari Ngobrol",
+    startProject: "Mulai Proyek Anda",
+    ourServices: "Layanan Kami",
+    viewMore: "Lihat Semua",
     partnerAlt: "Google Partner (terbuka di tab baru)",
-    whatsappUs: "WhatsApp kami",
+    whatsappUs: "WhatsApp Kami",
     sampleCases: "Contoh konten · ganti sebelum peluncuran",
     sampleCase: "Contoh studi kasus · ganti sebelum peluncuran",
     draftPosts: "Draf artikel · tinjau sebelum peluncuran",
     draftPost: "Draf artikel · tinjau sebelum peluncuran",
-    nextCase: "Studi kasus berikutnya",
-    allCases: "Semua studi kasus",
-    nextPost: "Artikel berikutnya",
-    allPosts: "Semua artikel",
+    nextCase: "Studi Kasus Berikutnya",
+    allCases: "Semua Studi Kasus",
+    nextPost: "Artikel Berikutnya",
+    allPosts: "Semua Artikel",
     minRead: "menit baca",
   },
 
@@ -131,10 +140,10 @@ export const id: Dictionary = {
   },
 
   clients: {
-    eyebrow: "Klien kami",
+    eyebrow: "Klien Kami",
     title: "Brand yang",
-    titleEm: "Tumbuh Bersama Kami",
-    lede: "Inilah brand yang kami kelola dan bantu bertumbuh. Industri berbeda, keterlibatan langsung yang sama dari kami. Kami selalu dekat dengan setiap proyek, dari awal hingga akhir.",
+    titleEm: "tumbuh bersama kami",
+    lede: "Inilah brand yang kami kelola dan bantu bertumbuh, dari berbagai industri. Untuk setiap brand, tim kecil yang sama tetap dekat dari panggilan pertama hingga setiap review rutin.",
   },
 
   aboutHome: {
@@ -144,7 +153,7 @@ export const id: Dictionary = {
   },
 
   about: {
-    eyebrow: "Tentang kami",
+    eyebrow: "Tentang Kami",
     titleA: "Berangkat dari",
     titleB: "*Keyakinan* sederhana",
     text: "Di Bliss, kami percaya digital marketing yang baik dimulai dari melakukan *hal yang tepat*, dengan *cara yang tepat.*",
@@ -157,7 +166,7 @@ export const id: Dictionary = {
   },
 
   services: {
-    eyebrow: "Layanan kami",
+    eyebrow: "Layanan Kami",
     titleA: "Digital marketing,",
     titleB: "kami *jalankan untuk Anda*",
     lede: "Anda fokus pada bisnis. Kami urus pemasarannya, dari rencana awal hingga pekerjaan harian.",
@@ -169,10 +178,10 @@ export const id: Dictionary = {
       tabs: [
         {
           id: "managed",
-          tab: "Dikelola penuh",
-          plan: "Dikelola penuh oleh Bliss",
-          desc: "Kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Kami menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Langganan bulanan.",
-          button: "Tanya soal kelola penuh",
+          tab: "Dikelola Penuh",
+          plan: "Dikelola Penuh oleh Bliss",
+          desc: "Kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Langganan bulanan.",
+          button: "Tanya Soal Kelola Penuh",
           service: "google-ads",
           items: [
             "Orang yang tepat: riset audiens dan kata kunci",
@@ -185,9 +194,9 @@ export const id: Dictionary = {
         {
           id: "consult",
           tab: "Konsultasi",
-          plan: "Konsultasi mendalam",
+          plan: "Konsultasi Mendalam",
           desc: "Untuk bisnis yang menjalankan Google Ads sendiri dan ingin analisis dari ahli. Anda mendapat rencana aksi tertulis.",
-          button: "Tanya soal konsultasi",
+          button: "Tanya Soal Konsultasi",
           service: "consultation",
           items: [
             "Cek dan pemasangan tracking konversi",
@@ -201,7 +210,7 @@ export const id: Dictionary = {
           tab: "Pelatihan",
           plan: "Pelatihan Google Ads",
           desc: "Untuk tim perusahaan dan perorangan yang ingin menjalankan Google Ads sendiri.",
-          button: "Tanya soal pelatihan",
+          button: "Tanya Soal Pelatihan",
           service: "training",
           items: [
             "Pelatihan untuk tim perusahaan",
@@ -213,11 +222,11 @@ export const id: Dictionary = {
       ],
     },
     web: {
-      title: "Pembuatan website",
+      title: "Pembuatan Website",
       sub: "Website yang bisa ditemukan orang dan alat pencarian AI, serta mengubah pengunjung menjadi pelanggan.",
-      plan: "Dibangun penuh oleh Bliss",
+      plan: "Dibangun Penuh oleh Bliss",
       desc: "Kami menangani setiap langkah, dari rencana awal hingga hari peluncuran. Kami menyiapkan website Anda agar Google dan alat AI, seperti ChatGPT, Gemini, dan Google AI Overviews, bisa membacanya dengan jelas.",
-      button: "Tanya soal website baru",
+      button: "Tanya Soal Website Baru",
       items: [
         "Merencanakan, menulis, mendesain, dan membangun setiap halaman",
         "Muncul di Google (SEO): halaman cepat, struktur jelas, dan kata pencarian yang tepat",
@@ -228,11 +237,11 @@ export const id: Dictionary = {
       ],
     },
     social: {
-      title: "Manajemen media sosial",
+      title: "Manajemen Media Sosial",
       sub: "Instagram dan TikTok, direncanakan dan diunggah untuk Anda oleh Bliss.",
-      plan: "Dikelola penuh oleh Bliss",
-      desc: "Kami menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan, agar brand Anda tetap konsisten dan terlihat dengan konten yang ingin dilihat audiens Anda. Langganan bulanan.",
-      button: "Tanya soal media sosial",
+      plan: "Dikelola Penuh oleh Bliss",
+      desc: "Kami menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan. Langganan bulanan.",
+      button: "Tanya Soal Media Sosial",
       items: [
         "Rencana konten bulanan sesuai tujuan dan musim Anda",
         "Copywriting dan caption dengan gaya bahasa brand Anda",
@@ -245,20 +254,20 @@ export const id: Dictionary = {
   },
 
   why: {
-    eyebrow: "Kenapa kami",
+    eyebrow: "Kenapa Kami",
     titleA: "Anda jalankan bisnisnya.",
     titleB: "Kami jalankan pemasarannya.",
     lede: "Satu tim mengurus iklan, website, dan media sosial Anda. Kami tangani pekerjaan hariannya, dan kami jelaskan setiap hasil dengan bahasa yang sederhana.",
     example: "Contoh",
     people: {
-      label: "Orang yang tepat",
+      label: "Orang yang Tepat",
       title: "Kami temukan orang yang paling mungkin membeli",
       body: "Kami mempelajari pelanggan Anda: apa yang mereka cari, apa yang mereka suka, dan di mana mereka menghabiskan waktu. Lalu kami tampilkan iklan Anda kepada mereka, bukan kepada semua orang.",
       rows: ["Semua orang online", "Mencari yang Anda jual", "Siap membeli"],
       sig: "Orang yang *tepat.*",
     },
     time: {
-      label: "Waktu yang tepat",
+      label: "Waktu yang Tepat",
       title: "Kami jangkau mereka saat mereka siap",
       body: "Kami menyusun rencana berdasarkan jam, hari, dan musim saat pelanggan Anda mengambil keputusan. Lebih banyak anggaran dialokasikan ke momen-momen itu.",
       days: ["S", "S", "R", "K", "J", "S", "M"],
@@ -267,7 +276,7 @@ export const id: Dictionary = {
       sig: "Waktu yang *tepat.*",
     },
     message: {
-      label: "Pesan yang tepat",
+      label: "Pesan yang Tepat",
       title: "Kami sampaikan alasan mereka memilih Anda",
       body: "Kami menulis iklan yang menjawab pertanyaan nyata pelanggan Anda. Kami mengujinya, mempertahankan pesan yang berhasil, dan mengganti yang tidak.",
       a: "Pesan iklan A",
@@ -279,7 +288,7 @@ export const id: Dictionary = {
       sig: "Pesan yang *tepat.*",
     },
     numbers: {
-      label: "Angka yang jelas",
+      label: "Angka yang Jelas",
       title: "Kami hitung yang penting bagi bisnis Anda",
       body: "Sebelum anggaran dipakai, kami sepakati satu tujuan, seperti penjualan, prospek, atau booking. Lalu kami pastikan tujuan itu tercatat dengan benar. Jika kami tidak bisa memasang tracking sendiri, kami sampaikan apa yang bisa dan tidak bisa kami lihat.",
       chips: [
@@ -291,7 +300,7 @@ export const id: Dictionary = {
       sig: "Tracking *dulu.*",
     },
     reports: {
-      label: "Laporan jujur",
+      label: "Laporan Jujur",
       title: "Kami beri tahu saat hasilnya belum berhasil",
       body: "Tinjauan 360 rutin kami melihat iklan, tracking, website, konten, dan anggaran Anda secara bersamaan. Saat sesuatu tidak berjalan, kami beri tahu lebih awal dan tunjukkan apa yang akan kami ubah.",
       now: "Kini",
@@ -312,7 +321,7 @@ export const id: Dictionary = {
   },
 
   cases: {
-    eyebrow: "Studi kasus",
+    eyebrow: "Studi Kasus",
     title: "Studi",
     titleEm: "kasus",
     lede: "Bermitra dengan tim yang memperlakukan pertumbuhan Anda dengan penuh perhatian. Kami memadukan strategi cerdas, eksekusi kreatif, dan komunikasi jujur untuk membantu bisnis Anda bergerak maju dengan jelas.",
@@ -359,23 +368,23 @@ export const id: Dictionary = {
       },
       {
         q: "Bagaimana jika hasilnya kurang baik?",
-        a: ["Kami sampaikan dengan jelas dan lebih awal. Kami jelaskan apa yang menurut kami salah, dan kami tunjukkan apa yang akan kami ubah. Anda selalu tahu langkah selanjutnya."],
+        a: ["Kami sampaikan dengan jelas dan lebih awal. Kami jelaskan apa yang menurut kami salah, dan kami tunjukkan apa yang akan kami ubah."],
       },
     ],
   },
 
   cta: {
-    title: "Siap fokus pada bisnis Anda?",
+    title: "Fokus pada bisnis Anda.",
     titleEm: "Biarkan kami yang mengurus pemasarannya.",
     servicesTitle: "Belum yakin layanan mana yang Anda butuhkan?",
     servicesTitleEm: "Ceritakan tujuan Anda. Kami usulkan rencananya.",
   },
 
   contact: {
-    eyebrow: "Hubungi kami",
-    title: "Mari membangun",
-    titleEm: "bersama",
-    lede: "Isi formulir di bawah ini dan kami akan segera menghubungi Anda.",
+    eyebrow: "Hubungi Kami",
+    title: "Mari bicara tentang",
+    titleEm: "bisnis Anda",
+    lede: "Isi formulir di bawah ini dan ceritakan apa yang Anda butuhkan.",
     name: "Nama*",
     namePlaceholder: "Budi Santoso",
     nameError: "Mohon isi nama Anda.",
@@ -409,58 +418,58 @@ export const id: Dictionary = {
   },
 
   aboutPage: {
-    eyebrow: "Tentang kami",
+    eyebrow: "Tentang Kami",
     title: "Tim kecil yang *selalu dekat*",
-    lede: "Kami memulai dari kecil, tetap fokus, dan tumbuh bersama brand yang kami tangani. Setiap proyek yang kami ambil adalah kemitraan, bukan pekerjaan sekali jalan.",
-    storyEyebrow: "Cerita kami",
+    lede: "Kami memulai dari kecil dan tumbuh bersama brand yang kami tangani. Kini kami menjalankan Google Ads, website, dan media sosial untuk bisnis di seluruh Indonesia.",
+    storyEyebrow: "Cerita Kami",
     storyText:
-      "Kebanyakan pemilik bisnis tidak punya waktu untuk mempelajari platform iklan, membaca dashboard, dan menulis ulang website. Jadi kami yang mengerjakannya untuk mereka, setiap hari, dan menjelaskan hasilnya dengan bahasa yang sederhana.",
-    mvEyebrow: "Misi dan visi",
+      "Kebanyakan pemilik bisnis tidak punya waktu untuk mempelajari platform iklan, membaca dashboard, dan menulis ulang website. Bliss Digital mengerjakannya untuk mereka, setiap hari, dan menjelaskan hasilnya dengan bahasa yang sederhana. Agensi ini adalah Google Partner yang berbasis di Jakarta Selatan dan bekerja dengan bisnis di seluruh Indonesia: hotel, klinik, brand makanan, ritel, dan manufaktur. Sebagian besar klien memiliki satu lokasi, dan tim kecil yang sama tetap dekat dengan setiap akun, dari panggilan pertama hingga setiap review rutin.",
+    mvEyebrow: "Misi dan Visi",
     mvTitle: "Mengapa kami *melakukan ini*",
-    mission: "Misi kami",
+    mission: "Misi Kami",
     missionText:
-      "Kami membantu brand berkembang melalui strategi yang jelas, kreativitas yang terarah, dan eksekusi yang andal. Dengan mengedepankan profesionalisme dan kepercayaan dalam setiap kerja sama, kami membangun kemitraan yang menghadirkan dampak nyata dan berkelanjutan.",
-    vision: "Visi kami",
+      "Misi Bliss Digital adalah membantu bisnis berkembang dengan mengerjakan beberapa hal dengan cara yang tepat, setiap kali. Setiap kerja sama dimulai dengan satu tujuan yang disepakati sebelum ada biaya iklan: penjualan, leads, atau booking. Pelacakan diuji dengan satu aksi nyata sebelum iklan tayang, hasil dilaporkan tanpa jargon, dan akun Google Ads serta Analytics tetap atas nama bisnis Anda.",
+    vision: "Visi Kami",
     visionText:
-      "Menjadi mitra tepercaya bagi brand modern dengan menghadirkan perpaduan kreativitas, strategi terarah, dan standar eksekusi profesional. Kami ingin pemasaran kami mendorong pertumbuhan sekaligus membangun nilai brand yang kuat dan berkelanjutan.",
-    beliefsEyebrow: "Cara kami bekerja",
+      "Visi Bliss Digital adalah menjadi mitra pemasaran tepercaya bagi bisnis di seluruh Indonesia, yang dikenal lewat karya kreatif dengan standar kerja profesional. Target setiap kampanye, website, dan konten adalah pertumbuhan yang bisa diukur lewat penjualan, leads, dan booking, yang dilaporkan dengan bahasa sederhana agar Anda selalu tahu hasil dari anggaran pemasaran Anda.",
+    beliefsEyebrow: "Cara Kami Bekerja",
     beliefsTitle: "Empat hal yang *selalu kami lakukan*",
-    beliefsLink: "Lihat kenapa klien memilih kami",
+    beliefsLink: "Lihat Kenapa Klien Memilih Kami",
     beliefs: [
       ["Satu tujuan jelas dulu", "Penjualan, prospek, atau booking. Kami sepakati sebelum anggaran dipakai, agar setiap keputusan punya alasan."],
       ["Tracking sebelum iklan", "Kami pastikan setiap hasil tercatat dengan benar, dan mengujinya dengan satu aksi nyata."],
       ["Laporan bahasa sederhana", "Tinjauan 360 rutin atas iklan, tracking, website, konten, dan anggaran Anda, dijelaskan tanpa istilah rumit."],
       ["Akun atas nama Anda", "Google Ads dan Analytics tetap atas nama bisnis Anda. Anda membayar biaya iklan langsung ke platform."],
     ],
-    clientsLede: "Hotel, klinik, brand makanan, ritel, dan manufaktur. Industri berbeda, keterlibatan langsung yang sama dari kami.",
-    visitEyebrow: "Kunjungi kami",
+    clientsLede: "Beberapa brand yang kami tangani, dari hotel dan klinik hingga brand makanan, ritel, dan manufaktur.",
+    visitEyebrow: "Kunjungi Kami",
     visitTitle: "Berbasis di *Jakarta Selatan*",
     visitLede: "Kami bekerja dengan bisnis di seluruh Indonesia. Sebagian besar pertemuan dilakukan lewat panggilan, dan Anda juga dipersilakan datang ke kantor. Kabari kami dulu agar kami ada di sana.",
     maps: "Buka di Google Maps",
-    copyAddress: "Salin alamat",
+    copyAddress: "Salin Alamat",
     copied: "Disalin",
-    phoneLabel: "WhatsApp dan telepon",
+    phoneLabel: "WhatsApp dan Telepon",
     emailLabel: "Email",
     instagramLabel: "Instagram",
   },
 
   servicesPage: {
-    eyebrow: "Layanan kami",
+    eyebrow: "Layanan Kami",
     title: "Digital marketing, kami *jalankan untuk Anda*",
     lede: "Anda fokus pada bisnis. Kami urus pemasarannya, dari rencana awal hingga pekerjaan harian. Pilih satu layanan atau gabungkan beberapa.",
-    jump: { google: "Google Ads", web: "Pembuatan website", social: "Media sosial" },
+    jump: { google: "Google Ads", web: "Pembuatan Website", social: "Media Sosial" },
     google: {
       title: "Google Ads",
-      lede: "Muncul saat orang mencari apa yang Anda jual. Kami membangun kampanye berdasarkan cara pelanggan Anda mencari, dan mengubah pencarian itu menjadi telepon, chat, dan booking.",
-      button: "Tanya soal Google Ads",
+      lede: "Muncul saat orang mencari apa yang Anda jual. Bliss Digital membangun kampanye Google Ads berdasarkan kata-kata yang benar-benar diketik pelanggan Anda, lalu mengubah pencarian itu menjadi telepon, chat WhatsApp, dan booking. Sebelum ada biaya iklan yang keluar, tim kami memastikan setiap hasil tercatat dengan benar di Google Ads dan GA4. Setelah kampanye berjalan, tim kami menyesuaikan bid, kata kunci, dan iklan setiap hari. Dalam review 360 rutin, Anda mendapat penjelasan dengan bahasa sederhana tentang apa yang berhasil, apa yang belum, dan langkah berikutnya. Akun Google Ads tetap atas nama bisnis Anda, dan biaya iklan Anda bayar langsung ke Google.",
+      button: "Tanya Soal Google Ads",
       imageAlt: "Pencarian Google terbuka di laptop",
-      waysTitle: "Tiga cara bekerja sama dengan kami",
+      waysTitle: "Tiga Cara Bekerja Sama dengan Kami",
       ways: [
-        ["Dikelola penuh", "Kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Langganan bulanan.", "Tanya soal kelola penuh", "google-ads"],
-        ["Konsultasi", "Anda menjalankan Google Ads sendiri dan ingin tinjauan dari ahli. Anda mendapat rencana aksi tertulis.", "Tanya soal konsultasi", "consultation"],
-        ["Pelatihan", "Untuk tim perusahaan dan perorangan yang ingin menjalankan Google Ads sendiri.", "Tanya soal pelatihan", "training"],
+        ["Dikelola Penuh", "Kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Langganan bulanan.", "Tanya Soal Kelola Penuh", "google-ads"],
+        ["Konsultasi", "Anda menjalankan Google Ads sendiri dan ingin tinjauan dari ahli. Anda mendapat rencana aksi tertulis.", "Tanya Soal Konsultasi", "consultation"],
+        ["Pelatihan", "Untuk tim perusahaan dan perorangan yang ingin menjalankan Google Ads sendiri.", "Tanya Soal Pelatihan", "training"],
       ],
-      includedTitle: "Yang termasuk dalam kelola penuh",
+      includedTitle: "Yang Termasuk dalam Kelola Penuh",
       included: [
         "Orang yang tepat: riset audiens dan kata kunci",
         "Waktu yang tepat: jadwal, musim, dan pengaturan anggaran",
@@ -469,15 +478,15 @@ export const id: Dictionary = {
         "Pengecekan dan penyesuaian harian untuk bid, kata kunci, dan iklan",
         "Tinjauan 360 rutin atas hasil Anda",
       ],
-      tagsTitle: "Jenis kampanye yang kami jalankan",
+      tagsTitle: "Jenis Kampanye yang Kami Jalankan",
       tags: ["Search", "Performance Max", "Display", "Demand Gen", "YouTube", "Lokal dan Maps"],
     },
     web: {
-      title: "Pembuatan website",
-      lede: "Website cepat yang bisa ditemukan orang, Google, dan alat pencarian AI, dengan jalur jelas dari minat ke WhatsApp, booking, atau formulir.",
-      button: "Tanya soal website baru",
+      title: "Pembuatan Website",
+      lede: "Website cepat yang bisa ditemukan orang, Google, dan alat pencarian AI, dengan jalur jelas dari minat ke WhatsApp, booking, atau formulir. Bliss Digital merencanakan, menulis, mendesain, dan membangun setiap halaman. Setiap halaman dibuat agar mudah ditemukan di Google (SEO) dan memberi jawaban jelas yang bisa dibaca ChatGPT, Gemini, dan Google AI Overviews (GEO). GA4 dan pelacakan konversi dipasang saat peluncuran, dan setiap halaman diuji di ponsel dan komputer sebelum tayang.",
+      button: "Tanya Soal Website Baru",
       imageAlt: "Desain aplikasi terbuka di Figma pada monitor",
-      includedTitle: "Yang termasuk",
+      includedTitle: "Yang Termasuk",
       included: [
         "Merencanakan, menulis, mendesain, dan membangun setiap halaman",
         "Muncul di Google (SEO): halaman cepat, struktur jelas, dan kata pencarian yang tepat",
@@ -486,14 +495,14 @@ export const id: Dictionary = {
         "GA4 dan tracking konversi terpasang saat peluncuran",
         "Setiap halaman diuji di ponsel dan komputer sebelum peluncuran",
       ],
-      tagsTitle: "Pekerjaan desain",
+      tagsTitle: "Pekerjaan Desain",
       tags: ["Desain web", "UI mobile", "Wireframe", "Prototipe", "Design system"],
     },
     social: {
-      title: "Manajemen media sosial",
-      lede: "Kami menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan, agar brand Anda tetap konsisten dan terlihat dengan konten yang ingin dilihat audiens Anda.",
-      button: "Tanya soal media sosial",
-      includedTitle: "Yang termasuk",
+      title: "Manajemen Media Sosial",
+      lede: "Bliss Digital menjalankan Instagram dan TikTok Anda dari rencana hingga unggahan. Setiap bulan dimulai dengan rencana konten yang disusun sesuai tujuan dan musim bisnis Anda. Tim kami menulis caption dengan gaya bahasa brand Anda, mendesain post, carousel, dan video pendek, menjadwalkan semuanya, serta membalas komentar dan pesan. Laporan bulanan menunjukkan jangkauan dan engagement Anda, serta apa yang sebaiknya diunggah berikutnya.",
+      button: "Tanya Soal Media Sosial",
+      includedTitle: "Yang Termasuk",
       included: [
         "Rencana konten bulanan sesuai tujuan dan musim Anda",
         "Copywriting dan caption dengan gaya bahasa brand Anda",
@@ -505,7 +514,7 @@ export const id: Dictionary = {
       tagsTitle: "Platform",
       tags: ["Instagram", "TikTok"],
     },
-    stepsEyebrow: "Cara kami memulai",
+    stepsEyebrow: "Cara Kami Memulai",
     stepsTitle: "Dari obrolan pertama ke *hasil pertama*",
     stepsLede: "Setelah penyiapan, kami menangani pekerjaan harian. Kami butuh Anda untuk tinjauan rutin dan untuk menyetujui promo atau pesan iklan baru.",
     steps: [
@@ -525,20 +534,20 @@ export const id: Dictionary = {
 
   privacy: {
     eyebrow: "Legal",
-    title: "Kebijakan privasi",
+    title: "Kebijakan Privasi",
     lede: "Bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi yang Anda bagikan kepada kami.",
     updated: "Terakhir diperbarui:",
-    updatedValue: "[[Isi: tanggal]]",
+    updatedValue: "11 November 2026",
     draft: "Draf · minta penasihat hukum memeriksanya sebelum peluncuran",
     sections: [
       {
-        h: "Siapa kami",
+        h: "Siapa Kami",
         p: [
           "Website ini dikelola oleh PT Blissindo Kreasi Digital (“Bliss Digital”, “kami”), Epiwalk Office Suite Lt. 5 Unit A501, Kawasan Rasuna Epicentrum, Jl. HR Rasuna Said, Jakarta Selatan, DKI Jakarta 12940, Indonesia. Kami memproses data pribadi sesuai Undang-Undang Pelindungan Data Pribadi (UU No. 27 Tahun 2022).",
         ],
       },
       {
-        h: "Data yang kami kumpulkan",
+        h: "Data yang Kami Kumpulkan",
         p: [
           "Saat Anda mengirim formulir kontak, kami mengumpulkan:",
           ["nama dan alamat email Anda", "nomor WhatsApp dan website perusahaan Anda, jika Anda mengisinya", "layanan yang Anda minati dan pesan Anda"],
@@ -546,27 +555,33 @@ export const id: Dictionary = {
         ],
       },
       {
-        h: "Cara kami menggunakannya",
+        h: "Cara Kami Menggunakannya",
         p: [
           "Kami menggunakan informasi Anda hanya untuk membalas pertanyaan Anda, menyiapkan proposal, dan, jika Anda menjadi klien, menjalankan pekerjaan yang disepakati. Kami tidak menjual data Anda, dan kami tidak memasukkan Anda ke milis tanpa bertanya.",
         ],
       },
       {
-        h: "Siapa lagi yang melihatnya",
+        h: "Siapa Lagi yang Melihatnya",
         p: [
-          "Kiriman formulir disimpan di Google, yang menyediakan formulir dan spreadsheet yang kami gunakan. Jika kita bekerja sama, anggota tim kami yang menangani akun Anda dapat melihat detail Anda. Kami membagikan data kepada pihak lain hanya jika diwajibkan hukum.",
+          "Kiriman formulir disimpan di Google, yang menyediakan formulir dan spreadsheet yang kami gunakan. Jika kita bekerja sama, anggota tim kami yang menangani akun Anda dapat melihat detail Anda. Jika Anda menerima cookie, Google dan Meta juga menerima informasi tentang kunjungan Anda, seperti dijelaskan di bagian “Cookie dan Analitik”. Selain itu, kami membagikan data kepada pihak lain hanya jika diwajibkan hukum.",
         ],
       },
       {
-        h: "Berapa lama kami menyimpannya",
+        h: "Berapa Lama Kami Menyimpannya",
         p: [
-          "Kami menyimpan pertanyaan selama diperlukan untuk menindaklanjutinya, dan data klien selama diwajibkan hukum untuk keperluan bisnis dan pajak. [[Isi: periode penyimpanan]]",
+          "Kami menyimpan pertanyaan selama 180 hari, dan data klien selama diwajibkan hukum untuk keperluan bisnis dan pajak.",
         ],
       },
       {
-        h: "Cookie dan analitik",
+        h: "Cookie dan Analitik",
         p: [
-          "[[Isi: analitik atau tag iklan yang dipakai website, misalnya Google Analytics 4, Google tag, atau Meta Pixel, dan cara pengunjung menolaknya.]]",
+          "Situs ini memakai alat berikut hanya jika Anda menerimanya di banner cookie:",
+          [
+            "Google Analytics 4, yang dimuat lewat Google tag, untuk menghitung kunjungan, melihat halaman yang dibuka pengunjung, dan mengukur iklan Google Ads kami",
+            "Meta Pixel, untuk mengukur iklan kami di Facebook dan Instagram",
+          ],
+          "Jika Anda menolak, keduanya tidak dimuat. Anda bisa mengubah pilihan kapan saja lewat “Pengaturan Cookie” di bagian bawah setiap halaman. Jika Anda menarik persetujuan, kami menghapus cookie Google dan Meta yang dipasang situs ini di browser Anda.",
+          "Anda juga bisa membatasi pelacakan di luar situs ini: add-on browser untuk menolak Google Analytics (tools.google.com/dlpage/gaoptout), My Ad Center dari Google (myadcenter.google.com), preferensi iklan di Accounts Center milik Meta, atau pengaturan cookie di browser Anda.",
         ],
       },
       {
@@ -576,16 +591,16 @@ export const id: Dictionary = {
         ],
       },
       {
-        h: "Perubahan kebijakan ini",
+        h: "Perubahan Kebijakan Ini",
         p: ["Jika kami mengubah kebijakan ini, kami akan memperbarui tanggal di bagian atas halaman ini."],
       },
     ],
   },
 
   comingSoon: {
-    badge: "Segera hadir",
-    home: "Kembali ke beranda",
-    contact: "Mari ngobrol",
+    badge: "Segera Hadir",
+    home: "Kembali ke Beranda",
+    contact: "Mari Ngobrol",
     cases: {
       title: "Studi kasus *segera hadir*",
       text: "Kami sedang menulis hasil nyata dari brand yang kami tangani. Sementara itu, kami siap menjelaskannya lewat panggilan.",
@@ -597,9 +612,9 @@ export const id: Dictionary = {
   },
 
   notFound: {
-    title: "Halaman tidak ditemukan",
-    text: "Halaman ini mungkin sudah dipindahkan, atau tautannya salah ketik. Mari kembali ke jalur yang benar.",
-    home: "Kembali ke beranda",
-    contact: "Hubungi kami",
+    title: "Halaman Tidak Ditemukan",
+    text: "Halaman ini mungkin sudah dipindahkan, atau tautannya salah ketik.",
+    home: "Kembali ke Beranda",
+    contact: "Hubungi Kami",
   },
 };

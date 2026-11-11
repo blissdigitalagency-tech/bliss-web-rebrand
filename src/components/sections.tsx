@@ -12,6 +12,7 @@ import { formatDate } from "@/lib/format";
 import { lastUpdated } from "@/lib/updated";
 import { rich } from "./Rich";
 import { Faq, SectionEffects, SilkCanvas } from "./client";
+import { CookieSettingsButton } from "./consent";
 import { ArrowUpRight, ArrowRight, ArrowLeft, MARK_PATH, Mail, Phone, WhatsApp, Instagram, LinkedIn } from "./icons";
 
 export const WHATSAPP = "https://wa.me/628137903995";
@@ -878,7 +879,7 @@ export function Cta({ lang, title, titleEm, button }: { lang: Locale; title: str
 
 /* ---------- Footer and back to top ---------- */
 
-export function Footer({ lang, t, nav }: { lang: Locale; t: Dictionary["footer"]; nav: Dictionary["nav"] }) {
+export function Footer({ lang, t, nav, cookieSettings }: { lang: Locale; t: Dictionary["footer"]; nav: Dictionary["nav"]; cookieSettings?: boolean }) {
   const links: [string, string][] = [
     ["", t.homeLink],
     ["/about", nav.about],
@@ -946,6 +947,8 @@ export function Footer({ lang, t, nav }: { lang: Locale; t: Dictionary["footer"]
             {label}
           </Link>
         ))}
+        {/* Opens the cookie banner again (only when analytics or ad tags are set up) */}
+        {cookieSettings && <CookieSettingsButton label={t.cookieSettings} />}
       </nav>
     </footer>
   );

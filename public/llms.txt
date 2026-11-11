@@ -12,24 +12,26 @@ The site is available in English (/en) and Bahasa Indonesia (/id).
 
 ## Services
 
-- [Google Ads](https://blissdigital.id/en/services#google): fully managed
+- [Google Ads](https://www.blissdigital.id/en/services#google): fully managed
   campaigns (Search, Performance Max, Display, Demand Gen, YouTube, Local), or
   a consultation with a written action plan, or training for teams.
-- [Website creation](https://blissdigital.id/en/services#website): websites
+- [Website creation](https://www.blissdigital.id/en/services#website): websites
   built to be found on Google (SEO) and in AI answers (GEO), with tracking set
   up at launch.
-- [Social media management](https://blissdigital.id/en/services#social-media):
+- [Social media management](https://www.blissdigital.id/en/services#social-media):
   Instagram and TikTok content planning, copywriting, design, posting and
   monthly reports.
 
 ## Pages
 
-- [Home](https://blissdigital.id/en)
-- [About us](https://blissdigital.id/en/about)
-- [Services](https://blissdigital.id/en/services)
-- [Case studies](https://blissdigital.id/en/case-studies)
-- [Blog](https://blissdigital.id/en/blog)
-- [Contact](https://blissdigital.id/en/contact)
+- [Home](https://www.blissdigital.id/en)
+- [About Us](https://www.blissdigital.id/en/about)
+- [Services](https://www.blissdigital.id/en/services)
+- [Case Studies](https://www.blissdigital.id/en/case-studies)
+- [Blog](https://www.blissdigital.id/en/blog)
+- [Contact Us](https://www.blissdigital.id/en/contact)
+- [AI Readiness Check](https://www.blissdigital.id/tools/ai-readiness): free
+  check of whether Google AI Overviews, Gemini, ChatGPT and Meta AI can read a page
 
 ## Contact
 

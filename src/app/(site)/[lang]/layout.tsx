@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import "../../globals.css";
 import { jakarta, fragment } from "../../fonts";
 import { getDictionary, hasLocale, htmlLang, locales, siteUrl } from "@/i18n/config";
 import { Nav, SiteEffects } from "@/components/client";
 import { Footer, ToTop, EMAIL, INSTAGRAM, LINKEDIN, PHONE } from "@/components/sections";
+import { ConsentBanner } from "@/components/consent";
 
 // Only /en and /id exist; anything else is a 404
 export const dynamicParams = false;
@@ -34,7 +34,10 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
 
 export const viewport: Viewport = { themeColor: "#ffffff" };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// Analytics and ad tags. Neither loads until the visitor accepts in the cookie
+// banner (src/components/consent.tsx); with neither set, there is no banner.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || undefined;
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || undefined;
 
 export default async function SiteLayout({ children, params }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
@@ -89,17 +92,10 @@ if(n&&n.type==="reload"){history.scrollRestoration="manual";scrollTo(0,0);addEve
       <body>
         <Nav lang={lang} t={t.nav} />
         <main id="top">{children}</main>
-        <Footer lang={lang} t={t.footer} nav={t.nav} />
+        <Footer lang={lang} t={t.footer} nav={t.nav} cookieSettings={Boolean(GA_ID || PIXEL_ID)} />
         <ToTop label={t.nav.backToTop} />
         <SiteEffects />
-        {GA_ID && (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-            <Script id="ga4" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${GA_ID}");`}
-            </Script>
-          </>
-        )}
+        <ConsentBanner t={t.consent} privacyHref={`/${lang}/privacy`} gaId={GA_ID} pixelId={PIXEL_ID} />
       </body>
     </html>
   );

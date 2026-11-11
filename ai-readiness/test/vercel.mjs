@@ -5,7 +5,7 @@ process.env.BLISS_ALLOW_PRIVATE = "1";
 const { GET, POST } = await import("../api/scan.mjs");
 let fails = 0;
 const check = (name, got, want) => { const ok = got === want; if (!ok) fails++; console.log((ok ? "PASS  " : "FAIL  ") + name.padEnd(58) + " got " + got + "  expected " + want); };
-const base = "https://blissdigital.id/tools/ai-readiness/api/scan";
+const base = "https://www.blissdigital.id/tools/ai-readiness/api/scan";
 
 let r = await GET(new Request(base + "?url=" + encodeURIComponent("not a url"), { headers: { "x-real-ip": "1.1.1.1" } }));
 check("bad address gives 400", r.status, 400);
