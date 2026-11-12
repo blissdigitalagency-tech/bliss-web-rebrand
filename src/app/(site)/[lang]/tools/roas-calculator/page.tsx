@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale } from "@/i18n/config";
 import { absolute, pageMetadata } from "@/lib/seo";
 import { lastUpdated } from "@/lib/updated";
 import { rich } from "@/components/Rich";
-import { Cta, Eyebrow } from "@/components/sections";
+import { ButtonIcon, Cta, Eyebrow } from "@/components/sections";
 import { Faq } from "@/components/client";
 import { RoasCalculator } from "@/components/roas-calculator";
 
@@ -58,6 +59,14 @@ export default async function RoasCalculatorPage({ params }: PageProps<"/[lang]/
           <p className="article__lede" data-reveal>
             {t.lede}
           </p>
+          <div className="roas-page__actions" data-reveal>
+            <Link className="btn btn--solid" href={`/${lang}/contact`}>
+              {t.actions.primary} <ButtonIcon />
+            </Link>
+            <Link className="btn btn--outline" href={`/${lang}/services`}>
+              {t.actions.secondary}
+            </Link>
+          </div>
         </header>
 
         <RoasCalculator lang={lang} t={t} />

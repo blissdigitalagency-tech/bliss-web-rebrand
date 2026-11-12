@@ -26,3 +26,13 @@ export function roasResults(spend: number, sales: number, marginPct: number) {
     profit: hasMargin ? sales * m - spend : null,
   };
 }
+
+/**
+ * Loss, break-even or profit, for the status line and the next-step button.
+ * Within 10% of the ad spend either way counts as break-even. Null without a margin.
+ */
+export function roasOutcome(spend: number, profit: number | null): "loss" | "even" | "profit" | null {
+  if (profit === null) return null;
+  if (Math.abs(profit) <= spend * 0.1) return "even";
+  return profit > 0 ? "profit" : "loss";
+}

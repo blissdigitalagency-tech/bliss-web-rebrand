@@ -624,8 +624,8 @@ export const en = {
     updated: "Updated",
     title: "Are your ads *paying for themselves?*",
     lede: "A free calculator for Google and Meta ads. Enter your ad spend and the sales it brought in to see your ROAS.",
+    actions: { primary: "Get Help With Your Ads", secondary: "Our Services" },
     private: "Your browser does the math. We don’t see or save your numbers.",
-    example: "Example numbers. Replace them with yours.",
     form: {
       title: "Your numbers",
       spend: "Ad spend",
@@ -639,7 +639,8 @@ export const en = {
       calcLine: "{o} orders × {v} = {t} in sales",
       margin: "Profit margin",
       marginHint: "Optional. What you keep from each sale after product and staff costs. Add it to see your profit.",
-      defaults: { spend: "10000000", sales: "40000000", orders: "80", aov: "500000" },
+      // Shown as greyed-out hints in the empty fields
+      placeholders: { spend: "10000000", sales: "40000000", orders: "80", aov: "500000", margin: "25" },
     },
     results: {
       title: "Your Results",
@@ -650,8 +651,17 @@ export const en = {
       breakEvenSub: "At a {m}% margin",
       profit: "Profit from ads",
       profitSub: "After the ad spend",
-      good: "Your ads are paying for themselves.",
-      bad: "At this margin, your ads are losing money.",
+      // One message per result: loss, break-even (profit within 10% of the ad
+      // spend either way) or profit; see roasOutcome in src/lib/roas.ts. The
+      // button opens WhatsApp with the message below, filled with their numbers
+      // ({r} = ROAS, {b} = break-even ROAS). No button until a margin is entered.
+      outcome: {
+        loss: { text: "Your ads lose money at this margin. We can check where your budget goes and what to fix first.", button: "Check my ads" },
+        even: { text: "Your ads cover their cost but make no profit yet. We can find what to change so the same budget brings more sales.", button: "Find ways to improve" },
+        profit: { text: "Your ads make a profit. We can check how much more budget they can take and still stay profitable.", button: "Check if I can spend more" },
+      },
+      whatsapp: "Hi Bliss, I used your ROAS calculator. My ROAS is {r}x and my break-even ROAS is {b}x. Can you help me with my ads?",
+      newTab: "opens WhatsApp in a new tab",
       addMargin: "Add your profit margin to see if the ads make a profit.",
     },
     explain: {

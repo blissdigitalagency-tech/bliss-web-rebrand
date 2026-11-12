@@ -608,8 +608,8 @@ export const id: Dictionary = {
     updated: "Diperbarui",
     title: "Apakah iklan Anda *sudah balik modal?*",
     lede: "Kalkulator gratis untuk iklan Google dan Meta. Isi biaya iklan dan penjualan yang dihasilkannya untuk melihat ROAS Anda.",
+    actions: { primary: "Konsultasi Iklan Anda", secondary: "Layanan Kami" },
     private: "Browser Anda yang menghitung semuanya. Kami tidak melihat atau menyimpan angka Anda.",
-    example: "Contoh angka. Ganti dengan angka Anda.",
     form: {
       title: "Angka Anda",
       spend: "Biaya iklan",
@@ -623,7 +623,8 @@ export const id: Dictionary = {
       calcLine: "{o} pesanan × {v} = penjualan {t}",
       margin: "Margin keuntungan",
       marginHint: "Opsional. Isi yang tersisa dari setiap penjualan setelah biaya produk dan staf untuk melihat keuntungan Anda.",
-      defaults: { spend: "10000000", sales: "40000000", orders: "80", aov: "500000" },
+      // Shown as greyed-out hints in the empty fields
+      placeholders: { spend: "10000000", sales: "40000000", orders: "80", aov: "500000", margin: "25" },
     },
     results: {
       title: "Hasil Anda",
@@ -634,8 +635,13 @@ export const id: Dictionary = {
       breakEvenSub: "Dengan margin {m}%",
       profit: "Keuntungan dari iklan",
       profitSub: "Setelah biaya iklan",
-      good: "Iklan Anda sudah balik modal.",
-      bad: "Dengan margin ini, iklan Anda masih rugi.",
+      outcome: {
+        loss: { text: "Dengan margin ini, iklan Anda masih rugi. Kami bisa cek ke mana anggaran iklan Anda terpakai dan apa yang perlu diperbaiki lebih dulu.", button: "Cek iklan saya" },
+        even: { text: "Iklan Anda sudah balik modal, tapi belum untung. Kami bisa cari peluang agar anggaran yang sama menghasilkan lebih banyak penjualan.", button: "Cari peluangnya" },
+        profit: { text: "Iklan Anda sudah untung. Kami bisa cek berapa tambahan anggaran yang masih menguntungkan.", button: "Cek peluang tambah anggaran" },
+      },
+      whatsapp: "Halo Bliss, saya baru pakai kalkulator ROAS. ROAS saya {r}x dan ROAS balik modal saya {b}x. Bisa bantu cek iklan saya?",
+      newTab: "membuka WhatsApp di tab baru",
       addMargin: "Isi margin keuntungan untuk melihat apakah iklan Anda untung.",
     },
     explain: {

@@ -5034,19 +5034,6 @@ html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
   color: var(--ink);
 }
 
-.roas__example {
-  display: inline-block;
-  margin: 12px 0 0;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--white);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
-
 .roas__fields { display: grid; gap: 20px; margin-top: 20px; }
 
 .roas-field__hint {
@@ -5144,8 +5131,20 @@ html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
   font-size: 14px;
   line-height: 20px;
 }
-.roas__status--good { background: rgb(47 122 79 / 0.3); color: #c9f0d8; }
-.roas__status--bad { background: rgb(255 120 120 / 0.16); color: #ffd1d1; }
+.roas__status--profit { background: rgb(47 122 79 / 0.3); color: #c9f0d8; }
+.roas__status--even { background: rgb(240 190 90 / 0.16); color: #ffe6b3; }
+.roas__status--loss { background: rgb(255 120 120 / 0.16); color: #ffd1d1; }
+
+/* WhatsApp button under the result message */
+.roas__next-btn { width: 100%; box-sizing: border-box; margin-top: 16px; }
+
+/* Buttons under the page intro */
+.roas-page__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+.roas-page__actions .btn { height: 48px; padding: 0 26px; box-sizing: border-box; }
+@media (max-width: 480px) {
+  .roas-page__actions { width: 100%; }
+  .roas-page__actions .btn { flex: 1 1 auto; }
+}
 
 .roas__private { margin: 20px 0 0; font-size: 12px; line-height: 18px; color: rgb(255 255 255 / 0.55); }
 
