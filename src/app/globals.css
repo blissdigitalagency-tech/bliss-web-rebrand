@@ -1513,7 +1513,6 @@ em.hero__word {
   .svc__icon { width: 48px; height: 48px; border-radius: 13px; }
   .svc__icon img { width: 24px; height: 24px; }
   .svc__text { padding: 0; }
-  .svc__actions .btn { flex: 1 1 100%; justify-content: center; white-space: nowrap; }
 }
 
 /* ---------- Why us (Figma 166:630) ---------- */
@@ -2910,28 +2909,6 @@ em.hero__word {
 .stat span {
   font-size: 14px;
   line-height: 20px;
-  color: var(--muted);
-}
-
-.article__body {
-  max-width: 800px;
-  margin: 56px auto 0;
-}
-
-.article__body section + section { margin-top: 40px; }
-
-.article__body h2 {
-  margin: 0 0 14px;
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 32px;
-  color: var(--ink);
-}
-
-.article__body p {
-  margin: 0 0 14px;
-  font-size: 16px;
-  line-height: 26px;
   color: var(--muted);
 }
 
@@ -4615,39 +4592,6 @@ main { background: var(--white); }
   .nav__inner::before { transition: none; }
 }
 
-/* "Scroll" hint at the bottom of the intro */
-.intro__cue {
-  position: absolute;
-  left: 50%;
-  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 0;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgb(255 255 255 / 0.75);
-}
-
-.intro__cue-line {
-  width: 1px;
-  height: 36px;
-  background: linear-gradient(rgb(255 255 255 / 0.8), rgb(255 255 255 / 0));
-  transform-origin: top;
-  animation: cue-drop 1.8s ease-in-out infinite;
-}
-
-@keyframes cue-drop {
-  0% { transform: scaleY(0); }
-  50% { transform: scaleY(1); }
-  100% { transform: scaleY(1); opacity: 0; }
-}
-
 /* Navbar over the burgundy intro: still see-through, so links go white */
 .nav .nav__links a:not(.btn),
 .nav .nav__lang,
@@ -4660,10 +4604,6 @@ main { background: var(--white); }
 :root:not(.intro-seen) .nav[data-tone="dark"] .nav__lang[aria-expanded="true"] { background: rgb(255 255 255 / 0.1); border-color: var(--white); }
 :root:not(.intro-seen) .nav[data-tone="dark"] .nav__end .nav__cta { background: rgb(255 255 255 / 0.14); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.55); }
 :root:not(.intro-seen) .nav[data-tone="dark"] .nav__toggle { background: rgb(255 255 255 / 0.16); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4); }
-
-@media (prefers-reduced-motion: reduce) {
-  .intro__cue-line { animation: none; }
-}
 
 /* Band behind the navbar, from the top of the screen down past the floating
    card, so text scrolling through the gap above the card blurs and fades out
