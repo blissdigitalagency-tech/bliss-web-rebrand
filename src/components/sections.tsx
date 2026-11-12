@@ -341,7 +341,7 @@ export function Clients({ t, logos, lede }: { t: Dictionary["clients"]; logos: C
     <ul className="marquee__list" aria-hidden={hidden || undefined}>
       {logos.map((l) => (
         <li key={l.logo}>
-          <img className={l.tight ? "is-tight" : undefined} src={l.logo} alt={hidden ? "" : l.name} loading="lazy" />
+          <img className={l.tight ? "is-tight" : undefined} src={l.logo} width={l.width} height={l.height} alt={hidden ? "" : l.name} loading="lazy" decoding="async" />
         </li>
       ))}
     </ul>

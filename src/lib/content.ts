@@ -43,7 +43,7 @@ export type CaseStudy = {
   html: string;
 };
 
-export type ClientLogo = { name: string; logo: string; tight: boolean };
+export type ClientLogo = { name: string; logo: string; tight: boolean; width?: number; height?: number };
 
 // YAML reads an unquoted 2026-10-14 as a Date; keep dates as plain strings
 const day = (v: unknown) => (v instanceof Date ? v.toISOString().slice(0, 10) : String(v ?? ""));
@@ -129,11 +129,49 @@ export function translations<T extends { slug: string; translationOf?: string }>
   return out;
 }
 
+/**
+ * Width and height of an image in /public, read from its file header (WebP,
+ * PNG, JPEG or SVG), so the logo strip can reserve the right space before
+ * each logo loads. Undefined when the file is missing or not recognised.
+ */
+function imageSize(publicPath: string): { width: number; height: number } | undefined {
+  const file = path.join(process.cwd(), "public", publicPath);
+  if (!fs.existsSync(file)) return undefined;
+  const b = fs.readFileSync(file);
+  if (b.toString("ascii", 0, 4) === "RIFF" && b.toString("ascii", 8, 12) === "WEBP") {
+    const kind = b.toString("ascii", 12, 16);
+    if (kind === "VP8X") return { width: 1 + b.readUIntLE(24, 3), height: 1 + b.readUIntLE(27, 3) };
+    if (kind === "VP8 ") return { width: b.readUInt16LE(26) & 0x3fff, height: b.readUInt16LE(28) & 0x3fff };
+    if (kind === "VP8L") {
+      const v = b.readUInt32LE(21);
+      return { width: (v & 0x3fff) + 1, height: ((v >> 14) & 0x3fff) + 1 };
+    }
+  }
+  if (b.readUInt32BE(0) === 0x89504e47) return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+  if (b[0] === 0xff && b[1] === 0xd8) {
+    for (let i = 2; i < b.length - 9; ) {
+      if (b[i] !== 0xff) { i++; continue; }
+      const marker = b[i + 1];
+      if (marker >= 0xc0 && marker <= 0xc3) return { width: b.readUInt16BE(i + 7), height: b.readUInt16BE(i + 5) };
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+  }
+  const svg = b.toString("utf8", 0, 2000).match(/<svg\b[^>]*>/)?.[0];
+  if (svg) {
+    const num = (name: string) => parseFloat(svg.match(new RegExp(`\\b${name}="([\\d.]+)`))?.[1] ?? "");
+    const box = svg.match(/viewBox="[\d.-]+[ ,]+[\d.-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"/);
+    const width = num("width") || parseFloat(box?.[1] ?? "");
+    const height = num("height") || parseFloat(box?.[2] ?? "");
+    if (width && height) return { width: Math.round(width), height: Math.round(height) };
+  }
+  return undefined;
+}
+
 export function getClients(): ClientLogo[] {
   const file = path.join(root, "clients.yaml");
   if (!fs.existsSync(file)) return [];
   const data = loadYaml(fs.readFileSync(file, "utf8")) as { logos?: Partial<ClientLogo>[] };
   return (data.logos ?? [])
     .filter((l) => l.logo)
-    .map((l) => ({ name: l.name ?? "", logo: l.logo!, tight: !!l.tight }));
+    .map((l) => ({ name: l.name ?? "", logo: l.logo!, tight: !!l.tight, ...imageSize(l.logo!) }));
 }

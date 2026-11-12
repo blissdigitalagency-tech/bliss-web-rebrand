@@ -55,7 +55,27 @@ export function SectionEffects({ section }: { section: keyof typeof inits }) {
 
 export function SilkCanvas({ className, droplets = false }: { className: string; droplets?: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
-  useEffect(() => (ref.current ? initSilk(ref.current, droplets) : undefined), [droplets]);
+  // WebGL setup is heavy, so each canvas starts only when it comes near the
+  // screen: the tagline and the call to action wait until you scroll towards
+  // them, and the intro's canvas never starts when the intro is hidden
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    let stop: (() => void) | undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        stop = initSilk(canvas, droplets);
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(canvas);
+    return () => {
+      io.disconnect();
+      stop?.();
+    };
+  }, [droplets]);
   return <canvas ref={ref} className={`${className} silk`} aria-hidden="true" />;
 }
 

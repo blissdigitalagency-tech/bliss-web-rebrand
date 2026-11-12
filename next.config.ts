@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     // Only photos under /public/images go through the image optimizer
     localPatterns: [{ pathname: "/images/**", search: "" }],
     formats: ["image/avif", "image/webp"],
+    // Keep optimized photos for 31 days (Next's default is 4 hours). A photo
+    // replaced under the same file name can take that long to update, so give
+    // replacements a new name.
+    minimumCacheTTL: 2678400,
   },
   experimental: {
     // 404 page for addresses outside /en and /id (src/app/global-not-found.tsx)
@@ -25,9 +29,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Images and fonts change rarely; let browsers keep them for a week
+        // Images and fonts change rarely; let browsers keep them for 30 days,
+        // and use a kept copy for a day longer while checking for a new one.
+        // A file replaced under the same name can take up to 30 days to reach
+        // returning visitors, so give replacements a new name.
         source: "/:path*\\.(jpg|jpeg|png|webp|svg|ico|woff2)",
-        headers: [{ key: "Cache-Control", value: "public, max-age=604800" }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
       },
     ];
   },

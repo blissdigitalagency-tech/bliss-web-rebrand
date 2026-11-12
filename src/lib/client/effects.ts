@@ -715,9 +715,12 @@ export function initServices(section: HTMLElement): () => void {
     const pill = list.querySelector<HTMLElement>(".svc__tabs__pill")!;
     const movePill = (instant: boolean) => {
       const tab = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
+      // Read the tab's place before changing anything, so the browser does
+      // not have to lay the page out again in the middle of this
+      const x = tab.offsetLeft, w = tab.offsetWidth;
       pill.classList.toggle("is-instant", instant);
-      pill.style.setProperty("--pill-x", tab.offsetLeft + "px");
-      pill.style.setProperty("--pill-w", tab.offsetWidth + "px");
+      pill.style.setProperty("--pill-x", x + "px");
+      pill.style.setProperty("--pill-w", w + "px");
     };
     const ro = new ResizeObserver(() => movePill(true));
     ro.observe(list);
