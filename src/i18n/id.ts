@@ -641,7 +641,7 @@ export const id: Dictionary = {
         profit: { text: "Iklan Anda sudah untung. Kami bisa cek berapa tambahan anggaran yang masih menguntungkan.", button: "Cek peluang tambah anggaran" },
       },
       whatsapp: "Halo Bliss, saya baru pakai kalkulator ROAS. ROAS saya {r}x dan ROAS balik modal saya {b}x. Bisa bantu cek iklan saya?",
-      noMargin: { button: "Tanya soal iklan saya", whatsapp: "Halo Bliss, saya baru pakai kalkulator ROAS. ROAS saya {r}x. Bisa bantu cek iklan saya?" },
+      noMargin: { button: "Minta bantuan untuk iklan saya", whatsapp: "Halo Bliss, saya baru pakai kalkulator ROAS. ROAS saya {r}x. Bisa bantu cek iklan saya?" },
       newTab: "membuka WhatsApp di tab baru",
       addMargin: "Isi margin keuntungan untuk melihat apakah iklan Anda untung.",
     },

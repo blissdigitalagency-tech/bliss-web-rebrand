@@ -662,7 +662,7 @@ export const en = {
         profit: { text: "Your ads make a profit. We can check how much more budget they can take and still stay profitable.", button: "Check if I can spend more" },
       },
       whatsapp: "Hi Bliss, I used your ROAS calculator. My ROAS is {r}x and my break-even ROAS is {b}x. Can you help me with my ads?",
-      noMargin: { button: "Ask us about my ads", whatsapp: "Hi Bliss, I used your ROAS calculator. My ROAS is {r}x. Can you help me with my ads?" },
+      noMargin: { button: "Get help with my ads", whatsapp: "Hi Bliss, I used your ROAS calculator. My ROAS is {r}x. Can you help me with my ads?" },
       newTab: "opens WhatsApp in a new tab",
       addMargin: "Add your profit margin to see if the ads make a profit.",
     },
