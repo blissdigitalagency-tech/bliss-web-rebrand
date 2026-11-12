@@ -623,7 +623,7 @@ export const en = {
     // Followed by the month the site was last built
     updated: "Updated",
     title: "Are your ads *paying for themselves?*",
-    lede: "A free calculator for Google and Meta ads. Enter your ad spend and the sales it brought in to see your ROAS.",
+    lede: "ROAS (return on ad spend) is how much your ads bring back in sales for every rupiah you spend. Enter your ad spend and the sales it brought in, and this free calculator works out your ROAS. Add your profit margin to see whether your Google or Meta ads make a profit or lose money. If the numbers worry you, we can look at your ads with you.",
     actions: { primary: "Get Help With Your Ads", secondary: "Our Services" },
     private: "Your browser does the math. We don’t see or save your numbers.",
     form: {
@@ -654,13 +654,15 @@ export const en = {
       // One message per result: loss, break-even (profit within 10% of the ad
       // spend either way) or profit; see roasOutcome in src/lib/roas.ts. The
       // button opens WhatsApp with the message below, filled with their numbers
-      // ({r} = ROAS, {b} = break-even ROAS). No button until a margin is entered.
+      // ({r} = ROAS, {b} = break-even ROAS). Without a margin, the general button
+      // and the shorter message (noMargin) show instead.
       outcome: {
         loss: { text: "Your ads lose money at this margin. We can check where your budget goes and what to fix first.", button: "Check my ads" },
         even: { text: "Your ads cover their cost but make no profit yet. We can find what to change so the same budget brings more sales.", button: "Find ways to improve" },
         profit: { text: "Your ads make a profit. We can check how much more budget they can take and still stay profitable.", button: "Check if I can spend more" },
       },
       whatsapp: "Hi Bliss, I used your ROAS calculator. My ROAS is {r}x and my break-even ROAS is {b}x. Can you help me with my ads?",
+      noMargin: { button: "Ask us about my ads", whatsapp: "Hi Bliss, I used your ROAS calculator. My ROAS is {r}x. Can you help me with my ads?" },
       newTab: "opens WhatsApp in a new tab",
       addMargin: "Add your profit margin to see if the ads make a profit.",
     },

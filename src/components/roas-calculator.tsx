@@ -126,6 +126,8 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
 
   const outcome = r && roasOutcome(parseMoney(spend), r.profit);
   const R = t.results;
+  // The WhatsApp button: one per result, or a general one until a margin is added
+  const next = r && (outcome ? { button: R.outcome[outcome].button, whatsapp: R.whatsapp } : R.noMargin);
 
   return (
     <div className="roas">
@@ -182,15 +184,15 @@ export function RoasCalculator({ lang, t }: { lang: Locale; t: T }) {
               </>
             )}
           </div>
-          {r && outcome && r.breakEven !== null && (
+          {r && next && (
             <a
               className="btn btn--glass roas__next-btn"
-              href={`${WHATSAPP}?text=${encodeURIComponent(fill(R.whatsapp, { r: f.plain(r.roas), b: f.plain(r.breakEven) }))}`}
+              href={`${WHATSAPP}?text=${encodeURIComponent(fill(next.whatsapp, { r: f.plain(r.roas), b: r.breakEven === null ? "" : f.plain(r.breakEven) }))}`}
               target="_blank"
               rel="noopener"
-              aria-label={`${R.outcome[outcome].button} (${R.newTab})`}
+              aria-label={`${next.button} (${R.newTab})`}
             >
-              {R.outcome[outcome].button} <ButtonIcon />
+              {next.button} <ButtonIcon />
             </a>
           )}
           <p className="roas__private">{t.private}</p>

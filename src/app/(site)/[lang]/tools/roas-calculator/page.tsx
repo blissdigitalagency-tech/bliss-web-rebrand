@@ -51,7 +51,10 @@ export default async function RoasCalculatorPage({ params }: PageProps<"/[lang]/
       <article className="page roas-page" aria-labelledby="page-title">
         <header className="article__head">
           <Eyebrow end>
-            {t.eyebrow} &middot; {t.updated} <time dateTime={updated.iso}>{updated.label}</time>
+            {t.eyebrow} &middot;{" "}
+            <span className="roas-page__updated">
+              {t.updated} <time dateTime={updated.iso}>{updated.label}</time>
+            </span>
           </Eyebrow>
           <h1 className="article__title" id="page-title" data-reveal>
             {rich(t.title)}

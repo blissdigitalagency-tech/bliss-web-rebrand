@@ -5138,6 +5138,13 @@ html[data-lang-switch] .hero .ring__fill { stroke-dashoffset: 2.3; }
 /* WhatsApp button under the result message */
 .roas__next-btn { width: 100%; box-sizing: border-box; margin-top: 16px; }
 
+/* On phones the eyebrow wraps as text: "ROAS Calculator ·" over "Updated November 2026", dot after it */
+.roas-page__updated { white-space: nowrap; }
+@media (max-width: 480px) {
+  .roas-page .article__head .eyebrow { display: block; line-height: 22px; }
+  .roas-page .article__head .eyebrow__dot { display: inline-block; margin-left: 10px; vertical-align: 1px; }
+}
+
 /* Buttons under the page intro */
 .roas-page__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
 .roas-page__actions .btn { height: 48px; padding: 0 26px; box-sizing: border-box; }

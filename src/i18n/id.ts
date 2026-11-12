@@ -607,7 +607,7 @@ export const id: Dictionary = {
     eyebrow: "ROAS Calculator",
     updated: "Diperbarui",
     title: "Apakah iklan Anda *sudah balik modal?*",
-    lede: "Kalkulator gratis untuk iklan Google dan Meta. Isi biaya iklan dan penjualan yang dihasilkannya untuk melihat ROAS Anda.",
+    lede: "ROAS (return on ad spend) adalah berapa penjualan yang dihasilkan iklan Anda dari setiap rupiah yang dikeluarkan. Isi biaya iklan dan penjualan yang dihasilkannya, dan kalkulator gratis ini akan menghitung ROAS Anda. Tambahkan margin keuntungan untuk melihat apakah iklan Google atau Meta Anda menghasilkan untung atau malah rugi. Kalau hasilnya mengkhawatirkan, kami bisa cek iklan Anda bersama-sama.",
     actions: { primary: "Konsultasi Iklan Anda", secondary: "Layanan Kami" },
     private: "Browser Anda yang menghitung semuanya. Kami tidak melihat atau menyimpan angka Anda.",
     form: {
@@ -641,6 +641,7 @@ export const id: Dictionary = {
         profit: { text: "Iklan Anda sudah untung. Kami bisa cek berapa tambahan anggaran yang masih menguntungkan.", button: "Cek peluang tambah anggaran" },
       },
       whatsapp: "Halo Bliss, saya baru pakai kalkulator ROAS. ROAS saya {r}x dan ROAS balik modal saya {b}x. Bisa bantu cek iklan saya?",
+      noMargin: { button: "Tanya soal iklan saya", whatsapp: "Halo Bliss, saya baru pakai kalkulator ROAS. ROAS saya {r}x. Bisa bantu cek iklan saya?" },
       newTab: "membuka WhatsApp di tab baru",
       addMargin: "Isi margin keuntungan untuk melihat apakah iklan Anda untung.",
     },
