@@ -653,8 +653,8 @@ em.hero__word {
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 500ms ease,
-    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 1000ms ease,
+    transform 1200ms cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-delay: var(--d, 0ms);
 }
 
@@ -666,17 +666,17 @@ em.hero__word {
 }
 
 /* Chart bars grow and the score ring fills once its card is in */
-.motion .hero .bars i { transform: scaleY(0); transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.motion .hero .bars i { transform: scaleY(0); transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1); }
 .motion .hero.is-loaded .bars i { transform: none; }
-.motion .hero.is-loaded .bars i:nth-child(1) { transition-delay: 520ms; }
-.motion .hero.is-loaded .bars i:nth-child(2) { transition-delay: 550ms; }
-.motion .hero.is-loaded .bars i:nth-child(3) { transition-delay: 580ms; }
-.motion .hero.is-loaded .bars i:nth-child(4) { transition-delay: 610ms; }
-.motion .hero.is-loaded .bars i:nth-child(5) { transition-delay: 640ms; }
-.motion .hero.is-loaded .bars i:nth-child(6) { transition-delay: 670ms; }
-.motion .hero.is-loaded .bars i:nth-child(7) { transition-delay: 700ms; }
+.motion .hero.is-loaded .bars i:nth-child(1) { transition-delay: 1040ms; }
+.motion .hero.is-loaded .bars i:nth-child(2) { transition-delay: 1100ms; }
+.motion .hero.is-loaded .bars i:nth-child(3) { transition-delay: 1160ms; }
+.motion .hero.is-loaded .bars i:nth-child(4) { transition-delay: 1220ms; }
+.motion .hero.is-loaded .bars i:nth-child(5) { transition-delay: 1280ms; }
+.motion .hero.is-loaded .bars i:nth-child(6) { transition-delay: 1340ms; }
+.motion .hero.is-loaded .bars i:nth-child(7) { transition-delay: 1400ms; }
 
-.motion .hero .ring__fill { stroke-dashoffset: 113.1; transition: stroke-dashoffset 800ms cubic-bezier(0.2, 0.8, 0.2, 1) 600ms; }
+.motion .hero .ring__fill { stroke-dashoffset: 113.1; transition: stroke-dashoffset 1200ms cubic-bezier(0.2, 0.8, 0.2, 1) 1200ms; }
 .motion .hero.is-loaded .ring__fill { stroke-dashoffset: 2.3; }
 
 /* After the intro the chart and the score replay on a loop (site.js adds

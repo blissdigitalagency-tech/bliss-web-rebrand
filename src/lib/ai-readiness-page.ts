@@ -125,8 +125,17 @@ function tracking() {
   var GA = ${JSON.stringify(GA_ID)}, PX = ${JSON.stringify(PIXEL_ID)}, ASK = ${ASK_FIRST};
   var c = null; try { c = localStorage.getItem('bliss-consent'); } catch(e) {}
   if (ASK ? c !== 'granted' : c === 'denied') return;
+  // The tag scripts download once the page has loaded and the browser is idle.
+  // Their queues (fbq, gtag) exist straight away, so early events wait there.
+  var later = function(src){
+    var add = function(){ var s = document.createElement('script'); s.async = true; s.src = src; document.head.appendChild(s); };
+    var idle = function(){ window.requestIdleCallback ? requestIdleCallback(add, { timeout: 3000 }) : setTimeout(add, 1500); };
+    document.readyState === 'complete' ? idle() : addEventListener('load', idle, { once: true });
+  };
   if (PX) {
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    var n = window.fbq = window._fbq = function(){ n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+    later('https://connect.facebook.net/en_US/fbevents.js');
     fbq('consent', 'grant'); fbq('init', PX); fbq('track', 'PageView');
   }
   if (GA) {
@@ -135,7 +144,7 @@ function tracking() {
     var all = function(v){ return { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v }; };
     gtag('consent', 'default', all('denied')); gtag('consent', 'update', all('granted'));
     gtag('js', new Date()); gtag('config', GA);
-    var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA); document.head.appendChild(g);
+    later('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA));
   }
   document.addEventListener('click', function(e){
     var a = e.target && e.target.closest && e.target.closest('a[href]'); if (!a) return;

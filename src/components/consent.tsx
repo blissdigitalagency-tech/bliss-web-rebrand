@@ -51,6 +51,24 @@ function subscribe(onChange: () => void) {
   };
 }
 
+/**
+ * Adds a third-party script once the page has loaded and the browser is idle,
+ * so it never competes with the page itself. The tag's queue (gtag, fbq) is set
+ * up straight away, so events from early clicks wait there and send once the
+ * script arrives.
+ */
+function addWhenIdle(src: string) {
+  const add = () => {
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = src;
+    document.head.appendChild(s);
+  };
+  const idle = () => ("requestIdleCallback" in window ? requestIdleCallback(add, { timeout: 3000 }) : setTimeout(add, 1500));
+  if (document.readyState === "complete") idle();
+  else addEventListener("load", idle, { once: true });
+}
+
 /** Google tag with GA4, with Consent Mode v2 signals. Runs only after Accept. */
 function loadGoogle(id: string) {
   if (window.gtag) return;
@@ -65,10 +83,7 @@ function loadGoogle(id: string) {
   window.gtag("consent", "update", all("granted"));
   window.gtag("js", new Date());
   window.gtag("config", id);
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
-  document.head.appendChild(s);
+  addWhenIdle(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`);
 }
 
 /** Meta Pixel, as in Meta's own snippet. Runs only after Accept. */
@@ -83,10 +98,7 @@ function loadMeta(id: string) {
   fbq.loaded = true;
   fbq.version = "2.0";
   window.fbq = window._fbq = fbq;
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = "https://connect.facebook.net/en_US/fbevents.js";
-  document.head.appendChild(s);
+  addWhenIdle("https://connect.facebook.net/en_US/fbevents.js");
   fbq("consent", "grant");
   fbq("init", id);
   fbq("track", "PageView");

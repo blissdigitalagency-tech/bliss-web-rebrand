@@ -32,6 +32,8 @@ The site is available in English (/en) and Bahasa Indonesia (/id).
 - [Contact Us](https://www.blissdigital.id/en/contact)
 - [AI Readiness Check](https://www.blissdigital.id/en/tools/ai-readiness): free
   check of whether Google AI Overviews, Gemini, ChatGPT and Meta AI can read a page
+- [ROAS Calculator](https://www.blissdigital.id/en/tools/roas-calculator): free
+  calculator for the return on Google and Meta ad spend, with break-even ROAS and profit
 
 ## Contact
 

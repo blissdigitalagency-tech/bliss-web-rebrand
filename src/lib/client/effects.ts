@@ -301,7 +301,7 @@ export function initHero(hero: HTMLElement): () => void {
   const start = () => {
     if (!alive || !fontsReady || !seen || introPlaying() || hero.classList.contains("is-loaded")) return;
     hero.classList.add("is-loaded");
-    setTimeout(() => alive && hero.classList.add("is-ready"), 1400); // after the entrance (score ring done at 1.4 s)
+    setTimeout(() => alive && hero.classList.add("is-ready"), 2400); // after the entrance (score ring done at 2.4 s)
   };
   const ready = () => { fontsReady = true; requestAnimationFrame(start); };
   // After a language switch the hero is shown as it was, without its entrance
