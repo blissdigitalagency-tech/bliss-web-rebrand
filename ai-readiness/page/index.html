@@ -1873,11 +1873,36 @@ a.fsum{color:inherit;text-decoration:none}
       }).join('')+'</div>';
 
     var gradeLine = CH.map(function(k){ return SHORT[k]+' '+d.channels[k].grade; }).join(', ');
-    var waText = 'Hi Bliss, I ran the AI readiness check on '+d.url+'. Grades: '+gradeLine+'. Could your team review it with me?';
-    html += '<div class="card noprint" style="margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">'+
-      '<div style="max-width:520px"><h3 style="margin:0 0 4px">Want Bliss to help with this?</h3>'+
-      '<p style="margin:0;font-size:13.5px;color:var(--muted)">Send us this result on WhatsApp. Your page address and grades are already in the message.</p></div>'+
-      '<div style="text-align:right"><a class="btn" href="https://wa.me/628137903995?text='+encodeURIComponent(waText)+'">Send to Bliss on WhatsApp</a>'+
+    /* The WhatsApp card changes with the worst grade: any D or E (blocked), any ?
+       (could not confirm), all A (clear), otherwise B or C (fixes).
+       Each entry: heading, line, button, end of the WhatsApp message. */
+    var gs = CH.map(function(k){ return d.channels[k].grade; });
+    var tier = gs.some(function(g){ return g === 'D' || g === 'E'; }) ? 'blocked' :
+      gs.indexOf('?') >= 0 ? 'unsure' :
+      gs.every(function(g){ return g === 'A'; }) ? 'clear' : 'fixes';
+    var cta = {
+      blocked: ['Some AI tools cannot read this page well',
+        'Send us this result and we will tell you what to fix first. Your page address and grades are already in the message.',
+        'Ask us to fix it',
+        'Some AI tools cannot read my page well. Can your team help me fix it?'],
+      unsure: ['We could not confirm every grade',
+        'This site may send AI tools a different page from the one we received. Our team can check it by hand.',
+        'Ask us to check it',
+        'Some grades could not be confirmed. Could your team check it for me?'],
+      fixes: ['A few fixes would raise your grades',
+        'AI can read this page, but some issues hold it back. Send us this result and we will tell you which ones matter most.',
+        'Ask which to fix first',
+        'Can your team tell me which issues to fix first?'],
+      clear: ['This page is ready for AI',
+        'Your other pages may not be. Send us this result and our team can check the rest of your site.',
+        'Check my whole site',
+        'Could your team check the rest of my site?']
+    }[tier];
+    var waText = 'Hi Bliss, I ran the AI readiness check on '+d.url+'. Grades: '+gradeLine+'. '+cta[3];
+    html += '<div class="card noprint" id="gradecta" data-tier="'+tier+'" style="margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">'+
+      '<div style="max-width:520px"><h3 style="margin:0 0 4px">'+cta[0]+'</h3>'+
+      '<p style="margin:0;font-size:13.5px;color:var(--muted)">'+cta[1]+'</p></div>'+
+      '<div style="text-align:right"><a class="btn" href="https://wa.me/628137903995?text='+encodeURIComponent(waText)+'">'+cta[2]+'</a>'+
       '<p style="margin:8px 0 0;font-size:12.5px;color:var(--muted)">+62 813-7903-995 &middot; replies on weekdays</p></div></div>';
 
     html += '<div class="card dark noprint" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">'+
