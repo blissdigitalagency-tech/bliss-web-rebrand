@@ -62,22 +62,8 @@ export default async function RoasCalculatorPage({ params }: PageProps<"/[lang]/
 
         <RoasCalculator lang={lang} t={t} />
 
-        <section className="roas-tips" aria-labelledby="roas-tips-title">
-          <h2 className="roas-tips__title" id="roas-tips-title">
-            {t.tips.title}
-          </h2>
-          <ol className="roas-tips__list">
-            {t.tips.items.map((tip) => (
-              <li key={tip.h}>
-                <h3>{tip.h}</h3>
-                <p>{tip.p}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-
         <section className="roas-explain" aria-labelledby="roas-explain-title">
-          <h2 className="roas-tips__title" id="roas-explain-title">
+          <h2 className="roas-explain__title" id="roas-explain-title">
             {t.explain.title}
           </h2>
           <p className="roas-explain__lede">{t.explain.lede}</p>

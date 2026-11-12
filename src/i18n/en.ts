@@ -42,7 +42,7 @@ export const en = {
     roas: {
       title: "Free ROAS Calculator for Google and Meta Ads",
       description:
-        "Work out what your Google and Meta ads bring back in rupiah: ROAS, profit, and the most you can pay per click before ads lose money. Free, no sign-up.",
+        "Work out what your Google and Meta ads bring back in rupiah: your ROAS, your break-even ROAS and your profit. Free, no sign-up.",
     },
   },
 
@@ -616,106 +616,50 @@ export const en = {
     ] as { h: string; p: (string | string[])[] }[],
   },
 
-  // Free ROAS Calculator (/tools/roas-calculator), based on the Bliss team's
-  // ROAS spreadsheet. {n}, {m} and {e} are filled in with numbers.
+  // Free ROAS Calculator (/tools/roas-calculator): the standard formula only.
+  // {n}, {m}, {o}, {v} and {t} are filled in with numbers.
   roas: {
     eyebrow: "ROAS Calculator",
     // Followed by the month the site was last built
     updated: "Updated",
     title: "Are your ads *paying for themselves?*",
-    lede: "A free calculator for Google and Meta ads. Check what a campaign brought back, or work out what you can afford to pay before you start.",
+    lede: "A free calculator for Google and Meta ads. Enter your ad spend and the sales it brought in to see your ROAS.",
     private: "Your browser does the math. We don’t see or save your numbers.",
-    tabs: { label: "Calculator", check: "Check Results", plan: "Plan a Budget" },
     example: "Example numbers. Replace them with yours.",
-    check: {
-      salesTitle: "What your ads brought in",
-      salesText: "Add each kind of conversion your ads track, such as bookings, orders or WhatsApp chats.",
-      name: "Conversion",
-      count: "Count",
-      rate: "Became sales",
-      rateHint: "e.g. chats that ended in a sale",
-      per: "Items per sale",
-      value: "Value per item",
-      estimate: "This is an estimate, such as Google’s store visits",
-      estimateHint: "Estimates still count toward your sales. The results also show a ROAS without them, as your minimum.",
-      remove: "Remove",
-      add: "Add a Conversion",
-      newName: "New conversion",
-      rows: [
-        { name: "Website purchases", count: "40", rate: "100", per: "1", value: "500000", estimate: false },
-        { name: "WhatsApp chats", count: "150", rate: "20", per: "1", value: "500000", estimate: false },
-      ],
-      costsTitle: "What your ads cost",
+    form: {
+      title: "Your numbers",
       spend: "Ad spend",
-      spendDefault: "10000000",
-      fee: "Management fee",
-      feeHint: "Leave empty if you run the ads yourself.",
+      spendHint: "What you paid Google or Meta for the period.",
+      sales: "Sales from ads",
+      salesHint: "Revenue from customers who came through your ads.",
+      calcOpen: "Work out the total from your orders",
+      calcClose: "Enter the total instead",
+      orders: "Orders from ads",
+      aov: "Average order value",
+      calcLine: "{o} orders × {v} = {t} in sales",
       margin: "Profit margin",
-      marginHint: "Optional. Add what you keep from each sale after product and staff costs to see your profit.",
+      marginHint: "Optional. What you keep from each sale after product and staff costs. Add it to see your profit.",
+      defaults: { spend: "10000000", sales: "40000000", orders: "80", aov: "500000" },
     },
     results: {
       title: "Your Results",
-      // The bar at the bottom of the screen on phones, which jumps to the results
-      jump: "See All Results",
-      empty: "Enter your ad spend to see your ROAS.",
+      empty: "Enter your ad spend and sales to see your ROAS.",
       roas: "ROAS",
       roasSub: "Rp{n} in sales for every Rp1 spent on ads",
-      roasWithFee: "ROAS including management fee",
-      measuredRoas: "ROAS from measured conversions only",
-      measuredSub: "Leaves out estimates, so treat it as your minimum.",
-      revenue: "Sales from ads",
-      split: "{m} measured, {e} estimated",
-      cost: "Ad spend and fee",
-      net: "Sales left after ad spend and fee",
-      netNote: "Product and staff costs aren’t taken out. Add your profit margin to see profit.",
-      profit: "Profit from ads",
-      roi: "ROI",
       breakEven: "Break-even ROAS",
+      breakEvenSub: "At a {m}% margin",
+      profit: "Profit from ads",
+      profitSub: "After the ad spend",
       good: "Your ads are paying for themselves.",
       bad: "At this margin, your ads are losing money.",
-    },
-    plan: {
-      title: "Before you spend",
-      text: "Work out the most you can pay for a click and for a sale before your ads lose money.",
-      value: "Average sale value",
-      valueHint: "What one customer pays you, on average.",
-      margin: "Profit margin",
-      marginHint: "What you keep from each sale after product and staff costs.",
-      rate: "Conversion rate",
-      rateHint: "Out of 100 visitors from your ads, how many buy. Use your own number from Google Ads or GA4.",
-      budget: "Monthly ad budget",
-      budgetHint: "Optional.",
-      fee: "Management fee",
-      feeHint: "Optional. Leave empty if you run the ads yourself.",
-      defaults: { value: "500000", margin: "40", rate: "2", budget: "10000000", fee: "" },
-    },
-    planResults: {
-      empty: "Enter your sale value and profit margin.",
-      breakEven: "Break-even ROAS",
-      breakEvenSub: "Each Rp1 on ads must bring in Rp{n} in sales",
-      breakEvenFee: "Each Rp1 on ads must bring in Rp{n} in sales, to cover the fee too",
-      maxCpa: "Most you can pay per sale",
-      maxCpc: "Most you can pay per click",
-      needRate: "Add your conversion rate to see this.",
-      salesNeeded: "Sales needed to break even",
-      clicksNeeded: "Clicks needed",
-      perMonth: "a month",
-    },
-    tips: {
-      title: "How to count conversions",
-      items: [
-        { h: "Count confirmed sales", p: "Use the numbers from your shop, booking system or CRM. A click on “Buy now” or “Chat on WhatsApp” only shows that someone was interested." },
-        { h: "Count each customer once", p: "One customer may tap WhatsApp, call you and fill in a form before buying. Count that sale once." },
-        { h: "Keep estimates apart", p: "Google works out store visits from a model. Tick them as estimates, and treat the measured ROAS as your minimum." },
-      ],
+      addMargin: "Add your profit margin to see if the ads make a profit.",
     },
     explain: {
       title: "How the numbers work",
-      lede: "ROAS (return on ad spend) shows how much your ads sell for each rupiah you put in. The calculator uses three formulas.",
+      lede: "ROAS (return on ad spend) shows how much your ads sell for each rupiah you put in.",
       items: [
         { name: "ROAS", formula: "Sales from ads ÷ ad spend", example: "Rp40,000,000 in sales from Rp10,000,000 of ads is a 4x ROAS." },
         { name: "Break-even ROAS", formula: "1 ÷ profit margin", example: "With a 25% margin, each Rp1 of ads has to bring in Rp4 of sales before you make any money." },
-        { name: "ROI", formula: "(Sales × profit margin − marketing cost) ÷ marketing cost", example: "Rp40,000,000 in sales at a 25% margin is Rp10,000,000 of profit. Take off Rp8,000,000 of ads and fees, and the ROI is 25%." },
       ],
     },
     faq: {
@@ -732,27 +676,14 @@ export const en = {
         {
           q: "What’s the difference between ROAS and ROI?",
           a: [
-            "ROAS compares sales with ad spend. ROI first takes product and staff costs out of your sales, then compares the profit left with everything you spent on marketing.",
+            "ROAS compares sales with ad spend. ROI first takes product and staff costs out of your sales, then compares the profit left with what you spent.",
             "At a 25% margin, a 3x ROAS loses money, because every Rp1 of ads brings in Rp3 of sales and only Rp0.75 of profit.",
-          ],
-        },
-        {
-          q: "Should I include the management fee?",
-          a: [
-            "Yes, if you pay an agency or freelancer to run your ads. Google Ads and Meta Ads Manager show ROAS on ad spend only, so the calculator shows both numbers when you add a fee.",
           ],
         },
         {
           q: "Where do I find my numbers?",
           a: [
-            "Ad spend is the Cost column in Google Ads and Amount spent in Meta Ads Manager. Take sales from your shop, booking system or CRM. Google Ads shows your conversion rate in the Conv. rate column, and GA4 shows it too.",
-          ],
-        },
-        {
-          q: "Why doesn’t this match the ROAS in Google Ads?",
-          a: [
-            "Google Ads uses the conversion values set up in your account, and it can add modelled conversions to the ones it measures. The calculator uses only the numbers you enter, so the two can differ.",
-            "If they’re far apart, your tracking may be counting clicks or repeat actions as sales. We can check it for you.",
+            "Ad spend is the Cost column in Google Ads and Amount spent in Meta Ads Manager. Take sales from your shop, booking system or CRM, for the same dates.",
           ],
         },
       ],
