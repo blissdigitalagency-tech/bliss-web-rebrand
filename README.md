@@ -82,9 +82,10 @@ intro (`MARK_PATH` in `src/components/icons.tsx`) use it, and so does the AI
 Readiness page (`MARK` in `src/lib/ai-readiness-page.ts`). Keep all three in
 sync.
 
-The favicon and app icons come straight from the kit's `web/` folder: copy
-`favicon.ico`, `icon-192.png`, `icon-512.png` and `apple-touch-icon.png` into
-`public/`, and `favicon.svg` to `public/brand/bliss-icon.svg`.
+The favicon and app icons (`favicon.ico`, `icon-192.png`, `icon-512.png`,
+`apple-touch-icon.png` in `public/`) are the kit's
+`social/bliss-profile-white-on-dark.png`, kept as `tools/brand/icon-source.png`
+and resized: 16, 32 and 48 px in the .ico, then 192, 512 and 180 px.
 
 The social preview images (`public/og-en.png`, `public/og-id.png`) are made
 from `tools/brand/og-en.html` and `og-id.html`. After changing the mark or

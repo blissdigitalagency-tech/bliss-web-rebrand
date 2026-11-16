@@ -21,10 +21,9 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     description: t.home.description,
     applicationName: t.siteName,
     icons: {
-      // From the logo kit's web folder (see README, "Logo and icons")
+      // Made from the logo kit's white-on-dark profile picture (see README, "Logo and icons")
       icon: [
         { url: "/favicon.ico", sizes: "48x48" },
-        { url: "/brand/bliss-icon.svg", type: "image/svg+xml" },
         { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       ],
       apple: "/apple-touch-icon.png",

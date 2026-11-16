@@ -1,10 +1,9 @@
 """Rebuild the social preview images (public/og-en.png, og-id.png) from
 og-en.html and og-id.html, which show public/brand/bliss-mark.svg.
 
-The favicon and app icons are not made here. They come straight from the
-designer's logo kit (bliss-logo-kit/web): copy favicon.ico, icon-192.png,
-icon-512.png and apple-touch-icon.png into public/, and favicon.svg to
-public/brand/bliss-icon.svg.
+The favicon and app icons are not made here. They are the logo kit's
+social/bliss-profile-white-on-dark.png (kept as tools/brand/icon-source.png),
+resized; see the README, "Logo and icons".
 
 Run from the project folder:
 
