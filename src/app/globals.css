@@ -4024,15 +4024,26 @@ main { background: var(--white); }
 .way b { font-weight: 600; font-size: 17px; line-height: 1.25; color: var(--ink); }
 .way span { font-size: 14.5px; line-height: 1.45; color: var(--muted); }
 
-.way a {
-  margin-top: auto;
-  padding-top: 8px;
-  font-size: 14.5px;
-  color: var(--accent);
-  text-underline-offset: 3px;
+/* The cards are tabs: the picked one has the accent border */
+button.way {
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
+button.way:hover { border-color: var(--accent); }
+button.way:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .way--main { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+
+.way-panel__ask {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 15px;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 @media (max-width: 1100px) {
   .ways { grid-template-columns: 1fr; }

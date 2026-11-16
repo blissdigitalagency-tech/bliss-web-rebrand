@@ -61,7 +61,8 @@ export const LinkedIn = () => (
   </svg>
 );
 
-// The Bliss mark's shape (public/brand/bliss-mark.svg), for inline SVG such as
+// The Bliss mark's shape (public/brand/bliss-mark.svg, from the 16 Nov 2026
+// logo kit: the circle sits 12% of its radius into the stem), for inline SVG such as
 // the homepage intro. Keep it in sync if the logo changes.
 export const MARK_PATH =
-  "M169 0C262.336 0 338 75.6639 338 169V676C293.615 676 249.666 667.255 208.659 650.271C167.651 633.284 130.376 608.396 98.9902 577.01C67.604 545.624 42.7156 508.349 25.7295 467.341C8.74477 426.334 0 382.385 0 338V169C8.2466e-06 75.6639 75.6639 8.24875e-06 169 0ZM507 338C600.336 338 676 413.664 676 507C676 600.336 600.336 676 507 676C413.664 676 338 600.336 338 507C338 413.664 413.664 338 507 338Z";
+  "M10.14 169A169 169 0 0 1 348.14 169V676A338 338 0 0 1 10.14 338ZM327.86 507A169 169 0 1 1 665.86 507A169 169 0 1 1 327.86 507Z";

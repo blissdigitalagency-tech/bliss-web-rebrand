@@ -151,13 +151,13 @@ export const id: Dictionary = {
     eyebrow: "Klien Kami",
     title: "Brand yang",
     titleEm: "tumbuh bersama kami",
-    lede: "Inilah brand yang kami kelola dan bantu bertumbuh, dari berbagai industri. Untuk setiap brand, tim kecil yang sama tetap dekat dari panggilan pertama hingga setiap review rutin.",
+    lede: "Inilah brand yang kami kelola dan bantu bertumbuh, dari berbagai industri. Setiap brand bekerja dengan tim kecil yang sama sepanjang kerja sama.",
   },
 
   aboutHome: {
     titleA: "Agensi Google Partner",
     titleB: "*berbasis di Indonesia*",
-    text: "Kami menjalankan Google Ads dan website untuk bisnis di bidang perhotelan, pendidikan, event, FMCG, dan lainnya. Sebagian besar klien kami memiliki satu lokasi. Kami *mengecek tracking sebelum mengeluarkan anggaran*, dan kami jelaskan setiap hasil dengan bahasa yang sederhana.",
+    text: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami menjalankan Google Ads, website, dan media sosial untuk hotel, klinik, brand makanan, ritel, dan manufaktur. Kami *mengecek tracking sebelum mengeluarkan anggaran*, dan kami jelaskan setiap hasil dengan bahasa yang sederhana. Anda bekerja dengan tim kecil yang sama sepanjang kerja sama, dan akun iklan Anda tetap atas nama Anda.",
   },
 
   about: {
@@ -177,7 +177,7 @@ export const id: Dictionary = {
     eyebrow: "Layanan Kami",
     titleA: "Digital marketing,",
     titleB: "kami *jalankan untuk Anda*",
-    lede: "Anda fokus pada bisnis. Kami urus pemasarannya, dari rencana awal hingga pekerjaan harian.",
+    lede: "Kami merencanakan dan menjalankan Google Ads, website, dan media sosial Anda. Anda menyetujui rencananya, kami yang mengerjakannya.",
     railLabel: "Layanan",
     google: {
       title: "Google Ads",
@@ -233,7 +233,7 @@ export const id: Dictionary = {
       title: "Pembuatan Website",
       sub: "Website yang bisa ditemukan orang dan alat pencarian AI, serta mengubah pengunjung menjadi pelanggan.",
       plan: "Dibangun Penuh oleh Bliss",
-      desc: "Kami menangani setiap langkah, dari rencana awal hingga hari peluncuran. Kami menyiapkan website Anda agar Google dan alat AI, seperti ChatGPT, Gemini, dan Google AI Overviews, bisa membacanya dengan jelas.",
+      desc: "Kami menyiapkan website Anda agar Google dan alat AI, seperti ChatGPT, Gemini, dan Google AI Overviews, bisa membacanya dengan jelas.",
       button: "Tanya Soal Website Baru",
       items: [
         "Merencanakan, menulis, mendesain, dan membangun setiap halaman",
@@ -382,8 +382,8 @@ export const id: Dictionary = {
   },
 
   cta: {
-    title: "Fokus pada bisnis Anda.",
-    titleEm: "Biarkan kami yang mengurus pemasarannya.",
+    title: "Mari temukan pelanggan Anda berikutnya.",
+    titleEm: "Mulai dengan obrolan singkat.",
     servicesTitle: "Belum yakin layanan mana yang Anda butuhkan?",
     servicesTitleEm: "Ceritakan tujuan Anda. Kami usulkan rencananya.",
   },
@@ -420,8 +420,8 @@ export const id: Dictionary = {
     sent: "Terima kasih, {name}. Kami akan menghubungi Anda dalam 24–48 jam.",
     failed: "Pesan Anda gagal terkirim. Silakan coba lagi, atau email kami di admin@blissdigital.id.",
     eta: "Kami akan menghubungi Anda dalam 24–48 jam.",
-    privacyA: "Informasi Anda hanya digunakan untuk menindaklanjuti pertanyaan Anda.",
-    privacyB: "Untuk detail lebih lanjut, silakan baca",
+    privacyA: "Kami hanya memakai data Anda untuk membalas pesan Anda.",
+    privacyB: "Lihat",
     privacyLink: "Kebijakan Privasi",
   },
 
@@ -431,15 +431,15 @@ export const id: Dictionary = {
     lede: "Kami memulai dari kecil dan tumbuh bersama brand yang kami tangani. Kini kami menjalankan Google Ads, website, dan media sosial untuk bisnis di seluruh Indonesia.",
     storyEyebrow: "Cerita Kami",
     storyText:
-      "Kebanyakan pemilik bisnis tidak punya waktu untuk mempelajari platform iklan, membaca dashboard, dan menulis ulang website. Bliss Digital mengerjakannya untuk mereka, setiap hari, dan menjelaskan hasilnya dengan bahasa yang sederhana. Agensi ini adalah Google Partner yang berbasis di Jakarta Selatan dan bekerja dengan bisnis di seluruh Indonesia: hotel, klinik, brand makanan, ritel, dan manufaktur. Sebagian besar klien memiliki satu lokasi, dan tim kecil yang sama tetap dekat dengan setiap akun, dari panggilan pertama hingga setiap review rutin.",
+      "Kebanyakan pemilik bisnis tidak punya waktu untuk mempelajari platform iklan, membaca dashboard, dan menulis ulang website. Bliss Digital mengerjakannya untuk mereka, setiap hari, dan menjelaskan hasilnya dengan bahasa yang sederhana. Agensi ini adalah Google Partner yang berbasis di Jakarta Selatan dan bekerja dengan bisnis di seluruh Indonesia: hotel, klinik, brand makanan, ritel, dan manufaktur. Setiap klien bekerja dengan tim kecil yang sama sepanjang kerja sama.",
     mvEyebrow: "Misi dan Visi",
     mvTitle: "Mengapa kami *melakukan ini*",
     mission: "Misi Kami",
     missionText:
-      "Misi Bliss Digital adalah membantu bisnis berkembang dengan mengerjakan beberapa hal dengan cara yang tepat, setiap kali. Setiap kerja sama dimulai dengan satu tujuan yang disepakati sebelum ada biaya iklan: penjualan, leads, atau booking. Pelacakan diuji dengan satu aksi nyata sebelum iklan tayang, hasil dilaporkan tanpa jargon, dan akun Google Ads serta Analytics tetap atas nama bisnis Anda.",
+      "Misi Bliss Digital adalah menjalankan pemasaran yang hasilnya bisa Anda cek sendiri. Setiap kerja sama dimulai dengan satu tujuan yang disepakati sebelum ada biaya iklan: penjualan, leads, atau booking. Pelacakan diuji dengan satu aksi nyata sebelum iklan tayang, hasil dilaporkan tanpa jargon, dan akun Google Ads serta Analytics tetap atas nama bisnis Anda.",
     vision: "Visi Kami",
     visionText:
-      "Visi Bliss Digital adalah menjadi mitra pemasaran tepercaya bagi bisnis di seluruh Indonesia, yang dikenal lewat karya kreatif dengan standar kerja profesional. Target setiap kampanye, website, dan konten adalah pertumbuhan yang bisa diukur lewat penjualan, leads, dan booking, yang dilaporkan dengan bahasa sederhana agar Anda selalu tahu hasil dari anggaran pemasaran Anda.",
+      "Visi Bliss Digital adalah agar setiap bisnis yang bekerja sama dengan kami tahu persis apa hasil dari pemasarannya. Kami menilai setiap kampanye, website, dan konten dari penjualan, leads, atau booking yang dihasilkannya, dan kami melaporkan angka tersebut dengan bahasa yang sederhana.",
     beliefsEyebrow: "Cara Kami Bekerja",
     beliefsTitle: "Empat hal yang *selalu kami lakukan*",
     beliefsLink: "Lihat Kenapa Klien Memilih Kami",
@@ -464,7 +464,7 @@ export const id: Dictionary = {
   servicesPage: {
     eyebrow: "Layanan Kami",
     title: "Digital marketing, kami *jalankan untuk Anda*",
-    lede: "Anda fokus pada bisnis. Kami urus pemasarannya, dari rencana awal hingga pekerjaan harian. Pilih satu layanan atau gabungkan beberapa.",
+    lede: "Kami menjalankan Google Ads, membuat website, dan mengelola media sosial. Pilih satu layanan atau gabungkan beberapa. Tim yang sama mengerjakan semuanya.",
     jump: { google: "Google Ads", web: "Pembuatan Website", social: "Media Sosial" },
     google: {
       title: "Google Ads",
@@ -473,9 +473,9 @@ export const id: Dictionary = {
       imageAlt: "Pencarian Google terbuka di laptop",
       waysTitle: "Tiga Cara Bekerja Sama dengan Kami",
       ways: [
-        ["Dikelola Penuh", "Kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Langganan bulanan.", "Tanya Soal Kelola Penuh", "google-ads"],
-        ["Konsultasi", "Anda menjalankan Google Ads sendiri dan ingin tinjauan dari ahli. Anda mendapat rencana aksi tertulis.", "Tanya Soal Konsultasi", "consultation"],
-        ["Pelatihan", "Untuk tim perusahaan dan perorangan yang ingin menjalankan Google Ads sendiri.", "Tanya Soal Pelatihan", "training"],
+        ["Dikelola Penuh", "Kami merencanakan, membangun, dan menjalankan kampanye Anda setiap hari. Langganan bulanan.", "Tanya Soal Kelola Penuh", "google-ads", "Yang Termasuk dalam Kelola Penuh"],
+        ["Konsultasi", "Anda menjalankan Google Ads sendiri dan ingin tinjauan dari ahli. Anda mendapat rencana aksi tertulis.", "Tanya Soal Konsultasi", "consultation", "Yang Termasuk dalam Konsultasi"],
+        ["Pelatihan", "Untuk tim perusahaan dan perorangan yang ingin menjalankan Google Ads sendiri.", "Tanya Soal Pelatihan", "training", "Yang Termasuk dalam Pelatihan"],
       ],
       includedTitle: "Yang Termasuk dalam Kelola Penuh",
       included: [

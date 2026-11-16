@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     description: t.home.description,
     applicationName: t.siteName,
     icons: {
-      // All made from the new mark in public/brand (see README, "Logo and icons")
+      // From the logo kit's web folder (see README, "Logo and icons")
       icon: [
         { url: "/favicon.ico", sizes: "48x48" },
         { url: "/brand/bliss-icon.svg", type: "image/svg+xml" },

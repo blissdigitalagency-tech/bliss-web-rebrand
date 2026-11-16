@@ -566,3 +566,63 @@ function PrivacyLink({ label }: { label: string }) {
   const lang = usePathname().split("/")[1] || "en";
   return <Link href={`/${lang}/privacy`}>{label}</Link>;
 }
+
+/* ---------- Services page: the three ways to work on Google Ads, as tabs ---------- */
+
+export type Way = { title: string; text: string; link: string; key: string; includedTitle: string; items: string[] };
+
+// Picking a card shows what that way includes and its contact link below.
+// Arrow keys move between the cards.
+export function Ways({ lang, title, ways }: { lang: Locale; title: string; ways: Way[] }) {
+  const [on, setOn] = useState(0);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const w = ways[on];
+  const onKeyDown = (e: ReactKeyboardEvent, i: number) => {
+    const step = ({ ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 } as Record<string, number>)[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const next = (i + step + ways.length) % ways.length;
+    setOn(next);
+    tabs.current[next]?.focus();
+  };
+  return (
+    <>
+      <div className="sd__group" data-reveal>
+        <h3 id="ways-title">{title}</h3>
+        <div className="ways" role="tablist" aria-labelledby="ways-title">
+          {ways.map((way, i) => (
+            <button
+              key={way.key}
+              ref={(el) => {
+                tabs.current[i] = el;
+              }}
+              type="button"
+              role="tab"
+              id={`way-${way.key}`}
+              aria-controls="way-panel"
+              aria-selected={i === on}
+              tabIndex={i === on ? 0 : -1}
+              className={`way${i === on ? " way--main" : ""}`}
+              onClick={() => setOn(i)}
+              onKeyDown={(e) => onKeyDown(e, i)}
+            >
+              <b>{way.title}</b>
+              <span>{way.text}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="sd__group way-panel" id="way-panel" role="tabpanel" aria-labelledby={`way-${w.key}`} data-reveal>
+        <h3>{w.includedTitle}</h3>
+        <ul className="svc__list">
+          {w.items.map((it) => (
+            <li key={it}>{it}</li>
+          ))}
+        </ul>
+        <Link className="way-panel__ask" href={`/${lang}/contact#service=${w.key}`}>
+          {w.link}
+        </Link>
+      </div>
+    </>
+  );
+}

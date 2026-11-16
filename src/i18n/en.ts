@@ -161,14 +161,14 @@ export const en = {
     eyebrow: "Our Clients",
     title: "Brands that",
     titleEm: "grew with us",
-    lede: "These are brands we’ve managed and helped grow, in many different industries. For each one, the same small team stays close from the first call to every regular review.",
+    lede: "These are brands we’ve managed and helped grow, in many different industries. Each one works with the same small team the whole time.",
   },
 
   // Homepage version of the About block
   aboutHome: {
     titleA: "A Google Partner agency",
     titleB: "*based in Indonesia*",
-    text: "We run Google Ads and websites for businesses in hospitality, education, events, FMCG, and more. Most of our clients have one location. We *check the tracking before we spend*, and we explain every result in plain words.",
+    text: "Bliss Digital is a Google Partner agency in South Jakarta. We run Google Ads, websites and social media for hotels, clinics, food brands, retailers and manufacturers. We *check the tracking before we spend*, and we explain every result in plain words. You work with the same small team the whole time, and your ad accounts stay in your name.",
   },
 
   about: {
@@ -188,7 +188,7 @@ export const en = {
     eyebrow: "Our Services",
     titleA: "Digital marketing,",
     titleB: "done *for you*",
-    lede: "You focus on your business. We handle the marketing, from the first plan to the daily work.",
+    lede: "We plan and run your Google Ads, website and social media. You approve the plan, and we do the work.",
     railLabel: "Services",
     google: {
       title: "Google Ads",
@@ -244,7 +244,7 @@ export const en = {
       title: "Website Creation",
       sub: "A website that people and AI search tools can find, and that turns visitors into customers.",
       plan: "Fully Built by Bliss",
-      desc: "We handle every step, from the first plan to launch day. We set your website up so Google and AI tools, such as ChatGPT, Gemini, and Google AI Overviews, can read it clearly.",
+      desc: "We set your website up so Google and AI tools, such as ChatGPT, Gemini, and Google AI Overviews, can read it clearly.",
       button: "Ask About a New Website",
       items: [
         "Plan, write, design, and build every page",
@@ -297,7 +297,7 @@ export const en = {
     message: {
       label: "Right Message",
       title: "We say what makes them choose you",
-      body: "We write ads that answer your customer’s real questions. We test them, keep the messages that work, and replace the ones that do not.",
+      body: "We write ads that answer your customer’s real questions. We test them, keep the messages that work, and replace the ones that don’t.",
       a: "Ad message A",
       aText: "Price and offer first",
       b: "Ad message B",
@@ -309,7 +309,7 @@ export const en = {
     numbers: {
       label: "Clear Numbers",
       title: "We count what matters to your business",
-      body: "Before any spend, we agree on one goal, such as sales, leads, or bookings. Then we check that it is tracked correctly. If we cannot install tracking ourselves, we tell you what we can and cannot see.",
+      body: "Before any spend, we agree on one goal, such as sales, leads, or bookings. Then we check that it is tracked correctly. If we can’t install tracking ourselves, we tell you what we can and can’t see.",
       chips: [
         ["Goal", "Leads"],
         ["1", "Check the tracking"],
@@ -320,8 +320,8 @@ export const en = {
     },
     reports: {
       label: "Honest Reports",
-      title: "We tell you when it is not working",
-      body: "Our regular 360 review looks at your ads, tracking, website, content, and budget together. When something does not work, we tell you early and show you what we will change.",
+      title: "We tell you when it isn’t working",
+      body: "Our regular 360 review looks at your ads, tracking, website, content, and budget together. When something doesn’t work, we tell you early and show you what we will change.",
       now: "Now",
       nowText: "Result is below target",
       next: "Next",
@@ -351,13 +351,13 @@ export const en = {
   faq: {
     eyebrow: "FAQ",
     title: "Questions clients *ask us*",
-    lede: "Cannot find your answer?",
+    lede: "Can’t find your answer?",
     ledeLink: "Message us on WhatsApp.",
     items: [
       {
         q: "What does “fully managed” include?",
         a: [
-          "For Google Ads, we plan, build, and run your campaigns every day. We find the right people, choose the right time, and write and test the right message. Before any spend, we check your tracking. We review your results regularly and make changes early when something does not work.",
+          "For Google Ads, we plan, build, and run your campaigns every day. We find the right people, choose the right time, and write and test the right message. Before any spend, we check your tracking. We review your results regularly and make changes early when something doesn’t work.",
         ],
       },
       {
@@ -386,15 +386,15 @@ export const en = {
         ],
       },
       {
-        q: "What happens if the results are not good?",
+        q: "What happens if the results aren’t good?",
         a: ["We tell you clearly and early. We explain what we think went wrong, and we show you what we will change."],
       },
     ],
   },
 
   cta: {
-    title: "Focus on your business.",
-    titleEm: "Let us handle the marketing.",
+    title: "Let’s find your next customers.",
+    titleEm: "Start with a short call.",
     servicesTitle: "Not sure which service you need?",
     servicesTitleEm: "Tell us your goal. We’ll suggest a plan.",
   },
@@ -432,8 +432,8 @@ export const en = {
     sent: "Thank you, {name}. We’ll be in touch within 24–48 hours.",
     failed: "We couldn’t send your message. Please try again, or email us at admin@blissdigital.id.",
     eta: "We’ll be in touch within 24–48 hours.",
-    privacyA: "Your information will be used solely to follow up on your inquiry.",
-    privacyB: "For more details, please refer to our",
+    privacyA: "We only use your details to reply to you.",
+    privacyB: "See our",
     privacyLink: "Privacy Policy",
   },
 
@@ -443,15 +443,15 @@ export const en = {
     lede: "We started small and grew alongside the brands we work with. Today we run Google Ads, websites and social media for businesses across Indonesia.",
     storyEyebrow: "Our Story",
     storyText:
-      "Most business owners don’t have time to learn ad platforms, read dashboards and rewrite their website. Bliss Digital does that work for them, every day, and explains the results in plain words. The agency is a Google Partner based in South Jakarta and works with businesses across Indonesia: hotels, clinics, food brands, retailers and manufacturers. Most clients have one location, and the same small team stays close to each account, from the first call to every regular review.",
+      "Most business owners don’t have time to learn ad platforms, read dashboards and rewrite their website. Bliss Digital does that work for them, every day, and explains the results in plain words. The agency is a Google Partner based in South Jakarta and works with businesses across Indonesia: hotels, clinics, food brands, retailers and manufacturers. Each client works with the same small team the whole time.",
     mvEyebrow: "Mission and Vision",
     mvTitle: "Why we *do this*",
     mission: "Our Mission",
     missionText:
-      "Bliss Digital’s mission is to help businesses grow by doing a few things the right way, every time. Every engagement starts with one goal agreed before any spend: sales, leads or bookings. Tracking is tested with one real action before the ads go live, results are reported without jargon, and your Google Ads and Analytics accounts stay in your business’s name.",
+      "Bliss Digital’s mission is to run marketing you can check for yourself. Every engagement starts with one goal agreed before any spend: sales, leads or bookings. Tracking is tested with one real action before the ads go live, results are reported without jargon, and your Google Ads and Analytics accounts stay in your business’s name.",
     vision: "Our Vision",
     visionText:
-      "Bliss Digital’s vision is to be a trusted marketing partner for businesses across Indonesia, known for creative work held to a professional standard. The goal for every campaign, website and post is growth you can measure in sales, leads and bookings, reported in plain words so you always know what your budget is doing.",
+      "Bliss Digital’s vision is that every business we work with knows exactly what its marketing brings back. We judge every campaign, website and post by the sales, leads or bookings it produces, and we report those numbers in plain words.",
     beliefsEyebrow: "How We Work",
     beliefsTitle: "Four things we *always do*",
     beliefsLink: "See Why Clients Choose Us",
@@ -476,7 +476,7 @@ export const en = {
   servicesPage: {
     eyebrow: "Our Services",
     title: "Digital marketing, done *for you*",
-    lede: "You focus on your business. We handle the marketing, from the first plan to the daily work. Pick one service or combine them.",
+    lede: "We run Google Ads, build websites and manage social media. Pick one service or combine them. The same team handles all of it.",
     jump: { google: "Google Ads", web: "Website Creation", social: "Social Media" },
     google: {
       title: "Google Ads",
@@ -484,10 +484,13 @@ export const en = {
       button: "Ask About Google Ads",
       imageAlt: "Google search open on a laptop",
       waysTitle: "Three Ways to Work with Us",
+      // Each way: name, description, contact link, contact form key, and the
+      // heading over its checklist. The checklists for Consultation and
+      // Training come from services.google.tabs.
       ways: [
-        ["Fully Managed", "We plan, build and run your campaigns every day. Monthly subscription.", "Ask About Full Management", "google-ads"],
-        ["Consultation", "You run Google Ads yourself and want an expert review. You get a written action plan.", "Ask About Consultation", "consultation"],
-        ["Training", "For company teams and individuals who want to run Google Ads themselves.", "Ask About Training", "training"],
+        ["Fully Managed", "We plan, build and run your campaigns every day. Monthly subscription.", "Ask About Full Management", "google-ads", "What Full Management Includes"],
+        ["Consultation", "You run Google Ads yourself and want an expert review. You get a written action plan.", "Ask About Consultation", "consultation", "What a Consultation Includes"],
+        ["Training", "For company teams and individuals who want to run Google Ads themselves.", "Ask About Training", "training", "What Training Includes"],
       ],
       includedTitle: "What Full Management Includes",
       included: [

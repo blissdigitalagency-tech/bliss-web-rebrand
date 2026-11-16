@@ -76,21 +76,25 @@ run `npm run dev`, open `/keystatic/setup` and follow the steps.
 
 ## Logo and icons
 
-The logo mark is `public/brand/bliss-mark.svg` (the final rebrand mark). The
-navbar and footer use it directly. The favicon, app icons, iPhone
-icon and the social preview images (`public/og-en.png`, `public/og-id.png`)
-are all made from it.
+The logo mark is `public/brand/bliss-mark.svg`, from the designer's logo kit
+(`bliss-logo-kit`, updated 16 Nov 2026). The navbar, footer and the homepage
+intro (`MARK_PATH` in `src/components/icons.tsx`) use it, and so does the AI
+Readiness page (`MARK` in `src/lib/ai-readiness-page.ts`). Keep all three in
+sync.
 
-When the logo changes, replace `public/brand/bliss-mark.svg` (square, with the
-mark filling the canvas) and run:
+The favicon and app icons come straight from the kit's `web/` folder: copy
+`favicon.ico`, `icon-192.png`, `icon-512.png` and `apple-touch-icon.png` into
+`public/`, and `favicon.svg` to `public/brand/bliss-icon.svg`.
+
+The social preview images (`public/og-en.png`, `public/og-id.png`) are made
+from `tools/brand/og-en.html` and `og-id.html`. After changing the mark or
+their wording, run:
 
 ```bash
 python tools/brand/make-icons.py
 ```
 
-It needs Pillow (`pip install pillow`) and Chrome or Edge. To change the
-preview images' wording or layout, edit `tools/brand/og-en.html` and
-`og-id.html`, then run the script again.
+It needs Chrome or Edge.
 
 ## Deploying (Netlify or Vercel)
 

@@ -8,6 +8,7 @@ import type { Dictionary } from "@/i18n/en";
 import { pageMetadata } from "@/lib/seo";
 import { rich } from "@/components/Rich";
 import { Cta, Eyebrow, PageHead } from "@/components/sections";
+import { Ways, type Way } from "@/components/client";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/services">) {
   const { lang } = await params;
@@ -27,7 +28,7 @@ type Service = {
   contactKey: string;
 };
 
-function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Service; alt: boolean; waysTitle?: string; ways?: string[][] }) {
+function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Service; alt: boolean; waysTitle?: string; ways?: Way[] }) {
   const c = s.copy;
   return (
     <section className={`sd${alt ? " sd--alt" : ""}`} id={s.id} aria-labelledby={`${s.id}-title`}>
@@ -51,29 +52,18 @@ function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Se
             </figure>
           )}
 
-          {ways && (
+          {ways ? (
+            <Ways lang={lang} title={waysTitle!} ways={ways} />
+          ) : (
             <div className="sd__group" data-reveal>
-              <h3>{waysTitle}</h3>
-              <div className="ways">
-                {ways.map(([title, text, link, key], i) => (
-                  <div className={`way${i === 0 ? " way--main" : ""}`} key={key}>
-                    <b>{title}</b>
-                    <span>{text}</span>
-                    <Link href={`/${lang}/contact#service=${key}`}>{link}</Link>
-                  </div>
+              <h3>{c.includedTitle}</h3>
+              <ul className="svc__list">
+                {c.included.map((it) => (
+                  <li key={it}>{it}</li>
                 ))}
-              </div>
+              </ul>
             </div>
           )}
-
-          <div className="sd__group" data-reveal>
-            <h3>{c.includedTitle}</h3>
-            <ul className="svc__list">
-              {c.included.map((it) => (
-                <li key={it}>{it}</li>
-              ))}
-            </ul>
-          </div>
 
           <div className="sd__group" data-reveal>
             <h3>{c.tagsTitle}</h3>
@@ -94,6 +84,16 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
   if (!hasLocale(lang)) notFound();
   const t = getDictionary(lang);
   const p = t.servicesPage;
+  // The three ways to work on Google Ads. Full management lists what this page
+  // includes; Consultation and Training reuse the homepage tabs' checklists.
+  const ways: Way[] = p.google.ways.map(([title, text, link, key, includedTitle], i) => ({
+    title,
+    text,
+    link,
+    key,
+    includedTitle,
+    items: i === 0 ? p.google.included : t.services.google.tabs[i].items,
+  }));
 
   const services: Service[] = [
     // Not "google-ads": ad blockers hide elements with that id, so the whole
@@ -132,7 +132,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
           s={s}
           alt={i % 2 === 1}
           waysTitle={i === 0 ? p.google.waysTitle : undefined}
-          ways={i === 0 ? p.google.ways : undefined}
+          ways={i === 0 ? ways : undefined}
         />
       ))}
 

@@ -1,39 +1,25 @@
-"""Rebuild every icon and social preview image from the logo mark.
+"""Rebuild the social preview images (public/og-en.png, og-id.png) from
+og-en.html and og-id.html, which show public/brand/bliss-mark.svg.
 
-When the logo changes, replace public/brand/bliss-mark.svg (keep it square,
-with the mark filling the whole canvas), then run from the project folder:
+The favicon and app icons are not made here. They come straight from the
+designer's logo kit (bliss-logo-kit/web): copy favicon.ico, icon-192.png,
+icon-512.png and apple-touch-icon.png into public/, and favicon.svg to
+public/brand/bliss-icon.svg.
+
+Run from the project folder:
 
     python tools/brand/make-icons.py
 
-It writes:
-    public/brand/bliss-icon.svg   rounded cream tile with the mark (SVG favicon)
-    public/favicon.ico            16, 32 and 48 px
-    public/icon-192.png           Android and PWA
-    public/icon-512.png           Android, PWA and Google's business logo
-    public/apple-touch-icon.png   iPhone home screen (square; iOS rounds it)
-    public/og-en.png, og-id.png   social preview images (from og-en.html, og-id.html)
-
-Needs Python with Pillow (pip install pillow) and Google Chrome or Microsoft
-Edge, which draws the SVG and the preview pages. Set CHROME to its path if it
-is not in the usual place.
+Needs Google Chrome or Microsoft Edge, which draws the preview pages. Set
+CHROME to its path if it is not in the usual place.
 """
 import os
-import re
 import shutil
 import subprocess
-import tempfile
 from pathlib import Path
 
-from PIL import Image
-
 ROOT = Path(__file__).resolve().parents[2]
-BRAND = ROOT / "public" / "brand"
 HERE = Path(__file__).resolve().parent
-
-# Tile look, measured from the designer's bliss-icon.png
-TILE_COLOR = "#F6F4F0"
-CORNER = 0.286  # corner radius as a share of the width
-MARK = 0.5625  # mark size as a share of the width, centred
 
 
 def chrome() -> str:
@@ -62,51 +48,11 @@ def screenshot(html: Path, out: Path, width: int, height: int, transparent: bool
     subprocess.run(args, check=True, capture_output=True)
 
 
-def tile_svg(radius: float) -> str:
-    mark = (BRAND / "bliss-mark.svg").read_text(encoding="utf8")
-    view = re.search(r'viewBox="([\d.\s]+)"', mark).group(1).split()
-    size = float(view[2])
-    inner = re.search(r"<svg[^>]*>(.*)</svg>", mark, re.S).group(1).strip()
-    offset = size * (1 - MARK) / 2
-    return (
-        f'<svg width="{size:g}" height="{size:g}" viewBox="0 0 {size:g} {size:g}" fill="none" xmlns="http://www.w3.org/2000/svg">\n'
-        f'<rect width="{size:g}" height="{size:g}" rx="{round(size * radius)}" fill="{TILE_COLOR}"/>\n'
-        f'<g transform="translate({offset:g} {offset:g}) scale({MARK})">\n{inner}\n</g>\n</svg>\n'
-    )
-
-
-def render_svg(svg: str, tmp: Path, name: str) -> Image.Image:
-    (tmp / f"{name}.svg").write_text(svg, encoding="utf8")
-    html = tmp / f"{name}.html"
-    html.write_text(
-        f'<!doctype html><body style="margin:0;background:transparent">'
-        f'<img src="{name}.svg" width="1024" height="1024" style="display:block"></body>',
-        encoding="utf8",
-    )
-    png = tmp / f"{name}.png"
-    screenshot(html, png, 1024, 1024, transparent=True)
-    return Image.open(png).convert("RGBA")
-
-
 def main() -> None:
-    rounded_svg = tile_svg(CORNER)
-    (BRAND / "bliss-icon.svg").write_text(rounded_svg, encoding="utf8")
-
-    with tempfile.TemporaryDirectory() as t:
-        tmp = Path(t)
-        rounded = render_svg(rounded_svg, tmp, "rounded")
-        square = render_svg(tile_svg(0), tmp, "square").convert("RGB")
-
     public = ROOT / "public"
-    rounded.resize((192, 192), Image.LANCZOS).save(public / "icon-192.png", optimize=True)
-    rounded.resize((512, 512), Image.LANCZOS).save(public / "icon-512.png", optimize=True)
-    square.resize((180, 180), Image.LANCZOS).save(public / "apple-touch-icon.png", optimize=True)
-    rounded.save(public / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
-
     for lang in ("en", "id"):
         screenshot(HERE / f"og-{lang}.html", public / f"og-{lang}.png", 1200, 630)
-
-    print("Icons and preview images updated in public/.")
+    print("Preview images updated in public/.")
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ const ASK_FIRST = process.env.NEXT_PUBLIC_COOKIE_BANNER === "on";
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 const MARK = (id: string) =>
-  `<svg viewBox="0 0 676 676" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="676" y2="676" gradientUnits="userSpaceOnUse"><stop stop-color="#70020F"/><stop offset="1" stop-color="#430719"/></linearGradient></defs><path fill="url(#${id})" d="M169 0C262.336 0 338 75.664 338 169V676C293.615 676 249.666 667.255 208.659 650.271C167.651 633.284 130.376 608.396 98.99 577.01C67.604 545.624 42.716 508.349 25.73 467.341C8.745 426.334 0 382.385 0 338V169C0 75.664 75.664 0 169 0ZM507 338C600.336 338 676 413.664 676 507C676 600.336 600.336 676 507 676C413.664 676 338 600.336 338 507C338 413.664 413.664 338 507 338Z"/></svg>`;
+  `<svg viewBox="0 0 676 676" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="676" y2="676" gradientUnits="userSpaceOnUse"><stop stop-color="#70020F"/><stop offset="1" stop-color="#430719"/></linearGradient></defs><path fill="url(#${id})" d="M10.14 169A169 169 0 0 1 348.14 169V676A338 338 0 0 1 10.14 338ZM327.86 507A169 169 0 1 1 665.86 507A169 169 0 1 1 327.86 507Z"/></svg>`;
 const CHEVRON = `<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5 6 7.5l3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 function header(lang: Locale) {
