@@ -462,8 +462,8 @@ export const en = {
 
   aboutPage: {
     eyebrow: "About Us",
-    title: "A small team that *stays close*",
-    lede: "We started small and grew alongside the brands we work with. Today we run Google Ads, websites and social media for businesses across Indonesia.",
+    title: "You own it. *We run it like it’s ours.*",
+    lede: "Bliss Digital is a Google Partner agency in Jakarta. We take the same responsibility for your accounts as we would for our own. Your accounts stay in your name, and you can log in at any time. We do the work, and you always know what we’re doing and the reason behind it.",
     storyEyebrow: "Our Story",
     storyText:
       "Most business owners don’t have time to learn ad platforms, read dashboards and rewrite their website. Bliss Digital does that work for them, every day, and explains the results in plain words. The agency is a Google Partner based in South Jakarta and works with businesses across Indonesia: hotels, clinics, food brands, retailers and manufacturers. Each client works with the same small team the whole time.",

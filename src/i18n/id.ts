@@ -448,8 +448,8 @@ export const id: Dictionary = {
 
   aboutPage: {
     eyebrow: "Tentang Kami",
-    title: "Tim kecil yang *selalu dekat*",
-    lede: "Kami memulai dari kecil dan tumbuh bersama brand yang kami tangani. Kini kami menjalankan Google Ads, website, dan media sosial untuk bisnis di seluruh Indonesia.",
+    title: "Milik Anda. *Kami jalankan seperti milik sendiri.*",
+    lede: "Bliss Digital adalah agensi Google Partner di Jakarta. Kami bertanggung jawab atas akun Anda seperti akun kami sendiri. Akun tetap atas nama Anda, dan Anda bisa login kapan saja. Kami yang mengerjakan, dan Anda selalu tahu apa yang kami lakukan dan alasannya.",
     storyEyebrow: "Cerita Kami",
     storyText:
       "Kebanyakan pemilik bisnis tidak punya waktu untuk mempelajari platform iklan, membaca dashboard, dan menulis ulang website. Bliss Digital mengerjakannya untuk mereka, setiap hari, dan menjelaskan hasilnya dengan bahasa yang sederhana. Agensi ini adalah Google Partner yang berbasis di Jakarta Selatan dan bekerja dengan bisnis di seluruh Indonesia: hotel, klinik, brand makanan, ritel, dan manufaktur. Setiap klien bekerja dengan tim kecil yang sama sepanjang kerja sama.",
