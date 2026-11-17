@@ -31,7 +31,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
 
       <AboutBlock lang={lang} t={t.about} common={t.common} id="story" eyebrow={a.storyEyebrow} extra={a.storyText} />
 
-      {/* Mission and vision: copy from the current blissdigital.id site */}
+      {/* Vision, then mission: the usual order in Indonesia (visi dan misi) */}
       <section className="block block--card" aria-labelledby="mv-title">
         <div className="block__inner">
           <header className="block__head block__head--center">
@@ -44,12 +44,12 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
           </header>
           <div className="mv">
             <article className="mv__card" data-reveal>
-              <h3 className="mv__label">{a.mission}</h3>
-              <p className="mv__text">{a.missionText}</p>
-            </article>
-            <article className="mv__card" data-reveal style={delay(110)}>
               <h3 className="mv__label">{a.vision}</h3>
               <p className="mv__text">{a.visionText}</p>
+            </article>
+            <article className="mv__card" data-reveal style={delay(110)}>
+              <h3 className="mv__label">{a.mission}</h3>
+              <p className="mv__text">{a.missionText}</p>
             </article>
           </div>
         </div>

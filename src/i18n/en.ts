@@ -467,7 +467,7 @@ export const en = {
     storyEyebrow: "Our Story",
     storyText:
       "Most business owners don’t have time to learn ad platforms, read dashboards and rewrite their website. Bliss Digital does that work for them, every day, and explains the results in plain words. The agency is a Google Partner based in South Jakarta and works with businesses across Indonesia: hotels, clinics, food brands, retailers and manufacturers. Each client works with the same small team the whole time.",
-    mvEyebrow: "Mission and Vision",
+    mvEyebrow: "Vision and Mission",
     mvTitle: "Why we *do this*",
     mission: "Our Mission",
     missionText:

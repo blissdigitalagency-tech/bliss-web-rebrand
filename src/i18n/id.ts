@@ -453,7 +453,7 @@ export const id: Dictionary = {
     storyEyebrow: "Cerita Kami",
     storyText:
       "Kebanyakan pemilik bisnis tidak punya waktu untuk mempelajari platform iklan, membaca dashboard, dan menulis ulang website. Bliss Digital mengerjakannya untuk mereka, setiap hari, dan menjelaskan hasilnya dengan bahasa yang sederhana. Agensi ini adalah Google Partner yang berbasis di Jakarta Selatan dan bekerja dengan bisnis di seluruh Indonesia: hotel, klinik, brand makanan, ritel, dan manufaktur. Setiap klien bekerja dengan tim kecil yang sama sepanjang kerja sama.",
-    mvEyebrow: "Misi dan Visi",
+    mvEyebrow: "Visi dan Misi",
     mvTitle: "Mengapa kami *melakukan ini*",
     mission: "Misi Kami",
     missionText:
