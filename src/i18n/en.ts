@@ -722,7 +722,7 @@ export const en = {
     },
     // Link to this page from the Services overview and the homepage card
     more: "See the full Google Ads service",
-    cta: { title: "Let’s look at your Google Ads.", titleEm: "We’ll check the tracking first." },
+    cta: { title: "Spending on Google Ads?", titleEm: "Let’s make it count." },
   },
 
   // Website service page (/services/website). The long intro, the checklist,
@@ -792,7 +792,7 @@ export const en = {
       ],
     },
     more: "See the full website service",
-    cta: { title: "Let’s plan your new website.", titleEm: "Tell us what visitors should do." },
+    cta: { title: "No website yet, or one nobody visits?", titleEm: "Let’s talk." },
   },
 
   // Social media service page (/services/social-media). The long intro, the
@@ -850,7 +850,7 @@ export const en = {
       ],
     },
     more: "See the full social media service",
-    cta: { title: "Let’s plan your next month of posts.", titleEm: "Send us your Instagram or TikTok." },
+    cta: { title: "Accounts gone quiet?", titleEm: "Let’s get them posting again." },
   },
 
   // Free ROAS Calculator (/tools/roas-calculator): the standard formula only.

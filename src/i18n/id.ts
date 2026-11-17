@@ -700,7 +700,7 @@ export const id: Dictionary = {
       ],
     },
     more: "Lihat layanan Google Ads lengkap",
-    cta: { title: "Mari lihat Google Ads Anda.", titleEm: "Kami cek tracking-nya dulu." },
+    cta: { title: "Sudah beriklan di Google?", titleEm: "Pastikan iklan Anda tidak boncos." },
   },
 
   websitePage: {
@@ -768,7 +768,7 @@ export const id: Dictionary = {
       ],
     },
     more: "Lihat layanan website lengkap",
-    cta: { title: "Mari rencanakan website baru Anda.", titleEm: "Ceritakan apa yang harus dilakukan pengunjung." },
+    cta: { title: "Belum punya website, atau website Anda sepi?", titleEm: "Mari ngobrol." },
   },
 
   socialPage: {
@@ -824,7 +824,7 @@ export const id: Dictionary = {
       ],
     },
     more: "Lihat layanan media sosial lengkap",
-    cta: { title: "Mari rencanakan konten bulan depan.", titleEm: "Kirimkan akun Instagram atau TikTok Anda." },
+    cta: { title: "Akun sepi postingan?", titleEm: "Ayo aktifkan lagi." },
   },
 
   roas: {
