@@ -647,11 +647,11 @@ export const en = {
   googleAdsPage: {
     crumbs: { home: "Home", services: "Services", current: "Google Ads" },
     eyebrow: "Google Ads",
-    title: "Google Ads management in Jakarta, *run for you*",
+    title: "Google Ads management in Jakarta, *by a Google Partner*",
     lede: "Bliss Digital is a Google Partner agency in South Jakarta. We plan, build and run Google Ads campaigns for businesses across Indonesia, from hotels and clinics to food brands, retailers and manufacturers. You can hand us the whole account, ask for a one-off review, or have your own team trained.",
     howTitle: "How we run your campaigns",
     tracking: {
-      eyebrow: "Before Any Spend",
+      eyebrow: "Tracking First",
       title: "We check the tracking *before we spend*",
       lede: "Google Ads only helps when every sale, lead or booking is counted correctly. Before your budget goes live, we run the same four steps on every account.",
       steps: [
@@ -721,7 +721,7 @@ export const en = {
     },
     // Link to this page from the Services overview and the homepage card
     more: "See the full Google Ads service",
-    cta: { title: "Let’s look at your Google Ads.", titleEm: "Start with a short call." },
+    cta: { title: "Let’s look at your Google Ads.", titleEm: "We’ll check the tracking first." },
   },
 
   // Website service page (/services/website). The long intro, the checklist,
@@ -729,7 +729,7 @@ export const en = {
   websitePage: {
     crumbs: { current: "Website Creation" },
     title: "Website creation in Jakarta, *built to be found*",
-    lede: "Bliss Digital plans, writes, designs and builds websites for businesses across Indonesia. Every page is built to be found on Google and read by AI tools such as ChatGPT, Gemini and Google AI Overviews, with a clear path to WhatsApp, booking or a form.",
+    lede: "Bliss Digital plans, writes, designs and builds websites for businesses across Indonesia. Every page is built to be found on Google and read by AI tools such as ChatGPT, Gemini and Google AI Overviews.",
     howTitle: "What a new website includes",
     steps: {
       eyebrow: "How a Project Runs",
@@ -748,10 +748,9 @@ export const en = {
       title: "Found on Google *and in AI answers*",
       lede: "We build every page so Google can rank it and AI tools can read it.",
       items: [
-        "Found on Google (SEO): fast pages, a clear structure and the search words your customers type",
-        "Found in AI answers (GEO): clear answers and business details that ChatGPT, Gemini and Google AI Overviews can read",
-        "Business details marked up, so search engines know your name, address and services",
-        "A clear path from each page to WhatsApp, booking or a form",
+        "Business details marked up, so Google and AI tools know your name, address and services",
+        "Fast pages on phones, which Google takes into account when it ranks pages",
+        "Headings and short answers that AI tools can quote when someone asks about businesses like yours",
       ],
       boxTitle: "How does AI read *your website now?*",
       boxText: "Run our free AI Readiness Check on your current website. It grades how well Google AI Overviews, Gemini, ChatGPT and Meta AI can read the page, with a fix for each result.",
@@ -792,31 +791,31 @@ export const en = {
       ],
     },
     more: "See the full website service",
-    cta: { title: "Let’s plan your new website.", titleEm: "Start with a short call." },
+    cta: { title: "Let’s plan your new website.", titleEm: "Tell us what visitors should do." },
   },
 
   // Social media service page (/services/social-media). The long intro, the
   // checklist, the platforms and the button come from servicesPage.social.
   socialPage: {
     crumbs: { current: "Social Media" },
-    title: "Instagram and TikTok, *planned and posted for you*",
-    lede: "Bliss Digital runs Instagram and TikTok for businesses in Jakarta and across Indonesia. Each month we plan the content, write and design the posts, publish them, and reply to comments and messages. A monthly report shows what worked and what to post next.",
+    title: "Social media management for *Instagram and TikTok*",
+    lede: "Bliss Digital runs Instagram and TikTok for businesses in Jakarta and across Indonesia, from hotels and clinics to food brands and retailers. One team handles the whole month, and a report at the end shows what worked.",
     howTitle: "What social media management includes",
     steps: {
       eyebrow: "Every Month",
-      title: "One plan, *posted for you*",
-      lede: "The same five steps run every month, and the monthly report shows how they went.",
+      title: "The same five steps, *every month*",
+      lede: "At the end of each month, the report shows how it went.",
       items: [
         ["Plan", "A monthly content plan built around your goals and seasons.", "Monthly plan"],
         ["Write", "Captions and copy in your brand’s voice.", "Your brand’s voice"],
         ["Design", "Posts, carousels and short videos.", "Posts and videos"],
-        ["Post and reply", "We schedule and post everything, and reply to comments and messages.", "Done for you"],
+        ["Post and reply", "We schedule and post everything, and reply to comments and messages.", "Scheduled ahead"],
         ["Report", "A monthly report on reach, engagement and what to post next.", "Every month"],
       ],
     },
     report: {
       eyebrow: "Monthly Report",
-      title: "Results, explained in *plain words*",
+      title: "What the monthly report *shows*",
       lede: "Every month you see how your accounts did and what we will post next.",
       items: [
         "Reach: how many people saw your posts",
@@ -840,12 +839,6 @@ export const en = {
           a: ["Instagram and TikTok."],
         },
         {
-          q: "What do you do each month?",
-          a: [
-            "We make a content plan around your goals and seasons, write captions in your brand’s voice, design posts, carousels and short videos, schedule and post them, and reply to comments and messages.",
-          ],
-        },
-        {
           q: "Do you reply to comments and messages?",
           a: ["Yes. Replies to comments and messages are part of the monthly work."],
         },
@@ -856,7 +849,7 @@ export const en = {
       ],
     },
     more: "See the full social media service",
-    cta: { title: "Let’s plan your next month of posts.", titleEm: "Start with a short call." },
+    cta: { title: "Let’s plan your next month of posts.", titleEm: "Send us your Instagram or TikTok." },
   },
 
   // Free ROAS Calculator (/tools/roas-calculator): the standard formula only.

@@ -627,11 +627,11 @@ export const id: Dictionary = {
   googleAdsPage: {
     crumbs: { home: "Beranda", services: "Layanan", current: "Google Ads" },
     eyebrow: "Google Ads",
-    title: "Jasa Google Ads di Jakarta, *kami kelola untuk Anda*",
+    title: "Jasa Google Ads di Jakarta, *oleh Google Partner*",
     lede: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami merencanakan, membangun, dan menjalankan kampanye Google Ads untuk bisnis di seluruh Indonesia, dari hotel dan klinik hingga brand makanan, ritel, dan manufaktur. Anda bisa menyerahkan seluruh akun ke kami, meminta tinjauan sekali jalan, atau melatih tim Anda sendiri.",
     howTitle: "Cara kami menjalankan kampanye Anda",
     tracking: {
-      eyebrow: "Sebelum Iklan Tayang",
+      eyebrow: "Tracking Dulu",
       title: "Kami cek tracking *sebelum anggaran dipakai*",
       lede: "Google Ads hanya berguna jika setiap penjualan, leads, atau booking tercatat dengan benar. Sebelum anggaran Anda berjalan, kami menjalankan empat langkah yang sama di setiap akun.",
       steps: [
@@ -700,13 +700,13 @@ export const id: Dictionary = {
       ],
     },
     more: "Lihat layanan Google Ads lengkap",
-    cta: { title: "Mari lihat Google Ads Anda.", titleEm: "Mulai dengan obrolan singkat." },
+    cta: { title: "Mari lihat Google Ads Anda.", titleEm: "Kami cek tracking-nya dulu." },
   },
 
   websitePage: {
     crumbs: { current: "Pembuatan Website" },
     title: "Jasa pembuatan website, *mudah ditemukan di Google*",
-    lede: "Bliss Digital merencanakan, menulis, mendesain, dan membangun website untuk bisnis di seluruh Indonesia. Setiap halaman dibuat agar mudah ditemukan di Google dan bisa dibaca alat AI seperti ChatGPT, Gemini, dan Google AI Overviews, dengan jalur jelas ke WhatsApp, booking, atau formulir.",
+    lede: "Bliss Digital merencanakan, menulis, mendesain, dan membangun website untuk bisnis di seluruh Indonesia. Setiap halaman dibuat agar mudah ditemukan di Google dan bisa dibaca alat AI seperti ChatGPT, Gemini, dan Google AI Overviews.",
     howTitle: "Yang termasuk dalam website baru",
     steps: {
       eyebrow: "Alur Proyek",
@@ -725,10 +725,9 @@ export const id: Dictionary = {
       title: "Ditemukan di Google *dan jawaban AI*",
       lede: "Kami membangun setiap halaman agar bisa muncul di Google dan dibaca alat AI.",
       items: [
-        "Muncul di Google (SEO): halaman cepat, struktur jelas, dan kata pencarian yang diketik pelanggan Anda",
-        "Muncul di jawaban AI (GEO): jawaban jelas dan detail bisnis yang bisa dibaca ChatGPT, Gemini, dan Google AI Overviews",
-        "Detail bisnis ditandai (markup), agar mesin pencari tahu nama, alamat, dan layanan Anda",
-        "Jalur jelas dari setiap halaman ke WhatsApp, booking, atau formulir",
+        "Detail bisnis ditandai (markup), agar Google dan alat AI tahu nama, alamat, dan layanan Anda",
+        "Halaman cepat di ponsel, yang diperhitungkan Google saat menentukan peringkat",
+        "Judul dan jawaban singkat yang bisa dikutip alat AI saat orang bertanya tentang bisnis seperti Anda",
       ],
       boxTitle: "Bagaimana AI membaca *website Anda sekarang?*",
       boxText: "Coba AI Readiness Check gratis untuk website Anda saat ini. Hasilnya menilai seberapa baik Google AI Overviews, Gemini, ChatGPT, dan Meta AI bisa membaca halaman Anda, lengkap dengan cara memperbaikinya.",
@@ -769,29 +768,29 @@ export const id: Dictionary = {
       ],
     },
     more: "Lihat layanan website lengkap",
-    cta: { title: "Mari rencanakan website baru Anda.", titleEm: "Mulai dengan obrolan singkat." },
+    cta: { title: "Mari rencanakan website baru Anda.", titleEm: "Ceritakan apa yang harus dilakukan pengunjung." },
   },
 
   socialPage: {
     crumbs: { current: "Media Sosial" },
-    title: "Instagram dan TikTok, *kami rencanakan dan unggah untuk Anda*",
-    lede: "Bliss Digital mengelola Instagram dan TikTok untuk bisnis di Jakarta dan seluruh Indonesia. Setiap bulan kami merencanakan konten, menulis dan mendesain postingan, mengunggahnya, serta membalas komentar dan pesan. Laporan bulanan menunjukkan apa yang berhasil dan apa yang diunggah berikutnya.",
+    title: "Jasa kelola media sosial untuk *Instagram dan TikTok*",
+    lede: "Bliss Digital mengelola Instagram dan TikTok untuk bisnis di Jakarta dan seluruh Indonesia, dari hotel dan klinik hingga brand makanan dan ritel. Satu tim mengerjakan semuanya setiap bulan, dan laporan di akhir bulan menunjukkan apa yang berhasil.",
     howTitle: "Yang termasuk dalam manajemen media sosial",
     steps: {
       eyebrow: "Setiap Bulan",
-      title: "Satu rencana, *kami unggah untuk Anda*",
-      lede: "Lima langkah yang sama berjalan setiap bulan, dan laporan bulanan menunjukkan hasilnya.",
+      title: "Lima langkah yang sama, *setiap bulan*",
+      lede: "Di akhir setiap bulan, laporan menunjukkan hasilnya.",
       items: [
         ["Rencana", "Rencana konten bulanan sesuai tujuan dan musim bisnis Anda.", "Rencana bulanan"],
         ["Tulisan", "Caption dan copy dengan gaya bahasa brand Anda.", "Gaya bahasa brand"],
         ["Desain", "Post, carousel, dan video pendek.", "Post dan video"],
-        ["Unggah dan balas", "Kami menjadwalkan dan mengunggah semuanya, serta membalas komentar dan pesan.", "Kami kerjakan"],
+        ["Unggah dan balas", "Kami menjadwalkan dan mengunggah semuanya, serta membalas komentar dan pesan.", "Terjadwal"],
         ["Laporan", "Laporan bulanan tentang jangkauan, engagement, dan apa yang diunggah berikutnya.", "Setiap bulan"],
       ],
     },
     report: {
       eyebrow: "Laporan Bulanan",
-      title: "Hasil dijelaskan dengan *bahasa sederhana*",
+      title: "Isi *laporan bulanan*",
       lede: "Setiap bulan Anda melihat performa akun Anda dan apa yang akan kami unggah berikutnya.",
       items: [
         "Jangkauan: berapa banyak orang yang melihat postingan Anda",
@@ -815,12 +814,6 @@ export const id: Dictionary = {
           a: ["Instagram dan TikTok."],
         },
         {
-          q: "Apa saja yang Anda kerjakan setiap bulan?",
-          a: [
-            "Kami membuat rencana konten sesuai tujuan dan musim bisnis Anda, menulis caption dengan gaya bahasa brand Anda, mendesain post, carousel, dan video pendek, menjadwalkan dan mengunggahnya, serta membalas komentar dan pesan.",
-          ],
-        },
-        {
           q: "Apakah Anda membalas komentar dan pesan?",
           a: ["Ya. Membalas komentar dan pesan termasuk dalam pekerjaan bulanan."],
         },
@@ -831,7 +824,7 @@ export const id: Dictionary = {
       ],
     },
     more: "Lihat layanan media sosial lengkap",
-    cta: { title: "Mari rencanakan konten bulan depan.", titleEm: "Mulai dengan obrolan singkat." },
+    cta: { title: "Mari rencanakan konten bulan depan.", titleEm: "Kirimkan akun Instagram atau TikTok Anda." },
   },
 
   roas: {
