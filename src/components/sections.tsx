@@ -106,17 +106,21 @@ export function Hero({ lang, t, common }: { lang: Locale; t: Dictionary["hero"];
       <SectionEffects section="hero" />
       <div className="hero__content">
         <div className="hero__text">
-          <p className="hero__pill" data-intro style={d(0)}>
-            <span className="hero__pill-dot" aria-hidden="true" />
-            {t.pill}
-          </p>
-          <h1 className="hero__title" id="hero-title">
-            <span className="hero__word" data-intro style={d(60)}>
-              {t.title}
+          {/* One main heading for search engines: the pill (what we are, where)
+              and the big name, read together. It looks the same as before. */}
+          <h1 className="hero__heading" id="hero-title">
+            <span className="hero__pill" data-intro style={d(0)}>
+              <span className="hero__pill-dot" aria-hidden="true" />
+              {t.pill}
             </span>{" "}
-            <em className="hero__word" data-intro style={d(110)}>
-              {t.titleEm}
-            </em>
+            <span className="hero__title">
+              <span className="hero__word" data-intro style={d(60)}>
+                {t.title}
+              </span>{" "}
+              <em className="hero__word" data-intro style={d(110)}>
+                {t.titleEm}
+              </em>
+            </span>
           </h1>
           <p className="hero__lede" data-intro style={d(180)}>
             {t.lede}
@@ -445,7 +449,8 @@ function Checklist({ items }: { items: string[] }) {
   );
 }
 
-export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["services"] }) {
+// more: the links to each service's own page, under the card's subtitle
+export function ServicesStack({ lang, t, more }: { lang: Locale; t: Dictionary["services"]; more: { google: string; web: string; social: string } }) {
   const g = t.google;
   const contact = (service: string) => `/${lang}/contact#service=${service}`;
   const solo = (key: "web" | "social", icon: string, service: string, i: number) => {
@@ -460,6 +465,9 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
             <div>
               <h3 className="svc__title">{s.title}</h3>
               <p className="svc__sub">{s.sub}</p>
+              <Link className="svc-more" href={`/${lang}/services/${key === "web" ? "website" : "social-media"}`}>
+                {more[key]} <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
           <div className="svc__panel svc__panel--solo">
@@ -508,6 +516,9 @@ export function ServicesStack({ lang, t }: { lang: Locale; t: Dictionary["servic
                   <div>
                     <h3 className="svc__title">{g.title}</h3>
                     <p className="svc__sub">{g.sub}</p>
+                    <Link className="svc-more" href={`/${lang}/services/google-ads`}>
+                      {more.google} <span aria-hidden="true">→</span>
+                    </Link>
                   </div>
                 </div>
                 <div className="svc__tabs has-pill" role="tablist" aria-label={g.tabsLabel}>

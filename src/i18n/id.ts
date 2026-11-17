@@ -7,9 +7,9 @@ export const id: Dictionary = {
   meta: {
     siteName: "Bliss Digital",
     home: {
-      title: "Bliss Digital | Agensi Digital Marketing, Google Partner Indonesia",
+      title: "Agensi Digital Marketing Jakarta, Google Partner | Bliss Digital",
       description:
-        "Anda fokus menjalankan bisnis. Kami pastikan bisnis Anda menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat. Google Ads dan website, kami jalankan untuk Anda.",
+        "Agensi Google Partner di Jakarta Selatan. Kami jalankan Google Ads, buat website, dan kelola media sosial, serta cek tracking sebelum iklan tayang.",
     },
     about: {
       title: "Tentang Kami",
@@ -17,9 +17,9 @@ export const id: Dictionary = {
         "Bliss Digital adalah agensi pemasaran Google Partner di Jakarta Selatan. Kami menjalankan Google Ads dan website untuk bisnis yang ingin fokus pada pekerjaannya.",
     },
     services: {
-      title: "Layanan",
+      title: "Layanan Digital Marketing Jakarta",
       description:
-        "Google Ads, pembuatan website, dan manajemen media sosial, direncanakan dan dijalankan untuk Anda oleh Bliss Digital di Jakarta.",
+        "Jasa Google Ads (kelola penuh, konsultasi, pelatihan), pembuatan website, dan manajemen media sosial di Jakarta. Satu tim, akun iklan tetap atas nama Anda.",
     },
     cases: {
       title: "Studi Kasus",
@@ -37,6 +37,21 @@ export const id: Dictionary = {
       title: "Kebijakan Privasi",
       description: "Bagaimana Bliss Digital mengumpulkan, menggunakan, dan melindungi informasi yang Anda bagikan kepada kami.",
     },
+    googleAds: {
+      title: "Jasa Google Ads Jakarta, Google Partner",
+      description:
+        "Agensi Google Partner di Jakarta. Kami jalankan Google Ads Anda, cek tracking sebelum iklan tayang, dan laporkan hasil dengan bahasa sederhana.",
+    },
+    website: {
+      title: "Jasa Pembuatan Website Jakarta",
+      description:
+        "Jasa pembuatan website di Jakarta. Kami rencanakan, tulis, desain, dan bangun website yang mudah ditemukan di Google dan bisa dibaca AI seperti ChatGPT.",
+    },
+    social: {
+      title: "Jasa Social Media Management Jakarta",
+      description:
+        "Jasa kelola Instagram dan TikTok di Jakarta: rencana konten bulanan, caption, desain, posting, balas komentar, dan laporan bulanan.",
+    },
     roas: {
       title: "Kalkulator ROAS Gratis untuk Iklan Google dan Meta",
       description:
@@ -51,6 +66,12 @@ export const id: Dictionary = {
     cases: "Studi Kasus",
     blog: "Blog",
     tools: "Tools",
+    serviceList: [
+      { href: "/id/services", name: "Semua Layanan" },
+      { href: "/id/services/google-ads", name: "Google Ads" },
+      { href: "/id/services/website", name: "Pembuatan Website" },
+      { href: "/id/services/social-media", name: "Media Sosial" },
+    ],
     toolList: [
       { href: "/id/tools/ai-readiness", name: "AI Readiness Check", note: "Cek apakah AI bisa membaca website Anda. Gratis." },
       { href: "/id/tools/roas-calculator", name: "ROAS Calculator", note: "Apakah iklan Anda sudah balik modal? Kalkulator gratis." },
@@ -109,7 +130,7 @@ export const id: Dictionary = {
   },
 
   hero: {
-    pill: "Agensi Digital Marketing",
+    pill: "Agensi Digital Marketing di Jakarta",
     title: "Bliss",
     titleEm: "Digital",
     lede: "Anda fokus menjalankan bisnis. Kami pastikan bisnis Anda menjangkau orang yang tepat, di waktu yang tepat, dengan pesan yang tepat.",
@@ -463,7 +484,7 @@ export const id: Dictionary = {
 
   servicesPage: {
     eyebrow: "Layanan Kami",
-    title: "Digital marketing, kami *jalankan untuk Anda*",
+    title: "Jasa Google Ads, website, dan media sosial, *kami jalankan untuk Anda*",
     lede: "Kami menjalankan Google Ads, membuat website, dan mengelola media sosial. Pilih satu layanan atau gabungkan beberapa. Tim yang sama mengerjakan semuanya.",
     jump: { google: "Google Ads", web: "Pembuatan Website", social: "Media Sosial" },
     google: {
@@ -601,6 +622,216 @@ export const id: Dictionary = {
         p: ["Jika kami mengubah kebijakan ini, kami akan memperbarui tanggal di bagian atas halaman ini."],
       },
     ],
+  },
+
+  googleAdsPage: {
+    crumbs: { home: "Beranda", services: "Layanan", current: "Google Ads" },
+    eyebrow: "Google Ads",
+    title: "Jasa Google Ads di Jakarta, *kami kelola untuk Anda*",
+    lede: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami merencanakan, membangun, dan menjalankan kampanye Google Ads untuk bisnis di seluruh Indonesia, dari hotel dan klinik hingga brand makanan, ritel, dan manufaktur. Anda bisa menyerahkan seluruh akun ke kami, meminta tinjauan sekali jalan, atau melatih tim Anda sendiri.",
+    howTitle: "Cara kami menjalankan kampanye Anda",
+    tracking: {
+      eyebrow: "Sebelum Iklan Tayang",
+      title: "Kami cek tracking *sebelum anggaran dipakai*",
+      lede: "Google Ads hanya berguna jika setiap penjualan, leads, atau booking tercatat dengan benar. Sebelum anggaran Anda berjalan, kami menjalankan empat langkah yang sama di setiap akun.",
+      steps: [
+        ["Sepakati satu tujuan", "Penjualan, leads, atau booking. Setiap keputusan berikutnya diukur dengan tujuan ini.", "Sebelum setup"],
+        ["Cek tracking", "Kami pastikan tujuan tercatat di Google Ads dan GA4. Jika kami tidak bisa memasang tracking sendiri, kami jelaskan apa yang bisa dan tidak bisa kami lihat.", "Google Ads dan GA4"],
+        ["Uji satu aksi nyata", "Kami kirim satu form, telepon, atau booking sungguhan dan cek apakah tercatat.", "Satu uji, dari awal sampai akhir"],
+        ["Nyalakan iklan", "Baru setelah itu anggaran mulai berjalan. Sejak tayang, kami cek bid, kata kunci, dan iklan setiap hari.", "Dicek setiap hari"],
+      ],
+    },
+    review: {
+      eyebrow: "Tinjauan 360 Rutin",
+      title: "Hasil dijelaskan dengan *bahasa sederhana*",
+      lede: "Secara rutin, kami membahas akun Anda bersama Anda: iklannya, dan semua hal yang menentukan apakah satu klik menjadi pelanggan.",
+      items: [
+        "Iklan: pencarian, kata kunci, dan pesan mana yang menghasilkan",
+        "Tracking: apakah setiap hasil masih tercatat dengan benar",
+        "Website: apakah pengunjung bisa menelepon, chat, atau booking dengan mudah",
+        "Konten: penawaran dan pesan mana yang diuji berikutnya",
+        "Anggaran: di mana menambah, dan di mana berhenti",
+      ],
+      note: "Jika ada yang tidak berjalan, kami sampaikan lebih awal dan tunjukkan apa yang akan kami ubah.",
+    },
+    ownership: {
+      title: "Akun Anda tetap *milik Anda*",
+      text: "Akun Google Ads dan Google Analytics dibuat atas nama bisnis Anda. Anda membayar biaya iklan langsung ke Google, dan bisa login kapan saja. Jika berhenti bekerja sama, akun beserta riwayat dan datanya tetap di tangan Anda.",
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Pertanyaan seputar *Google Ads*",
+      items: [
+        {
+          q: "Berapa biaya jasa Google Ads?",
+          a: [
+            "Biaya jasa kami tergantung cara kerja sama yang Anda pilih dan ukuran akunnya. Anggaran iklan terpisah, dan Anda bayar langsung ke Google.",
+            "Harga lengkap kami cantumkan di proposal tertulis sebelum Anda memutuskan.",
+          ],
+        },
+        {
+          q: "Apakah akun Google Ads atas nama saya?",
+          a: ["Ya. Akun Google Ads dan Analytics atas nama bisnis Anda. Anda membayar biaya iklan langsung ke Google dan bisa login kapan saja."],
+        },
+        {
+          q: "Apakah Bliss Digital Google Partner?",
+          a: ["Ya. Bliss Digital adalah agensi Google Partner yang berbasis di Jakarta Selatan."],
+        },
+        {
+          q: "Pilih kelola penuh, konsultasi, atau pelatihan?",
+          a: [
+            "Pilih kelola penuh jika Anda ingin kami menjalankan kampanye setiap hari. Pilih konsultasi jika tim Anda menjalankan Google Ads sendiri dan ingin tinjauan ahli dengan rencana aksi tertulis. Pilih pelatihan jika Anda atau tim Anda ingin belajar menjalankan Google Ads sendiri.",
+          ],
+        },
+        {
+          q: "Jenis kampanye apa saja yang Anda jalankan?",
+          a: ["Search, Performance Max, Display, Demand Gen, YouTube, serta Local dan Maps. Kami pilih kombinasi yang sesuai dengan tujuan dan anggaran Anda."],
+        },
+        {
+          q: "Bagaimana hasilnya dilaporkan?",
+          a: [
+            "Kami sepakati satu tujuan dulu, misalnya penjualan, leads, atau booking. Lalu kami jalankan tinjauan 360 rutin atas iklan, tracking, website, konten, dan anggaran Anda, dan menjelaskan hasilnya dengan bahasa sederhana.",
+          ],
+        },
+        {
+          q: "Berapa banyak waktu saya yang dibutuhkan?",
+          a: ["Sangat sedikit. Setelah panggilan pertama dan penyiapan, kami menangani pekerjaan harian. Kami butuh Anda untuk tinjauan rutin dan untuk menyetujui promo atau pesan iklan baru."],
+        },
+      ],
+    },
+    more: "Lihat layanan Google Ads lengkap",
+    cta: { title: "Mari lihat Google Ads Anda.", titleEm: "Mulai dengan obrolan singkat." },
+  },
+
+  websitePage: {
+    crumbs: { current: "Pembuatan Website" },
+    title: "Jasa pembuatan website, *mudah ditemukan di Google*",
+    lede: "Bliss Digital merencanakan, menulis, mendesain, dan membangun website untuk bisnis di seluruh Indonesia. Setiap halaman dibuat agar mudah ditemukan di Google dan bisa dibaca alat AI seperti ChatGPT, Gemini, dan Google AI Overviews, dengan jalur jelas ke WhatsApp, booking, atau formulir.",
+    howTitle: "Yang termasuk dalam website baru",
+    steps: {
+      eyebrow: "Alur Proyek",
+      title: "Dari rencana hingga tayang, *setiap halaman diuji*",
+      lede: "Kami mengerjakan setiap langkahnya, dan setiap halaman diuji di ponsel dan komputer sebelum website tayang.",
+      items: [
+        ["Rencana", "Kami sepakati untuk siapa website ini dan apa yang harus dilakukan pengunjung: menelepon, chat WhatsApp, booking, atau mengisi formulir.", "Sebelum desain"],
+        ["Tulisan", "Kami menulis setiap halaman dengan bahasa sederhana, memakai kata pencarian yang diketik pelanggan Anda.", "SEO dan GEO"],
+        ["Desain", "Kami mendesain setiap halaman untuk ponsel dan komputer.", "Ponsel dan desktop"],
+        ["Pembuatan", "Kami membangun halaman yang cepat dengan struktur jelas yang bisa dibaca Google dan alat AI.", "Halaman cepat"],
+        ["Uji dan tayang", "Setiap halaman diuji di ponsel dan komputer. GA4 dan tracking konversi aktif bersamaan dengan website.", "Tercatat sejak hari pertama"],
+      ],
+    },
+    found: {
+      eyebrow: "SEO dan GEO",
+      title: "Ditemukan di Google *dan jawaban AI*",
+      lede: "Kami membangun setiap halaman agar bisa muncul di Google dan dibaca alat AI.",
+      items: [
+        "Muncul di Google (SEO): halaman cepat, struktur jelas, dan kata pencarian yang diketik pelanggan Anda",
+        "Muncul di jawaban AI (GEO): jawaban jelas dan detail bisnis yang bisa dibaca ChatGPT, Gemini, dan Google AI Overviews",
+        "Detail bisnis ditandai (markup), agar mesin pencari tahu nama, alamat, dan layanan Anda",
+        "Jalur jelas dari setiap halaman ke WhatsApp, booking, atau formulir",
+      ],
+      boxTitle: "Bagaimana AI membaca *website Anda sekarang?*",
+      boxText: "Coba AI Readiness Check gratis untuk website Anda saat ini. Hasilnya menilai seberapa baik Google AI Overviews, Gemini, ChatGPT, dan Meta AI bisa membaca halaman Anda, lengkap dengan cara memperbaikinya.",
+      boxLink: "Coba cek gratis",
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Pertanyaan seputar *website*",
+      items: [
+        {
+          q: "Berapa biaya pembuatan website?",
+          a: ["Harganya tergantung jumlah halaman dan fungsi yang dibutuhkan website Anda. Harga lengkap kami cantumkan di proposal tertulis sebelum Anda memutuskan."],
+        },
+        {
+          q: "Apa saja yang termasuk dalam website baru?",
+          a: [
+            "Perencanaan, penulisan, desain, dan pembuatan setiap halaman. Setiap halaman disiapkan agar mudah ditemukan di Google dan bisa dibaca alat AI, dengan jalur jelas ke WhatsApp, booking, atau formulir. GA4 dan tracking konversi terpasang saat peluncuran.",
+          ],
+        },
+        {
+          q: "Apakah SEO sudah termasuk?",
+          a: ["Ya. Setiap halaman dibuat agar mudah ditemukan di Google, dengan halaman cepat, struktur jelas, dan kata pencarian yang diketik pelanggan Anda."],
+        },
+        {
+          q: "Apakah ChatGPT dan AI Google bisa membaca website saya?",
+          a: [
+            "Kami menyiapkan setiap halaman agar ChatGPT, Gemini, dan Google AI Overviews bisa membacanya dengan jelas. Untuk melihat bagaimana AI membaca website Anda saat ini, coba AI Readiness Check gratis kami.",
+          ],
+        },
+        {
+          q: "Apakah tracking juga dipasang?",
+          a: ["Ya. GA4 dan tracking konversi dipasang saat peluncuran, jadi Anda bisa melihat pengunjung mana yang menelepon, chat, booking, atau mengisi formulir."],
+        },
+        {
+          q: "Apakah website bisa dibuka dengan baik di ponsel?",
+          a: ["Ya. Setiap halaman didesain untuk ponsel dan komputer, dan diuji di keduanya sebelum website tayang."],
+        },
+      ],
+    },
+    more: "Lihat layanan website lengkap",
+    cta: { title: "Mari rencanakan website baru Anda.", titleEm: "Mulai dengan obrolan singkat." },
+  },
+
+  socialPage: {
+    crumbs: { current: "Media Sosial" },
+    title: "Instagram dan TikTok, *kami rencanakan dan unggah untuk Anda*",
+    lede: "Bliss Digital mengelola Instagram dan TikTok untuk bisnis di Jakarta dan seluruh Indonesia. Setiap bulan kami merencanakan konten, menulis dan mendesain postingan, mengunggahnya, serta membalas komentar dan pesan. Laporan bulanan menunjukkan apa yang berhasil dan apa yang diunggah berikutnya.",
+    howTitle: "Yang termasuk dalam manajemen media sosial",
+    steps: {
+      eyebrow: "Setiap Bulan",
+      title: "Satu rencana, *kami unggah untuk Anda*",
+      lede: "Lima langkah yang sama berjalan setiap bulan, dan laporan bulanan menunjukkan hasilnya.",
+      items: [
+        ["Rencana", "Rencana konten bulanan sesuai tujuan dan musim bisnis Anda.", "Rencana bulanan"],
+        ["Tulisan", "Caption dan copy dengan gaya bahasa brand Anda.", "Gaya bahasa brand"],
+        ["Desain", "Post, carousel, dan video pendek.", "Post dan video"],
+        ["Unggah dan balas", "Kami menjadwalkan dan mengunggah semuanya, serta membalas komentar dan pesan.", "Kami kerjakan"],
+        ["Laporan", "Laporan bulanan tentang jangkauan, engagement, dan apa yang diunggah berikutnya.", "Setiap bulan"],
+      ],
+    },
+    report: {
+      eyebrow: "Laporan Bulanan",
+      title: "Hasil dijelaskan dengan *bahasa sederhana*",
+      lede: "Setiap bulan Anda melihat performa akun Anda dan apa yang akan kami unggah berikutnya.",
+      items: [
+        "Jangkauan: berapa banyak orang yang melihat postingan Anda",
+        "Engagement: like, komentar, share, dan save",
+        "Yang berhasil: postingan dan format dengan hasil terbaik",
+        "Bulan depan: apa yang diunggah berikutnya, dan alasannya",
+      ],
+      boxTitle: "Satu tim untuk *iklan, website, dan media sosial*",
+      boxText: "Tim yang mengelola media sosial Anda juga bisa menjalankan Google Ads dan membangun website Anda, jadi pesan Anda sama di mana pun pelanggan melihatnya.",
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Pertanyaan seputar *media sosial*",
+      items: [
+        {
+          q: "Berapa biaya jasa social media management?",
+          a: ["Biayanya tergantung berapa banyak konten yang Anda butuhkan setiap bulan. Harga lengkap kami cantumkan di proposal tertulis sebelum Anda memutuskan."],
+        },
+        {
+          q: "Platform apa saja yang Anda kelola?",
+          a: ["Instagram dan TikTok."],
+        },
+        {
+          q: "Apa saja yang Anda kerjakan setiap bulan?",
+          a: [
+            "Kami membuat rencana konten sesuai tujuan dan musim bisnis Anda, menulis caption dengan gaya bahasa brand Anda, mendesain post, carousel, dan video pendek, menjadwalkan dan mengunggahnya, serta membalas komentar dan pesan.",
+          ],
+        },
+        {
+          q: "Apakah Anda membalas komentar dan pesan?",
+          a: ["Ya. Membalas komentar dan pesan termasuk dalam pekerjaan bulanan."],
+        },
+        {
+          q: "Apa isi laporan bulanannya?",
+          a: ["Jangkauan dan engagement akun Anda, postingan mana yang paling berhasil, dan apa yang diunggah berikutnya."],
+        },
+      ],
+    },
+    more: "Lihat layanan media sosial lengkap",
+    cta: { title: "Mari rencanakan konten bulan depan.", titleEm: "Mulai dengan obrolan singkat." },
   },
 
   roas: {

@@ -28,7 +28,7 @@ type Service = {
   contactKey: string;
 };
 
-function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Service; alt: boolean; waysTitle?: string; ways?: Way[] }) {
+function ServiceSection({ lang, s, alt, waysTitle, ways, more }: { lang: Locale; s: Service; alt: boolean; waysTitle?: string; ways?: Way[]; more?: { href: string; label: string } }) {
   const c = s.copy;
   return (
     <section className={`sd${alt ? " sd--alt" : ""}`} id={s.id} aria-labelledby={`${s.id}-title`}>
@@ -44,6 +44,11 @@ function ServiceSection({ lang, s, alt, waysTitle, ways }: { lang: Locale; s: Se
           <Link className="btn btn--solid" href={`/${lang}/contact#service=${s.contactKey}`} data-reveal>
             {c.button}
           </Link>
+          {more && (
+            <Link className="svc-more" href={more.href} data-reveal>
+              {more.label} <span aria-hidden="true">→</span>
+            </Link>
+          )}
         </div>
         <div className="sd__main">
           {s.image && (
@@ -102,6 +107,12 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
     { id: "website", icon: "/images/services/icon-website.svg", image: { src: "/images/services/website.jpg", alt: p.web.imageAlt }, copy: p.web, contactKey: "website" },
     { id: "social-media", icon: "/images/services/icon-social.svg", copy: p.social, contactKey: "social-media" },
   ];
+  // Each section links to the service's own page
+  const more = [
+    { href: `/${lang}/services/google-ads`, label: t.googleAdsPage.more },
+    { href: `/${lang}/services/website`, label: t.websitePage.more },
+    { href: `/${lang}/services/social-media`, label: t.socialPage.more },
+  ];
   const jump: [string, string, string][] = [
     ["google", "/images/services/logo-google-ads.png", p.jump.google],
     ["website", "/images/services/icon-website.svg", p.jump.web],
@@ -133,6 +144,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
           alt={i % 2 === 1}
           waysTitle={i === 0 ? p.google.waysTitle : undefined}
           ways={i === 0 ? ways : undefined}
+          more={more[i]}
         />
       ))}
 

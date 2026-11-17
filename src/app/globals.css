@@ -357,7 +357,16 @@ body {
   50% { opacity: 0.3; box-shadow: 0 0 4px 0 rgb(112 2 15 / 0.1); }
 }
 
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  font: inherit;
+}
+
 .hero__title {
+  display: block;
   margin: 28px 0 0;
   font-family: var(--font-display);
   font-weight: 600;
@@ -3349,7 +3358,8 @@ em.hero__word {
    ====================================================================== */
 
 /* Navbar: the page you're on */
-.nav__links a[aria-current="page"]:not(.btn) {
+.nav__links a[aria-current="page"]:not(.btn),
+.nav__tools.is-current {
   opacity: 1;
   font-weight: 600;
 }
@@ -4105,6 +4115,81 @@ button.way:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px
   .steps { grid-template-columns: 1fr; }
 }
 
+/* Four steps (Google Ads page: tracking before any spend) */
+.steps--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) {
+  .steps--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps--4 li:last-child { grid-column: auto; }
+}
+@media (max-width: 600px) {
+  .steps--4 { grid-template-columns: 1fr; }
+}
+
+/* ---------- Service pages (/services/google-ads, /website, /social-media) ---------- */
+
+/* Breadcrumb above the page title: Home / Services / Google Ads */
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--muted);
+}
+.crumbs li + li::before { content: "/"; margin-right: 10px; color: var(--line); }
+.crumbs a { color: inherit; text-underline-offset: 3px; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs [aria-current] { color: var(--ink); }
+
+/* A checklist beside a white box (account ownership, a free tool, other services) */
+.sp-split {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 40px clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+.sp-split__main { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.sp-split__main .block__lede { max-width: 560px; }
+.sp-split__note { margin: 0; font-size: 16px; line-height: 24px; color: var(--ink); }
+.sp-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: 24px;
+  background: var(--white);
+}
+.sp-box__title {
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.sp-box__title em { color: var(--accent); }
+.sp-box p { margin: 0; font-size: 16px; line-height: 24px; color: var(--muted); }
+.sp-box__links { display: flex; flex-wrap: wrap; gap: 10px; }
+.sp-box__btn { align-self: flex-start; }
+@media (max-width: 900px) {
+  .sp-split { grid-template-columns: 1fr; }
+}
+
+/* "See the full … service" links on the overview and the homepage cards */
+.svc-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ---------- Blog post body and the privacy policy ---------- */
 
 .prose {
@@ -4299,7 +4384,7 @@ button.way:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px
 
 .lang-menu__check { margin-left: auto; color: var(--accent); }
 
-/* Tools menu: a navbar item, after Blog, that opens the list of free tools.
+/* Services and Tools menus: navbar items that open a list of links.
    Flex, so the wrapper is exactly as tall as its button: as a plain block it
    took the page's line height and sat the label 1-2px below the other links.
    A column, so on phones the list opens below the button. */
@@ -4358,6 +4443,11 @@ button.way:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px
 
 .tools-menu__name { font-size: 15px; line-height: 20px; font-weight: 600; }
 .tools-menu__note { font-size: 13px; line-height: 18px; color: var(--grey); }
+
+/* The Services menu lists names only, so it can be narrower */
+@media (min-width: 901px) {
+  #services-menu { width: 220px; }
+}
 
 /* Phone menu: Tools is a row like the others, and its list opens in place */
 @media (max-width: 900px) {

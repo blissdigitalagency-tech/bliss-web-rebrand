@@ -35,6 +35,10 @@ function header(lang: Locale) {
   const tools = t.toolList
     .map((tool) => `<a href="${esc(tool.href)}"${tool.href === toolPath(lang) ? ' aria-current="page"' : ""}><span class="tmenu__name">${esc(tool.name)}</span><span class="tmenu__note">${esc(tool.note)}</span></a>`)
     .join("");
+  // The Services menu, as in the site's navbar
+  const services = t.serviceList
+    .map((s) => `<a href="${esc(s.href)}"><span class="tmenu__name">${esc(s.name)}</span></a>`)
+    .join("");
   // Language switch, as on the rest of the site (src/components/client.tsx):
   // on desktop a button with the current language that opens a short list;
   // in the phone menu a "Language" row with both languages side by side
@@ -58,7 +62,7 @@ function header(lang: Locale) {
     <nav class="navlinks" aria-label="${esc(t.main)}">
       <div class="menu" id="site-menu">
         ${link("/about", t.about)}
-        ${link("/services", t.services)}
+        <div class="tmenu"><button class="tmenu__btn" type="button" aria-expanded="false" aria-controls="services-menu">${esc(t.services)}${CHEVRON}</button><div class="tmenu__list" id="services-menu" hidden>${services}</div></div>
         ${link("/case-studies", t.cases)}
         ${link("/blog", t.blog)}
         <div class="tmenu"><button class="tmenu__btn is-current" type="button" aria-expanded="false" aria-controls="tools-menu">${esc(t.tools)}${CHEVRON}</button><div class="tmenu__list" id="tools-menu" hidden>${tools}</div></div>

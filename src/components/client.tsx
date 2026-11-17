@@ -102,7 +102,7 @@ const LANGUAGES: { code: Locale; name: string; short: string }[] = [
 ];
 
 /**
- * A button that opens a short list of links (the language and Tools menus).
+ * A button that opens a short list of links (the language, Services and Tools menus).
  * Arrow keys move through the list; Escape or a click outside closes it.
  */
 function useMenu(itemSelector: string) {
@@ -210,36 +210,48 @@ function LanguageMenu({ lang, t, hrefFor, onSwitch }: { lang: Locale; t: Diction
 }
 
 /**
- * Tools: a navbar item that opens the list of free tools. On phones it sits in
- * the menu as a row that opens the list in place. The tools are plain HTML
- * pages outside the app, so they use <a>, not <Link>.
+ * A navbar item that opens a list of links: Services and Tools. On phones it
+ * sits in the menu as a row that opens the list in place. Service pages are
+ * part of the app (<Link>); the tools are plain HTML pages outside it (<a>).
+ * `current` marks the item when you are on one of its pages.
  */
-function ToolsMenu({ t }: { t: Dictionary["nav"] }) {
-  const { open, setOpen, root, button, onButtonKey, onListKey } = useMenu(".tools-menu a");
+function NavMenu({ id, label, items, app = false, current = false }: { id: string; label: string; items: { href: string; name: string; note?: string }[]; app?: boolean; current?: boolean }) {
+  const { open, setOpen, root, button, onButtonKey, onListKey } = useMenu(`#${id} a`);
   return (
     <div className="tools" ref={root}>
       <button
         ref={button}
         type="button"
-        className="nav__tools"
+        className={`nav__tools${current ? " is-current" : ""}`}
         aria-haspopup="true"
         aria-expanded={open}
-        aria-controls="tools-menu"
+        aria-controls={id}
         onClick={() => setOpen((o) => !o)}
         onKeyDown={onButtonKey}
       >
-        {t.tools}
+        {label}
         <Chevron />
       </button>
-      <ul className="tools-menu" id="tools-menu" hidden={!open} onKeyDown={onListKey}>
-        {t.toolList.map((tool) => (
-          <li key={tool.href}>
-            <a href={tool.href}>
-              <span className="tools-menu__name">{tool.name}</span>
-              <span className="tools-menu__note">{tool.note}</span>
-            </a>
-          </li>
-        ))}
+      <ul className="tools-menu" id={id} hidden={!open} onKeyDown={onListKey}>
+        {items.map((item) => {
+          const inner = (
+            <>
+              <span className="tools-menu__name">{item.name}</span>
+              {item.note && <span className="tools-menu__note">{item.note}</span>}
+            </>
+          );
+          return (
+            <li key={item.href}>
+              {app ? (
+                <Link href={item.href} onClick={() => setOpen(false)}>
+                  {inner}
+                </Link>
+              ) : (
+                <a href={item.href}>{inner}</a>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -333,10 +345,14 @@ export function Nav({ lang, t }: { lang: Locale; t: Dictionary["nav"] }) {
         >
           {links.map(([path, label]) => (
             <Fragment key={path}>
-              <Link href={`/${lang}${path}`} aria-current={current(path) ? "page" : undefined}>
-                {label}
-              </Link>
-              {path === "/blog" && <ToolsMenu t={t} />}
+              {path === "/services" ? (
+                <NavMenu id="services-menu" label={label} items={t.serviceList} app current={current(path)} />
+              ) : (
+                <Link href={`/${lang}${path}`} aria-current={current(path) ? "page" : undefined}>
+                  {label}
+                </Link>
+              )}
+              {path === "/blog" && <NavMenu id="tools-menu" label={t.tools} items={t.toolList} />}
             </Fragment>
           ))}
           {/* Phone menu: both languages side by side, the current one filled in */}

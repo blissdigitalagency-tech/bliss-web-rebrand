@@ -9,9 +9,9 @@ export const en = {
   meta: {
     siteName: "Bliss Digital",
     home: {
-      title: "Bliss Digital | Digital Marketing Agency, Google Partner Indonesia",
+      title: "Digital Marketing Agency Jakarta, Google Partner | Bliss Digital",
       description:
-        "You focus on running your business. We make sure it reaches the right people, at the right time, with the right message. Google Ads and websites, run for you.",
+        "Google Partner agency in South Jakarta. We run Google Ads, build websites and manage social media for you, and check your tracking before any ad spend.",
     },
     about: {
       title: "About Us",
@@ -19,9 +19,9 @@ export const en = {
         "Bliss Digital is a Google Partner marketing agency in South Jakarta. We run Google Ads and websites for businesses that would rather focus on their work.",
     },
     services: {
-      title: "Services",
+      title: "Digital Marketing Services in Jakarta",
       description:
-        "Google Ads, website creation and social media management, planned and run for you by Bliss Digital in Jakarta.",
+        "Google Ads management, consultation and training, website creation and social media management in Jakarta. One team, and your ad accounts stay in your name.",
     },
     cases: {
       title: "Case Studies",
@@ -39,6 +39,21 @@ export const en = {
       title: "Privacy Policy",
       description: "How Bliss Digital collects, uses and protects the information you share with us.",
     },
+    googleAds: {
+      title: "Google Ads Agency in Jakarta, Google Partner",
+      description:
+        "Google Partner agency in Jakarta. We plan and run your Google Ads, check tracking before any spend, and report in plain words. Your account stays yours.",
+    },
+    website: {
+      title: "Website Design and Development in Jakarta",
+      description:
+        "We plan, write, design and build websites in Jakarta that Google and AI tools like ChatGPT can read, with tracking set up at launch.",
+    },
+    social: {
+      title: "Social Media Management in Jakarta",
+      description:
+        "Instagram and TikTok management in Jakarta: a monthly content plan, captions, design, posting, replies and a monthly report from Bliss Digital.",
+    },
     roas: {
       title: "Free ROAS Calculator for Google and Meta Ads",
       description:
@@ -52,6 +67,13 @@ export const en = {
     services: "Services",
     cases: "Case Studies",
     blog: "Blog",
+    // Services menu in the navbar (names only)
+    serviceList: [
+      { href: "/en/services", name: "All Services" },
+      { href: "/en/services/google-ads", name: "Google Ads" },
+      { href: "/en/services/website", name: "Website Creation" },
+      { href: "/en/services/social-media", name: "Social Media" },
+    ],
     // Free tools, in the navbar's Tools menu. Each is one English page under /tools.
     tools: "Tools",
     toolList: [
@@ -116,7 +138,8 @@ export const en = {
   },
 
   hero: {
-    pill: "Digital Marketing Agency",
+    // Part of the page's main heading (h1), so it says what we are and where
+    pill: "Digital Marketing Agency in Jakarta",
     title: "Bliss",
     titleEm: "Digital",
     lede: "You focus on running your business. We make sure it reaches the right people, at the right time, with the right message.",
@@ -475,7 +498,7 @@ export const en = {
 
   servicesPage: {
     eyebrow: "Our Services",
-    title: "Digital marketing, done *for you*",
+    title: "Google Ads, websites and social media, done *for you*",
     lede: "We run Google Ads, build websites and manage social media. Pick one service or combine them. The same team handles all of it.",
     jump: { google: "Google Ads", web: "Website Creation", social: "Social Media" },
     google: {
@@ -617,6 +640,223 @@ export const en = {
         p: ["If we change this policy, we will update the date at the top of this page."],
       },
     ] as { h: string; p: (string | string[])[] }[],
+  },
+
+  // Google Ads service page (/services/google-ads). The intro, the three ways,
+  // the campaign types and the button come from servicesPage.google.
+  googleAdsPage: {
+    crumbs: { home: "Home", services: "Services", current: "Google Ads" },
+    eyebrow: "Google Ads",
+    title: "Google Ads management in Jakarta, *run for you*",
+    lede: "Bliss Digital is a Google Partner agency in South Jakarta. We plan, build and run Google Ads campaigns for businesses across Indonesia, from hotels and clinics to food brands, retailers and manufacturers. You can hand us the whole account, ask for a one-off review, or have your own team trained.",
+    howTitle: "How we run your campaigns",
+    tracking: {
+      eyebrow: "Before Any Spend",
+      title: "We check the tracking *before we spend*",
+      lede: "Google Ads only helps when every sale, lead or booking is counted correctly. Before your budget goes live, we run the same four steps on every account.",
+      steps: [
+        ["Agree on one goal", "Sales, leads or bookings. Every later decision is measured against it.", "Before setup"],
+        ["Check the tracking", "We confirm the goal is recorded in Google Ads and GA4. If we can’t install tracking ourselves, we tell you what we can and can’t see.", "Google Ads and GA4"],
+        ["Test one real action", "We send a real form, call or booking through and check that it shows up.", "One test, end to end"],
+        ["Turn on the ads", "Only then does the budget start. From launch, we check bids, keywords and ads every day.", "Checked daily"],
+      ],
+    },
+    review: {
+      eyebrow: "Regular 360 Review",
+      title: "Results, explained in *plain words*",
+      lede: "On a regular schedule, we go through your account with you: the ads, and everything that decides whether a click becomes a customer.",
+      items: [
+        "Ads: which searches, keywords and messages brought results",
+        "Tracking: whether every result is still counted correctly",
+        "Website: whether visitors can call, chat or book easily",
+        "Content: which offers and messages to test next",
+        "Budget: where to spend more, and where to stop",
+      ],
+      note: "When something isn’t working, we tell you early and show you what we’ll change.",
+    },
+    ownership: {
+      title: "Your account stays *yours*",
+      text: "Your Google Ads and Google Analytics accounts are set up in your business’s name. You pay ad spend directly to Google, and you can log in at any time. If you stop working with us, the account, its history and its data stay with you.",
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Google Ads *questions*",
+      items: [
+        {
+          q: "How much does Google Ads management cost?",
+          a: [
+            "Our fee depends on how you work with us and the size of the account. Your ad budget is separate, and you pay it directly to Google.",
+            "You get the full price in a written proposal before you commit.",
+          ],
+        },
+        {
+          q: "Is the Google Ads account in my name?",
+          a: ["Yes. Your Google Ads and Analytics accounts are in your business’s name. You pay ad spend to Google directly and can log in at any time."],
+        },
+        {
+          q: "Is Bliss Digital a Google Partner?",
+          a: ["Yes. Bliss Digital is a Google Partner agency based in South Jakarta."],
+        },
+        {
+          q: "Should I choose full management, a consultation or training?",
+          a: [
+            "Choose full management if you want us to run your campaigns every day. Choose a consultation if your team runs Google Ads and wants an expert review with a written action plan. Choose training if you or your team want to learn to run Google Ads yourselves.",
+          ],
+        },
+        {
+          q: "Which campaign types do you run?",
+          a: ["Search, Performance Max, Display, Demand Gen, YouTube, and Local and Maps campaigns. We pick the mix that fits your goal and budget."],
+        },
+        {
+          q: "How do you report results?",
+          a: [
+            "We agree on one goal with you first, such as sales, leads or bookings. Then we run a regular 360 review of your ads, tracking, website, content and budget, and explain the results in plain words.",
+          ],
+        },
+        {
+          q: "How much of my time will this take?",
+          a: ["Very little. After the first call and the setup, we handle the daily work. We need you for the regular review and to approve new offers or ad messages."],
+        },
+      ],
+    },
+    // Link to this page from the Services overview and the homepage card
+    more: "See the full Google Ads service",
+    cta: { title: "Let’s look at your Google Ads.", titleEm: "Start with a short call." },
+  },
+
+  // Website service page (/services/website). The long intro, the checklist,
+  // the design tags, the photo and the button come from servicesPage.web.
+  websitePage: {
+    crumbs: { current: "Website Creation" },
+    title: "Website creation in Jakarta, *built to be found*",
+    lede: "Bliss Digital plans, writes, designs and builds websites for businesses across Indonesia. Every page is built to be found on Google and read by AI tools such as ChatGPT, Gemini and Google AI Overviews, with a clear path to WhatsApp, booking or a form.",
+    howTitle: "What a new website includes",
+    steps: {
+      eyebrow: "How a Project Runs",
+      title: "From plan to launch, *every page tested*",
+      lede: "We handle every step, and every page is tested on phones and computers before the website goes live.",
+      items: [
+        ["Plan", "We agree on who the website is for and what visitors should do: call, chat on WhatsApp, book or fill in a form.", "Before any design"],
+        ["Write", "We write every page in plain words, using the search words your customers type.", "SEO and GEO"],
+        ["Design", "We design each page for phones and computers.", "Phone and desktop"],
+        ["Build", "We build fast pages with a clear structure that Google and AI tools can read.", "Fast pages"],
+        ["Test and launch", "Every page is tested on phones and computers. GA4 and conversion tracking go live with the website.", "Tracked from day one"],
+      ],
+    },
+    found: {
+      eyebrow: "SEO and GEO",
+      title: "Found on Google *and in AI answers*",
+      lede: "We build every page so Google can rank it and AI tools can read it.",
+      items: [
+        "Found on Google (SEO): fast pages, a clear structure and the search words your customers type",
+        "Found in AI answers (GEO): clear answers and business details that ChatGPT, Gemini and Google AI Overviews can read",
+        "Business details marked up, so search engines know your name, address and services",
+        "A clear path from each page to WhatsApp, booking or a form",
+      ],
+      boxTitle: "How does AI read *your website now?*",
+      boxText: "Run our free AI Readiness Check on your current website. It grades how well Google AI Overviews, Gemini, ChatGPT and Meta AI can read the page, with a fix for each result.",
+      boxLink: "Run the free check",
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Website *questions*",
+      items: [
+        {
+          q: "How much does a new website cost?",
+          a: ["The price depends on the number of pages and what the website needs to do. You get the full price in a written proposal before you commit."],
+        },
+        {
+          q: "What does a new website include?",
+          a: [
+            "Planning, writing, design and build for every page. Each page is set up to be found on Google and read by AI tools, with a clear path to WhatsApp, booking or a form. GA4 and conversion tracking are set up at launch.",
+          ],
+        },
+        {
+          q: "Is SEO included?",
+          a: ["Yes. Every page is built to be found on Google, with fast pages, a clear structure and the search words your customers type."],
+        },
+        {
+          q: "Can ChatGPT and Google AI read my website?",
+          a: [
+            "We set up every page so ChatGPT, Gemini and Google AI Overviews can read it clearly. To see how AI reads your current website, run our free AI Readiness Check.",
+          ],
+        },
+        {
+          q: "Do you set up tracking?",
+          a: ["Yes. GA4 and conversion tracking are set up at launch, so you can see which visitors call, chat, book or fill in a form."],
+        },
+        {
+          q: "Will the website work on phones?",
+          a: ["Yes. Every page is designed for phones and computers, and tested on both before the website goes live."],
+        },
+      ],
+    },
+    more: "See the full website service",
+    cta: { title: "Let’s plan your new website.", titleEm: "Start with a short call." },
+  },
+
+  // Social media service page (/services/social-media). The long intro, the
+  // checklist, the platforms and the button come from servicesPage.social.
+  socialPage: {
+    crumbs: { current: "Social Media" },
+    title: "Instagram and TikTok, *planned and posted for you*",
+    lede: "Bliss Digital runs Instagram and TikTok for businesses in Jakarta and across Indonesia. Each month we plan the content, write and design the posts, publish them, and reply to comments and messages. A monthly report shows what worked and what to post next.",
+    howTitle: "What social media management includes",
+    steps: {
+      eyebrow: "Every Month",
+      title: "One plan, *posted for you*",
+      lede: "The same five steps run every month, and the monthly report shows how they went.",
+      items: [
+        ["Plan", "A monthly content plan built around your goals and seasons.", "Monthly plan"],
+        ["Write", "Captions and copy in your brand’s voice.", "Your brand’s voice"],
+        ["Design", "Posts, carousels and short videos.", "Posts and videos"],
+        ["Post and reply", "We schedule and post everything, and reply to comments and messages.", "Done for you"],
+        ["Report", "A monthly report on reach, engagement and what to post next.", "Every month"],
+      ],
+    },
+    report: {
+      eyebrow: "Monthly Report",
+      title: "Results, explained in *plain words*",
+      lede: "Every month you see how your accounts did and what we will post next.",
+      items: [
+        "Reach: how many people saw your posts",
+        "Engagement: likes, comments, shares and saves",
+        "What worked: the posts and formats that did best",
+        "Next month: what to post next, and why",
+      ],
+      boxTitle: "One team for *ads, website and social*",
+      boxText: "The team that runs your social media can also run your Google Ads and build your website, so your message is the same everywhere your customers look.",
+    },
+    faq: {
+      eyebrow: "FAQ",
+      title: "Social media *questions*",
+      items: [
+        {
+          q: "How much does social media management cost?",
+          a: ["The fee depends on how much content you need each month. You get the full price in a written proposal before you commit."],
+        },
+        {
+          q: "Which platforms do you manage?",
+          a: ["Instagram and TikTok."],
+        },
+        {
+          q: "What do you do each month?",
+          a: [
+            "We make a content plan around your goals and seasons, write captions in your brand’s voice, design posts, carousels and short videos, schedule and post them, and reply to comments and messages.",
+          ],
+        },
+        {
+          q: "Do you reply to comments and messages?",
+          a: ["Yes. Replies to comments and messages are part of the monthly work."],
+        },
+        {
+          q: "What does the monthly report show?",
+          a: ["Your reach and engagement, which posts did best, and what to post next."],
+        },
+      ],
+    },
+    more: "See the full social media service",
+    cta: { title: "Let’s plan your next month of posts.", titleEm: "Start with a short call." },
   },
 
   // Free ROAS Calculator (/tools/roas-calculator): the standard formula only.

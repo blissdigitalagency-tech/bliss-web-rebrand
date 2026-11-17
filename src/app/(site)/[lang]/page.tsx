@@ -25,7 +25,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Tagline lines={t.tagline} float={t.taglineFloat} />
       <Clients t={t.clients} logos={getClients()} />
       <AboutBlock lang={lang} t={{ ...t.about, ...t.aboutHome }} common={t.common} />
-      <ServicesStack lang={lang} t={t.services} />
+      <ServicesStack lang={lang} t={t.services} more={{ google: t.googleAdsPage.more, web: t.websitePage.more, social: t.socialPage.more }} />
       <Why t={t.why} />
       {/* Hidden while case studies are a "Coming soon" placeholder (src/lib/launch.ts) */}
       {!COMING_SOON.cases && <CasesSection lang={lang} t={t.cases} common={t.common} cases={getCaseStudies(lang)} />}

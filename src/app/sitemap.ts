@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const everywhere = (path: string) => Object.fromEntries(locales.map((l) => [l, path]));
 
   // Sections showing a "Coming soon" placeholder are left out (src/lib/launch.ts)
-  const pages = ["", "/about", "/services", ...(COMING_SOON.cases ? [] : ["/case-studies"]), ...(COMING_SOON.blog ? [] : ["/blog"]), "/contact", "/privacy"].flatMap((p) =>
+  const pages = ["", "/about", "/services", "/services/google-ads", "/services/website", "/services/social-media", ...(COMING_SOON.cases ? [] : ["/case-studies"]), ...(COMING_SOON.blog ? [] : ["/blog"]), "/contact", "/privacy"].flatMap((p) =>
     entry(everywhere(p)),
   );
 
