@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Locale } from "@/i18n/config";
 import { absolute } from "@/lib/seo";
-import { rich } from "@/components/Rich";
+import { plain, rich } from "@/components/Rich";
 import { Eyebrow } from "@/components/sections";
 import { Faq } from "@/components/client";
 
@@ -53,6 +53,7 @@ export function ServiceHow({
   lede,
   button,
   image,
+  badge,
   children,
 }: {
   id: string;
@@ -61,14 +62,18 @@ export function ServiceHow({
   lede: string;
   button: { href: string; label: string };
   image?: { src: string; alt: string };
+  /** Shown instead of the service logo (the Google Partner badge on the Google Ads page) */
+  badge?: ReactNode;
   children: ReactNode;
 }) {
   return (
     <section className="sd" aria-labelledby={id}>
       <div className="sd__inner">
         <div className="sd__side">
-          {/* eslint-disable-next-line @next/next/no-img-element -- service logos stay plain <img> */}
-          <img className="sd__icon" src={icon} width={56} height={56} alt="" data-reveal />
+          <div data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element -- service logos stay plain <img> */}
+            {badge ?? <img className="sd__icon" src={icon} width={56} height={56} alt="" />}
+          </div>
           <h2 className="sd__title" id={id} data-reveal>
             {title}
           </h2>
@@ -234,6 +239,7 @@ export function ServiceJsonLd({
       inLanguage: lang,
       areaServed: [
         { "@type": "City", name: "Jakarta" },
+        { "@type": "AdministrativeArea", name: "Bali" },
         { "@type": "Country", name: "Indonesia" },
       ],
       provider: { "@type": "ProfessionalService", name: "Bliss Digital", url: absolute("") },
@@ -253,7 +259,7 @@ export function ServiceJsonLd({
       mainEntity: faq.map((item) => ({
         "@type": "Question",
         name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a.join(" ") },
+        acceptedAnswer: { "@type": "Answer", text: plain(item.a.join(" ")) },
       })),
     },
   ];

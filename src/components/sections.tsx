@@ -544,7 +544,8 @@ export function ServicesStack({ lang, t, more }: { lang: Locale; t: Dictionary["
                       <div>
                         <p className="svc__plan">{tab.plan}</p>
                         <p className="svc__desc">{tab.desc}</p>
-                        <Link className={`btn ${i === 0 ? "btn--solid" : "btn--outline"}`} href={contact(tab.service)}>
+                        {/* Same solid button on every tab: only one tab shows at a time */}
+                        <Link className="btn btn--solid" href={contact(tab.service)}>
                           {tab.button}
                         </Link>
                       </div>

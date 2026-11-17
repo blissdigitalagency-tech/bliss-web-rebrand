@@ -172,13 +172,13 @@ export const id: Dictionary = {
     eyebrow: "Klien Kami",
     title: "Brand yang",
     titleEm: "tumbuh bersama kami",
-    lede: "Inilah brand yang kami kelola dan bantu bertumbuh, dari berbagai industri. Setiap brand bekerja dengan tim kecil yang sama sepanjang kerja sama.",
+    lede: "Setiap logo di sini adalah brand yang pernah kami kerjakan. Meski dari industri berbeda, cara kerjanya tetap sama: satu tujuan, tracking duluan, dan laporan yang mudah dipahami.",
   },
 
   aboutHome: {
     titleA: "Agensi Google Partner",
     titleB: "*berbasis di Indonesia*",
-    text: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami menjalankan Google Ads, website, dan media sosial untuk hotel, klinik, brand makanan, ritel, dan manufaktur. Kami *mengecek tracking sebelum mengeluarkan anggaran*, dan kami jelaskan setiap hasil dengan bahasa yang sederhana. Anda bekerja dengan tim kecil yang sama sepanjang kerja sama, dan akun iklan Anda tetap atas nama Anda.",
+    text: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami menjalankan Google Ads, website, dan media sosial untuk hotel, klinik, brand makanan, ritel, dan manufaktur. Kami *mengecek tracking sebelum mengeluarkan anggaran*, dan kami jelaskan setiap hasil dengan bahasa yang sederhana. Akun iklan tetap atas nama Anda, dan kami jaga bagai milik kami sendiri.",
   },
 
   about: {
@@ -196,9 +196,9 @@ export const id: Dictionary = {
 
   services: {
     eyebrow: "Layanan Kami",
-    titleA: "Digital marketing,",
-    titleB: "kami *jalankan untuk Anda*",
-    lede: "Kami merencanakan dan menjalankan Google Ads, website, dan media sosial Anda. Anda menyetujui rencananya, kami yang mengerjakannya.",
+    titleA: "Google Ads, website,",
+    titleB: "*dan media sosial*",
+    lede: "Pilih satu layanan atau gabungkan beberapa. Tim yang sama mengerjakan semuanya.",
     railLabel: "Layanan",
     google: {
       title: "Google Ads",
@@ -448,7 +448,7 @@ export const id: Dictionary = {
 
   aboutPage: {
     eyebrow: "Tentang Kami",
-    title: "Milik Anda. *Kami jalankan seperti milik sendiri.*",
+    title: "Milik Anda. |*Kami jaga bagai milik kami.*",
     lede: "Bliss Digital adalah agensi Google Partner di Jakarta. Kami bertanggung jawab atas akun Anda seperti akun kami sendiri. Akun tetap atas nama Anda, dan Anda bisa login kapan saja. Kami yang mengerjakan, dan Anda selalu tahu apa yang kami lakukan dan alasannya.",
     storyEyebrow: "Cerita Kami",
     storyText:
@@ -457,23 +457,23 @@ export const id: Dictionary = {
     mvTitle: "Mengapa kami *melakukan ini*",
     mission: "Misi Kami",
     missionText:
-      "Misi Bliss Digital adalah menjalankan pemasaran yang hasilnya bisa Anda cek sendiri. Setiap kerja sama dimulai dengan satu tujuan yang disepakati sebelum ada biaya iklan: penjualan, leads, atau booking. Pelacakan diuji dengan satu aksi nyata sebelum iklan tayang, hasil dilaporkan tanpa jargon, dan akun Google Ads serta Analytics tetap atas nama bisnis Anda.",
+      "Misi Bliss Digital adalah menjalankan pemasaran yang hasilnya bisa dicek sendiri oleh klien. Setiap kerja sama dimulai dengan satu tujuan yang disepakati sebelum ada biaya iklan: penjualan, leads, atau booking. Tracking diuji dengan satu aksi nyata sebelum iklan tayang, hasil dilaporkan dengan bahasa sederhana, dan akun Google Ads serta Analytics tetap atas nama klien.",
     vision: "Visi Kami",
     visionText:
-      "Visi Bliss Digital adalah agar setiap bisnis yang bekerja sama dengan kami tahu persis apa hasil dari pemasarannya. Kami menilai setiap kampanye, website, dan konten dari penjualan, leads, atau booking yang dihasilkannya, dan kami melaporkan angka tersebut dengan bahasa yang sederhana.",
+      "Visi Bliss Digital adalah agar setiap bisnis yang bekerja sama dengan kami tahu persis apa hasil dari pemasarannya. Kami menilai setiap kampanye, website, dan konten dari penjualan, leads, atau booking yang dihasilkannya, dan kami melaporkan angka tersebut agar mudah dipahami.",
     beliefsEyebrow: "Cara Kami Bekerja",
     beliefsTitle: "Empat hal yang *selalu kami lakukan*",
     beliefsLink: "Lihat Kenapa Klien Memilih Kami",
     beliefs: [
       ["Satu tujuan jelas dulu", "Penjualan, prospek, atau booking. Kami sepakati sebelum anggaran dipakai, agar setiap keputusan punya alasan."],
       ["Tracking sebelum iklan", "Kami pastikan setiap hasil tercatat dengan benar, dan mengujinya dengan satu aksi nyata."],
-      ["Laporan bahasa sederhana", "Tinjauan 360 rutin atas iklan, tracking, website, konten, dan anggaran Anda, dijelaskan tanpa istilah rumit."],
+      ["Laporan yang mudah dipahami", "Tinjauan 360 rutin atas iklan, tracking, website, konten, dan anggaran Anda, dijelaskan tanpa istilah rumit."],
       ["Akun atas nama Anda", "Google Ads dan Analytics tetap atas nama bisnis Anda. Anda membayar biaya iklan langsung ke platform."],
     ],
-    clientsLede: "Beberapa brand yang kami tangani, dari hotel dan klinik hingga brand makanan, ritel, dan manufaktur.",
+    clientsLede: "Setiap logo di sini adalah brand yang pernah kami kerjakan. Meski dari industri berbeda, cara kerjanya tetap sama: satu tujuan, tracking duluan, dan laporan yang mudah dipahami.",
     visitEyebrow: "Kunjungi Kami",
     visitTitle: "Berbasis di *Jakarta Selatan*",
-    visitLede: "Kami bekerja dengan bisnis di seluruh Indonesia. Sebagian besar pertemuan dilakukan lewat panggilan, dan Anda juga dipersilakan datang ke kantor. Kabari kami dulu agar kami ada di sana.",
+    visitLede: "Kami bekerja dengan bisnis di Jakarta, Bali, dan seluruh Indonesia. Sebagian besar pertemuan dilakukan lewat panggilan, dan Anda juga dipersilakan datang ke kantor. Kabari kami dulu agar kami ada di sana.",
     maps: "Buka di Google Maps",
     copyAddress: "Salin Alamat",
     copied: "Disalin",
@@ -484,8 +484,8 @@ export const id: Dictionary = {
 
   servicesPage: {
     eyebrow: "Layanan Kami",
-    title: "Jasa Google Ads, website, dan media sosial, *kami jalankan untuk Anda*",
-    lede: "Kami menjalankan Google Ads, membuat website, dan mengelola media sosial. Pilih satu layanan atau gabungkan beberapa. Tim yang sama mengerjakan semuanya.",
+    title: "Layanan digital marketing *di Jakarta*",
+    lede: "Google Ads, pembuatan website, dan manajemen media sosial untuk bisnis di Jakarta, Bali, dan seluruh Indonesia. Pilih satu layanan atau gabungkan beberapa, dan tim yang sama mengerjakan semuanya.",
     jump: { google: "Google Ads", web: "Pembuatan Website", social: "Media Sosial" },
     google: {
       title: "Google Ads",
@@ -627,8 +627,8 @@ export const id: Dictionary = {
   googleAdsPage: {
     crumbs: { home: "Beranda", services: "Layanan", current: "Google Ads" },
     eyebrow: "Google Ads",
-    title: "Jasa Google Ads di Jakarta, *oleh Google Partner*",
-    lede: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami merencanakan, membangun, dan menjalankan kampanye Google Ads untuk bisnis di seluruh Indonesia, dari hotel dan klinik hingga brand makanan, ritel, dan manufaktur. Anda bisa menyerahkan seluruh akun ke kami, meminta tinjauan sekali jalan, atau melatih tim Anda sendiri.",
+    title: "Jasa Google Ads *oleh Google Partner*",
+    lede: "Bliss Digital adalah agensi Google Partner di Jakarta Selatan. Kami merencanakan, membangun, dan menjalankan kampanye Google Ads untuk bisnis di Jakarta, Bali, dan seluruh Indonesia, dari hotel dan klinik hingga brand makanan, ritel, dan manufaktur. Anda bisa menyerahkan seluruh akun ke kami, meminta tinjauan sekali jalan, atau melatih tim Anda sendiri.",
     howTitle: "Cara kami menjalankan kampanye Anda",
     tracking: {
       eyebrow: "Tracking Dulu",
@@ -675,7 +675,7 @@ export const id: Dictionary = {
         },
         {
           q: "Apakah Bliss Digital Google Partner?",
-          a: ["Ya. Bliss Digital adalah agensi Google Partner yang berbasis di Jakarta Selatan."],
+          a: ["Ya. Bliss Digital adalah agensi Google Partner yang berbasis di Jakarta Selatan. Anda bisa cek status Google Partner Bliss Digital [di sini](https://www.google.com/partners/agency?id=3691602641)."],
         },
         {
           q: "Pilih kelola penuh, konsultasi, atau pelatihan?",
@@ -705,8 +705,8 @@ export const id: Dictionary = {
 
   websitePage: {
     crumbs: { current: "Pembuatan Website" },
-    title: "Jasa pembuatan website, *mudah ditemukan di Google*",
-    lede: "Bliss Digital merencanakan, menulis, mendesain, dan membangun website untuk bisnis di seluruh Indonesia. Setiap halaman dibuat agar mudah ditemukan di Google dan bisa dibaca alat AI seperti ChatGPT, Gemini, dan Google AI Overviews.",
+    title: "Website yang *muncul saat dicari*",
+    lede: "Bliss Digital merencanakan, menulis, mendesain, dan membangun website untuk bisnis di Jakarta, Bali, dan seluruh Indonesia. Setiap halaman dibuat agar mudah ditemukan di Google dan bisa dibaca alat AI seperti ChatGPT, Gemini, dan Google AI Overviews.",
     howTitle: "Yang termasuk dalam website baru",
     steps: {
       eyebrow: "Alur Proyek",
@@ -773,8 +773,8 @@ export const id: Dictionary = {
 
   socialPage: {
     crumbs: { current: "Media Sosial" },
-    title: "Jasa kelola media sosial untuk *Instagram dan TikTok*",
-    lede: "Bliss Digital mengelola Instagram dan TikTok untuk bisnis di Jakarta dan seluruh Indonesia, dari hotel dan klinik hingga brand makanan dan ritel. Satu tim mengerjakan semuanya setiap bulan, dan laporan di akhir bulan menunjukkan apa yang berhasil.",
+    title: "Instagram dan TikTok *yang tetap aktif*",
+    lede: "Bliss Digital mengelola Instagram dan TikTok untuk bisnis di Jakarta, Bali, dan seluruh Indonesia, dari hotel dan klinik hingga brand makanan dan ritel. Satu tim mengerjakan semuanya setiap bulan, dan laporan di akhir bulan menunjukkan apa yang berhasil.",
     howTitle: "Yang termasuk dalam manajemen media sosial",
     steps: {
       eyebrow: "Setiap Bulan",

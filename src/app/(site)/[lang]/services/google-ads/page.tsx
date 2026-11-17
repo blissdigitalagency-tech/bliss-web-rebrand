@@ -4,7 +4,7 @@
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale } from "@/i18n/config";
 import { pageMetadata } from "@/lib/seo";
-import { Cta } from "@/components/sections";
+import { Cta, PARTNER } from "@/components/sections";
 import { Ways, type Way } from "@/components/client";
 import { ServiceFaq, ServiceGroup, ServiceHead, ServiceHow, ServiceJsonLd, ServiceSplit, ServiceSteps } from "@/components/service-page";
 
@@ -41,6 +41,14 @@ export default async function GoogleAdsPage({ params }: PageProps<"/[lang]/servi
         lede={s.lede}
         button={{ href: `/${lang}/contact#service=google-ads`, label: s.button }}
         image={{ src: "/images/services/search-campaigns.jpg", alt: s.imageAlt }}
+        badge={
+          // In place of the Google Ads logo: the same Google Partner badge and profile
+          // link as the homepage About block
+          // eslint-disable-next-line @next/next/no-img-element
+          <a className="partner-badge sd__badge" href={PARTNER} target="_blank" rel="noopener">
+            <img src="/brand/google-partner.png" width={88} height={88} alt={t.common.partnerAlt} />
+          </a>
+        }
       >
         <Ways lang={lang} title={s.waysTitle} ways={ways} />
         <ServiceGroup title={s.tagsTitle} items={s.tags} tags />

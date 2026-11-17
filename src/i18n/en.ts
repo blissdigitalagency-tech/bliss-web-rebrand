@@ -184,14 +184,14 @@ export const en = {
     eyebrow: "Our Clients",
     title: "Brands that",
     titleEm: "grew with us",
-    lede: "These are brands we’ve managed and helped grow, in many different industries. Each one works with the same small team the whole time.",
+    lede: "Every logo here is a business we’ve looked after. Different industries, the same way of working: one goal, tracking first, and reports you can follow.",
   },
 
   // Homepage version of the About block
   aboutHome: {
     titleA: "A Google Partner agency",
     titleB: "*based in Indonesia*",
-    text: "Bliss Digital is a Google Partner agency in South Jakarta. We run Google Ads, websites and social media for hotels, clinics, food brands, retailers and manufacturers. We *check the tracking before we spend*, and we explain every result in plain words. You work with the same small team the whole time, and your ad accounts stay in your name.",
+    text: "Bliss Digital is a Google Partner agency in South Jakarta. We run Google Ads, websites and social media for hotels, clinics, food brands, retailers and manufacturers. We *check the tracking before we spend*, and we explain every result in simple words. Your ad accounts stay in your name, and we look after them as if they were our own.",
   },
 
   about: {
@@ -209,9 +209,9 @@ export const en = {
 
   services: {
     eyebrow: "Our Services",
-    titleA: "Digital marketing,",
-    titleB: "done *for you*",
-    lede: "We plan and run your Google Ads, website and social media. You approve the plan, and we do the work.",
+    titleA: "Google Ads, websites",
+    titleB: "*and social media*",
+    lede: "Pick one service or combine them. The same team handles all of it.",
     railLabel: "Services",
     google: {
       title: "Google Ads",
@@ -462,7 +462,8 @@ export const en = {
 
   aboutPage: {
     eyebrow: "About Us",
-    title: "You own it. *We run it like it’s ours.*",
+    // "|" starts a new line: one sentence per line
+    title: "You own it. |*We run it like it’s ours.*",
     lede: "Bliss Digital is a Google Partner agency in Jakarta. We take the same responsibility for your accounts as we would for our own. Your accounts stay in your name, and you can log in at any time. We do the work, and you always know what we’re doing and the reason behind it.",
     storyEyebrow: "Our Story",
     storyText:
@@ -471,23 +472,23 @@ export const en = {
     mvTitle: "Why we *do this*",
     mission: "Our Mission",
     missionText:
-      "Bliss Digital’s mission is to run marketing you can check for yourself. Every engagement starts with one goal agreed before any spend: sales, leads or bookings. Tracking is tested with one real action before the ads go live, results are reported without jargon, and your Google Ads and Analytics accounts stay in your business’s name.",
+      "Bliss Digital’s mission is to run marketing that clients can check for themselves. Every engagement starts with one goal agreed before any spend: sales, leads or bookings. Tracking is tested with one real action before the ads go live, results are reported in simple words, and Google Ads and Analytics accounts stay in the client’s name.",
     vision: "Our Vision",
     visionText:
-      "Bliss Digital’s vision is that every business we work with knows exactly what its marketing brings back. We judge every campaign, website and post by the sales, leads or bookings it produces, and we report those numbers in plain words.",
+      "Bliss Digital’s vision is that every business we work with knows exactly what its marketing brings back. We assess every campaign, website and post by the sales, leads or bookings it produces, and we report those numbers so they’re easy to understand.",
     beliefsEyebrow: "How We Work",
     beliefsTitle: "Four things we *always do*",
     beliefsLink: "See Why Clients Choose Us",
     beliefs: [
       ["One clear goal first", "Sales, leads or bookings. We agree on it before any spend, so every decision has a reason."],
       ["Tracking before ads", "We check that every result is counted correctly, and test it with one real action."],
-      ["Plain-word reports", "A regular 360 review of your ads, tracking, website, content and budget, explained without jargon."],
+      ["Reports you can follow", "A regular 360 review of your ads, tracking, website, content and budget, explained without jargon."],
       ["Your accounts, your name", "Google Ads and Analytics stay in your business’s name. You pay ad spend to the platform directly."],
     ],
-    clientsLede: "A few of the brands we work with, from hotels and clinics to food brands, retailers and manufacturers.",
+    clientsLede: "Every logo here is a business we’ve looked after. Different industries, the same way of working: one goal, tracking first, and reports you can follow.",
     visitEyebrow: "Visit Us",
     visitTitle: "Based in *South Jakarta*",
-    visitLede: "We work with businesses across Indonesia. Most meetings happen on a call, and you’re welcome at the office too. Message us first so we’re there.",
+    visitLede: "We work with businesses in Jakarta, Bali and across Indonesia. Most meetings happen on a call, and you’re welcome at the office too. Message us first so we’re there.",
     maps: "Open in Google Maps",
     copyAddress: "Copy Address",
     copied: "Copied",
@@ -498,8 +499,8 @@ export const en = {
 
   servicesPage: {
     eyebrow: "Our Services",
-    title: "Google Ads, websites and social media, done *for you*",
-    lede: "We run Google Ads, build websites and manage social media. Pick one service or combine them. The same team handles all of it.",
+    title: "Digital marketing services *in Jakarta*",
+    lede: "Google Ads, website creation and social media management for businesses in Jakarta, Bali and across Indonesia. Pick one service or combine them, and the same team handles all of it.",
     jump: { google: "Google Ads", web: "Website Creation", social: "Social Media" },
     google: {
       title: "Google Ads",
@@ -647,8 +648,8 @@ export const en = {
   googleAdsPage: {
     crumbs: { home: "Home", services: "Services", current: "Google Ads" },
     eyebrow: "Google Ads",
-    title: "Google Ads management in Jakarta, *by a Google Partner*",
-    lede: "Bliss Digital is a Google Partner agency in South Jakarta. We plan, build and run Google Ads campaigns for businesses across Indonesia, from hotels and clinics to food brands, retailers and manufacturers. You can hand us the whole account, ask for a one-off review, or have your own team trained.",
+    title: "Google Ads *by a Google Partner*",
+    lede: "Bliss Digital is a Google Partner agency in South Jakarta. We plan, build and run Google Ads campaigns for businesses in Jakarta, Bali and across Indonesia, from hotels and clinics to food brands, retailers and manufacturers. You can hand us the whole account, ask for a one-off review, or have your own team trained.",
     howTitle: "How we run your campaigns",
     tracking: {
       eyebrow: "Tracking First",
@@ -695,7 +696,7 @@ export const en = {
         },
         {
           q: "Is Bliss Digital a Google Partner?",
-          a: ["Yes. Bliss Digital is a Google Partner agency based in South Jakarta."],
+          a: ["Yes. Bliss Digital is a Google Partner agency based in South Jakarta. You can check Bliss Digital’s Google Partner status [here](https://www.google.com/partners/agency?id=3691602641)."],
         },
         {
           q: "Should I choose full management, a consultation or training?",
@@ -728,8 +729,8 @@ export const en = {
   // the design tags, the photo and the button come from servicesPage.web.
   websitePage: {
     crumbs: { current: "Website Creation" },
-    title: "Website creation in Jakarta, *built to be found*",
-    lede: "Bliss Digital plans, writes, designs and builds websites for businesses across Indonesia. Every page is built to be found on Google and read by AI tools such as ChatGPT, Gemini and Google AI Overviews.",
+    title: "Websites *built to be found*",
+    lede: "Bliss Digital plans, writes, designs and builds websites for businesses in Jakarta, Bali and across Indonesia. Every page is built to be found on Google and read by AI tools such as ChatGPT, Gemini and Google AI Overviews.",
     howTitle: "What a new website includes",
     steps: {
       eyebrow: "How a Project Runs",
@@ -798,8 +799,8 @@ export const en = {
   // checklist, the platforms and the button come from servicesPage.social.
   socialPage: {
     crumbs: { current: "Social Media" },
-    title: "Social media management for *Instagram and TikTok*",
-    lede: "Bliss Digital runs Instagram and TikTok for businesses in Jakarta and across Indonesia, from hotels and clinics to food brands and retailers. One team handles the whole month, and a report at the end shows what worked.",
+    title: "Instagram and TikTok *that stay active*",
+    lede: "Bliss Digital runs Instagram and TikTok for businesses in Jakarta, Bali and across Indonesia, from hotels and clinics to food brands and retailers. One team handles the whole month, and a report at the end shows what worked.",
     howTitle: "What social media management includes",
     steps: {
       eyebrow: "Every Month",

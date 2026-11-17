@@ -65,7 +65,13 @@ export default async function SiteLayout({ children, params }: LayoutProps<"/[la
       postalCode: "12940",
       addressCountry: "ID",
     },
-    areaServed: "ID",
+    // Where we work: the office is in Jakarta, and clients are in Jakarta,
+    // Bali and across Indonesia
+    areaServed: [
+      { "@type": "City", name: "Jakarta" },
+      { "@type": "AdministrativeArea", name: "Bali" },
+      { "@type": "Country", name: "Indonesia" },
+    ],
     sameAs: [INSTAGRAM, LINKEDIN],
     knowsLanguage: ["en", "id"],
   };

@@ -3950,6 +3950,12 @@ main { background: var(--white); }
 
 .sd__icon { display: block; width: 56px; height: 56px; }
 
+/* Google Ads page: the Google Partner badge in place of the service logo.
+   The badge image has white space around it, so it sits a little left to
+   line up with the text below. */
+.partner-badge.sd__badge { margin-left: -8px; }
+.partner-badge.sd__badge img { width: 88px; height: 88px; }
+
 .sd__title {
   margin: 0;
   font-weight: 500;
